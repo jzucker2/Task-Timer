@@ -191,7 +191,7 @@
 
 
 #pragma mark -
-#pragma mark Adding a Book
+#pragma mark Adding a Task
 
 /**
  Creates a new book, an AddViewController to manage addition of the book, and a new managed object context for the add controller to keep changes made to the book discrete from the application's managed object context until the book is saved.
@@ -220,7 +220,7 @@
 	[navController release];
 }
  */
-- (IBAction)addTask:(id)sender
+- (IBAction)addTask
 {
     NSLog(@"addTask");
 }

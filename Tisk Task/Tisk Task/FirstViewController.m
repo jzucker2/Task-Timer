@@ -9,6 +9,9 @@
 #import "FirstViewController.h"
 
 @implementation FirstViewController
+@synthesize navigationController;
+@synthesize firstTableViewController;
+//@synthesize allTask;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -16,6 +19,7 @@
     if (self) {
         self.title = NSLocalizedString(@"First", @"First");
         self.tabBarItem.image = [UIImage imageNamed:@"first"];
+        //allTask = [[[AllTaskViewController alloc] initWithNibName:@"AllTaskViewController" bundle:[NSBundle mainBundle]] autorelease];
     }
     return self;
 }
@@ -32,6 +36,19 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    //AllTaskViewController *allTask = (AllTaskViewController *)[navigationController topViewController];
+    navigationController.delegate = self;
+
+    //AllTaskViewController *allTask = [[AllTaskViewController alloc] initWithNibName:@"AllTaskViewController" bundle:nil];
+    //AllTaskViewController *allTask = (AllTaskViewController *) [navigationController topViewController];
+    //[navigationController initWithRootViewController:allTask];
+    AllTaskViewController *allTask = [[AllTaskViewController alloc] initWithNibName:@"AllTaskViewController" bundle:[NSBundle mainBundle]];
+    [navigationController initWithRootViewController:allTask];
+    //[allTask release];
+    
+    
+    
+    
 }
 
 - (void)viewDidUnload
@@ -65,6 +82,13 @@
 {
     // Return YES for supported orientations
     return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
+}
+
+#pragma mark Navigation Controller Delegate
+
+- (void) navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated
+{
+    NSLog(@"nav controller delegate");
 }
 
 @end

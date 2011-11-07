@@ -7,7 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AllTaskViewController.h"
 
-@interface FirstViewController : UIViewController
+@interface FirstViewController : UIViewController <UINavigationControllerDelegate>
+{
+    UINavigationController *navigationController;
+    UITableViewController *firstTableViewController;
+    //AllTaskViewController *allTask;
+}
+
+//@property (nonatomic, retain) IBOutlet AllTaskViewController *allTask;
+@property (nonatomic, retain) IBOutlet UITableViewController *firstTableViewController;
+@property (nonatomic, retain) IBOutlet UINavigationController *navigationController;
 
 @end
