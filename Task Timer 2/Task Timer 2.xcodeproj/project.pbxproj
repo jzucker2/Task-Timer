@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		331004EC1467D98D008C2506 /* AddViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 331004EA1467D98D008C2506 /* AddViewController.m */; };
+		331004ED1467D98D008C2506 /* AddView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 331004EB1467D98D008C2506 /* AddView.xib */; };
 		33ADADFF146782A10074F7A1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33ADADFE146782A10074F7A1 /* UIKit.framework */; };
 		33ADAE01146782A10074F7A1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33ADAE00146782A10074F7A1 /* Foundation.framework */; };
 		33ADAE03146782A10074F7A1 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33ADAE02146782A10074F7A1 /* CoreGraphics.framework */; };
@@ -29,6 +31,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		331004E91467D98D008C2506 /* AddViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddViewController.h; sourceTree = "<group>"; };
+		331004EA1467D98D008C2506 /* AddViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddViewController.m; sourceTree = "<group>"; };
+		331004EB1467D98D008C2506 /* AddView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddView.xib; sourceTree = "<group>"; };
 		33ADADFA146782A10074F7A1 /* Task Timer 2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Task Timer 2.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		33ADADFE146782A10074F7A1 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		33ADAE00146782A10074F7A1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -75,6 +80,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		331004EF1467DA36008C2506 /* New Group1 */ = {
+			isa = PBXGroup;
+			children = (
+				331004E91467D98D008C2506 /* AddViewController.h */,
+				331004EA1467D98D008C2506 /* AddViewController.m */,
+				331004EB1467D98D008C2506 /* AddView.xib */,
+			);
+			name = "New Group1";
+			sourceTree = "<group>";
+		};
 		33ADADEF146782A10074F7A1 = {
 			isa = PBXGroup;
 			children = (
@@ -114,6 +129,7 @@
 				33ADAE29146783380074F7A1 /* Model Class */,
 				33ADAE07146782A10074F7A1 /* Supporting Files */,
 				33ADAE321467849B0074F7A1 /* All Tasks Table View */,
+				331004EF1467DA36008C2506 /* New Group1 */,
 			);
 			path = "Task Timer 2";
 			sourceTree = "<group>";
@@ -255,6 +271,7 @@
 				33ADAE371467A7850074F7A1 /* AllTasksView.xib in Resources */,
 				33ADAE3C1467AC330074F7A1 /* TodayViewController.xib in Resources */,
 				33ADAE481467BD6B0074F7A1 /* EveryTaskView.xib in Resources */,
+				331004ED1467D98D008C2506 /* AddView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -274,6 +291,7 @@
 				33ADAE361467A7850074F7A1 /* AllTasksViewController.m in Sources */,
 				33ADAE3B1467AC330074F7A1 /* TodayViewController.m in Sources */,
 				33ADAE471467BD6B0074F7A1 /* EveryTaskViewController.m in Sources */,
+				331004EC1467D98D008C2506 /* AddViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -391,6 +409,7 @@
 				33ADAE25146782A10074F7A1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

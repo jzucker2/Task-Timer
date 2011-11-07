@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "Task.h"
+#import "AddViewController.h"
 
 @interface EveryTaskViewController : UIViewController <NSFetchedResultsControllerDelegate, UITableViewDelegate, UITableViewDataSource>
 {
@@ -28,6 +29,7 @@
 @property (nonatomic, retain) NSManagedObjectContext *addingManagedObjectContext;
 
 - (IBAction)back:(id)sender;
+- (IBAction)addTask:(id)sender;
 
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath;
 
