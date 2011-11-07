@@ -1,0 +1,24 @@
+//
+//  DetailViewController.h
+//  Tisk Task
+//
+//  Created by Jordan Zucker on 11/7/11.
+//  Copyright (c) 2011 University of Illinois. All rights reserved.
+//
+
+#import <UIKit/UIKit.h>
+@class Task;
+
+@interface DetailViewController : UITableViewController
+{
+    Task *task;
+    NSUndoManager *undoManager;
+}
+@property (nonatomic, retain) Task *task;
+@property (nonatomic, retain) NSUndoManager *undoManager;
+
+- (void)setUpUndoManager;
+- (void)cleanUpUndoManager;
+- (void)updateRightBarButtonItemState;
+
+@end

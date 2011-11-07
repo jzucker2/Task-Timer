@@ -21,6 +21,13 @@
 		332F6CFF1468810A00E5BC4F /* second@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 332F6CFE1468810A00E5BC4F /* second@2x.png */; };
 		332F6D021468810A00E5BC4F /* FirstViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 332F6D001468810A00E5BC4F /* FirstViewController.xib */; };
 		332F6D051468810A00E5BC4F /* SecondViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 332F6D031468810A00E5BC4F /* SecondViewController.xib */; };
+		332F6D141468819C00E5BC4F /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 332F6D131468819C00E5BC4F /* CoreData.framework */; };
+		332F6D171468840300E5BC4F /* taskmodel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 332F6D151468840300E5BC4F /* taskmodel.xcdatamodeld */; };
+		332F6D23146885FD00E5BC4F /* AllTaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 332F6D21146885FD00E5BC4F /* AllTaskViewController.m */; };
+		332F6D24146885FD00E5BC4F /* AllTaskViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 332F6D22146885FD00E5BC4F /* AllTaskViewController.xib */; };
+		332F6D28146887B300E5BC4F /* Task.m in Sources */ = {isa = PBXBuildFile; fileRef = 332F6D27146887B300E5BC4F /* Task.m */; };
+		332F6D2B1468891900E5BC4F /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 332F6D2A1468891900E5BC4F /* DetailViewController.m */; };
+		332F6D2F14688C1200E5BC4F /* AddViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 332F6D2E14688C1200E5BC4F /* AddViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +51,17 @@
 		332F6CFE1468810A00E5BC4F /* second@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "second@2x.png"; sourceTree = "<group>"; };
 		332F6D011468810A00E5BC4F /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/FirstViewController.xib; sourceTree = "<group>"; };
 		332F6D041468810A00E5BC4F /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/SecondViewController.xib; sourceTree = "<group>"; };
+		332F6D131468819C00E5BC4F /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		332F6D161468840300E5BC4F /* taskmodel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = taskmodel.xcdatamodel; sourceTree = "<group>"; };
+		332F6D20146885FD00E5BC4F /* AllTaskViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AllTaskViewController.h; sourceTree = "<group>"; };
+		332F6D21146885FD00E5BC4F /* AllTaskViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AllTaskViewController.m; sourceTree = "<group>"; };
+		332F6D22146885FD00E5BC4F /* AllTaskViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AllTaskViewController.xib; sourceTree = "<group>"; };
+		332F6D26146887B300E5BC4F /* Task.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Task.h; path = ../Task.h; sourceTree = "<group>"; };
+		332F6D27146887B300E5BC4F /* Task.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Task.m; path = ../Task.m; sourceTree = "<group>"; };
+		332F6D291468891900E5BC4F /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
+		332F6D2A1468891900E5BC4F /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
+		332F6D2D14688C1200E5BC4F /* AddViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddViewController.h; sourceTree = "<group>"; };
+		332F6D2E14688C1200E5BC4F /* AddViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +69,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				332F6D141468819C00E5BC4F /* CoreData.framework in Frameworks */,
 				332F6CE11468810A00E5BC4F /* UIKit.framework in Frameworks */,
 				332F6CE31468810A00E5BC4F /* Foundation.framework in Frameworks */,
 				332F6CE51468810A00E5BC4F /* CoreGraphics.framework in Frameworks */,
@@ -80,6 +99,7 @@
 		332F6CDF1468810A00E5BC4F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				332F6D131468819C00E5BC4F /* CoreData.framework */,
 				332F6CE01468810A00E5BC4F /* UIKit.framework */,
 				332F6CE21468810A00E5BC4F /* Foundation.framework */,
 				332F6CE41468810A00E5BC4F /* CoreGraphics.framework */,
@@ -90,19 +110,16 @@
 		332F6CE61468810A00E5BC4F /* Tisk Task */ = {
 			isa = PBXGroup;
 			children = (
-				332F6CEF1468810A00E5BC4F /* AppDelegate.h */,
-				332F6CF01468810A00E5BC4F /* AppDelegate.m */,
-				332F6CF21468810A00E5BC4F /* FirstViewController.h */,
-				332F6CF31468810A00E5BC4F /* FirstViewController.m */,
-				332F6CF51468810A00E5BC4F /* first.png */,
-				332F6CF71468810A00E5BC4F /* first@2x.png */,
-				332F6CF91468810A00E5BC4F /* SecondViewController.h */,
-				332F6CFA1468810A00E5BC4F /* SecondViewController.m */,
-				332F6CFC1468810A00E5BC4F /* second.png */,
-				332F6CFE1468810A00E5BC4F /* second@2x.png */,
-				332F6D001468810A00E5BC4F /* FirstViewController.xib */,
-				332F6D031468810A00E5BC4F /* SecondViewController.xib */,
+				332F6D3014688C1600E5BC4F /* Add View */,
+				332F6D0F1468815500E5BC4F /* App Delegate */,
+				332F6D101468816C00E5BC4F /* First Tab */,
+				332F6D121468818000E5BC4F /* Images */,
+				332F6D111468817300E5BC4F /* Second Tab */,
 				332F6CE71468810A00E5BC4F /* Supporting Files */,
+				332F6D151468840300E5BC4F /* taskmodel.xcdatamodeld */,
+				332F6D1F1468856800E5BC4F /* Task Model */,
+				332F6D251468860200E5BC4F /* All Tasks Table */,
+				332F6D2C1468891E00E5BC4F /* Detail View */,
 			);
 			path = "Tisk Task";
 			sourceTree = "<group>";
@@ -116,6 +133,84 @@
 				332F6CEE1468810A00E5BC4F /* Tisk Task-Prefix.pch */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		332F6D0F1468815500E5BC4F /* App Delegate */ = {
+			isa = PBXGroup;
+			children = (
+				332F6CEF1468810A00E5BC4F /* AppDelegate.h */,
+				332F6CF01468810A00E5BC4F /* AppDelegate.m */,
+			);
+			name = "App Delegate";
+			sourceTree = "<group>";
+		};
+		332F6D101468816C00E5BC4F /* First Tab */ = {
+			isa = PBXGroup;
+			children = (
+				332F6CF21468810A00E5BC4F /* FirstViewController.h */,
+				332F6CF31468810A00E5BC4F /* FirstViewController.m */,
+				332F6D001468810A00E5BC4F /* FirstViewController.xib */,
+			);
+			name = "First Tab";
+			sourceTree = "<group>";
+		};
+		332F6D111468817300E5BC4F /* Second Tab */ = {
+			isa = PBXGroup;
+			children = (
+				332F6CF91468810A00E5BC4F /* SecondViewController.h */,
+				332F6CFA1468810A00E5BC4F /* SecondViewController.m */,
+				332F6D031468810A00E5BC4F /* SecondViewController.xib */,
+			);
+			name = "Second Tab";
+			sourceTree = "<group>";
+		};
+		332F6D121468818000E5BC4F /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				332F6CF51468810A00E5BC4F /* first.png */,
+				332F6CF71468810A00E5BC4F /* first@2x.png */,
+				332F6CFC1468810A00E5BC4F /* second.png */,
+				332F6CFE1468810A00E5BC4F /* second@2x.png */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
+		332F6D1F1468856800E5BC4F /* Task Model */ = {
+			isa = PBXGroup;
+			children = (
+				332F6D26146887B300E5BC4F /* Task.h */,
+				332F6D27146887B300E5BC4F /* Task.m */,
+			);
+			name = "Task Model";
+			sourceTree = "<group>";
+		};
+		332F6D251468860200E5BC4F /* All Tasks Table */ = {
+			isa = PBXGroup;
+			children = (
+				332F6D20146885FD00E5BC4F /* AllTaskViewController.h */,
+				332F6D21146885FD00E5BC4F /* AllTaskViewController.m */,
+				332F6D22146885FD00E5BC4F /* AllTaskViewController.xib */,
+			);
+			name = "All Tasks Table";
+			sourceTree = "<group>";
+		};
+		332F6D2C1468891E00E5BC4F /* Detail View */ = {
+			isa = PBXGroup;
+			children = (
+				332F6D291468891900E5BC4F /* DetailViewController.h */,
+				332F6D2A1468891900E5BC4F /* DetailViewController.m */,
+			);
+			name = "Detail View";
+			sourceTree = "<group>";
+		};
+		332F6D3014688C1600E5BC4F /* Add View */ = {
+			isa = PBXGroup;
+			children = (
+				332F6D2D14688C1200E5BC4F /* AddViewController.h */,
+				332F6D2E14688C1200E5BC4F /* AddViewController.m */,
+			);
+			name = "Add View";
+			path = ..;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -176,6 +271,7 @@
 				332F6CFF1468810A00E5BC4F /* second@2x.png in Resources */,
 				332F6D021468810A00E5BC4F /* FirstViewController.xib in Resources */,
 				332F6D051468810A00E5BC4F /* SecondViewController.xib in Resources */,
+				332F6D24146885FD00E5BC4F /* AllTaskViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -190,6 +286,11 @@
 				332F6CF11468810A00E5BC4F /* AppDelegate.m in Sources */,
 				332F6CF41468810A00E5BC4F /* FirstViewController.m in Sources */,
 				332F6CFB1468810A00E5BC4F /* SecondViewController.m in Sources */,
+				332F6D171468840300E5BC4F /* taskmodel.xcdatamodeld in Sources */,
+				332F6D23146885FD00E5BC4F /* AllTaskViewController.m in Sources */,
+				332F6D28146887B300E5BC4F /* Task.m in Sources */,
+				332F6D2B1468891900E5BC4F /* DetailViewController.m in Sources */,
+				332F6D2F14688C1200E5BC4F /* AddViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -307,8 +408,22 @@
 				332F6D0A1468810A00E5BC4F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		332F6D151468840300E5BC4F /* taskmodel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				332F6D161468840300E5BC4F /* taskmodel.xcdatamodel */,
+			);
+			currentVersion = 332F6D161468840300E5BC4F /* taskmodel.xcdatamodel */;
+			path = taskmodel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 332F6CD31468810A00E5BC4F /* Project object */;
 }
