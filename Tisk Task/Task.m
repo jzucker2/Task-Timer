@@ -11,7 +11,7 @@
 
 @implementation Task
 
-@dynamic name;
 @dynamic duration;
+@dynamic name;
 
 @end

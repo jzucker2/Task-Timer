@@ -46,8 +46,10 @@
          */
     }
 	else {
+        NSLog(@"need to hide duration picker");
         textField.hidden = NO;
-        durationPicker.hidden = YES;
+        //durationPicker.hidden = YES;
+        [durationPicker setHidden:YES];
         textField.text = [editedObject valueForKey:editedFieldKey];
 		textField.placeholder = self.title;
         [textField becomeFirstResponder];
