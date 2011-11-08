@@ -8,11 +8,7 @@
 
 #import "AppDelegate.h"
 
-#import "FirstViewController.h"
-
 #import "AllTaskViewController.h"
-
-#import "SecondViewController.h"
 
 #import "SettingsViewController.h"
 

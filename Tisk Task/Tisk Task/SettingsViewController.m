@@ -36,7 +36,7 @@
 {
     [super viewDidLoad];
     
-    //self.title = @"Settings";
+    self.title = @"Settings";
 
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
