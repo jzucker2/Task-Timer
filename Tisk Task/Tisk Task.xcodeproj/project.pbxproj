@@ -29,8 +29,10 @@
 		332F6D2F14688C1200E5BC4F /* AddViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 332F6D2E14688C1200E5BC4F /* AddViewController.m */; };
 		33E0F9341468BE7000864109 /* EditingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33E0F9321468BE7000864109 /* EditingViewController.m */; };
 		33E0F9351468BE7000864109 /* EditingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 33E0F9331468BE7000864109 /* EditingView.xib */; };
-		33E0F93C1468E76700864109 /* Task.m in Sources */ = {isa = PBXBuildFile; fileRef = 33E0F93B1468E76700864109 /* Task.m */; };
 		33E0F93E1468E9DF00864109 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 33E0F93D1468E9DF00864109 /* icon.png */; };
+		33E0F9411468EF8D00864109 /* Task.m in Sources */ = {isa = PBXBuildFile; fileRef = 33E0F9401468EF8D00864109 /* Task.m */; };
+		33E0F9451469976900864109 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33E0F9431469976800864109 /* SettingsViewController.m */; };
+		33E0F9461469976900864109 /* SettingsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 33E0F9441469976900864109 /* SettingsView.xib */; };
 		33EC1A2A1468A5D7007A3CB4 /* AllTaskNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33EC1A281468A5D7007A3CB4 /* AllTaskNavigationController.m */; };
 		33EC1A2B1468A5D7007A3CB4 /* AllTaskNavigationController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 33EC1A291468A5D7007A3CB4 /* AllTaskNavigationController.xib */; };
 /* End PBXBuildFile section */
@@ -68,9 +70,12 @@
 		33E0F9311468BE7000864109 /* EditingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditingViewController.h; sourceTree = "<group>"; };
 		33E0F9321468BE7000864109 /* EditingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditingViewController.m; sourceTree = "<group>"; };
 		33E0F9331468BE7000864109 /* EditingView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EditingView.xib; sourceTree = "<group>"; };
-		33E0F93A1468E76700864109 /* Task.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Task.h; sourceTree = "<group>"; };
-		33E0F93B1468E76700864109 /* Task.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Task.m; sourceTree = "<group>"; };
-		33E0F93D1468E9DF00864109 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
+		33E0F93D1468E9DF00864109 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon.png; path = ../icon.png; sourceTree = "<group>"; };
+		33E0F93F1468EF8D00864109 /* Task.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Task.h; path = ../Task.h; sourceTree = "<group>"; };
+		33E0F9401468EF8D00864109 /* Task.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Task.m; path = ../Task.m; sourceTree = "<group>"; };
+		33E0F9421469976800864109 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
+		33E0F9431469976800864109 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
+		33E0F9441469976900864109 /* SettingsView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingsView.xib; sourceTree = "<group>"; };
 		33EC1A271468A5D7007A3CB4 /* AllTaskNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AllTaskNavigationController.h; sourceTree = "<group>"; };
 		33EC1A281468A5D7007A3CB4 /* AllTaskNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AllTaskNavigationController.m; sourceTree = "<group>"; };
 		33EC1A291468A5D7007A3CB4 /* AllTaskNavigationController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AllTaskNavigationController.xib; sourceTree = "<group>"; };
@@ -94,7 +99,6 @@
 		332F6CD11468810A00E5BC4F = {
 			isa = PBXGroup;
 			children = (
-				33E0F93D1468E9DF00864109 /* icon.png */,
 				332F6CE61468810A00E5BC4F /* Tisk Task */,
 				332F6CDF1468810A00E5BC4F /* Frameworks */,
 				332F6CDD1468810A00E5BC4F /* Products */,
@@ -134,6 +138,7 @@
 				332F6D251468860200E5BC4F /* All Tasks Table */,
 				332F6D2C1468891E00E5BC4F /* Detail View */,
 				33E0F9361468BE7300864109 /* Editing View */,
+				33E0F9471469977500864109 /* Settings View */,
 			);
 			path = "Tisk Task";
 			sourceTree = "<group>";
@@ -184,6 +189,7 @@
 		332F6D121468818000E5BC4F /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				33E0F93D1468E9DF00864109 /* icon.png */,
 				332F6CF51468810A00E5BC4F /* first.png */,
 				332F6CF71468810A00E5BC4F /* first@2x.png */,
 				332F6CFC1468810A00E5BC4F /* second.png */,
@@ -195,8 +201,8 @@
 		332F6D1F1468856800E5BC4F /* Task Model */ = {
 			isa = PBXGroup;
 			children = (
-				33E0F93A1468E76700864109 /* Task.h */,
-				33E0F93B1468E76700864109 /* Task.m */,
+				33E0F93F1468EF8D00864109 /* Task.h */,
+				33E0F9401468EF8D00864109 /* Task.m */,
 			);
 			name = "Task Model";
 			sourceTree = "<group>";
@@ -238,6 +244,16 @@
 				33E0F9331468BE7000864109 /* EditingView.xib */,
 			);
 			name = "Editing View";
+			sourceTree = "<group>";
+		};
+		33E0F9471469977500864109 /* Settings View */ = {
+			isa = PBXGroup;
+			children = (
+				33E0F9421469976800864109 /* SettingsViewController.h */,
+				33E0F9431469976800864109 /* SettingsViewController.m */,
+				33E0F9441469976900864109 /* SettingsView.xib */,
+			);
+			name = "Settings View";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -302,6 +318,7 @@
 				33EC1A2B1468A5D7007A3CB4 /* AllTaskNavigationController.xib in Resources */,
 				33E0F9351468BE7000864109 /* EditingView.xib in Resources */,
 				33E0F93E1468E9DF00864109 /* icon.png in Resources */,
+				33E0F9461469976900864109 /* SettingsView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -322,7 +339,8 @@
 				332F6D2F14688C1200E5BC4F /* AddViewController.m in Sources */,
 				33EC1A2A1468A5D7007A3CB4 /* AllTaskNavigationController.m in Sources */,
 				33E0F9341468BE7000864109 /* EditingViewController.m in Sources */,
-				33E0F93C1468E76700864109 /* Task.m in Sources */,
+				33E0F9411468EF8D00864109 /* Task.m in Sources */,
+				33E0F9451469976900864109 /* SettingsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

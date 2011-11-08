@@ -14,6 +14,8 @@
 
 #import "SecondViewController.h"
 
+#import "SettingsViewController.h"
+
 @implementation AppDelegate
 
 @synthesize window = _window;
@@ -39,6 +41,7 @@
     NSManagedObjectContext *context = [self managedObjectContext];
     if (!context) {
         // Handle the error.
+        NSLog(@"context error in app delegate");
     }
     
     //RootViewController *rootViewController = [[RootViewController alloc] 
@@ -52,9 +55,12 @@
     UINavigationController *navController1 = [[UINavigationController alloc] initWithRootViewController:viewController1];
     [viewController1 release];
     UIViewController *viewController2 = [[[SecondViewController alloc] initWithNibName:@"SecondViewController" bundle:nil] autorelease];
+    
+    UIViewController *viewController3 = [[[SettingsViewController alloc] initWithNibName:@"SettingsView" bundle:nil] autorelease];
+    
     self.tabBarController = [[[UITabBarController alloc] init] autorelease];
     //self.tabBarController.viewControllers = [NSArray arrayWithObjects:viewController1, viewController2, nil];
-    self.tabBarController.viewControllers = [NSArray arrayWithObjects:navController1, viewController2, nil];
+    self.tabBarController.viewControllers = [NSArray arrayWithObjects:navController1, viewController2, viewController3, nil];
     [navController1 release];
     self.window.rootViewController = self.tabBarController;
     [self.window makeKeyAndVisible];

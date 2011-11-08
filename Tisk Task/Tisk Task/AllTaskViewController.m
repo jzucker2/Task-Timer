@@ -19,6 +19,7 @@
     self = [super initWithStyle:style];
     if (self) {
         // Custom initialization
+        self.title = @"All Tasks";
     }
     return self;
 }
@@ -139,6 +140,12 @@
 	//cell.textLabel.text = book.title;
     Task *task = [fetchedResultsController objectAtIndexPath:indexPath];
     cell.textLabel.text = task.name;
+    NSLog(@"current is %@", task.current);
+    /*
+    if (task.current) {
+        <#statements#>
+    }
+     */
 }
 
 

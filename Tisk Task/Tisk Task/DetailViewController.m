@@ -102,7 +102,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // 3 rows
-    return 2;
+    return 3;
 }
 
 
@@ -125,12 +125,14 @@
 			cell.textLabel.text = @"Duration";
 			cell.detailTextLabel.text = [NSString stringWithFormat:@"%@", task.duration];
 			break;
-        /*
         case 2:
-			cell.textLabel.text = @"Copyright";
-			cell.detailTextLabel.text = [self.dateFormatter stringFromDate:book.copyright];
+			cell.textLabel.text = @"Current";
+            NSString *currentString = [NSString stringWithFormat:@"%@", task.current];
+            cell.detailTextLabel.text = currentString;
+			//cell.detailTextLabel.text = [self.dateFormatter stringFromDate:book.copyright];
+            
+            
 			break;
-         */
     }
     return cell;
 }
