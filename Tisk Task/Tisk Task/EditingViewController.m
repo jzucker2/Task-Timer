@@ -10,7 +10,7 @@
 
 @implementation EditingViewController
 
-@synthesize textField, editedObject, editedFieldKey, editedFieldName, editingDate, datePicker;
+@synthesize textField, editedObject, editedFieldKey, editedFieldName, editingTime, durationPicker;
 
 
 #pragma mark -
@@ -36,16 +36,18 @@
 	[super viewWillAppear:animated];
 	
 	// Configure the user interface according to state.
-    if (editingDate) {
+    if (editingTime) {
         textField.hidden = YES;
-        datePicker.hidden = NO;
+        durationPicker.hidden = NO;
+        /*
 		NSDate *date = [editedObject valueForKey:editedFieldKey];
         if (date == nil) date = [NSDate date];
         datePicker.date = date;
+         */
     }
 	else {
         textField.hidden = NO;
-        datePicker.hidden = YES;
+        durationPicker.hidden = YES;
         textField.text = [editedObject valueForKey:editedFieldKey];
 		textField.placeholder = self.title;
         [textField becomeFirstResponder];
@@ -63,8 +65,8 @@
 	[undoManager setActionName:[NSString stringWithFormat:@"%@", editedFieldName]];
 	
     // Pass current value to the edited object, then pop.
-    if (editingDate) {
-        [editedObject setValue:datePicker.date forKey:editedFieldKey];
+    if (editingTime) {
+        [editedObject setValue:durationPicker.date forKey:editedFieldKey];
     }
 	else {
         [editedObject setValue:textField.text forKey:editedFieldKey];
@@ -88,7 +90,7 @@
     [editedObject release];
     [editedFieldKey release];
     [editedFieldName release];
-    [datePicker release];
+    [durationPicker release];
 	[super dealloc];
 }
 

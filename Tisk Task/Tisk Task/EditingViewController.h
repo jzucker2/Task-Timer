@@ -16,8 +16,8 @@
     NSString *editedFieldKey;
     NSString *editedFieldName;
 	
-    BOOL editingDate;
-	UIDatePicker *datePicker;
+    BOOL editingTime;
+	UIDatePicker *durationPicker;
 }
 
 @property (nonatomic, retain) IBOutlet UITextField *textField;
@@ -26,8 +26,8 @@
 @property (nonatomic, retain) NSString *editedFieldKey;
 @property (nonatomic, retain) NSString *editedFieldName;
 
-@property (nonatomic, assign, getter=isEditingDate) BOOL editingDate;
-@property (nonatomic, retain) IBOutlet UIDatePicker *datePicker;
+@property (nonatomic, assign, getter=isEditingDate) BOOL editingTime;
+@property (nonatomic, retain) IBOutlet UIDatePicker *durationPicker;
 
 - (IBAction)cancel;
 - (IBAction)save;
