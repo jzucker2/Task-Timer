@@ -29,7 +29,7 @@
 		332F6D2B1468891900E5BC4F /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 332F6D2A1468891900E5BC4F /* DetailViewController.m */; };
 		332F6D2F14688C1200E5BC4F /* AddViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 332F6D2E14688C1200E5BC4F /* AddViewController.m */; };
 		33E0F9341468BE7000864109 /* EditingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33E0F9321468BE7000864109 /* EditingViewController.m */; };
-		33E0F9351468BE7000864109 /* EditingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 33E0F9331468BE7000864109 /* EditingViewController.xib */; };
+		33E0F9351468BE7000864109 /* EditingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 33E0F9331468BE7000864109 /* EditingView.xib */; };
 		33EC1A2A1468A5D7007A3CB4 /* AllTaskNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33EC1A281468A5D7007A3CB4 /* AllTaskNavigationController.m */; };
 		33EC1A2B1468A5D7007A3CB4 /* AllTaskNavigationController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 33EC1A291468A5D7007A3CB4 /* AllTaskNavigationController.xib */; };
 /* End PBXBuildFile section */
@@ -68,7 +68,7 @@
 		332F6D2E14688C1200E5BC4F /* AddViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddViewController.m; sourceTree = "<group>"; };
 		33E0F9311468BE7000864109 /* EditingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditingViewController.h; sourceTree = "<group>"; };
 		33E0F9321468BE7000864109 /* EditingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditingViewController.m; sourceTree = "<group>"; };
-		33E0F9331468BE7000864109 /* EditingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EditingViewController.xib; sourceTree = "<group>"; };
+		33E0F9331468BE7000864109 /* EditingView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EditingView.xib; sourceTree = "<group>"; };
 		33EC1A271468A5D7007A3CB4 /* AllTaskNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AllTaskNavigationController.h; sourceTree = "<group>"; };
 		33EC1A281468A5D7007A3CB4 /* AllTaskNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AllTaskNavigationController.m; sourceTree = "<group>"; };
 		33EC1A291468A5D7007A3CB4 /* AllTaskNavigationController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AllTaskNavigationController.xib; sourceTree = "<group>"; };
@@ -232,7 +232,7 @@
 			children = (
 				33E0F9311468BE7000864109 /* EditingViewController.h */,
 				33E0F9321468BE7000864109 /* EditingViewController.m */,
-				33E0F9331468BE7000864109 /* EditingViewController.xib */,
+				33E0F9331468BE7000864109 /* EditingView.xib */,
 			);
 			name = "Editing View";
 			sourceTree = "<group>";
@@ -297,7 +297,7 @@
 				332F6D051468810A00E5BC4F /* SecondViewController.xib in Resources */,
 				332F6D24146885FD00E5BC4F /* AllTaskViewController.xib in Resources */,
 				33EC1A2B1468A5D7007A3CB4 /* AllTaskNavigationController.xib in Resources */,
-				33E0F9351468BE7000864109 /* EditingViewController.xib in Resources */,
+				33E0F9351468BE7000864109 /* EditingView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "EditingViewController.h"
 @class Task;
 
 @interface DetailViewController : UITableViewController

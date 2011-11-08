@@ -146,7 +146,7 @@
  */
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     NSLog(@"select");
-	/*
+	
 	if (!self.editing) return;
 	
     EditingViewController *controller = [[EditingViewController alloc] initWithNibName:@"EditingView" bundle:nil];
@@ -154,27 +154,28 @@
     controller.editedObject = task;
     switch (indexPath.row) {
         case 0: {
-            controller.editedFieldKey = @"title";
-            controller.editedFieldName = NSLocalizedString(@"title", @"display name for title");
-            controller.editingDate = NO;
+            controller.editedFieldKey = @"name";
+            controller.editedFieldName = NSLocalizedString(@"name", @"display string for name");
+            controller.editingTime = NO;
         } break;
         case 1: {
-            controller.editedFieldKey = @"author";
-			controller.editedFieldName = NSLocalizedString(@"author", @"display name for author");
-			controller.editingDate = NO;
+            controller.editedFieldKey = @"duration";
+			controller.editedFieldName = NSLocalizedString(@"duration", @"display name for author");
+			controller.editingTime = YES;
         } break;
-        
+        /*
         case 2: {
             controller.editedFieldKey = @"copyright";
 			controller.editedFieldName = NSLocalizedString(@"copyright", @"display name for copyright");
 			controller.editingDate = YES;
         } break;
+         */
          
     }
 	
     [self.navigationController pushViewController:controller animated:YES];
 	[controller release];
-    */
+    
 }
 
 
