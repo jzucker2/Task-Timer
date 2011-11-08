@@ -170,7 +170,7 @@
 #pragma mark Selection and moving
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-	NSLog(@"select");
+	//NSLog(@"select");
     
     // Create and push a detail view controller.
 	DetailViewController *detailViewController = [[DetailViewController alloc] initWithStyle:UITableViewStyleGrouped];

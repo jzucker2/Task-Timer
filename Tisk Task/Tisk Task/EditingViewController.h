@@ -32,4 +32,6 @@
 - (IBAction)cancel;
 - (IBAction)save;
 
+//- (NSNumber *) convertTimeToNumber:(NSDate *)duration;
+
 @end

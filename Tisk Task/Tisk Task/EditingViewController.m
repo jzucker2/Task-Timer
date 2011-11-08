@@ -46,7 +46,7 @@
          */
     }
 	else {
-        NSLog(@"need to hide duration picker");
+        //NSLog(@"need to hide duration picker");
         textField.hidden = NO;
         //durationPicker.hidden = YES;
         [durationPicker setHidden:YES];
@@ -68,7 +68,10 @@
 	
     // Pass current value to the edited object, then pop.
     if (editingTime) {
-        [editedObject setValue:durationPicker.date forKey:editedFieldKey];
+        NSLog(@"duration is %f", durationPicker.countDownDuration);
+        NSNumber *duration = [NSNumber numberWithDouble:durationPicker.countDownDuration];
+        //[editedObject setValue:durationPicker.countDownDuration forKey:editedFieldKey];
+        [editedObject setValue:duration forKey:editedFieldKey];
     }
 	else {
         [editedObject setValue:textField.text forKey:editedFieldKey];
