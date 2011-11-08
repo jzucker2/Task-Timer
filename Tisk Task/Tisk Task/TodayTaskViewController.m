@@ -223,6 +223,7 @@
     TaskTimerViewController *taskView = [[TaskTimerViewController alloc] initWithNibName:@"TaskTimerView" bundle:nil];
     Task *selectedTask = (Task *)[[self fetchedResultsController] objectAtIndexPath:indexPath];
     taskView.task = selectedTask;
+    //taskView.editedObject = selectedTask;
     taskView.title = selectedTask.name;
     [self.navigationController pushViewController:taskView animated:YES];
     [taskView release];

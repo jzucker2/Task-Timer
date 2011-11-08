@@ -40,8 +40,8 @@
     // Do any additional setup after loading the view from its nib.
     
     // display task information
-    nameLabel.text = task.name;
-    durationLabel.text = [NSString stringWithFormat:@"%@", task.duration];
+    nameLabel.text = [NSString stringWithFormat:@"Task Name: %@", task.name];
+    durationLabel.text = [NSString stringWithFormat:@"Duration: %@", task.duration];
     
     if (isRunning == YES) {
         timerButton.titleLabel.text = @"Stop Working";
@@ -70,7 +70,24 @@
 
 - (IBAction)handleTimer:(id)sender
 {
-    NSLog(@"start or stop timer");
+    //NSLog(@"start or stop timer");
+    if (isRunning == YES) {
+        [self stopTimer];
+    }
+    else
+    {
+        [self startTimer];
+    }
+}
+
+- (void) startTimer
+{
+    NSLog(@"startTimer");
+}
+
+- (void) stopTimer
+{
+    NSLog(@"stopTimer");
 }
 
 @end
