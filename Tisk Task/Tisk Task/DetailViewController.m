@@ -231,7 +231,7 @@
 	if (task.managedObjectContext.undoManager == nil) {
 		
 		NSUndoManager *anUndoManager = [[NSUndoManager alloc] init];
-		[anUndoManager setLevelsOfUndo:3];
+		[anUndoManager setLevelsOfUndo:4];
 		self.undoManager = anUndoManager;
 		[anUndoManager release];
 		

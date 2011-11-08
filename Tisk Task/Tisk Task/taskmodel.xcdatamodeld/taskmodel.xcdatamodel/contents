@@ -2,8 +2,9 @@
 <model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="872" systemVersion="11C74" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="Task" representedClassName="Task" syncable="YES">
         <attribute name="current" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
-        <attribute name="duration" attributeType="Double" minValueString="0" defaultValueString="0" syncable="YES"/>
+        <attribute name="duration" attributeType="Double" defaultValueString="0" syncable="YES"/>
         <attribute name="name" attributeType="String" syncable="YES"/>
+        <attribute name="running" optional="YES" attributeType="Boolean" syncable="YES"/>
     </entity>
     <elements>
         <element name="Task" positionX="160" positionY="192" width="128" height="90"/>

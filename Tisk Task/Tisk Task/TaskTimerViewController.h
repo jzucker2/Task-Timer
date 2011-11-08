@@ -16,6 +16,7 @@
     IBOutlet UIButton *timerButton;
     IBOutlet UILabel *nameLabel;
     IBOutlet UILabel *durationLabel;
+    BOOL isRunning;
 }
 
 @property (nonatomic, retain) NSManagedObject *editedObject;

@@ -19,6 +19,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        isRunning = [task.running boolValue];
     }
     return self;
 }
@@ -41,6 +42,15 @@
     // display task information
     nameLabel.text = task.name;
     durationLabel.text = [NSString stringWithFormat:@"%@", task.duration];
+    
+    if (isRunning == YES) {
+        timerButton.titleLabel.text = @"Stop Working";
+    }
+    else
+    {
+        timerButton.titleLabel.text = @"Start Working";
+    }
+    
 }
 
 - (void)viewDidUnload

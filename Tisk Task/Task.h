@@ -2,7 +2,7 @@
 //  Task.h
 //  Tisk Task
 //
-//  Created by Jordan Zucker on 11/7/11.
+//  Created by Jordan Zucker on 11/8/11.
 //  Copyright (c) 2011 University of Illinois. All rights reserved.
 //
 
@@ -12,8 +12,9 @@
 
 @interface Task : NSManagedObject
 
+@property (nonatomic, retain) NSNumber * current;
 @property (nonatomic, retain) NSNumber * duration;
 @property (nonatomic, retain) NSString * name;
-@property (nonatomic, retain) NSNumber * current;
+@property (nonatomic, retain) NSNumber * running;
 
 @end
