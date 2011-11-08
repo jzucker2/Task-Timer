@@ -7,6 +7,7 @@
 //
 
 #import "TodayTaskViewController.h"
+#import "Task.h"
 
 @implementation TodayTaskViewController
 
@@ -93,18 +94,27 @@
 {
 //#warning Potentially incomplete method implementation.
     // Return the number of sections.
-    return 1;
+    //return 1;
+    return [[fetchedResultsController sections] count];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
 //#warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return 0;
+    //return [[fetchedResultsController sections] count];
+    //return [fetchedResultsController.
+    id <NSFetchedResultsSectionInfo> sectionInfo = [[fetchedResultsController sections] objectAtIndex:section];
+	return [sectionInfo numberOfObjects];
+    
+    
+    
+    //return 0;
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
+// Customize the appearance of table view cells.
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
     static NSString *CellIdentifier = @"Cell";
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
@@ -112,10 +122,34 @@
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
     }
     
-    // Configure the cell...
-    
+    // Configure the cell.
+	[self configureCell:cell atIndexPath:indexPath];
     return cell;
 }
+
+
+- (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
+	
+    // Configure the cell to show the book's title
+	//Book *book = [fetchedResultsController objectAtIndexPath:indexPath];
+	//cell.textLabel.text = book.title;
+    Task *task = [fetchedResultsController objectAtIndexPath:indexPath];
+    cell.textLabel.text = task.name;
+    //NSLog(@"task name is %@", task.name);
+    //NSLog(@"current is %@", task.current);
+    /*
+     if (task.current) {
+     <#statements#>
+     }
+     */
+}
+
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+	// Display the authors' names as section headings.
+    return [[[fetchedResultsController sections] objectAtIndex:section] name];
+}
+
 
 /*
 // Override to support conditional editing of the table view.
@@ -190,11 +224,15 @@
 	// Create the sort descriptors array.
 	NSSortDescriptor *authorDescriptor = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES];
 	NSSortDescriptor *titleDescriptor = [[NSSortDescriptor alloc] initWithKey:@"duration" ascending:YES];
-	NSArray *sortDescriptors = [[NSArray alloc] initWithObjects:authorDescriptor, titleDescriptor, nil];
+    NSSortDescriptor *currentDescriptor = [[NSSortDescriptor alloc] initWithKey:@"current" ascending:YES];
+	NSArray *sortDescriptors = [[NSArray alloc] initWithObjects:authorDescriptor, titleDescriptor, currentDescriptor, nil];
 	[fetchRequest setSortDescriptors:sortDescriptors];
 	
 	// Create and initialize the fetch results controller.
+    /*
 	NSFetchedResultsController *aFetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:managedObjectContext sectionNameKeyPath:@"name" cacheName:@"Root"];
+     */
+    NSFetchedResultsController *aFetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:managedObjectContext sectionNameKeyPath:@"current" cacheName:@"Root"];
 	self.fetchedResultsController = aFetchedResultsController;
 	fetchedResultsController.delegate = self;
 	

@@ -127,7 +127,7 @@
 				332F6D2C1468891E00E5BC4F /* Detail View */,
 				33E0F9361468BE7300864109 /* Editing View */,
 				33E0F9471469977500864109 /* Settings View */,
-				33E0F94D1469B45900864109 /* New Group */,
+				33E0F94D1469B45900864109 /* Today View */,
 			);
 			path = "Tisk Task";
 			sourceTree = "<group>";
@@ -222,14 +222,14 @@
 			name = "Settings View";
 			sourceTree = "<group>";
 		};
-		33E0F94D1469B45900864109 /* New Group */ = {
+		33E0F94D1469B45900864109 /* Today View */ = {
 			isa = PBXGroup;
 			children = (
 				33E0F9481469B45000864109 /* TodayTaskViewController.h */,
 				33E0F9491469B45000864109 /* TodayTaskViewController.m */,
 				33E0F94A1469B45100864109 /* TodayTaskView.xib */,
 			);
-			name = "New Group";
+			name = "Today View";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
