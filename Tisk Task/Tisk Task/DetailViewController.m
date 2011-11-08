@@ -123,7 +123,7 @@
 			break;
         case 1: 
 			cell.textLabel.text = @"Duration";
-			cell.detailTextLabel.text = [NSString stringWithFormat:@"%f", task.duration];
+			cell.detailTextLabel.text = [NSString stringWithFormat:@"%@", task.duration];
 			break;
         /*
         case 2:

@@ -36,13 +36,13 @@
 				<reference key="NSNextResponder"/>
 				<int key="NSvFlags">274</int>
 				<array class="NSMutableArray" key="NSSubviews">
-					<object class="IBUITextField" id="646704703">
+					<object class="IBUITextField" id="453339285">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{80, 47}, {97, 31}}</string>
+						<string key="NSFrame">{{29, 37}, {271, 31}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView" ref="188768872"/>
+						<reference key="NSNextKeyView" ref="636398969"/>
 						<string key="NSReuseIdentifierKey">_NS:304</string>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClipsSubviews">YES</bool>
@@ -72,10 +72,10 @@
 							<int key="NSfFlags">16</int>
 						</object>
 					</object>
-					<object class="IBUIDatePicker" id="188768872">
+					<object class="IBUIDatePicker" id="636398969">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">290</int>
-						<string key="NSFrame">{{0, 93}, {320, 216}}</string>
+						<string key="NSFrameSize">{320, 216}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView"/>
@@ -118,7 +118,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA</b
 				<string key="NSFrame">{{0, 64}, {320, 416}}</string>
 				<reference key="NSSuperview"/>
 				<reference key="NSWindow"/>
-				<reference key="NSNextKeyView" ref="646704703"/>
+				<reference key="NSNextKeyView" ref="453339285"/>
 				<object class="NSColor" key="IBUIBackgroundColor">
 					<int key="NSColorSpace">10</int>
 					<object class="NSImage" key="NSImage">
@@ -199,7 +199,7 @@ AAgACAAIAAEAAQABAAE</bytes>
 					<object class="IBCocoaTouchOutletConnection" key="connection">
 						<string key="label">textField</string>
 						<reference key="source" ref="372490531"/>
-						<reference key="destination" ref="646704703"/>
+						<reference key="destination" ref="453339285"/>
 					</object>
 					<int key="connectionID">6</int>
 				</object>
@@ -207,7 +207,7 @@ AAgACAAIAAEAAQABAAE</bytes>
 					<object class="IBCocoaTouchOutletConnection" key="connection">
 						<string key="label">durationPicker</string>
 						<reference key="source" ref="372490531"/>
-						<reference key="destination" ref="188768872"/>
+						<reference key="destination" ref="636398969"/>
 					</object>
 					<int key="connectionID">7</int>
 				</object>
@@ -224,8 +224,8 @@ AAgACAAIAAEAAQABAAE</bytes>
 						<int key="objectID">1</int>
 						<reference key="object" ref="191373211"/>
 						<array class="NSMutableArray" key="children">
-							<reference ref="646704703"/>
-							<reference ref="188768872"/>
+							<reference ref="453339285"/>
+							<reference ref="636398969"/>
 						</array>
 						<reference key="parent" ref="0"/>
 					</object>
@@ -242,12 +242,12 @@ AAgACAAIAAEAAQABAAE</bytes>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">4</int>
-						<reference key="object" ref="646704703"/>
+						<reference key="object" ref="453339285"/>
 						<reference key="parent" ref="191373211"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">5</int>
-						<reference key="object" ref="188768872"/>
+						<reference key="object" ref="636398969"/>
 						<reference key="parent" ref="191373211"/>
 					</object>
 				</array>
