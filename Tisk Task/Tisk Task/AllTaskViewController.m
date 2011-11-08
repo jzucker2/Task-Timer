@@ -223,6 +223,25 @@
 - (IBAction)addTask
 {
     NSLog(@"addTask");
+    AddViewController *addViewController = [[AddViewController alloc] initWithStyle:UITableViewStyleGrouped];
+	addViewController.delegate = self;
+	
+	// Create a new managed object context for the new book -- set its persistent store coordinator to the same as that from the fetched results controller's context.
+	NSManagedObjectContext *addingContext = [[NSManagedObjectContext alloc] init];
+	self.addingManagedObjectContext = addingContext;
+	[addingContext release];
+	
+	[addingManagedObjectContext setPersistentStoreCoordinator:[[fetchedResultsController managedObjectContext] persistentStoreCoordinator]];
+    
+	//addViewController.book = (Book *)[NSEntityDescription insertNewObjectForEntityForName:@"Book" inManagedObjectContext:addingContext];
+    addViewController.task = (Task *)[NSEntityDescription insertNewObjectForEntityForName:@"Task" inManagedObjectContext:addingContext];
+	
+	UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:addViewController];
+	
+    [self.navigationController presentModalViewController:navController animated:YES];
+	
+	[addViewController release];
+	[navController release];
 }
 
 
