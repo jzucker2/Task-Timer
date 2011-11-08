@@ -16,6 +16,8 @@
 
 #import "SettingsViewController.h"
 
+#import "TodayTaskViewController.h"
+
 @implementation AppDelegate
 
 @synthesize window = _window;
@@ -54,14 +56,23 @@
     viewController1.managedObjectContext = context;
     UINavigationController *navController1 = [[UINavigationController alloc] initWithRootViewController:viewController1];
     [viewController1 release];
-    UIViewController *viewController2 = [[[SecondViewController alloc] initWithNibName:@"SecondViewController" bundle:nil] autorelease];
+    //UIViewController *viewController2 = [[[SecondViewController alloc] initWithNibName:@"SecondViewController" bundle:nil] autorelease];
+    TodayTaskViewController *viewController2 = [[TodayTaskViewController alloc] initWithNibName:@"TodayTaskView" bundle:nil];
+    viewController2.managedObjectContext = context;
+    UINavigationController *navController2 = [[UINavigationController alloc] initWithRootViewController:viewController2];
+    [viewController2 release];
     
-    UIViewController *viewController3 = [[[SettingsViewController alloc] initWithNibName:@"SettingsView" bundle:nil] autorelease];
+    SettingsViewController *viewController3 = [[SettingsViewController alloc] initWithNibName:@"SettingsView" bundle:nil];
+    UINavigationController *navController3 = [[UINavigationController alloc] initWithRootViewController:viewController3];
+    [viewController3 release];
+    //UIViewController *viewController3 = [[[SettingsViewController alloc] initWithNibName:@"SettingsView" bundle:nil] autorelease];
     
     self.tabBarController = [[[UITabBarController alloc] init] autorelease];
     //self.tabBarController.viewControllers = [NSArray arrayWithObjects:viewController1, viewController2, nil];
-    self.tabBarController.viewControllers = [NSArray arrayWithObjects:navController1, viewController2, viewController3, nil];
+    self.tabBarController.viewControllers = [NSArray arrayWithObjects:navController1, navController2, navController3, nil];
     [navController1 release];
+    [navController2  release];
+    [navController3 release];
     self.window.rootViewController = self.tabBarController;
     [self.window makeKeyAndVisible];
     return YES;

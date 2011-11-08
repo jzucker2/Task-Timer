@@ -33,6 +33,8 @@
 		33E0F9411468EF8D00864109 /* Task.m in Sources */ = {isa = PBXBuildFile; fileRef = 33E0F9401468EF8D00864109 /* Task.m */; };
 		33E0F9451469976900864109 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33E0F9431469976800864109 /* SettingsViewController.m */; };
 		33E0F9461469976900864109 /* SettingsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 33E0F9441469976900864109 /* SettingsView.xib */; };
+		33E0F94B1469B45100864109 /* TodayTaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33E0F9491469B45000864109 /* TodayTaskViewController.m */; };
+		33E0F94C1469B45100864109 /* TodayTaskView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 33E0F94A1469B45100864109 /* TodayTaskView.xib */; };
 		33EC1A2A1468A5D7007A3CB4 /* AllTaskNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33EC1A281468A5D7007A3CB4 /* AllTaskNavigationController.m */; };
 		33EC1A2B1468A5D7007A3CB4 /* AllTaskNavigationController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 33EC1A291468A5D7007A3CB4 /* AllTaskNavigationController.xib */; };
 /* End PBXBuildFile section */
@@ -76,6 +78,9 @@
 		33E0F9421469976800864109 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
 		33E0F9431469976800864109 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 		33E0F9441469976900864109 /* SettingsView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingsView.xib; sourceTree = "<group>"; };
+		33E0F9481469B45000864109 /* TodayTaskViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TodayTaskViewController.h; sourceTree = "<group>"; };
+		33E0F9491469B45000864109 /* TodayTaskViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TodayTaskViewController.m; sourceTree = "<group>"; };
+		33E0F94A1469B45100864109 /* TodayTaskView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TodayTaskView.xib; sourceTree = "<group>"; };
 		33EC1A271468A5D7007A3CB4 /* AllTaskNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AllTaskNavigationController.h; sourceTree = "<group>"; };
 		33EC1A281468A5D7007A3CB4 /* AllTaskNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AllTaskNavigationController.m; sourceTree = "<group>"; };
 		33EC1A291468A5D7007A3CB4 /* AllTaskNavigationController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AllTaskNavigationController.xib; sourceTree = "<group>"; };
@@ -139,6 +144,7 @@
 				332F6D2C1468891E00E5BC4F /* Detail View */,
 				33E0F9361468BE7300864109 /* Editing View */,
 				33E0F9471469977500864109 /* Settings View */,
+				33E0F94D1469B45900864109 /* New Group */,
 			);
 			path = "Tisk Task";
 			sourceTree = "<group>";
@@ -256,6 +262,16 @@
 			name = "Settings View";
 			sourceTree = "<group>";
 		};
+		33E0F94D1469B45900864109 /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+				33E0F9481469B45000864109 /* TodayTaskViewController.h */,
+				33E0F9491469B45000864109 /* TodayTaskViewController.m */,
+				33E0F94A1469B45100864109 /* TodayTaskView.xib */,
+			);
+			name = "New Group";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -319,6 +335,7 @@
 				33E0F9351468BE7000864109 /* EditingView.xib in Resources */,
 				33E0F93E1468E9DF00864109 /* icon.png in Resources */,
 				33E0F9461469976900864109 /* SettingsView.xib in Resources */,
+				33E0F94C1469B45100864109 /* TodayTaskView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -341,6 +358,7 @@
 				33E0F9341468BE7000864109 /* EditingViewController.m in Sources */,
 				33E0F9411468EF8D00864109 /* Task.m in Sources */,
 				33E0F9451469976900864109 /* SettingsViewController.m in Sources */,
+				33E0F94B1469B45100864109 /* TodayTaskViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
