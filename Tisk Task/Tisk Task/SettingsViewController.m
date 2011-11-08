@@ -44,6 +44,16 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
+    // set up version and build numbers to display
+    NSString *version = [NSString stringWithFormat:@"Version %@", [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleShortVersionString"]];
+    
+    NSString *build = [NSString stringWithFormat:@"Build %@", [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleVersion"]];
+    
+    settingsArray = [[NSMutableArray alloc] initWithObjects:version, build, nil];
+    
+    NSString *sendEmail = @"Send me an email!";
+    [settingsArray addObject:sendEmail];
+    
 }
 
 - (void)viewDidUnload
@@ -105,6 +115,7 @@
     }
     
     // Configure the cell...
+    cell.textLabel.text = [settingsArray objectAtIndex:indexPath.row];
     
     return cell;
 }
