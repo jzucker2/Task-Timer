@@ -31,6 +31,8 @@
 		33E0F9461469976900864109 /* SettingsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 33E0F9441469976900864109 /* SettingsView.xib */; };
 		33E0F94B1469B45100864109 /* TodayTaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33E0F9491469B45000864109 /* TodayTaskViewController.m */; };
 		33E0F94C1469B45100864109 /* TodayTaskView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 33E0F94A1469B45100864109 /* TodayTaskView.xib */; };
+		33E636E01469E61C006859FE /* TaskTimerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33E636DE1469E61C006859FE /* TaskTimerViewController.m */; };
+		33E636E11469E61C006859FE /* TaskTimerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 33E636DF1469E61C006859FE /* TaskTimerView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -69,6 +71,9 @@
 		33E0F9481469B45000864109 /* TodayTaskViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TodayTaskViewController.h; sourceTree = "<group>"; };
 		33E0F9491469B45000864109 /* TodayTaskViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TodayTaskViewController.m; sourceTree = "<group>"; };
 		33E0F94A1469B45100864109 /* TodayTaskView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TodayTaskView.xib; sourceTree = "<group>"; };
+		33E636DD1469E61C006859FE /* TaskTimerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TaskTimerViewController.h; sourceTree = "<group>"; };
+		33E636DE1469E61C006859FE /* TaskTimerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TaskTimerViewController.m; sourceTree = "<group>"; };
+		33E636DF1469E61C006859FE /* TaskTimerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TaskTimerView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -228,8 +233,19 @@
 				33E0F9481469B45000864109 /* TodayTaskViewController.h */,
 				33E0F9491469B45000864109 /* TodayTaskViewController.m */,
 				33E0F94A1469B45100864109 /* TodayTaskView.xib */,
+				33E636E31469E625006859FE /* Task Timer View */,
 			);
 			name = "Today View";
+			sourceTree = "<group>";
+		};
+		33E636E31469E625006859FE /* Task Timer View */ = {
+			isa = PBXGroup;
+			children = (
+				33E636DD1469E61C006859FE /* TaskTimerViewController.h */,
+				33E636DE1469E61C006859FE /* TaskTimerViewController.m */,
+				33E636DF1469E61C006859FE /* TaskTimerView.xib */,
+			);
+			name = "Task Timer View";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -293,6 +309,7 @@
 				33E0F93E1468E9DF00864109 /* icon.png in Resources */,
 				33E0F9461469976900864109 /* SettingsView.xib in Resources */,
 				33E0F94C1469B45100864109 /* TodayTaskView.xib in Resources */,
+				33E636E11469E61C006859FE /* TaskTimerView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -313,6 +330,7 @@
 				33E0F9411468EF8D00864109 /* Task.m in Sources */,
 				33E0F9451469976900864109 /* SettingsViewController.m in Sources */,
 				33E0F94B1469B45100864109 /* TodayTaskViewController.m in Sources */,
+				33E636E01469E61C006859FE /* TaskTimerViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

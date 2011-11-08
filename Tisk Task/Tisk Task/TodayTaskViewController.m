@@ -8,6 +8,7 @@
 
 #import "TodayTaskViewController.h"
 #import "Task.h"
+#import "TaskTimerViewController.h"
 
 @implementation TodayTaskViewController
 
@@ -209,7 +210,7 @@
     
     
     
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    //[tableView deselectRowAtIndexPath:indexPath animated:YES];
     // Navigation logic may go here. Create and push another view controller.
     /*
      <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
@@ -218,6 +219,13 @@
      [self.navigationController pushViewController:detailViewController animated:YES];
      [detailViewController release];
      */
+    
+    TaskTimerViewController *taskView = [[TaskTimerViewController alloc] initWithNibName:@"TaskTimerView" bundle:nil];
+    Task *selectedTask = (Task *)[[self fetchedResultsController] objectAtIndexPath:indexPath];
+    taskView.task = selectedTask;
+    taskView.title = selectedTask.name;
+    [self.navigationController pushViewController:taskView animated:YES];
+    [taskView release];
 }
 
 #pragma mark -
