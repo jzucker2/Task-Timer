@@ -36,6 +36,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    NSLog(@"sectionIndexTitles is %@", fetchedResultsController.sectionIndexTitles);
 
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -96,6 +98,7 @@
     // Return the number of sections.
     //return 1;
     return [[fetchedResultsController sections] count];
+    //return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -104,8 +107,15 @@
     // Return the number of rows in the section.
     //return [[fetchedResultsController sections] count];
     //return [fetchedResultsController.
+    
+    //NSLog(@"sectionIndexTitles is %@", fetchedResultsController.sectionIndexTitles);
     id <NSFetchedResultsSectionInfo> sectionInfo = [[fetchedResultsController sections] objectAtIndex:section];
-	return [sectionInfo numberOfObjects];
+    //id <NSFetchedResultsSectionInfo> sectionInfo = [[fetchedResultsController sections] objectAtIndex:1];
+    //NSLog(@"%@", [fetchedResultsController sectionIndexTitleForSectionName:@"1"]);
+    //return [[fetchedResultsController sectionIndexTitleForSectionName:@"1"] 
+	//[[[fetchedResultsController sections] objectAtIndex:section] name];
+    return [sectionInfo numberOfObjects];
+    
     
     
     
@@ -144,11 +154,12 @@
      */
 }
 
-
+/*
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
 	// Display the authors' names as section headings.
     return [[[fetchedResultsController sections] objectAtIndex:section] name];
 }
+ */
 
 
 /*
@@ -220,6 +231,9 @@
 	NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
 	NSEntityDescription *entity = [NSEntityDescription entityForName:@"Task" inManagedObjectContext:managedObjectContext];
 	[fetchRequest setEntity:entity];
+    
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"current == %@", [NSNumber numberWithBool:YES]];
+    [fetchRequest setPredicate:predicate];
 	
 	// Create the sort descriptors array.
 	NSSortDescriptor *authorDescriptor = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES];
