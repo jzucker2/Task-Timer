@@ -171,15 +171,16 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 	NSLog(@"select");
-    /*
+    
     // Create and push a detail view controller.
 	DetailViewController *detailViewController = [[DetailViewController alloc] initWithStyle:UITableViewStyleGrouped];
-    Book *selectedBook = (Book *)[[self fetchedResultsController] objectAtIndexPath:indexPath];
+    //Book *selectedBook = (Book *)[[self fetchedResultsController] objectAtIndexPath:indexPath];
+    Task *selectedTask = (Task *)[[self fetchedResultsController] objectAtIndexPath:indexPath];
     // Pass the selected book to the new view controller.
-    detailViewController.book = selectedBook;
+    //detailViewController.book = selectedBook;
+    detailViewController.task = selectedTask;
 	[self.navigationController pushViewController:detailViewController animated:YES];
 	[detailViewController release];
-     */
     
 }
 
