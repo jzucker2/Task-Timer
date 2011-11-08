@@ -55,10 +55,12 @@
     //UIViewController *viewController2 = [[[SecondViewController alloc] initWithNibName:@"SecondViewController" bundle:nil] autorelease];
     TodayTaskViewController *viewController2 = [[TodayTaskViewController alloc] initWithNibName:@"TodayTaskView" bundle:nil];
     viewController2.managedObjectContext = context;
+    viewController2.title = @"Today's Tasks";
     UINavigationController *navController2 = [[UINavigationController alloc] initWithRootViewController:viewController2];
     [viewController2 release];
     
     SettingsViewController *viewController3 = [[SettingsViewController alloc] initWithNibName:@"SettingsView" bundle:nil];
+    viewController3.title = @"Settings";
     UINavigationController *navController3 = [[UINavigationController alloc] initWithRootViewController:viewController3];
     [viewController3 release];
     //UIViewController *viewController3 = [[[SettingsViewController alloc] initWithNibName:@"SettingsView" bundle:nil] autorelease];
