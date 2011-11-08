@@ -13,5 +13,6 @@
 
 @dynamic duration;
 @dynamic name;
+@dynamic current;
 
 @end

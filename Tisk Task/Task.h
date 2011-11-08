@@ -14,5 +14,6 @@
 
 @property (nonatomic, retain) NSNumber * duration;
 @property (nonatomic, retain) NSString * name;
+@property (nonatomic, retain) NSNumber * current;
 
 @end
