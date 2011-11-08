@@ -26,7 +26,7 @@
 @property (nonatomic, retain) NSString *editedFieldKey;
 @property (nonatomic, retain) NSString *editedFieldName;
 
-@property (nonatomic, assign, getter=isEditingDate) BOOL editingTime;
+@property (nonatomic, assign, getter=isEditingTime) BOOL editingTime;
 @property (nonatomic, retain) IBOutlet UIDatePicker *durationPicker;
 
 - (IBAction)cancel;

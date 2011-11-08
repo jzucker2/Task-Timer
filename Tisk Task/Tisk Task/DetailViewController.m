@@ -13,6 +13,7 @@
 @implementation DetailViewController
 
 @synthesize task, undoManager;
+@synthesize mySwitch;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -42,6 +43,8 @@
 	self.title = @"Task Info";
     self.navigationItem.rightBarButtonItem = self.editButtonItem;
 	self.tableView.allowsSelectionDuringEditing = YES;
+    
+    NSLog(@"task is %@", task);
 }
 
 
@@ -130,15 +133,17 @@
             //NSString *currentString = [NSString stringWithFormat:@"%@", task.current];
             //cell.detailTextLabel.text = currentString;
 			//cell.detailTextLabel.text = [self.dateFormatter stringFromDate:book.copyright];
-            UISwitch *mySwitch = [[[UISwitch alloc] initWithFrame:CGRectZero] autorelease];
+            //UISwitch *mySwitch = [[[UISwitch alloc] initWithFrame:CGRectZero] autorelease];
+            mySwitch = [[UISwitch alloc] initWithFrame:CGRectZero];
             cell.accessoryView = mySwitch;
             BOOL current = [task.current boolValue];
             if (current == NO) {
-                
+                NSLog(@"set switch to off");
                 [(UISwitch *)cell.accessoryView setOn:NO];
             }
             else
             {
+                NSLog(@"set switch to on");
                 [(UISwitch *)cell.accessoryView setOn:YES];
             }
             
@@ -310,6 +315,50 @@
 - (IBAction)switchValueChanged:(id)sender
 {
     NSLog(@"hit current switch");
+    /*
+    if (editing) {
+		[self setUpUndoManager];
+	}
+	else {
+		[self cleanUpUndoManager];
+		// Save the changes.
+		NSError *error;
+		if (![task.managedObjectContext save:&error]) {
+			// Update to handle the error appropriately.
+			NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+			exit(-1);  // Fail
+		}
+	}
+     */
+    NSNumber *currentNumber;
+    if (mySwitch.isOn) {
+        currentNumber = [NSNumber numberWithBool:YES];
+    }
+    else
+    {
+        currentNumber = [NSNumber numberWithBool:NO];
+    }
+    
+    //[task setValue:currentNumber forKey:@"current"];
+    
+    
+    // start by setting up undo manager
+    [self setUpUndoManager];
+    
+    [undoManager setActionName:@"current"];
+    
+    [task setValue:currentNumber forKey:@"current"];
+    
+    // finish by cleaning up undo manager
+    [self cleanUpUndoManager];
+    // Save the changes.
+    NSError *error;
+    if (![task.managedObjectContext save:&error]) {
+        // Update to handle the error appropriately.
+        NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+        exit(-1);  // Fail
+    }
+
 }
 
 
@@ -320,6 +369,7 @@
     [undoManager release];
     //[dateFormatter release];
     [task release];
+    [mySwitch release];
     [super dealloc];
 }
 

@@ -14,7 +14,9 @@
 {
     Task *task;
     NSUndoManager *undoManager;
+    UISwitch *mySwitch;
 }
+@property (nonatomic, retain) UISwitch *mySwitch;
 @property (nonatomic, retain) Task *task;
 @property (nonatomic, retain) NSUndoManager *undoManager;
 
