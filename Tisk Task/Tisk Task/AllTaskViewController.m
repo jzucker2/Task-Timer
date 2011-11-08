@@ -179,6 +179,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 	//NSLog(@"select");
     
+    
     // Create and push a detail view controller.
 	DetailViewController *detailViewController = [[DetailViewController alloc] initWithStyle:UITableViewStyleGrouped];
     //Book *selectedBook = (Book *)[[self fetchedResultsController] objectAtIndexPath:indexPath];

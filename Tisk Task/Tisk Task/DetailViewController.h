@@ -22,4 +22,6 @@
 - (void)cleanUpUndoManager;
 - (void)updateRightBarButtonItemState;
 
+- (IBAction)switchValueChanged:(id)sender;
+
 @end

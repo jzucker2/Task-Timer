@@ -39,7 +39,7 @@
 	[super viewDidLoad];
 	
 	// Configure the title, title bar, and table view.
-	self.title = @"Info";
+	self.title = @"Task Info";
     self.navigationItem.rightBarButtonItem = self.editButtonItem;
 	self.tableView.allowsSelectionDuringEditing = YES;
 }
@@ -127,9 +127,23 @@
 			break;
         case 2:
 			cell.textLabel.text = @"Current";
-            NSString *currentString = [NSString stringWithFormat:@"%@", task.current];
-            cell.detailTextLabel.text = currentString;
+            //NSString *currentString = [NSString stringWithFormat:@"%@", task.current];
+            //cell.detailTextLabel.text = currentString;
 			//cell.detailTextLabel.text = [self.dateFormatter stringFromDate:book.copyright];
+            UISwitch *mySwitch = [[[UISwitch alloc] initWithFrame:CGRectZero] autorelease];
+            cell.accessoryView = mySwitch;
+            BOOL current = [task.current boolValue];
+            if (current == NO) {
+                
+                [(UISwitch *)cell.accessoryView setOn:NO];
+            }
+            else
+            {
+                [(UISwitch *)cell.accessoryView setOn:YES];
+            }
+            
+            //[(UISwitch *)cell.accessoryView setOn:YES];   // Or NO, obviously!
+            [(UISwitch *)cell.accessoryView addTarget:self action:@selector(switchValueChanged:) forControlEvents:UIControlEventValueChanged];
             
             
 			break;
@@ -165,17 +179,27 @@
 			controller.editedFieldName = NSLocalizedString(@"duration", @"display name for author");
 			controller.editingTime = YES;
         } break;
-        /*
+        
         case 2: {
+            NSLog(@"don't allow editing for current switch");
+            /*
             controller.editedFieldKey = @"copyright";
 			controller.editedFieldName = NSLocalizedString(@"copyright", @"display name for copyright");
 			controller.editingDate = YES;
+             */
         } break;
-         */
+        
          
     }
-	
-    [self.navigationController pushViewController:controller animated:YES];
+	if (indexPath.row != 2) {
+        [self.navigationController pushViewController:controller animated:YES];
+
+    }
+    else
+    {
+        [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
+    }
+    //[self.navigationController pushViewController:controller animated:YES];
 	[controller release];
     
 }
@@ -280,6 +304,13 @@
 	return dateFormatter;
 }
  */
+
+#pragma mark - Current Switch
+
+- (IBAction)switchValueChanged:(id)sender
+{
+    NSLog(@"hit current switch");
+}
 
 
 #pragma mark -
