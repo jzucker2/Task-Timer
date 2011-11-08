@@ -17,8 +17,10 @@
     IBOutlet UILabel *nameLabel;
     IBOutlet UILabel *durationLabel;
     BOOL isRunning;
+    NSTimer *taskTimer;
 }
 
+@property (nonatomic, retain) NSTimer *taskTimer;
 @property (nonatomic, retain) NSManagedObject *editedObject;
 @property (nonatomic, retain) IBOutlet UIButton *timerButton;
 @property (nonatomic, retain) IBOutlet UILabel *nameLabel;

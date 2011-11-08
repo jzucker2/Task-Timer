@@ -13,6 +13,7 @@
 @synthesize task;
 @synthesize nameLabel, durationLabel, timerButton;
 @synthesize editedObject;
+@synthesize taskTimer;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {

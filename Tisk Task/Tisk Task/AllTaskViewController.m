@@ -104,8 +104,10 @@
  The data source methods are handled primarily by the fetch results controller
  */
 
+
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return [[fetchedResultsController sections] count];
+    //return 1;
 }
 
 
@@ -149,11 +151,12 @@
      */
 }
 
-
+/*
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
 	// Display the authors' names as section headings.
     return [[[fetchedResultsController sections] objectAtIndex:section] name];
 }
+ */
 
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
