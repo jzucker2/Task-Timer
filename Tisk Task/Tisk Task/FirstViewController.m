@@ -20,6 +20,7 @@
         self.title = NSLocalizedString(@"First", @"First");
         self.tabBarItem.image = [UIImage imageNamed:@"first"];
         //allTask = [[[AllTaskViewController alloc] initWithNibName:@"AllTaskViewController" bundle:[NSBundle mainBundle]] autorelease];
+        
     }
     return self;
 }
@@ -38,12 +39,18 @@
 	// Do any additional setup after loading the view, typically from a nib.
     //AllTaskViewController *allTask = (AllTaskViewController *)[navigationController topViewController];
     navigationController.delegate = self;
+    NSLog(@"%@", navigationController.viewControllers);
+    
+    //self.view = navigationController.view;
+    
 
     //AllTaskViewController *allTask = [[AllTaskViewController alloc] initWithNibName:@"AllTaskViewController" bundle:nil];
     //AllTaskViewController *allTask = (AllTaskViewController *) [navigationController topViewController];
     //[navigationController initWithRootViewController:allTask];
-    AllTaskViewController *allTask = [[AllTaskViewController alloc] initWithNibName:@"AllTaskViewController" bundle:[NSBundle mainBundle]];
-    [navigationController initWithRootViewController:allTask];
+    
+    //AllTaskViewController *allTask = [[AllTaskViewController alloc] initWithNibName:@"AllTaskViewController" bundle:[NSBundle mainBundle]];
+    //[navigationController initWithRootViewController:allTask];
+    //[self.view bringSubviewToFront:navigationController.view];
     //[allTask release];
     
     

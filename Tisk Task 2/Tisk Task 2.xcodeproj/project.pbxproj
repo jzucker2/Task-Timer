@@ -1,0 +1,280 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		33EC1A081468A2D4007A3CB4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33EC1A071468A2D4007A3CB4 /* UIKit.framework */; };
+		33EC1A0A1468A2D4007A3CB4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33EC1A091468A2D4007A3CB4 /* Foundation.framework */; };
+		33EC1A0C1468A2D4007A3CB4 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33EC1A0B1468A2D4007A3CB4 /* CoreGraphics.framework */; };
+		33EC1A121468A2D4007A3CB4 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 33EC1A101468A2D4007A3CB4 /* InfoPlist.strings */; };
+		33EC1A141468A2D4007A3CB4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 33EC1A131468A2D4007A3CB4 /* main.m */; };
+		33EC1A181468A2D4007A3CB4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 33EC1A171468A2D4007A3CB4 /* AppDelegate.m */; };
+		33EC1A1B1468A2D4007A3CB4 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33EC1A1A1468A2D4007A3CB4 /* ViewController.m */; };
+		33EC1A1E1468A2D4007A3CB4 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 33EC1A1C1468A2D4007A3CB4 /* ViewController.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		33EC1A031468A2D4007A3CB4 /* Tisk Task 2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Tisk Task 2.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		33EC1A071468A2D4007A3CB4 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		33EC1A091468A2D4007A3CB4 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		33EC1A0B1468A2D4007A3CB4 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		33EC1A0F1468A2D4007A3CB4 /* Tisk Task 2-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Tisk Task 2-Info.plist"; sourceTree = "<group>"; };
+		33EC1A111468A2D4007A3CB4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		33EC1A131468A2D4007A3CB4 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		33EC1A151468A2D4007A3CB4 /* Tisk Task 2-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tisk Task 2-Prefix.pch"; sourceTree = "<group>"; };
+		33EC1A161468A2D4007A3CB4 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		33EC1A171468A2D4007A3CB4 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		33EC1A191468A2D4007A3CB4 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		33EC1A1A1468A2D4007A3CB4 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		33EC1A1D1468A2D4007A3CB4 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController.xib; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		33EC1A001468A2D4007A3CB4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				33EC1A081468A2D4007A3CB4 /* UIKit.framework in Frameworks */,
+				33EC1A0A1468A2D4007A3CB4 /* Foundation.framework in Frameworks */,
+				33EC1A0C1468A2D4007A3CB4 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		33EC19F81468A2D4007A3CB4 = {
+			isa = PBXGroup;
+			children = (
+				33EC1A0D1468A2D4007A3CB4 /* Tisk Task 2 */,
+				33EC1A061468A2D4007A3CB4 /* Frameworks */,
+				33EC1A041468A2D4007A3CB4 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		33EC1A041468A2D4007A3CB4 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				33EC1A031468A2D4007A3CB4 /* Tisk Task 2.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		33EC1A061468A2D4007A3CB4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				33EC1A071468A2D4007A3CB4 /* UIKit.framework */,
+				33EC1A091468A2D4007A3CB4 /* Foundation.framework */,
+				33EC1A0B1468A2D4007A3CB4 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		33EC1A0D1468A2D4007A3CB4 /* Tisk Task 2 */ = {
+			isa = PBXGroup;
+			children = (
+				33EC1A161468A2D4007A3CB4 /* AppDelegate.h */,
+				33EC1A171468A2D4007A3CB4 /* AppDelegate.m */,
+				33EC1A191468A2D4007A3CB4 /* ViewController.h */,
+				33EC1A1A1468A2D4007A3CB4 /* ViewController.m */,
+				33EC1A1C1468A2D4007A3CB4 /* ViewController.xib */,
+				33EC1A0E1468A2D4007A3CB4 /* Supporting Files */,
+			);
+			path = "Tisk Task 2";
+			sourceTree = "<group>";
+		};
+		33EC1A0E1468A2D4007A3CB4 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				33EC1A0F1468A2D4007A3CB4 /* Tisk Task 2-Info.plist */,
+				33EC1A101468A2D4007A3CB4 /* InfoPlist.strings */,
+				33EC1A131468A2D4007A3CB4 /* main.m */,
+				33EC1A151468A2D4007A3CB4 /* Tisk Task 2-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		33EC1A021468A2D4007A3CB4 /* Tisk Task 2 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 33EC1A211468A2D4007A3CB4 /* Build configuration list for PBXNativeTarget "Tisk Task 2" */;
+			buildPhases = (
+				33EC19FF1468A2D4007A3CB4 /* Sources */,
+				33EC1A001468A2D4007A3CB4 /* Frameworks */,
+				33EC1A011468A2D4007A3CB4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Tisk Task 2";
+			productName = "Tisk Task 2";
+			productReference = 33EC1A031468A2D4007A3CB4 /* Tisk Task 2.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		33EC19FA1468A2D4007A3CB4 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+				ORGANIZATIONNAME = "University of Illinois";
+			};
+			buildConfigurationList = 33EC19FD1468A2D4007A3CB4 /* Build configuration list for PBXProject "Tisk Task 2" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 33EC19F81468A2D4007A3CB4;
+			productRefGroup = 33EC1A041468A2D4007A3CB4 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				33EC1A021468A2D4007A3CB4 /* Tisk Task 2 */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		33EC1A011468A2D4007A3CB4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				33EC1A121468A2D4007A3CB4 /* InfoPlist.strings in Resources */,
+				33EC1A1E1468A2D4007A3CB4 /* ViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		33EC19FF1468A2D4007A3CB4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				33EC1A141468A2D4007A3CB4 /* main.m in Sources */,
+				33EC1A181468A2D4007A3CB4 /* AppDelegate.m in Sources */,
+				33EC1A1B1468A2D4007A3CB4 /* ViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		33EC1A101468A2D4007A3CB4 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				33EC1A111468A2D4007A3CB4 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		33EC1A1C1468A2D4007A3CB4 /* ViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				33EC1A1D1468A2D4007A3CB4 /* en */,
+			);
+			name = ViewController.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		33EC1A1F1468A2D4007A3CB4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		33EC1A201468A2D4007A3CB4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		33EC1A221468A2D4007A3CB4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Tisk Task 2/Tisk Task 2-Prefix.pch";
+				INFOPLIST_FILE = "Tisk Task 2/Tisk Task 2-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		33EC1A231468A2D4007A3CB4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Tisk Task 2/Tisk Task 2-Prefix.pch";
+				INFOPLIST_FILE = "Tisk Task 2/Tisk Task 2-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		33EC19FD1468A2D4007A3CB4 /* Build configuration list for PBXProject "Tisk Task 2" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				33EC1A1F1468A2D4007A3CB4 /* Debug */,
+				33EC1A201468A2D4007A3CB4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		33EC1A211468A2D4007A3CB4 /* Build configuration list for PBXNativeTarget "Tisk Task 2" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				33EC1A221468A2D4007A3CB4 /* Debug */,
+				33EC1A231468A2D4007A3CB4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 33EC19FA1468A2D4007A3CB4 /* Project object */;
+}

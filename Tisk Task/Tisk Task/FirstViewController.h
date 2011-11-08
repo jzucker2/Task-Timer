@@ -11,7 +11,7 @@
 
 @interface FirstViewController : UIViewController <UINavigationControllerDelegate>
 {
-    UINavigationController *navigationController;
+    IBOutlet UINavigationController *navigationController;
     UITableViewController *firstTableViewController;
     //AllTaskViewController *allTask;
 }
