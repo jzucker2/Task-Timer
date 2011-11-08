@@ -37,6 +37,10 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    
+    // display task information
+    nameLabel.text = task.name;
+    durationLabel.text = [NSString stringWithFormat:@"%@", task.duration];
 }
 
 - (void)viewDidUnload
