@@ -39,4 +39,6 @@
 
 - (void) updateCountdownLabel;
 
+- (void) updateDatabase;
+
 @end

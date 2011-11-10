@@ -41,9 +41,12 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
+    editedObject = task;
+    
     // display task information
     nameLabel.text = [NSString stringWithFormat:@"Task Name: %@", task.name];
     durationLabel.text = [NSString stringWithFormat:@"Duration: %@", task.duration];
+    timeElapsedLabel.text = [NSString stringWithFormat:@"Elapsed: %@", task.elapsed];
     
     if (isRunning == YES) {
         timerButton.titleLabel.text = @"Stop Working";
@@ -107,6 +110,7 @@
 {
     NSLog(@"startTimer");
     isRunning = YES;
+    //[self updateDatabase];
     
     //timerButton.titleLabel.text = @"Stop Working";
     [timerButton setTitle:@"Stop Working" forState:UIControlStateNormal];
@@ -118,8 +122,11 @@
     double duration = [task.duration doubleValue];
     double elapsed = [task.elapsed doubleValue];
     timeLeft = duration - elapsed;
+    [self updateDatabase];
     taskTimer = [[NSTimer alloc] init];
     taskTimer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(updateCountdownLabel) userInfo:nil repeats:YES];
+    
+    
 }
 
 - (void) stopTimer
@@ -131,6 +138,7 @@
     //timerButton.titleLabel.text = @"Start Working";
     [taskTimer invalidate];
     taskTimer = nil;
+    [self updateDatabase];
 }
                  
 - (void) updateCountdownLabel
@@ -144,7 +152,46 @@
         countdownLabel.text = @"Done";
         [taskTimer invalidate];
         taskTimer = nil;
+        [self updateDatabase];
     }
+}
+
+- (void) updateDatabase
+{
+    NSUndoManager *undoManager = [[editedObject managedObjectContext] undoManager];
+    NSNumber *running;
+    if (isRunning== YES) {
+        if (timeLeft>0) {
+            NSLog(@"time left in task, need to set database to mark task as running");
+            [undoManager setActionName:@"running"];
+            running = [NSNumber numberWithBool:YES];
+            [editedObject setValue:running forKey:@"running"];
+        }
+        if (timeLeft == 0) {
+            NSLog(@"task finished");
+            [undoManager setActionName:@"running"];
+            running = [NSNumber numberWithBool:NO];
+            [editedObject setValue:running forKey:@"running"];
+            
+            [undoManager setActionName:@"elapsed"];
+            [editedObject setValue:task.duration forKey:@"elapsed"];
+        }
+    }
+    else
+    {
+        NSLog(@"task stopped before time ran out");
+        [undoManager setActionName:@"running"];
+        running = [NSNumber numberWithBool:NO];
+        [editedObject setValue:running forKey:@"running"];
+        
+        [undoManager setActionName:@"elapsed"];
+        double duration = [task.duration doubleValue];
+        double elapsed = duration - timeLeft;
+        NSNumber *elapsedNumber = [NSNumber numberWithDouble:elapsed];
+        [editedObject setValue:elapsedNumber forKey:@"elapsed"];
+        
+    }
+    
 }
 
 @end
