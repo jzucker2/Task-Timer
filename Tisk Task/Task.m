@@ -13,8 +13,8 @@
 
 @dynamic current;
 @dynamic duration;
+@dynamic elapsed;
 @dynamic name;
 @dynamic running;
-@dynamic elapsed;
 
 @end
