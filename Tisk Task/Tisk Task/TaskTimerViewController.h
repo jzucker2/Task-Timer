@@ -18,8 +18,13 @@
     IBOutlet UILabel *durationLabel;
     BOOL isRunning;
     NSTimer *taskTimer;
+    IBOutlet UILabel *timeElapsedLabel;
+    IBOutlet UILabel *countdownLabel;
+    double timeLeft;
 }
 
+@property (nonatomic, retain) IBOutlet UILabel *timeElapsedLabel;
+@property (nonatomic, retain) IBOutlet UILabel *countdownLabel;
 @property (nonatomic, retain) NSTimer *taskTimer;
 @property (nonatomic, retain) NSManagedObject *editedObject;
 @property (nonatomic, retain) IBOutlet UIButton *timerButton;
@@ -31,5 +36,7 @@
 
 - (void) startTimer;
 - (void) stopTimer;
+
+- (void) updateCountdownLabel;
 
 @end

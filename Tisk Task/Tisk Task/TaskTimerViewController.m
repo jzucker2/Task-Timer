@@ -14,6 +14,7 @@
 @synthesize nameLabel, durationLabel, timerButton;
 @synthesize editedObject;
 @synthesize taskTimer;
+@synthesize timeElapsedLabel, countdownLabel;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -52,6 +53,7 @@
         timerButton.titleLabel.text = @"Start Working";
     }
     
+    
 }
 
 - (void)viewDidUnload
@@ -67,6 +69,19 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
+- (void) dealloc
+{
+    [editedObject release];
+    [task release];
+    [timerButton release];
+    [nameLabel release];
+    [durationLabel release];
+    [taskTimer release];
+    [timeElapsedLabel release];
+    [countdownLabel release];
+    [super dealloc];
+}
+
 #pragma mark - Timer
 
 - (IBAction)handleTimer:(id)sender
@@ -77,18 +92,59 @@
     }
     else
     {
-        [self startTimer];
+        if (task.elapsed < task.duration) {
+            [self startTimer];
+        }
+        else
+        {
+            NSLog(@"task is already finished");
+        }
+        //[self startTimer];
     }
 }
 
 - (void) startTimer
 {
     NSLog(@"startTimer");
+    isRunning = YES;
+    
+    //timerButton.titleLabel.text = @"Stop Working";
+    [timerButton setTitle:@"Stop Working" forState:UIControlStateNormal];
+    
+    
+    NSDate *today;
+    today = [NSDate date]; 
+    //NSNumber *timeInterval = task.duration - task.elapsed;
+    double duration = [task.duration doubleValue];
+    double elapsed = [task.elapsed doubleValue];
+    timeLeft = duration - elapsed;
+    taskTimer = [[NSTimer alloc] init];
+    taskTimer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(updateCountdownLabel) userInfo:nil repeats:YES];
 }
 
 - (void) stopTimer
 {
     NSLog(@"stopTimer");
+    isRunning = NO;
+    
+    [timerButton setTitle:@"Start Working" forState:UIControlStateNormal];
+    //timerButton.titleLabel.text = @"Start Working";
+    [taskTimer invalidate];
+    taskTimer = nil;
+}
+                 
+- (void) updateCountdownLabel
+{
+    if (timeLeft>0) {
+        countdownLabel.text = [NSString stringWithFormat:@"%f", timeLeft];
+        timeLeft--;
+    }
+    else
+    {
+        countdownLabel.text = @"Done";
+        [taskTimer invalidate];
+        taskTimer = nil;
+    }
 }
 
 @end
