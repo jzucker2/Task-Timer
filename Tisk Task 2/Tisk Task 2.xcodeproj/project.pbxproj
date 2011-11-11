@@ -1,0 +1,314 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		333146EA146DD9FB008ED8B6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 333146E9146DD9FB008ED8B6 /* UIKit.framework */; };
+		333146EC146DD9FB008ED8B6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 333146EB146DD9FB008ED8B6 /* Foundation.framework */; };
+		333146EE146DD9FB008ED8B6 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 333146ED146DD9FB008ED8B6 /* CoreGraphics.framework */; };
+		333146F4146DD9FB008ED8B6 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 333146F2146DD9FB008ED8B6 /* InfoPlist.strings */; };
+		333146F6146DD9FC008ED8B6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 333146F5146DD9FC008ED8B6 /* main.m */; };
+		333146FA146DD9FC008ED8B6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 333146F9146DD9FC008ED8B6 /* AppDelegate.m */; };
+		333146FD146DD9FC008ED8B6 /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 333146FC146DD9FC008ED8B6 /* FirstViewController.m */; };
+		333146FF146DD9FC008ED8B6 /* first.png in Resources */ = {isa = PBXBuildFile; fileRef = 333146FE146DD9FC008ED8B6 /* first.png */; };
+		33314701146DD9FC008ED8B6 /* first@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 33314700146DD9FC008ED8B6 /* first@2x.png */; };
+		33314704146DD9FC008ED8B6 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33314703146DD9FC008ED8B6 /* SecondViewController.m */; };
+		33314706146DD9FC008ED8B6 /* second.png in Resources */ = {isa = PBXBuildFile; fileRef = 33314705146DD9FC008ED8B6 /* second.png */; };
+		33314708146DD9FC008ED8B6 /* second@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 33314707146DD9FC008ED8B6 /* second@2x.png */; };
+		3331470B146DD9FC008ED8B6 /* FirstViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 33314709146DD9FC008ED8B6 /* FirstViewController.xib */; };
+		3331470E146DD9FC008ED8B6 /* SecondViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3331470C146DD9FC008ED8B6 /* SecondViewController.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		333146E5146DD9FB008ED8B6 /* Tisk Task 2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Tisk Task 2.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		333146E9146DD9FB008ED8B6 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		333146EB146DD9FB008ED8B6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		333146ED146DD9FB008ED8B6 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		333146F1146DD9FB008ED8B6 /* Tisk Task 2-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Tisk Task 2-Info.plist"; sourceTree = "<group>"; };
+		333146F3146DD9FB008ED8B6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		333146F5146DD9FC008ED8B6 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		333146F7146DD9FC008ED8B6 /* Tisk Task 2-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tisk Task 2-Prefix.pch"; sourceTree = "<group>"; };
+		333146F8146DD9FC008ED8B6 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		333146F9146DD9FC008ED8B6 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		333146FB146DD9FC008ED8B6 /* FirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FirstViewController.h; sourceTree = "<group>"; };
+		333146FC146DD9FC008ED8B6 /* FirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FirstViewController.m; sourceTree = "<group>"; };
+		333146FE146DD9FC008ED8B6 /* first.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = first.png; sourceTree = "<group>"; };
+		33314700146DD9FC008ED8B6 /* first@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "first@2x.png"; sourceTree = "<group>"; };
+		33314702146DD9FC008ED8B6 /* SecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
+		33314703146DD9FC008ED8B6 /* SecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
+		33314705146DD9FC008ED8B6 /* second.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = second.png; sourceTree = "<group>"; };
+		33314707146DD9FC008ED8B6 /* second@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "second@2x.png"; sourceTree = "<group>"; };
+		3331470A146DD9FC008ED8B6 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/FirstViewController.xib; sourceTree = "<group>"; };
+		3331470D146DD9FC008ED8B6 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/SecondViewController.xib; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		333146E2146DD9FB008ED8B6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				333146EA146DD9FB008ED8B6 /* UIKit.framework in Frameworks */,
+				333146EC146DD9FB008ED8B6 /* Foundation.framework in Frameworks */,
+				333146EE146DD9FB008ED8B6 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		333146DA146DD9FB008ED8B6 = {
+			isa = PBXGroup;
+			children = (
+				333146EF146DD9FB008ED8B6 /* Tisk Task 2 */,
+				333146E8146DD9FB008ED8B6 /* Frameworks */,
+				333146E6146DD9FB008ED8B6 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		333146E6146DD9FB008ED8B6 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				333146E5146DD9FB008ED8B6 /* Tisk Task 2.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		333146E8146DD9FB008ED8B6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				333146E9146DD9FB008ED8B6 /* UIKit.framework */,
+				333146EB146DD9FB008ED8B6 /* Foundation.framework */,
+				333146ED146DD9FB008ED8B6 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		333146EF146DD9FB008ED8B6 /* Tisk Task 2 */ = {
+			isa = PBXGroup;
+			children = (
+				333146F8146DD9FC008ED8B6 /* AppDelegate.h */,
+				333146F9146DD9FC008ED8B6 /* AppDelegate.m */,
+				333146FB146DD9FC008ED8B6 /* FirstViewController.h */,
+				333146FC146DD9FC008ED8B6 /* FirstViewController.m */,
+				333146FE146DD9FC008ED8B6 /* first.png */,
+				33314700146DD9FC008ED8B6 /* first@2x.png */,
+				33314702146DD9FC008ED8B6 /* SecondViewController.h */,
+				33314703146DD9FC008ED8B6 /* SecondViewController.m */,
+				33314705146DD9FC008ED8B6 /* second.png */,
+				33314707146DD9FC008ED8B6 /* second@2x.png */,
+				33314709146DD9FC008ED8B6 /* FirstViewController.xib */,
+				3331470C146DD9FC008ED8B6 /* SecondViewController.xib */,
+				333146F0146DD9FB008ED8B6 /* Supporting Files */,
+			);
+			path = "Tisk Task 2";
+			sourceTree = "<group>";
+		};
+		333146F0146DD9FB008ED8B6 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				333146F1146DD9FB008ED8B6 /* Tisk Task 2-Info.plist */,
+				333146F2146DD9FB008ED8B6 /* InfoPlist.strings */,
+				333146F5146DD9FC008ED8B6 /* main.m */,
+				333146F7146DD9FC008ED8B6 /* Tisk Task 2-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		333146E4146DD9FB008ED8B6 /* Tisk Task 2 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 33314711146DD9FC008ED8B6 /* Build configuration list for PBXNativeTarget "Tisk Task 2" */;
+			buildPhases = (
+				333146E1146DD9FB008ED8B6 /* Sources */,
+				333146E2146DD9FB008ED8B6 /* Frameworks */,
+				333146E3146DD9FB008ED8B6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Tisk Task 2";
+			productName = "Tisk Task 2";
+			productReference = 333146E5146DD9FB008ED8B6 /* Tisk Task 2.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		333146DC146DD9FB008ED8B6 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+				ORGANIZATIONNAME = "University of Illinois";
+			};
+			buildConfigurationList = 333146DF146DD9FB008ED8B6 /* Build configuration list for PBXProject "Tisk Task 2" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 333146DA146DD9FB008ED8B6;
+			productRefGroup = 333146E6146DD9FB008ED8B6 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				333146E4146DD9FB008ED8B6 /* Tisk Task 2 */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		333146E3146DD9FB008ED8B6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				333146F4146DD9FB008ED8B6 /* InfoPlist.strings in Resources */,
+				333146FF146DD9FC008ED8B6 /* first.png in Resources */,
+				33314701146DD9FC008ED8B6 /* first@2x.png in Resources */,
+				33314706146DD9FC008ED8B6 /* second.png in Resources */,
+				33314708146DD9FC008ED8B6 /* second@2x.png in Resources */,
+				3331470B146DD9FC008ED8B6 /* FirstViewController.xib in Resources */,
+				3331470E146DD9FC008ED8B6 /* SecondViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		333146E1146DD9FB008ED8B6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				333146F6146DD9FC008ED8B6 /* main.m in Sources */,
+				333146FA146DD9FC008ED8B6 /* AppDelegate.m in Sources */,
+				333146FD146DD9FC008ED8B6 /* FirstViewController.m in Sources */,
+				33314704146DD9FC008ED8B6 /* SecondViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		333146F2146DD9FB008ED8B6 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				333146F3146DD9FB008ED8B6 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		33314709146DD9FC008ED8B6 /* FirstViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3331470A146DD9FC008ED8B6 /* en */,
+			);
+			name = FirstViewController.xib;
+			sourceTree = "<group>";
+		};
+		3331470C146DD9FC008ED8B6 /* SecondViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3331470D146DD9FC008ED8B6 /* en */,
+			);
+			name = SecondViewController.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		3331470F146DD9FC008ED8B6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		33314710146DD9FC008ED8B6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		33314712146DD9FC008ED8B6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Tisk Task 2/Tisk Task 2-Prefix.pch";
+				INFOPLIST_FILE = "Tisk Task 2/Tisk Task 2-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		33314713146DD9FC008ED8B6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Tisk Task 2/Tisk Task 2-Prefix.pch";
+				INFOPLIST_FILE = "Tisk Task 2/Tisk Task 2-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		333146DF146DD9FB008ED8B6 /* Build configuration list for PBXProject "Tisk Task 2" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3331470F146DD9FC008ED8B6 /* Debug */,
+				33314710146DD9FC008ED8B6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		33314711146DD9FC008ED8B6 /* Build configuration list for PBXNativeTarget "Tisk Task 2" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				33314712146DD9FC008ED8B6 /* Debug */,
+				33314713146DD9FC008ED8B6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 333146DC146DD9FB008ED8B6 /* Project object */;
+}
