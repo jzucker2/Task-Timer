@@ -64,6 +64,8 @@
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
+    //self.taskTimer = nil;
+    //[self stopTimer];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -74,8 +76,8 @@
 
 - (void) dealloc
 {
-    [editedObject release];
-    [task release];
+    //[editedObject release];
+    //[task release];
     [timerButton release];
     [nameLabel release];
     [durationLabel release];
@@ -95,11 +97,14 @@
     }
     else
     {
-        if (task.elapsed < task.duration) {
+        double elapsed = [task.elapsed doubleValue];
+        double duration = [task.duration doubleValue];
+        if (elapsed < duration) {
             [self startTimer];
         }
         else
         {
+            NSLog(@"duration: %@, elapsed: %@", task.duration, task.elapsed);
             NSLog(@"task is already finished");
         }
         //[self startTimer];
@@ -175,6 +180,10 @@
             
             [undoManager setActionName:@"elapsed"];
             [editedObject setValue:task.duration forKey:@"elapsed"];
+            
+            [undoManager setActionName:@"completed"];
+            NSNumber *completed = [NSNumber numberWithBool:YES];
+            [editedObject setValue:completed forKey:@"completed"];
         }
     }
     else

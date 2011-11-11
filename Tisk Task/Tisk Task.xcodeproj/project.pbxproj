@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		332D062A146C873F004240F5 /* Task.m in Sources */ = {isa = PBXBuildFile; fileRef = 332D0629146C873F004240F5 /* Task.m */; };
 		332F6CE11468810A00E5BC4F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 332F6CE01468810A00E5BC4F /* UIKit.framework */; };
 		332F6CE31468810A00E5BC4F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 332F6CE21468810A00E5BC4F /* Foundation.framework */; };
 		332F6CE51468810A00E5BC4F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 332F6CE41468810A00E5BC4F /* CoreGraphics.framework */; };
@@ -24,6 +23,7 @@
 		332F6D24146885FD00E5BC4F /* AllTaskViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 332F6D22146885FD00E5BC4F /* AllTaskViewController.xib */; };
 		332F6D2B1468891900E5BC4F /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 332F6D2A1468891900E5BC4F /* DetailViewController.m */; };
 		332F6D2F14688C1200E5BC4F /* AddViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 332F6D2E14688C1200E5BC4F /* AddViewController.m */; };
+		33D90114146DE45500EEBF6E /* Task.m in Sources */ = {isa = PBXBuildFile; fileRef = 33D90113146DE45500EEBF6E /* Task.m */; };
 		33E0F9341468BE7000864109 /* EditingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33E0F9321468BE7000864109 /* EditingViewController.m */; };
 		33E0F9351468BE7000864109 /* EditingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 33E0F9331468BE7000864109 /* EditingView.xib */; };
 		33E0F93E1468E9DF00864109 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 33E0F93D1468E9DF00864109 /* icon.png */; };
@@ -36,8 +36,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		332D0628146C873F004240F5 /* Task.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Task.h; path = ../Task.h; sourceTree = "<group>"; };
-		332D0629146C873F004240F5 /* Task.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Task.m; path = ../Task.m; sourceTree = "<group>"; };
 		332F6CDC1468810A00E5BC4F /* Tisk Task.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Tisk Task.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		332F6CE01468810A00E5BC4F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		332F6CE21468810A00E5BC4F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -61,6 +59,8 @@
 		332F6D2A1468891900E5BC4F /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 		332F6D2D14688C1200E5BC4F /* AddViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddViewController.h; sourceTree = "<group>"; };
 		332F6D2E14688C1200E5BC4F /* AddViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddViewController.m; sourceTree = "<group>"; };
+		33D90112146DE45500EEBF6E /* Task.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Task.h; path = ../Task.h; sourceTree = "<group>"; };
+		33D90113146DE45500EEBF6E /* Task.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Task.m; path = ../Task.m; sourceTree = "<group>"; };
 		33E0F9311468BE7000864109 /* EditingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditingViewController.h; sourceTree = "<group>"; };
 		33E0F9321468BE7000864109 /* EditingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditingViewController.m; sourceTree = "<group>"; };
 		33E0F9331468BE7000864109 /* EditingView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EditingView.xib; sourceTree = "<group>"; };
@@ -172,8 +172,8 @@
 		332F6D1F1468856800E5BC4F /* Task Model */ = {
 			isa = PBXGroup;
 			children = (
-				332D0628146C873F004240F5 /* Task.h */,
-				332D0629146C873F004240F5 /* Task.m */,
+				33D90112146DE45500EEBF6E /* Task.h */,
+				33D90113146DE45500EEBF6E /* Task.m */,
 			);
 			name = "Task Model";
 			sourceTree = "<group>";
@@ -330,7 +330,7 @@
 				33E0F9451469976900864109 /* SettingsViewController.m in Sources */,
 				33E0F94B1469B45100864109 /* TodayTaskViewController.m in Sources */,
 				33E636E01469E61C006859FE /* TaskTimerViewController.m in Sources */,
-				332D062A146C873F004240F5 /* Task.m in Sources */,
+				33D90114146DE45500EEBF6E /* Task.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
