@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="872" systemVersion="11C74" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="TaskDetails" representedClassName="TaskDetails" syncable="YES">
+        <attribute name="completionDate" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="creationDate" attributeType="Date" syncable="YES"/>
+        <attribute name="details" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="elapsedTime" attributeType="Double" minValueString="0" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="isCompleted" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
+        <relationship name="info" optional="YES" minCount="1" maxCount="1" deletionRule="Cascade" destinationEntity="TaskInfo" inverseName="details" inverseEntity="TaskInfo" syncable="YES"/>
+    </entity>
+    <entity name="TaskInfo" representedClassName="TaskInfo" syncable="YES">
+        <attribute name="duration" attributeType="Double" minValueString="0" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="isRunning" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
+        <attribute name="isToday" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
+        <attribute name="title" attributeType="String" syncable="YES"/>
+        <relationship name="details" optional="YES" minCount="1" maxCount="1" deletionRule="Cascade" destinationEntity="TaskDetails" inverseName="info" inverseEntity="TaskDetails" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="TaskInfo" positionX="160" positionY="192" width="128" height="120"/>
+        <element name="TaskDetails" positionX="160" positionY="192" width="128" height="135"/>
+    </elements>
+</model>

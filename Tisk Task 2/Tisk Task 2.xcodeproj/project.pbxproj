@@ -21,6 +21,10 @@
 		33314708146DD9FC008ED8B6 /* second@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 33314707146DD9FC008ED8B6 /* second@2x.png */; };
 		3331470B146DD9FC008ED8B6 /* FirstViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 33314709146DD9FC008ED8B6 /* FirstViewController.xib */; };
 		3331470E146DD9FC008ED8B6 /* SecondViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3331470C146DD9FC008ED8B6 /* SecondViewController.xib */; };
+		33D900F8146DDC3F00EEBF6E /* TaskDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 33D900F6146DDC3F00EEBF6E /* TaskDataModel.xcdatamodeld */; };
+		33D90102146DDF3500EEBF6E /* TaskDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = 33D90101146DDF3500EEBF6E /* TaskDetails.m */; };
+		33D90105146DDF3600EEBF6E /* TaskInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 33D90104146DDF3600EEBF6E /* TaskInfo.m */; };
+		33D9010C146DE0B200EEBF6E /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33D9010B146DE0B200EEBF6E /* CoreData.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +48,12 @@
 		33314707146DD9FC008ED8B6 /* second@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "second@2x.png"; sourceTree = "<group>"; };
 		3331470A146DD9FC008ED8B6 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/FirstViewController.xib; sourceTree = "<group>"; };
 		3331470D146DD9FC008ED8B6 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/SecondViewController.xib; sourceTree = "<group>"; };
+		33D900F7146DDC3F00EEBF6E /* TaskDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TaskDataModel.xcdatamodel; sourceTree = "<group>"; };
+		33D90100146DDF3500EEBF6E /* TaskDetails.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TaskDetails.h; sourceTree = "<group>"; };
+		33D90101146DDF3500EEBF6E /* TaskDetails.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TaskDetails.m; sourceTree = "<group>"; };
+		33D90103146DDF3600EEBF6E /* TaskInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TaskInfo.h; sourceTree = "<group>"; };
+		33D90104146DDF3600EEBF6E /* TaskInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TaskInfo.m; sourceTree = "<group>"; };
+		33D9010B146DE0B200EEBF6E /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +61,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				33D9010C146DE0B200EEBF6E /* CoreData.framework in Frameworks */,
 				333146EA146DD9FB008ED8B6 /* UIKit.framework in Frameworks */,
 				333146EC146DD9FB008ED8B6 /* Foundation.framework in Frameworks */,
 				333146EE146DD9FB008ED8B6 /* CoreGraphics.framework in Frameworks */,
@@ -63,6 +74,7 @@
 		333146DA146DD9FB008ED8B6 = {
 			isa = PBXGroup;
 			children = (
+				33D9010B146DE0B200EEBF6E /* CoreData.framework */,
 				333146EF146DD9FB008ED8B6 /* Tisk Task 2 */,
 				333146E8146DD9FB008ED8B6 /* Frameworks */,
 				333146E6146DD9FB008ED8B6 /* Products */,
@@ -90,18 +102,11 @@
 		333146EF146DD9FB008ED8B6 /* Tisk Task 2 */ = {
 			isa = PBXGroup;
 			children = (
-				333146F8146DD9FC008ED8B6 /* AppDelegate.h */,
-				333146F9146DD9FC008ED8B6 /* AppDelegate.m */,
-				333146FB146DD9FC008ED8B6 /* FirstViewController.h */,
-				333146FC146DD9FC008ED8B6 /* FirstViewController.m */,
-				333146FE146DD9FC008ED8B6 /* first.png */,
-				33314700146DD9FC008ED8B6 /* first@2x.png */,
-				33314702146DD9FC008ED8B6 /* SecondViewController.h */,
-				33314703146DD9FC008ED8B6 /* SecondViewController.m */,
-				33314705146DD9FC008ED8B6 /* second.png */,
-				33314707146DD9FC008ED8B6 /* second@2x.png */,
-				33314709146DD9FC008ED8B6 /* FirstViewController.xib */,
-				3331470C146DD9FC008ED8B6 /* SecondViewController.xib */,
+				33D90107146DDF6E00EEBF6E /* App Delegate */,
+				33D90106146DDF6100EEBF6E /* Task Models */,
+				33D900F6146DDC3F00EEBF6E /* TaskDataModel.xcdatamodeld */,
+				33D90108146DDF8100EEBF6E /* Original Views */,
+				33D9010A146DDFA000EEBF6E /* Resources */,
 				333146F0146DD9FB008ED8B6 /* Supporting Files */,
 			);
 			path = "Tisk Task 2";
@@ -116,6 +121,58 @@
 				333146F7146DD9FC008ED8B6 /* Tisk Task 2-Prefix.pch */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		33D90106146DDF6100EEBF6E /* Task Models */ = {
+			isa = PBXGroup;
+			children = (
+				33D90103146DDF3600EEBF6E /* TaskInfo.h */,
+				33D90104146DDF3600EEBF6E /* TaskInfo.m */,
+				33D90100146DDF3500EEBF6E /* TaskDetails.h */,
+				33D90101146DDF3500EEBF6E /* TaskDetails.m */,
+			);
+			name = "Task Models";
+			sourceTree = "<group>";
+		};
+		33D90107146DDF6E00EEBF6E /* App Delegate */ = {
+			isa = PBXGroup;
+			children = (
+				333146F8146DD9FC008ED8B6 /* AppDelegate.h */,
+				333146F9146DD9FC008ED8B6 /* AppDelegate.m */,
+			);
+			name = "App Delegate";
+			sourceTree = "<group>";
+		};
+		33D90108146DDF8100EEBF6E /* Original Views */ = {
+			isa = PBXGroup;
+			children = (
+				333146FB146DD9FC008ED8B6 /* FirstViewController.h */,
+				333146FC146DD9FC008ED8B6 /* FirstViewController.m */,
+				33314702146DD9FC008ED8B6 /* SecondViewController.h */,
+				33314703146DD9FC008ED8B6 /* SecondViewController.m */,
+				33314709146DD9FC008ED8B6 /* FirstViewController.xib */,
+				3331470C146DD9FC008ED8B6 /* SecondViewController.xib */,
+			);
+			name = "Original Views";
+			sourceTree = "<group>";
+		};
+		33D90109146DDF9600EEBF6E /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				333146FE146DD9FC008ED8B6 /* first.png */,
+				33314700146DD9FC008ED8B6 /* first@2x.png */,
+				33314705146DD9FC008ED8B6 /* second.png */,
+				33314707146DD9FC008ED8B6 /* second@2x.png */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
+		33D9010A146DDFA000EEBF6E /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				33D90109146DDF9600EEBF6E /* Images */,
+			);
+			name = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -190,6 +247,9 @@
 				333146FA146DD9FC008ED8B6 /* AppDelegate.m in Sources */,
 				333146FD146DD9FC008ED8B6 /* FirstViewController.m in Sources */,
 				33314704146DD9FC008ED8B6 /* SecondViewController.m in Sources */,
+				33D900F8146DDC3F00EEBF6E /* TaskDataModel.xcdatamodeld in Sources */,
+				33D90102146DDF3500EEBF6E /* TaskDetails.m in Sources */,
+				33D90105146DDF3600EEBF6E /* TaskInfo.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -307,8 +367,22 @@
 				33314713146DD9FC008ED8B6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		33D900F6146DDC3F00EEBF6E /* TaskDataModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				33D900F7146DDC3F00EEBF6E /* TaskDataModel.xcdatamodel */,
+			);
+			currentVersion = 33D900F7146DDC3F00EEBF6E /* TaskDataModel.xcdatamodel */;
+			path = TaskDataModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 333146DC146DD9FB008ED8B6 /* Project object */;
 }
