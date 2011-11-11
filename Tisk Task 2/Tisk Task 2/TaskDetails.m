@@ -17,6 +17,8 @@
 @dynamic creationDate;
 @dynamic completionDate;
 @dynamic elapsedTime;
+@dynamic startTime;
+@dynamic projectedEndTime;
 @dynamic info;
 
 @end

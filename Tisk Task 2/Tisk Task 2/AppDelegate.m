@@ -12,6 +12,10 @@
 
 #import "SecondViewController.h"
 
+#import "AllTaskTableViewController.h"
+#import "TodayTaskTableViewController.h"
+#import "SettingsTableViewController.h"
+
 @implementation AppDelegate
 
 @synthesize window = _window;
@@ -19,6 +23,10 @@
 
 - (void)dealloc
 {
+    [managedObjectContext release];
+    [managedObjectModel release];
+    [persistentStoreCoordinator release];
+    
     [_window release];
     [_tabBarController release];
     [super dealloc];
@@ -28,10 +36,47 @@
 {
     self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
     // Override point for customization after application launch.
+    
+    /*
     UIViewController *viewController1 = [[[FirstViewController alloc] initWithNibName:@"FirstViewController" bundle:nil] autorelease];
     UIViewController *viewController2 = [[[SecondViewController alloc] initWithNibName:@"SecondViewController" bundle:nil] autorelease];
+     */
+    
+    NSManagedObjectContext *context = [self managedObjectContext];
+    if (!context) {
+        // Handle the error.
+        NSLog(@"context error in app delegate");
+    }
+    
+    AllTaskTableViewController *view1 = [[AllTaskTableViewController alloc] initWithNibName:@"AllTaskTableView" bundle:nil];
+    view1.managedObjectContext = context;
+    view1.title = @"All Tasks";
+    
+    TodayTaskTableViewController *view2 = [[TodayTaskTableViewController alloc] initWithNibName:@"TodayTaskTableView" bundle:nil];
+    view2.managedObjectContext = context;
+    view2.title = @"Today's Tasks";
+    
+    SettingsTableViewController *view3 = [[SettingsTableViewController alloc] initWithNibName:@"SettingsTableView" bundle:nil];
+    view3.title = @"Settings";
+    
+    UINavigationController *nav1 = [[UINavigationController alloc] initWithRootViewController:view1];
+    UINavigationController *nav2 = [[UINavigationController alloc] initWithRootViewController:view2];
+    UINavigationController *nav3 = [[UINavigationController alloc] initWithRootViewController:view3];
+    
+    [view1 release];
+    [view2 release];
+    [view3 release];
+    
+    
+    
     self.tabBarController = [[[UITabBarController alloc] init] autorelease];
-    self.tabBarController.viewControllers = [NSArray arrayWithObjects:viewController1, viewController2, nil];
+    //self.tabBarController.viewControllers = [NSArray arrayWithObjects:viewController1, viewController2, nil];
+    self.tabBarController.viewControllers = [NSArray arrayWithObjects:nav1, nav2, nav3, nil];
+    
+    [nav1 release];
+    [nav2 release];
+    [nav3 release];
+    
     self.window.rootViewController = self.tabBarController;
     [self.window makeKeyAndVisible];
     return YES;

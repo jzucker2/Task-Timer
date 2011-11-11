@@ -6,7 +6,9 @@
         <attribute name="details" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="elapsedTime" attributeType="Double" minValueString="0" defaultValueString="0.0" syncable="YES"/>
         <attribute name="isCompleted" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
-        <relationship name="info" optional="YES" minCount="1" maxCount="1" deletionRule="Cascade" destinationEntity="TaskInfo" inverseName="details" inverseEntity="TaskInfo" syncable="YES"/>
+        <attribute name="projectedEndTime" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="startTime" optional="YES" attributeType="Date" syncable="YES"/>
+        <relationship name="info" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="TaskInfo" inverseName="details" inverseEntity="TaskInfo" syncable="YES"/>
     </entity>
     <entity name="TaskInfo" representedClassName="TaskInfo" syncable="YES">
         <attribute name="duration" attributeType="Double" minValueString="0" defaultValueString="0.0" syncable="YES"/>
@@ -17,6 +19,6 @@
     </entity>
     <elements>
         <element name="TaskInfo" positionX="160" positionY="192" width="128" height="120"/>
-        <element name="TaskDetails" positionX="160" positionY="192" width="128" height="135"/>
+        <element name="TaskDetails" positionX="160" positionY="192" width="128" height="165"/>
     </elements>
 </model>

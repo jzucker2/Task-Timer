@@ -18,6 +18,8 @@
 @property (nonatomic, retain) NSDate * creationDate;
 @property (nonatomic, retain) NSDate * completionDate;
 @property (nonatomic, retain) NSNumber * elapsedTime;
+@property (nonatomic, retain) NSDate * startTime;
+@property (nonatomic, retain) NSDate * projectedEndTime;
 @property (nonatomic, retain) TaskInfo *info;
 
 @end
