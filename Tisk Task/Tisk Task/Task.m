@@ -2,7 +2,7 @@
 //  Task.m
 //  Tisk Task
 //
-//  Created by Jordan Zucker on 11/13/11.
+//  Created by Jordan Zucker on 11/14/11.
 //  Copyright (c) 2011 University of Illinois. All rights reserved.
 //
 
@@ -15,9 +15,9 @@
 @dynamic current;
 @dynamic duration;
 @dynamic elapsed;
+@dynamic endDate;
 @dynamic name;
 @dynamic running;
 @dynamic startDate;
-@dynamic endDate;
 
 @end

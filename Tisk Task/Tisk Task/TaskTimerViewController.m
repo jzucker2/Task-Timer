@@ -75,6 +75,8 @@
 
 - (void) viewDidAppear:(BOOL)animated
 {
+    NSLog(@"task is %@", task);
+    
     isRunning = [task.running boolValue];
     
     // display task information
@@ -86,6 +88,15 @@
         timerButton.titleLabel.text = @"Stop Working";
         
         NSLog(@"set up countdown timer");
+        
+        timeLeft = [task.endDate timeIntervalSinceNow];
+        NSLog(@"timeLeft is %f", timeLeft);
+        
+        
+        taskTimer = [[NSTimer alloc] init];
+        //taskTimer = [NSTimer timerWithTimeInterval:1 target:self selector:@selector(updateCountdownLabel) userInfo:nil repeats:YES];
+        taskTimer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(updateCountdownLabel) userInfo:nil repeats:YES];
+        
     }
     else
     {
@@ -98,6 +109,11 @@
 {
     NSLog(@"viewDidDisappear");
     isRunning = [task.running boolValue];
+    
+    
+    [taskTimer invalidate];
+    taskTimer = nil;
+    [self updateDatabase];
     
 }
 

@@ -23,7 +23,8 @@
 		332F6D24146885FD00E5BC4F /* AllTaskViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 332F6D22146885FD00E5BC4F /* AllTaskViewController.xib */; };
 		332F6D2B1468891900E5BC4F /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 332F6D2A1468891900E5BC4F /* DetailViewController.m */; };
 		332F6D2F14688C1200E5BC4F /* AddViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 332F6D2E14688C1200E5BC4F /* AddViewController.m */; };
-		33C3543D1470800700552ED0 /* Task.m in Sources */ = {isa = PBXBuildFile; fileRef = 33C3543C1470800700552ED0 /* Task.m */; };
+		33DDF6EE1471C55600305154 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33DDF6ED1471C55600305154 /* MessageUI.framework */; };
+		33DDF6F21471D22600305154 /* Task.m in Sources */ = {isa = PBXBuildFile; fileRef = 33DDF6F11471D22600305154 /* Task.m */; };
 		33E0F9341468BE7000864109 /* EditingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33E0F9321468BE7000864109 /* EditingViewController.m */; };
 		33E0F9351468BE7000864109 /* EditingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 33E0F9331468BE7000864109 /* EditingView.xib */; };
 		33E0F93E1468E9DF00864109 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 33E0F93D1468E9DF00864109 /* icon.png */; };
@@ -59,8 +60,9 @@
 		332F6D2A1468891900E5BC4F /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 		332F6D2D14688C1200E5BC4F /* AddViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddViewController.h; sourceTree = "<group>"; };
 		332F6D2E14688C1200E5BC4F /* AddViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddViewController.m; sourceTree = "<group>"; };
-		33C3543B1470800700552ED0 /* Task.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Task.h; sourceTree = "<group>"; };
-		33C3543C1470800700552ED0 /* Task.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Task.m; sourceTree = "<group>"; };
+		33DDF6ED1471C55600305154 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		33DDF6F01471D22600305154 /* Task.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Task.h; sourceTree = "<group>"; };
+		33DDF6F11471D22600305154 /* Task.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Task.m; sourceTree = "<group>"; };
 		33E0F9311468BE7000864109 /* EditingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditingViewController.h; sourceTree = "<group>"; };
 		33E0F9321468BE7000864109 /* EditingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditingViewController.m; sourceTree = "<group>"; };
 		33E0F9331468BE7000864109 /* EditingView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EditingView.xib; sourceTree = "<group>"; };
@@ -81,6 +83,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				33DDF6EE1471C55600305154 /* MessageUI.framework in Frameworks */,
 				332F6D141468819C00E5BC4F /* CoreData.framework in Frameworks */,
 				332F6CE11468810A00E5BC4F /* UIKit.framework in Frameworks */,
 				332F6CE31468810A00E5BC4F /* Foundation.framework in Frameworks */,
@@ -111,6 +114,7 @@
 		332F6CDF1468810A00E5BC4F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				33DDF6ED1471C55600305154 /* MessageUI.framework */,
 				332F6D131468819C00E5BC4F /* CoreData.framework */,
 				332F6CE01468810A00E5BC4F /* UIKit.framework */,
 				332F6CE21468810A00E5BC4F /* Foundation.framework */,
@@ -172,8 +176,8 @@
 		332F6D1F1468856800E5BC4F /* Task Model */ = {
 			isa = PBXGroup;
 			children = (
-				33C3543B1470800700552ED0 /* Task.h */,
-				33C3543C1470800700552ED0 /* Task.m */,
+				33DDF6F01471D22600305154 /* Task.h */,
+				33DDF6F11471D22600305154 /* Task.m */,
 			);
 			name = "Task Model";
 			sourceTree = "<group>";
@@ -330,7 +334,7 @@
 				33E0F9451469976900864109 /* SettingsViewController.m in Sources */,
 				33E0F94B1469B45100864109 /* TodayTaskViewController.m in Sources */,
 				33E636E01469E61C006859FE /* TaskTimerViewController.m in Sources */,
-				33C3543D1470800700552ED0 /* Task.m in Sources */,
+				33DDF6F21471D22600305154 /* Task.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
