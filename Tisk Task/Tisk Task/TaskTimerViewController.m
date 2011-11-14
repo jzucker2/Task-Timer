@@ -43,6 +43,7 @@
     
     editedObject = task;
     
+    /*
     // display task information
     nameLabel.text = [NSString stringWithFormat:@"Task Name: %@", task.name];
     durationLabel.text = [NSString stringWithFormat:@"Duration: %@", task.duration];
@@ -57,6 +58,7 @@
     {
         timerButton.titleLabel.text = @"Start Working";
     }
+     */
     
     
 }
@@ -71,9 +73,31 @@
     
 }
 
+- (void) viewDidAppear:(BOOL)animated
+{
+    isRunning = [task.running boolValue];
+    
+    // display task information
+    nameLabel.text = [NSString stringWithFormat:@"Task Name: %@", task.name];
+    durationLabel.text = [NSString stringWithFormat:@"Duration: %@", task.duration];
+    timeElapsedLabel.text = [NSString stringWithFormat:@"Elapsed: %@", task.elapsed];
+    
+    if (isRunning == YES) {
+        timerButton.titleLabel.text = @"Stop Working";
+        
+        NSLog(@"set up countdown timer");
+    }
+    else
+    {
+        timerButton.titleLabel.text = @"Start Working";
+    }
+}
+
+
 - (void) viewDidDisappear:(BOOL)animated
 {
     NSLog(@"viewDidDisappear");
+    isRunning = [task.running boolValue];
     
 }
 
