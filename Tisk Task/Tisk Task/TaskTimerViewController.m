@@ -50,6 +50,8 @@
     
     if (isRunning == YES) {
         timerButton.titleLabel.text = @"Stop Working";
+        
+        NSLog(@"set up countdown timer");
     }
     else
     {
@@ -66,6 +68,13 @@
     // e.g. self.myOutlet = nil;
     //self.taskTimer = nil;
     //[self stopTimer];
+    
+}
+
+- (void) viewDidDisappear:(BOOL)animated
+{
+    NSLog(@"viewDidDisappear");
+    
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -120,9 +129,10 @@
     //timerButton.titleLabel.text = @"Stop Working";
     [timerButton setTitle:@"Stop Working" forState:UIControlStateNormal];
     
-    
+    /*
     NSDate *today;
-    today = [NSDate date]; 
+    today = [NSDate date];
+     */
     //NSNumber *timeInterval = task.duration - task.elapsed;
     double duration = [task.duration doubleValue];
     double elapsed = [task.elapsed doubleValue];
@@ -171,6 +181,17 @@
             [undoManager setActionName:@"running"];
             running = [NSNumber numberWithBool:YES];
             [editedObject setValue:running forKey:@"running"];
+            
+            NSDate *start = [NSDate date];
+            [undoManager setActionName:@"startDate"];
+            [editedObject setValue:start forKey:@"startDate"];
+            
+            NSLog(@"starting, timeLeft is %f", timeLeft);
+            NSTimeInterval interval = timeLeft;
+            NSDate *end = [NSDate dateWithTimeInterval:interval sinceDate:start];
+            
+            [undoManager setActionName:@"endDate"];
+            [editedObject setValue:end forKey:@"endDate"];
         }
         if (timeLeft == 0) {
             NSLog(@"task finished");

@@ -5,10 +5,12 @@
         <attribute name="current" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
         <attribute name="duration" attributeType="Double" defaultValueString="0" syncable="YES"/>
         <attribute name="elapsed" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="endDate" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="name" attributeType="String" syncable="YES"/>
         <attribute name="running" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="startDate" optional="YES" attributeType="Date" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Task" positionX="160" positionY="192" width="128" height="120"/>
+        <element name="Task" positionX="160" positionY="192" width="128" height="165"/>
     </elements>
 </model>
