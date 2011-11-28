@@ -2,7 +2,7 @@
 //  TaskDetails.m
 //  Tisk Task 2
 //
-//  Created by Jordan Zucker on 11/11/11.
+//  Created by Jordan Zucker on 11/28/11.
 //  Copyright (c) 2011 University of Illinois. All rights reserved.
 //
 
@@ -12,13 +12,12 @@
 
 @implementation TaskDetails
 
-@dynamic isCompleted;
-@dynamic details;
-@dynamic creationDate;
 @dynamic completionDate;
+@dynamic creationDate;
+@dynamic details;
 @dynamic elapsedTime;
-@dynamic startTime;
 @dynamic projectedEndTime;
+@dynamic startTime;
 @dynamic info;
 
 @end
