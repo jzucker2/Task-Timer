@@ -21,6 +21,8 @@
 		33314708146DD9FC008ED8B6 /* second@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 33314707146DD9FC008ED8B6 /* second@2x.png */; };
 		3331470B146DD9FC008ED8B6 /* FirstViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 33314709146DD9FC008ED8B6 /* FirstViewController.xib */; };
 		3331470E146DD9FC008ED8B6 /* SecondViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3331470C146DD9FC008ED8B6 /* SecondViewController.xib */; };
+		33D6BAD21483EE1C003C6088 /* TaskInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 33D6BAD11483EE1C003C6088 /* TaskInfo.m */; };
+		33D6BAD51483EE1C003C6088 /* TaskDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = 33D6BAD41483EE1C003C6088 /* TaskDetails.m */; };
 		33D900F8146DDC3F00EEBF6E /* TaskDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 33D900F6146DDC3F00EEBF6E /* TaskDataModel.xcdatamodeld */; };
 		33D9010C146DE0B200EEBF6E /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33D9010B146DE0B200EEBF6E /* CoreData.framework */; };
 		33D9011C146DE6F700EEBF6E /* AllTaskTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33D9011A146DE6F700EEBF6E /* AllTaskTableViewController.m */; };
@@ -29,8 +31,6 @@
 		33D90123146DE71000EEBF6E /* TodayTaskTableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 33D90121146DE71000EEBF6E /* TodayTaskTableView.xib */; };
 		33D90128146DE75000EEBF6E /* SettingsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33D90126146DE75000EEBF6E /* SettingsTableViewController.m */; };
 		33D90129146DE75000EEBF6E /* SettingsTableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 33D90127146DE75000EEBF6E /* SettingsTableView.xib */; };
-		33D9012D146DEA8500EEBF6E /* TaskInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 33D9012C146DEA8500EEBF6E /* TaskInfo.m */; };
-		33D90130146DEA8500EEBF6E /* TaskDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = 33D9012F146DEA8500EEBF6E /* TaskDetails.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +54,10 @@
 		33314707146DD9FC008ED8B6 /* second@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "second@2x.png"; sourceTree = "<group>"; };
 		3331470A146DD9FC008ED8B6 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/FirstViewController.xib; sourceTree = "<group>"; };
 		3331470D146DD9FC008ED8B6 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/SecondViewController.xib; sourceTree = "<group>"; };
+		33D6BAD01483EE1C003C6088 /* TaskInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TaskInfo.h; path = ../TaskInfo.h; sourceTree = "<group>"; };
+		33D6BAD11483EE1C003C6088 /* TaskInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TaskInfo.m; path = ../TaskInfo.m; sourceTree = "<group>"; };
+		33D6BAD31483EE1C003C6088 /* TaskDetails.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TaskDetails.h; path = ../TaskDetails.h; sourceTree = "<group>"; };
+		33D6BAD41483EE1C003C6088 /* TaskDetails.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TaskDetails.m; path = ../TaskDetails.m; sourceTree = "<group>"; };
 		33D900F7146DDC3F00EEBF6E /* TaskDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TaskDataModel.xcdatamodel; sourceTree = "<group>"; };
 		33D9010B146DE0B200EEBF6E /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		33D90119146DE6F700EEBF6E /* AllTaskTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AllTaskTableViewController.h; sourceTree = "<group>"; };
@@ -65,10 +69,6 @@
 		33D90125146DE75000EEBF6E /* SettingsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsTableViewController.h; sourceTree = "<group>"; };
 		33D90126146DE75000EEBF6E /* SettingsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsTableViewController.m; sourceTree = "<group>"; };
 		33D90127146DE75000EEBF6E /* SettingsTableView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingsTableView.xib; sourceTree = "<group>"; };
-		33D9012B146DEA8500EEBF6E /* TaskInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TaskInfo.h; sourceTree = "<group>"; };
-		33D9012C146DEA8500EEBF6E /* TaskInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TaskInfo.m; sourceTree = "<group>"; };
-		33D9012E146DEA8500EEBF6E /* TaskDetails.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TaskDetails.h; sourceTree = "<group>"; };
-		33D9012F146DEA8500EEBF6E /* TaskDetails.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TaskDetails.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,10 +143,10 @@
 		33D90106146DDF6100EEBF6E /* Task Models */ = {
 			isa = PBXGroup;
 			children = (
-				33D9012E146DEA8500EEBF6E /* TaskDetails.h */,
-				33D9012F146DEA8500EEBF6E /* TaskDetails.m */,
-				33D9012B146DEA8500EEBF6E /* TaskInfo.h */,
-				33D9012C146DEA8500EEBF6E /* TaskInfo.m */,
+				33D6BAD31483EE1C003C6088 /* TaskDetails.h */,
+				33D6BAD41483EE1C003C6088 /* TaskDetails.m */,
+				33D6BAD01483EE1C003C6088 /* TaskInfo.h */,
+				33D6BAD11483EE1C003C6088 /* TaskInfo.m */,
 			);
 			name = "Task Models";
 			sourceTree = "<group>";
@@ -302,8 +302,8 @@
 				33D9011C146DE6F700EEBF6E /* AllTaskTableViewController.m in Sources */,
 				33D90122146DE71000EEBF6E /* TodayTaskTableViewController.m in Sources */,
 				33D90128146DE75000EEBF6E /* SettingsTableViewController.m in Sources */,
-				33D9012D146DEA8500EEBF6E /* TaskInfo.m in Sources */,
-				33D90130146DEA8500EEBF6E /* TaskDetails.m in Sources */,
+				33D6BAD21483EE1C003C6088 /* TaskInfo.m in Sources */,
+				33D6BAD51483EE1C003C6088 /* TaskDetails.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

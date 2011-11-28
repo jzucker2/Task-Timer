@@ -32,6 +32,7 @@
 @property (nonatomic, retain) IBOutlet UILabel *durationLabel;
 @property (nonatomic, retain) Task *task;
 
+
 - (IBAction)handleTimer:(id)sender;
 
 - (void) startTimer;
@@ -40,5 +41,9 @@
 - (void) updateCountdownLabel;
 
 - (void) updateDatabase;
+
+- (void)setUpUndoManager;
+- (void)cleanUpUndoManager;
+
 
 @end
