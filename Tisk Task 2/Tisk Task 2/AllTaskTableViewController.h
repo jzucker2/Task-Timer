@@ -15,4 +15,6 @@
 
 @property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
 
+- (void) addTask;
+
 @end

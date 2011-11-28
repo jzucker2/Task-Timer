@@ -39,6 +39,12 @@
     // self.clearsSelectionOnViewWillAppear = NO;
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
+    self.navigationItem.leftBarButtonItem = self.editButtonItem;
+    
+	// Configure the add button.
+    UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addTask)];
+    self.navigationItem.rightBarButtonItem = addButton;
+    [addButton release];
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
@@ -156,6 +162,13 @@
      [self.navigationController pushViewController:detailViewController animated:YES];
      [detailViewController release];
      */
+}
+
+#pragma mark - Add Task
+
+- (void) addTask
+{
+    NSLog(@"add Task");
 }
 
 @end
