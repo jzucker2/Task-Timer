@@ -31,6 +31,10 @@
 		33D90123146DE71000EEBF6E /* TodayTaskTableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 33D90121146DE71000EEBF6E /* TodayTaskTableView.xib */; };
 		33D90128146DE75000EEBF6E /* SettingsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33D90126146DE75000EEBF6E /* SettingsTableViewController.m */; };
 		33D90129146DE75000EEBF6E /* SettingsTableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 33D90127146DE75000EEBF6E /* SettingsTableView.xib */; };
+		33DB79ED14882BFF00FC7BF9 /* EditingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33DB79EB14882BFF00FC7BF9 /* EditingViewController.m */; };
+		33DB79EE14882BFF00FC7BF9 /* EditingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 33DB79EC14882BFF00FC7BF9 /* EditingView.xib */; };
+		33DB79F314882C4100FC7BF9 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33DB79F214882C4100FC7BF9 /* DetailViewController.m */; };
+		33DB79F714882C7400FC7BF9 /* AddViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33DB79F614882C7400FC7BF9 /* AddViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -69,6 +73,13 @@
 		33D90125146DE75000EEBF6E /* SettingsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsTableViewController.h; sourceTree = "<group>"; };
 		33D90126146DE75000EEBF6E /* SettingsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsTableViewController.m; sourceTree = "<group>"; };
 		33D90127146DE75000EEBF6E /* SettingsTableView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingsTableView.xib; sourceTree = "<group>"; };
+		33DB79EA14882BFF00FC7BF9 /* EditingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditingViewController.h; sourceTree = "<group>"; };
+		33DB79EB14882BFF00FC7BF9 /* EditingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditingViewController.m; sourceTree = "<group>"; };
+		33DB79EC14882BFF00FC7BF9 /* EditingView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EditingView.xib; sourceTree = "<group>"; };
+		33DB79F114882C4100FC7BF9 /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
+		33DB79F214882C4100FC7BF9 /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
+		33DB79F514882C7400FC7BF9 /* AddViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddViewController.h; sourceTree = "<group>"; };
+		33DB79F614882C7400FC7BF9 /* AddViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -199,6 +210,9 @@
 				33D90119146DE6F700EEBF6E /* AllTaskTableViewController.h */,
 				33D9011A146DE6F700EEBF6E /* AllTaskTableViewController.m */,
 				33D9011B146DE6F700EEBF6E /* AllTaskTableView.xib */,
+				33DB79F814882C7F00FC7BF9 /* Add View */,
+				33DB79F014882C0F00FC7BF9 /* Editing View */,
+				33DB79F414882C4600FC7BF9 /* Detail View */,
 			);
 			name = "All Task Table View";
 			sourceTree = "<group>";
@@ -221,6 +235,34 @@
 				33D90127146DE75000EEBF6E /* SettingsTableView.xib */,
 			);
 			name = "Settings Table View";
+			sourceTree = "<group>";
+		};
+		33DB79F014882C0F00FC7BF9 /* Editing View */ = {
+			isa = PBXGroup;
+			children = (
+				33DB79EA14882BFF00FC7BF9 /* EditingViewController.h */,
+				33DB79EB14882BFF00FC7BF9 /* EditingViewController.m */,
+				33DB79EC14882BFF00FC7BF9 /* EditingView.xib */,
+			);
+			name = "Editing View";
+			sourceTree = "<group>";
+		};
+		33DB79F414882C4600FC7BF9 /* Detail View */ = {
+			isa = PBXGroup;
+			children = (
+				33DB79F114882C4100FC7BF9 /* DetailViewController.h */,
+				33DB79F214882C4100FC7BF9 /* DetailViewController.m */,
+			);
+			name = "Detail View";
+			sourceTree = "<group>";
+		};
+		33DB79F814882C7F00FC7BF9 /* Add View */ = {
+			isa = PBXGroup;
+			children = (
+				33DB79F514882C7400FC7BF9 /* AddViewController.h */,
+				33DB79F614882C7400FC7BF9 /* AddViewController.m */,
+			);
+			name = "Add View";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -284,6 +326,7 @@
 				33D9011D146DE6F700EEBF6E /* AllTaskTableView.xib in Resources */,
 				33D90123146DE71000EEBF6E /* TodayTaskTableView.xib in Resources */,
 				33D90129146DE75000EEBF6E /* SettingsTableView.xib in Resources */,
+				33DB79EE14882BFF00FC7BF9 /* EditingView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -304,6 +347,9 @@
 				33D90128146DE75000EEBF6E /* SettingsTableViewController.m in Sources */,
 				33D6BAD21483EE1C003C6088 /* TaskInfo.m in Sources */,
 				33D6BAD51483EE1C003C6088 /* TaskDetails.m in Sources */,
+				33DB79ED14882BFF00FC7BF9 /* EditingViewController.m in Sources */,
+				33DB79F314882C4100FC7BF9 /* DetailViewController.m in Sources */,
+				33DB79F714882C7400FC7BF9 /* AddViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

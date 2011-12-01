@@ -8,9 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "TaskInfo.h"
+#import "AddViewController.h"
+#import "DetailViewController.h"
 
 
-@interface AllTaskTableViewController : UITableViewController <NSFetchedResultsControllerDelegate>
+@interface AllTaskTableViewController : UITableViewController <NSFetchedResultsControllerDelegate, AddViewControllerDelegate>
 {
     NSManagedObjectContext *managedObjectContext;
     NSFetchedResultsController *fetchedResultsController;
@@ -21,7 +23,7 @@
 @property (nonatomic, retain) NSFetchedResultsController *fetchedResultsController;
 @property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
 
-- (void) addTask;
+- (IBAction) addTask;
 
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath;
 

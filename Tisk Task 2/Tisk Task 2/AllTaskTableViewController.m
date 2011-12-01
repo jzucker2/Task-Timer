@@ -94,14 +94,13 @@
 
 #pragma mark - Table view data source
 
-/*
+
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
 //#warning Potentially incomplete method implementation.
     // Return the number of sections.
-    return 0;
+    return 1;
 }
- */
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
@@ -192,23 +191,102 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSLog(@"selected row");
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     [detailViewController release];
-     */
+    //NSLog(@"selected row");
+    // Create and push a detail view controller.
+	DetailViewController *detailViewController = [[DetailViewController alloc] initWithStyle:UITableViewStyleGrouped];
+    TaskInfo *selectedInfo = (TaskInfo *)[[self fetchedResultsController] objectAtIndexPath:indexPath];
+    // Pass the selected book to the new view controller.
+    detailViewController.taskInfo = selectedInfo;
+	[self.navigationController pushViewController:detailViewController animated:YES];
+	[detailViewController release];
+     
 }
 
-#pragma mark - Add Task
+#pragma mark -
+#pragma mark Adding a Book
 
-- (void) addTask
-{
-    NSLog(@"add Task");
+/**
+ Creates a new book, an AddViewController to manage addition of the book, and a new managed object context for the add controller to keep changes made to the book discrete from the application's managed object context until the book is saved.
+ IMPORTANT: It's not necessary to use a second context for this. You could just use the existing context, which would simplify some of the code -- you wouldn't need to merge changes after a save, for example. This implementation, though, illustrates a pattern that may sometimes be useful (where you want to maintain a separate set of edits).  The root view controller sets itself as the delegate of the add controller so that it can be informed when the user has completed the add operation -- either saving or canceling (see addViewController:didFinishWithSave:).
+ */
+- (IBAction)addTask {
+	
+    AddViewController *addViewController = [[AddViewController alloc] initWithStyle:UITableViewStyleGrouped];
+	addViewController.delegate = self;
+	
+	// Create a new managed object context for the new book -- set its persistent store coordinator to the same as that from the fetched results controller's context.
+	NSManagedObjectContext *addingContext = [[NSManagedObjectContext alloc] init];
+	self.addingManagedObjectContext = addingContext;
+	[addingContext release];
+	
+	[addingManagedObjectContext setPersistentStoreCoordinator:[[fetchedResultsController managedObjectContext] persistentStoreCoordinator]];
+    
+	addViewController.taskInfo = (TaskInfo *)[NSEntityDescription insertNewObjectForEntityForName:@"TaskInfo" inManagedObjectContext:addingContext];
+	
+	UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:addViewController];
+	
+    [self.navigationController presentModalViewController:navController animated:YES];
+	
+	[addViewController release];
+	[navController release];
 }
+
+
+
+/**
+ Add controller's delegate method; informs the delegate that the add operation has completed, and indicates whether the user saved the new book.
+ */
+
+- (void)addViewController:(AddViewController *)controller didFinishWithSave:(BOOL)save {
+	
+	if (save) {
+		/*
+		 The new book is associated with the add controller's managed object context.
+		 This is good because it means that any edits that are made don't affect the application's main managed object context -- it's a way of keeping disjoint edits in a separate scratchpad -- but it does make it more difficult to get the new book registered with the fetched results controller.
+		 First, you have to save the new book.  This means it will be added to the persistent store.  Then you can retrieve a corresponding managed object into the application delegate's context.  Normally you might do this using a fetch or using objectWithID: -- for example
+		 
+		 NSManagedObjectID *newBookID = [controller.book objectID];
+		 NSManagedObject *newBook = [applicationContext objectWithID:newBookID];
+		 
+		 These techniques, though, won't update the fetch results controller, which only observes change notifications in its context.
+		 You don't want to tell the fetch result controller to perform its fetch again because this is an expensive operation.
+		 You can, though, update the main context using mergeChangesFromContextDidSaveNotification: which will emit change notifications that the fetch results controller will observe.
+		 To do this:
+		 1	Register as an observer of the add controller's change notifications
+		 2	Perform the save
+		 3	In the notification method (addControllerContextDidSave:), merge the changes
+		 4	Unregister as an observer
+		 */
+		NSNotificationCenter *dnc = [NSNotificationCenter defaultCenter];
+		[dnc addObserver:self selector:@selector(addControllerContextDidSave:) name:NSManagedObjectContextDidSaveNotification object:addingManagedObjectContext];
+		
+		NSError *error;
+		if (![addingManagedObjectContext save:&error]) {
+			// Update to handle the error appropriately.
+			NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+			exit(-1);  // Fail
+		}
+		[dnc removeObserver:self name:NSManagedObjectContextDidSaveNotification object:addingManagedObjectContext];
+	}
+	// Release the adding managed object context.
+	self.addingManagedObjectContext = nil;
+    
+	// Dismiss the modal view to return to the main list
+    [self dismissModalViewControllerAnimated:YES];
+}
+
+
+
+/**
+ Notification from the add controller's context's save operation. This is used to update the fetched results controller's managed object context with the new book instead of performing a fetch (which would be a much more computationally expensive operation).
+ */
+- (void)addControllerContextDidSave:(NSNotification*)saveNotification {
+	
+	NSManagedObjectContext *context = [fetchedResultsController managedObjectContext];
+	// Merging changes causes the fetched results controller to update its results
+	[context mergeChangesFromContextDidSaveNotification:saveNotification];	
+}
+
 
 #pragma mark -
 #pragma mark Fetched results controller
