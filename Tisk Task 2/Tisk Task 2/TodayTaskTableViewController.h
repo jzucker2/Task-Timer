@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
+#import "TaskTimerViewController.h"
+#import "TaskInfo.h"
+
 @interface TodayTaskTableViewController : UITableViewController <NSFetchedResultsControllerDelegate>
 {
     NSManagedObjectContext *managedObjectContext;

@@ -169,6 +169,16 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSLog(@"selected row");
+    
+    TaskTimerViewController *taskTimerViewController = [[TaskTimerViewController alloc] initWithNibName:@"TaskTimerView" bundle:nil];
+    TaskInfo *selectedInfo = (TaskInfo *)[[self fetchedResultsController] objectAtIndexPath:indexPath];
+    
+    // pass selected object to new view controller
+    taskTimerViewController.taskInfo = selectedInfo;
+    taskTimerViewController.title = selectedInfo.title;
+    [self.navigationController pushViewController:taskTimerViewController animated:YES];
+    [taskTimerViewController release];
+    
     // Navigation logic may go here. Create and push another view controller.
     /*
      <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
