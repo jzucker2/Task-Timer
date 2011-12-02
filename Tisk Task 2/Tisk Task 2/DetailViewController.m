@@ -14,6 +14,7 @@
 @implementation DetailViewController
 
 @synthesize taskInfo, undoManager;
+@synthesize todaySwitch;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -147,6 +148,14 @@
 			cell.textLabel.text = @"Is Today";
             NSString *isToday = [NSString stringWithFormat:@"%@", taskInfo.isToday];
 			cell.detailTextLabel.text = isToday;
+            todaySwitch = [[UISwitch alloc] initWithFrame:CGRectZero];
+            //[todaySwitch addTarget:self action:@selector(todaySwitchValueChanged:) forControlEvents:UIControlEventValueChanged];
+            cell.accessoryView = todaySwitch;
+            [todaySwitch addTarget:self action:@selector(todaySwitchValueChanged:) forControlEvents:UIControlEventValueChanged];
+            
+            
+            
+            
 			break;
         case 3:
             cell.textLabel.text = @"Is Running";
@@ -190,6 +199,10 @@
         }
         
         [self.navigationController pushViewController:controller animated:YES];
+    }
+    else
+    {
+        [tableView deselectRowAtIndexPath:indexPath animated:NO];
     }
         
 	[controller release];
@@ -281,6 +294,14 @@
 	[self resignFirstResponder];
 }
 
+#pragma mark -
+#pragma mark Today Switch
+
+- (IBAction)todaySwitchValueChanged:(id)sender
+{
+    NSLog(@"today switch tapped");
+}
+
 
 #pragma mark -
 #pragma mark Memory management
@@ -288,6 +309,7 @@
 - (void)dealloc {
     [undoManager release];
     [taskInfo release];
+    [todaySwitch release];
     [super dealloc];
 }
 

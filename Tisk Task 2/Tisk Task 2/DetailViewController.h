@@ -14,13 +14,17 @@
 {
     TaskInfo *taskInfo;
     NSUndoManager *undoManager;
+    UISwitch *todaySwitch;
 }
 
+@property (nonatomic, retain) UISwitch *todaySwitch;
 @property (nonatomic, retain) TaskInfo *taskInfo;
 @property (nonatomic, retain) NSUndoManager *undoManager;
 
 - (void) setUpUndoManager;
 - (void) cleanUpUndoManager;
 - (void) updateRightBarButtonItemState;
+
+- (IBAction)todaySwitchValueChanged:(id)sender;
 
 @end
