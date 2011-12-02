@@ -412,6 +412,34 @@
     NSLog(@"selectedInfo is %@", selectedInfo);
     //NSLog(@"title is %@", selectedInfo.title);
     
+    NSNumber *newToday;
+    BOOL oldToday = [selectedInfo.isToday boolValue];
+    if (oldToday == YES) {
+        newToday = [NSNumber numberWithBool:NO];
+    }
+    else
+    {
+        newToday = [NSNumber numberWithBool:YES];
+    }
+    
+    [selectedInfo setValue:newToday forKey:@"isToday"];
+    
+    
+    
+    /*
+    NSNotificationCenter *dnc = [NSNotificationCenter defaultCenter];
+    [dnc addObserver:self selector:@selector(addControllerContextDidSave:) name:NSManagedObjectContextDidSaveNotification object:selectedInfo];
+    
+    NSError *error;
+    if (![selectedInfo save:&error]) 
+    {
+        // Update to handle the error appropriately.
+        NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+        exit(-1);  // Fail
+    }
+    [dnc removeObserver:self name:NSManagedObjectContextDidSaveNotification object:selectedInfo];
+     */
+    
 }
 
 
