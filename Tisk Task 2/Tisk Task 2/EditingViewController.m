@@ -86,6 +86,7 @@
 	
 	// Set the action name for the undo operation.
 	NSUndoManager * undoManager = [[editedObject managedObjectContext] undoManager];
+    NSLog(@"editedFieldName is %@", editedFieldName);
 	[undoManager setActionName:[NSString stringWithFormat:@"%@", editedFieldName]];
 	
     // Pass current value to the edited object, then pop.
