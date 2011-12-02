@@ -158,4 +158,10 @@
      */
 }
 
+- (void) dealloc
+{
+    [managedObjectContext release];
+    [super dealloc];
+}
+
 @end

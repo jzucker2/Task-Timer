@@ -283,5 +283,15 @@
 	[self.tableView endUpdates];
 }
 
+#pragma mark -
+#pragma mark Memory Management
+
+- (void) dealloc
+{
+    [managedObjectContext release];
+    [fetchedResultsController release];
+    [super dealloc];
+}
+
 
 @end
