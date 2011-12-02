@@ -22,4 +22,6 @@
 
 - (void) configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath;
 
+- (IBAction)taskAction:(id)sender;
+
 @end

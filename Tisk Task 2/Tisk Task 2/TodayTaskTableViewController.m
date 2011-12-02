@@ -123,6 +123,7 @@
 {
     TaskInfo *taskInfo = [fetchedResultsController objectAtIndexPath:indexPath];
     cell.textLabel.text = taskInfo.title;
+    
 }
 
 /*
@@ -291,6 +292,21 @@
 - (void)controllerDidChangeContent:(NSFetchedResultsController *)controller {
 	// The fetch controller has sent all current change notifications, so tell the table view to process all updates.
 	[self.tableView endUpdates];
+}
+
+#pragma mark -
+#pragma mark Task Start/Stop
+
+- (IBAction)taskAction:(id)sender
+{
+    //NSLog(@"today switch value changed");
+    UITableViewCell *cell = (UITableViewCell *) [sender superview];
+    NSIndexPath *buttonIndexPath = [self.tableView indexPathForCell:cell];
+    
+    //[self.tableView indexPathForCell:<#(UITableViewCell *)#>
+    TaskInfo *selectedInfo = (TaskInfo *)[[self fetchedResultsController] objectAtIndexPath:buttonIndexPath];
+    NSLog(@"selectedInfo is %@", selectedInfo);
+    //NSLog(@"title is %@", selectedInfo.title);
 }
 
 #pragma mark -
