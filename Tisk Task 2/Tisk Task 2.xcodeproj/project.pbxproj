@@ -21,6 +21,8 @@
 		33314708146DD9FC008ED8B6 /* second@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 33314707146DD9FC008ED8B6 /* second@2x.png */; };
 		3331470B146DD9FC008ED8B6 /* FirstViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 33314709146DD9FC008ED8B6 /* FirstViewController.xib */; };
 		3331470E146DD9FC008ED8B6 /* SecondViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3331470C146DD9FC008ED8B6 /* SecondViewController.xib */; };
+		335596C31489711F00D04AAF /* CompletedTaskTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 335596C11489711F00D04AAF /* CompletedTaskTableViewController.m */; };
+		335596C41489711F00D04AAF /* CompletedTaskTableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 335596C21489711F00D04AAF /* CompletedTaskTableView.xib */; };
 		33D6BAD21483EE1C003C6088 /* TaskInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 33D6BAD11483EE1C003C6088 /* TaskInfo.m */; };
 		33D6BAD51483EE1C003C6088 /* TaskDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = 33D6BAD41483EE1C003C6088 /* TaskDetails.m */; };
 		33D900F8146DDC3F00EEBF6E /* TaskDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 33D900F6146DDC3F00EEBF6E /* TaskDataModel.xcdatamodeld */; };
@@ -58,6 +60,9 @@
 		33314707146DD9FC008ED8B6 /* second@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "second@2x.png"; sourceTree = "<group>"; };
 		3331470A146DD9FC008ED8B6 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/FirstViewController.xib; sourceTree = "<group>"; };
 		3331470D146DD9FC008ED8B6 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/SecondViewController.xib; sourceTree = "<group>"; };
+		335596C01489711F00D04AAF /* CompletedTaskTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CompletedTaskTableViewController.h; sourceTree = "<group>"; };
+		335596C11489711F00D04AAF /* CompletedTaskTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CompletedTaskTableViewController.m; sourceTree = "<group>"; };
+		335596C21489711F00D04AAF /* CompletedTaskTableView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CompletedTaskTableView.xib; sourceTree = "<group>"; };
 		33D6BAD01483EE1C003C6088 /* TaskInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TaskInfo.h; path = ../TaskInfo.h; sourceTree = "<group>"; };
 		33D6BAD11483EE1C003C6088 /* TaskInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TaskInfo.m; path = ../TaskInfo.m; sourceTree = "<group>"; };
 		33D6BAD31483EE1C003C6088 /* TaskDetails.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TaskDetails.h; path = ../TaskDetails.h; sourceTree = "<group>"; };
@@ -136,6 +141,7 @@
 				333146F0146DD9FB008ED8B6 /* Supporting Files */,
 				33D90124146DE71300EEBF6E /* Today Task Table View */,
 				33D9011E146DE6FF00EEBF6E /* All Task Table View */,
+				335596C61489712400D04AAF /* Completed Task Table View */,
 			);
 			path = "Tisk Task 2";
 			sourceTree = "<group>";
@@ -149,6 +155,16 @@
 				333146F7146DD9FC008ED8B6 /* Tisk Task 2-Prefix.pch */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		335596C61489712400D04AAF /* Completed Task Table View */ = {
+			isa = PBXGroup;
+			children = (
+				335596C01489711F00D04AAF /* CompletedTaskTableViewController.h */,
+				335596C11489711F00D04AAF /* CompletedTaskTableViewController.m */,
+				335596C21489711F00D04AAF /* CompletedTaskTableView.xib */,
+			);
+			name = "Completed Task Table View";
 			sourceTree = "<group>";
 		};
 		33D90106146DDF6100EEBF6E /* Task Models */ = {
@@ -327,6 +343,7 @@
 				33D90123146DE71000EEBF6E /* TodayTaskTableView.xib in Resources */,
 				33D90129146DE75000EEBF6E /* SettingsTableView.xib in Resources */,
 				33DB79EE14882BFF00FC7BF9 /* EditingView.xib in Resources */,
+				335596C41489711F00D04AAF /* CompletedTaskTableView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -350,6 +367,7 @@
 				33DB79ED14882BFF00FC7BF9 /* EditingViewController.m in Sources */,
 				33DB79F314882C4100FC7BF9 /* DetailViewController.m in Sources */,
 				33DB79F714882C7400FC7BF9 /* AddViewController.m in Sources */,
+				335596C31489711F00D04AAF /* CompletedTaskTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

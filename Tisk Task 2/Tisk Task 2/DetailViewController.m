@@ -151,6 +151,16 @@
             todaySwitch = [[UISwitch alloc] initWithFrame:CGRectZero];
             //[todaySwitch addTarget:self action:@selector(todaySwitchValueChanged:) forControlEvents:UIControlEventValueChanged];
             cell.accessoryView = todaySwitch;
+            
+            BOOL isTodayBOOL = [taskInfo.isToday boolValue];
+            if (isTodayBOOL == YES) {
+                [todaySwitch setOn:YES];
+            }
+            else
+            {
+                [todaySwitch setOn:NO];
+            }
+            
             [todaySwitch addTarget:self action:@selector(todaySwitchValueChanged:) forControlEvents:UIControlEventValueChanged];
             
             
@@ -300,6 +310,37 @@
 - (IBAction)todaySwitchValueChanged:(id)sender
 {
     NSLog(@"today switch tapped");
+    
+     
+    NSNumber *currentNumber;
+    if (todaySwitch.isOn) {
+        currentNumber = [NSNumber numberWithBool:YES];
+    }
+    else
+    {
+        currentNumber = [NSNumber numberWithBool:NO];
+    }
+     
+    //[task setValue:currentNumber forKey:@"current"];
+     
+     
+    // start by setting up undo manager
+    [self setUpUndoManager];
+     
+    [undoManager setActionName:@"isToday"];
+     
+    [taskInfo setValue:currentNumber forKey:@"isToday"];
+     
+    // finish by cleaning up undo manager
+    [self cleanUpUndoManager];
+    // Save the changes.
+    NSError *error;
+    if (![taskInfo.managedObjectContext save:&error]) {
+        // Update to handle the error appropriately.
+        NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+        exit(-1);  // Fail
+    }
+
 }
 
 

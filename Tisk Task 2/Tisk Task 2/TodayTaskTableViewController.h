@@ -8,11 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TodayTaskTableViewController : UITableViewController
+@interface TodayTaskTableViewController : UITableViewController <NSFetchedResultsControllerDelegate>
 {
     NSManagedObjectContext *managedObjectContext;
+    NSFetchedResultsController *fetchedResultsController;
 }
 
+@property (nonatomic, retain) NSFetchedResultsController *fetchedResultsController;
 @property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
+
+- (void) configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath;
 
 @end

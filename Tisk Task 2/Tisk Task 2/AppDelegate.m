@@ -15,6 +15,7 @@
 #import "AllTaskTableViewController.h"
 #import "TodayTaskTableViewController.h"
 #import "SettingsTableViewController.h"
+#import "CompletedTaskTableViewController.h"
 
 @implementation AppDelegate
 
@@ -56,26 +57,33 @@
     view2.managedObjectContext = context;
     view2.title = @"Today's Tasks";
     
-    SettingsTableViewController *view3 = [[SettingsTableViewController alloc] initWithNibName:@"SettingsTableView" bundle:nil];
-    view3.title = @"Settings";
+    CompletedTaskTableViewController *view3 = [[CompletedTaskTableViewController alloc] initWithNibName:@"CompletedTaskTableView" bundle:nil];
+    view3.managedObjectContext = context;
+    view3.title = @"History";
+    
+    SettingsTableViewController *view4 = [[SettingsTableViewController alloc] initWithNibName:@"SettingsTableView" bundle:nil];
+    view4.title = @"Settings";
     
     UINavigationController *nav1 = [[UINavigationController alloc] initWithRootViewController:view1];
     UINavigationController *nav2 = [[UINavigationController alloc] initWithRootViewController:view2];
     UINavigationController *nav3 = [[UINavigationController alloc] initWithRootViewController:view3];
+    UINavigationController *nav4 = [[UINavigationController alloc] initWithRootViewController:view4];
     
     [view1 release];
     [view2 release];
     [view3 release];
+    [view4 release];
     
     
     
     self.tabBarController = [[[UITabBarController alloc] init] autorelease];
     //self.tabBarController.viewControllers = [NSArray arrayWithObjects:viewController1, viewController2, nil];
-    self.tabBarController.viewControllers = [NSArray arrayWithObjects:nav1, nav2, nav3, nil];
+    self.tabBarController.viewControllers = [NSArray arrayWithObjects:nav1, nav2, nav3, nav4, nil];
     
     [nav1 release];
     [nav2 release];
     [nav3 release];
+    [nav4 release];
     
     self.window.rootViewController = self.tabBarController;
     [self.window makeKeyAndVisible];
