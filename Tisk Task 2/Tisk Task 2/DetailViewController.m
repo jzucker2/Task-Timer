@@ -173,34 +173,25 @@
     EditingViewController *controller = [[EditingViewController alloc] initWithNibName:@"EditingView" bundle:nil];
     
     controller.editedObject = taskInfo;
-    switch (indexPath.row) {
-        case 0: {
-            controller.editedFieldKey = @"title";
-            //controller.editedFieldName = NSLocalizedString(@"title", @"display name for title");
-            controller.editedFieldName = @"title";
-            controller.editingDuration = NO;
-        } break;
-        case 1: {
-            controller.editedFieldKey = @"duration";
-			//controller.editedFieldName = NSLocalizedString(@"duration", @"display name for author");
-            controller.editedFieldName = @"duration";
-			controller.editingDuration = YES;
-        } break;
-        case 2: {
-            controller.editedFieldKey = @"isToday";
-			//controller.editedFieldName = NSLocalizedString(@"copyright", @"display name for copyright");
-            controller.editedFieldName = @"isToday";
-			controller.editingDuration = YES;
-        } break;
-        case 3: {
-            controller.editedFieldKey = @"isRunning";
-			//controller.editedFieldName = NSLocalizedString(@"copyright", @"display name for copyright");
-            controller.editedFieldName = @"isRunning";
-			controller.editingDuration = NO;
-        } break;
+    if (indexPath.row < 2) {
+        switch (indexPath.row) {
+            case 0: {
+                controller.editedFieldKey = @"title";
+                //controller.editedFieldName = NSLocalizedString(@"title", @"display name for title");
+                controller.editedFieldName = @"title";
+                controller.editingDuration = NO;
+            } break;
+            case 1: {
+                controller.editedFieldKey = @"duration";
+                //controller.editedFieldName = NSLocalizedString(@"duration", @"display name for author");
+                controller.editedFieldName = @"duration";
+                controller.editingDuration = YES;
+            } break;
+        }
+        
+        [self.navigationController pushViewController:controller animated:YES];
     }
-	
-    [self.navigationController pushViewController:controller animated:YES];
+        
 	[controller release];
 }
 

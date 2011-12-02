@@ -55,9 +55,7 @@
     if (editingDuration) {
         textField.hidden = YES;
         datePicker.hidden = NO;
-		NSDate *date = [editedObject valueForKey:editedFieldKey];
-        if (date == nil) date = [NSDate date];
-        datePicker.date = date;
+        
     }
 	else {
         textField.hidden = NO;
