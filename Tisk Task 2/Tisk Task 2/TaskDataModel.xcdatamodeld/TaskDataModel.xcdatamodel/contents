@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="872" systemVersion="11C74" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+<model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="878" systemVersion="11C74" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="TaskDetails" representedClassName="TaskDetails" syncable="YES">
         <attribute name="completionDate" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="creationDate" attributeType="Date" syncable="YES"/>
-        <attribute name="details" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="elapsedTime" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="projectedEndTime" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="specifics" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="startTime" optional="YES" attributeType="Date" syncable="YES"/>
         <relationship name="info" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="TaskInfo" inverseName="details" inverseEntity="TaskInfo" syncable="YES"/>
     </entity>

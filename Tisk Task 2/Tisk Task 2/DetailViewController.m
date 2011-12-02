@@ -48,6 +48,8 @@
     self.title = @"Task Info";
     self.navigationItem.rightBarButtonItem = self.editButtonItem;
     self.tableView.allowsSelectionDuringEditing = YES;
+    
+    NSLog(@"taskInfo is %@", taskInfo);
 }
 
 - (void)viewDidUnload

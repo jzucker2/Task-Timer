@@ -237,6 +237,16 @@
 	[addingManagedObjectContext setPersistentStoreCoordinator:[[fetchedResultsController managedObjectContext] persistentStoreCoordinator]];
     
 	addViewController.taskInfo = (TaskInfo *)[NSEntityDescription insertNewObjectForEntityForName:@"TaskInfo" inManagedObjectContext:addingContext];
+    
+    /*
+    NSManagedObject *taskDetails = [NSEntityDescription insertNewObjectForEntityForName:@"TaskDetails" inManagedObjectContext:addingContext];
+    [taskDetails setValue:@"blah" forKey:@"specifics"];
+    
+    [taskDetails setValue:addViewController.taskInfo forKey:@"info"];
+    [addViewController.taskInfo setValue:taskDetails forKey:@"details"];
+     */
+    
+    //[addViewController.taskInfo setValue:<#(id)#> forKey:<#(NSString *)#>
 	
 	UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:addViewController];
 	

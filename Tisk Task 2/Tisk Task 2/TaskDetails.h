@@ -2,7 +2,7 @@
 //  TaskDetails.h
 //  Tisk Task 2
 //
-//  Created by Jordan Zucker on 11/28/11.
+//  Created by Jordan Zucker on 12/2/11.
 //  Copyright (c) 2011 University of Illinois. All rights reserved.
 //
 
@@ -15,7 +15,7 @@
 
 @property (nonatomic, retain) NSDate * completionDate;
 @property (nonatomic, retain) NSDate * creationDate;
-@property (nonatomic, retain) NSString * details;
+@property (nonatomic, retain) NSString * specifics;
 @property (nonatomic, retain) NSNumber * elapsedTime;
 @property (nonatomic, retain) NSDate * projectedEndTime;
 @property (nonatomic, retain) NSDate * startTime;
