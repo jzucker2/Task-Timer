@@ -36,7 +36,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
+    
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
@@ -129,8 +129,23 @@
 - (void) configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
 {
     // Configure the cell to show the book's title
-	TaskInfo *task = [fetchedResultsController objectAtIndexPath:indexPath];
-	cell.textLabel.text = task.title;
+	TaskInfo *taskInfo = [fetchedResultsController objectAtIndexPath:indexPath];
+	cell.textLabel.text = taskInfo.title;
+    
+    BOOL todayBOOL = [taskInfo.isToday boolValue];
+    
+    UISwitch *todaySwitch = [[UISwitch alloc] initWithFrame:CGRectZero];
+    if (todayBOOL == YES) {
+        [todaySwitch setOn:YES];
+    }
+    else
+    {
+        [todaySwitch setOn:NO];
+    }
+    [todaySwitch addTarget:self action:@selector(todaySwitchValueChanged:) forControlEvents:UIControlEventValueChanged];
+    todaySwitch.tag = indexPath.row;
+    cell.accessoryView = todaySwitch;
+    [todaySwitch release];
 }
 
 /*
@@ -382,6 +397,22 @@
 	// The fetch controller has sent all current change notifications, so tell the table view to process all updates.
 	[self.tableView endUpdates];
 }
+     
+#pragma mark -
+#pragma mark Today Switch
+- (IBAction)todaySwitchValueChanged:(id)sender
+{
+    //NSLog(@"today switch value changed");
+    UITableViewCell *cell = (UITableViewCell *) [sender superview];
+    NSIndexPath *switchIndexPath = [self.tableView indexPathForCell:cell];
+
+    //[self.tableView indexPathForCell:<#(UITableViewCell *)#>
+    TaskInfo *selectedInfo = (TaskInfo *)[[self fetchedResultsController] objectAtIndexPath:switchIndexPath];
+    NSLog(@"selectedInfo is %@", selectedInfo);
+    //NSLog(@"title is %@", selectedInfo.title);
+    
+}
+
 
 #pragma mark -
 #pragma mark Memory management

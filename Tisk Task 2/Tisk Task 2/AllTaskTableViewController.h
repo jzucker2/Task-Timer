@@ -27,5 +27,7 @@
 
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath;
 
+- (IBAction)todaySwitchValueChanged:(id)sender;
+
 
 @end
