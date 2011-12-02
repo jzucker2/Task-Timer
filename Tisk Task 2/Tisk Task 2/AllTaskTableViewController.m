@@ -276,7 +276,8 @@
 		[dnc addObserver:self selector:@selector(addControllerContextDidSave:) name:NSManagedObjectContextDidSaveNotification object:addingManagedObjectContext];
 		
 		NSError *error;
-		if (![addingManagedObjectContext save:&error]) {
+		if (![addingManagedObjectContext save:&error]) 
+        {
 			// Update to handle the error appropriately.
 			NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
 			exit(-1);  // Fail
