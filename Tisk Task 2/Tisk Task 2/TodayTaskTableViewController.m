@@ -182,7 +182,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSLog(@"selected row");
+    //NSLog(@"selected row");
     
     TaskTimerViewController *taskTimerViewController = [[TaskTimerViewController alloc] initWithNibName:@"TaskTimerView" bundle:nil];
     TaskInfo *selectedInfo = (TaskInfo *)[[self fetchedResultsController] objectAtIndexPath:indexPath];

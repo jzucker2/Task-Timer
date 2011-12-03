@@ -93,7 +93,7 @@
 		[self setUpUndoManager];
 	}
 	else {
-        NSLog(@"save changes");
+        //NSLog(@"save changes");
 		[self cleanUpUndoManager];
 		// Save the changes.
 		NSError *error;
@@ -312,7 +312,7 @@
 
 - (IBAction)todaySwitchValueChanged:(id)sender
 {
-    NSLog(@"today switch tapped");
+    //NSLog(@"today switch tapped");
     
      
     NSNumber *currentNumber;
