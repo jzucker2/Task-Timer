@@ -93,6 +93,7 @@
 		[self setUpUndoManager];
 	}
 	else {
+        NSLog(@"save changes");
 		[self cleanUpUndoManager];
 		// Save the changes.
 		NSError *error;

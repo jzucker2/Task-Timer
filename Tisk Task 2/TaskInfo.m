@@ -22,5 +22,6 @@
 @dynamic elapsedTime;
 @dynamic projectedEndTime;
 @dynamic startTime;
+@dynamic isRepeating;
 
 @end

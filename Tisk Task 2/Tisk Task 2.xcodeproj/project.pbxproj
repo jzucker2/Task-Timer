@@ -17,7 +17,7 @@
 		33314701146DD9FC008ED8B6 /* first@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 33314700146DD9FC008ED8B6 /* first@2x.png */; };
 		33314706146DD9FC008ED8B6 /* second.png in Resources */ = {isa = PBXBuildFile; fileRef = 33314705146DD9FC008ED8B6 /* second.png */; };
 		33314708146DD9FC008ED8B6 /* second@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 33314707146DD9FC008ED8B6 /* second@2x.png */; };
-		333B93E01489DAE30072F9A7 /* TaskInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 333B93DF1489DAE30072F9A7 /* TaskInfo.m */; };
+		333B93E31489E0E80072F9A7 /* TaskInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 333B93E21489E0E80072F9A7 /* TaskInfo.m */; };
 		335596C31489711F00D04AAF /* CompletedTaskTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 335596C11489711F00D04AAF /* CompletedTaskTableViewController.m */; };
 		335596C41489711F00D04AAF /* CompletedTaskTableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 335596C21489711F00D04AAF /* CompletedTaskTableView.xib */; };
 		335596C81489798900D04AAF /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 335596C71489798900D04AAF /* icon.png */; };
@@ -53,8 +53,8 @@
 		33314700146DD9FC008ED8B6 /* first@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "first@2x.png"; sourceTree = "<group>"; };
 		33314705146DD9FC008ED8B6 /* second.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = second.png; sourceTree = "<group>"; };
 		33314707146DD9FC008ED8B6 /* second@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "second@2x.png"; sourceTree = "<group>"; };
-		333B93DE1489DAE30072F9A7 /* TaskInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TaskInfo.h; path = ../TaskInfo.h; sourceTree = "<group>"; };
-		333B93DF1489DAE30072F9A7 /* TaskInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TaskInfo.m; path = ../TaskInfo.m; sourceTree = "<group>"; };
+		333B93E11489E0E80072F9A7 /* TaskInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TaskInfo.h; path = ../TaskInfo.h; sourceTree = "<group>"; };
+		333B93E21489E0E80072F9A7 /* TaskInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TaskInfo.m; path = ../TaskInfo.m; sourceTree = "<group>"; };
 		335596C01489711F00D04AAF /* CompletedTaskTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CompletedTaskTableViewController.h; sourceTree = "<group>"; };
 		335596C11489711F00D04AAF /* CompletedTaskTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CompletedTaskTableViewController.m; sourceTree = "<group>"; };
 		335596C21489711F00D04AAF /* CompletedTaskTableView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CompletedTaskTableView.xib; sourceTree = "<group>"; };
@@ -175,8 +175,8 @@
 		33D90106146DDF6100EEBF6E /* Task Models */ = {
 			isa = PBXGroup;
 			children = (
-				333B93DE1489DAE30072F9A7 /* TaskInfo.h */,
-				333B93DF1489DAE30072F9A7 /* TaskInfo.m */,
+				333B93E11489E0E80072F9A7 /* TaskInfo.h */,
+				333B93E21489E0E80072F9A7 /* TaskInfo.m */,
 			);
 			name = "Task Models";
 			sourceTree = "<group>";
@@ -359,7 +359,7 @@
 				33DB79F714882C7400FC7BF9 /* AddViewController.m in Sources */,
 				335596C31489711F00D04AAF /* CompletedTaskTableViewController.m in Sources */,
 				335596CC1489837C00D04AAF /* TaskTimerViewController.m in Sources */,
-				333B93E01489DAE30072F9A7 /* TaskInfo.m in Sources */,
+				333B93E31489E0E80072F9A7 /* TaskInfo.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

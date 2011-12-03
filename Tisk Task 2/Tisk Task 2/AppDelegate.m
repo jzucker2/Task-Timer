@@ -100,6 +100,15 @@
      Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
      If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
      */
+    
+    NSError *error;
+    if (managedObjectContext != nil) {
+        if ([managedObjectContext hasChanges] && ![managedObjectContext save:&error]) {
+			// Update to handle the error appropriately.
+			NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+			exit(-1);  // Fail
+        } 
+    }
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application

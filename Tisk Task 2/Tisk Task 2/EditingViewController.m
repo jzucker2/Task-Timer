@@ -90,8 +90,10 @@
 	[undoManager setActionName:[NSString stringWithFormat:@"%@", editedFieldName]];
 	
     // Pass current value to the edited object, then pop.
-    if (editingDuration) {
-        [editedObject setValue:datePicker.date forKey:editedFieldKey];
+    if (editingDuration) 
+    {
+        NSNumber *duration = [NSNumber numberWithDouble:datePicker.countDownDuration];
+        [editedObject setValue:duration forKey:editedFieldKey];
     }
 	else {
         [editedObject setValue:textField.text forKey:editedFieldKey];

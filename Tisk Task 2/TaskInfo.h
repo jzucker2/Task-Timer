@@ -23,5 +23,6 @@
 @property (nonatomic, retain) NSNumber * elapsedTime;
 @property (nonatomic, retain) NSDate * projectedEndTime;
 @property (nonatomic, retain) NSDate * startTime;
+@property (nonatomic, retain) NSNumber * isRepeating;
 
 @end
