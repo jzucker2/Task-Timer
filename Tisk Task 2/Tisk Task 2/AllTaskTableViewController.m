@@ -238,6 +238,13 @@
     
 	addViewController.taskInfo = (TaskInfo *)[NSEntityDescription insertNewObjectForEntityForName:@"TaskInfo" inManagedObjectContext:addingContext];
     
+    NSDate *today = [NSDate date];
+    [addViewController.taskInfo setValue:today forKey:@"creationDate"];
+    NSNumber *noBOOL = [NSNumber numberWithBool:NO];
+    [addViewController.taskInfo setValue:noBOOL forKey:@"isCompleted"];
+    
+    
+    
     /*
     NSManagedObject *taskDetails = [NSEntityDescription insertNewObjectForEntityForName:@"TaskDetails" inManagedObjectContext:addingContext];
     [taskDetails setValue:@"blah" forKey:@"specifics"];
