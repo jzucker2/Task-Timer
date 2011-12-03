@@ -121,8 +121,21 @@
 
 - (void) configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
 {
+    //UIImageView *imageView = [[UIImageView alloc] init];
+    UIImageView *imageView = [cell imageView];
     TaskInfo *taskInfo = [fetchedResultsController objectAtIndexPath:indexPath];
+    BOOL running = [taskInfo.isRunning boolValue];
+    if (running == YES) {
+        //[imageView setBackgroundColor:[UIColor greenColor]];
+        [imageView setImage:[UIImage imageNamed:@"Signal_Light_-_Green.jpg"]];
+    }
+    else
+    {
+        [imageView setImage:[UIImage imageNamed:@"redlight.jpg"]];
+    }
     cell.textLabel.text = taskInfo.title;
+
+    
     
 }
 
