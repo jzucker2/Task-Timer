@@ -38,6 +38,16 @@
     
     titleLabel.text = taskInfo.title;
     durationLabel.text = [NSString stringWithFormat:@"%@", taskInfo.duration];
+    
+    BOOL running = [taskInfo.isRunning boolValue];
+    if (running == YES) 
+    {
+        [timerButton setTitle:@"Stop Working" forState:UIControlStateNormal];
+    }
+    else
+    {
+        [timerButton setTitle:@"Start Working" forState:UIControlStateNormal];
+    }
 }
 
 - (void)viewDidUnload
@@ -59,6 +69,27 @@
 - (IBAction)timerButtonAction:(id)sender
 {
     NSLog(@"timerButton");
+    BOOL runningBOOL = [taskInfo.isRunning boolValue];
+    
+    if (runningBOOL == YES) {
+        [timerButton setTitle:@"Start Working" forState:UIControlStateNormal];
+        [self stopTimer];
+    }
+    else
+    {
+        [timerButton setTitle:@"Stop Working" forState:UIControlStateNormal];
+        [self startTimer];
+    }
+}
+
+- (void) startTimer
+{
+    NSLog(@"startTimer");
+}
+
+- (void) stopTimer
+{
+    NSLog(@"stopTimer");
 }
 
 @end

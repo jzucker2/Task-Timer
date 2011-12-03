@@ -29,4 +29,8 @@
 
 - (IBAction)timerButtonAction:(id)sender;
 
+- (void) startTimer;
+
+- (void) stopTimer;
+
 @end
