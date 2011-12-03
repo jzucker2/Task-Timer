@@ -52,6 +52,7 @@
     if (running == YES) 
     {
         [timerButton setTitle:@"Stop Working" forState:UIControlStateNormal];
+        
     }
     else
     {
@@ -113,7 +114,13 @@
 {
     NSLog(@"updateCountdownLabel");
     countdownLabel.text = [NSString stringWithFormat:@"%f", timeLeft];
-    timeLeft--;
+    if (timeLeft >0) {
+        timeLeft--;
+    }
+    else
+    {
+        NSLog(@"finish task");
+    }
 }
 
 #pragma mark -
@@ -123,6 +130,7 @@
 {
     [titleLabel release];
     [durationLabel release];
+    [elapsedLabel release];
     [countdownTimer release];
     [countdownLabel release];
     

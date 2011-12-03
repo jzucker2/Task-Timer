@@ -110,7 +110,7 @@
 						<string key="NSFrame">{{96, 54}, {103, 35}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView" ref="956642747"/>
+						<reference key="NSNextKeyView" ref="612434684"/>
 						<string key="NSReuseIdentifierKey">_NS:328</string>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClipsSubviews">YES</bool>
@@ -148,7 +148,7 @@
 						<reference key="IBUIFontDescription" ref="1055122023"/>
 						<reference key="IBUIFont" ref="295936820"/>
 					</object>
-					<object class="IBUILabel" id="956642747">
+					<object class="IBUILabel" id="612434684">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">292</int>
 						<string key="NSFrame">{{53, 97}, {186, 33}}</string>
@@ -232,6 +232,14 @@
 					<int key="connectionID">11</int>
 				</object>
 				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">elapsedLabel</string>
+						<reference key="source" ref="372490531"/>
+						<reference key="destination" ref="612434684"/>
+					</object>
+					<int key="connectionID">15</int>
+				</object>
+				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchEventConnection" key="connection">
 						<string key="label">timerButtonAction:</string>
 						<reference key="source" ref="603587130"/>
@@ -255,7 +263,7 @@
 						<array class="NSMutableArray" key="children">
 							<reference ref="113979964"/>
 							<reference ref="686904659"/>
-							<reference ref="956642747"/>
+							<reference ref="612434684"/>
 							<reference ref="889669487"/>
 							<reference ref="603587130"/>
 						</array>
@@ -294,7 +302,7 @@
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">14</int>
-						<reference key="object" ref="956642747"/>
+						<reference key="object" ref="612434684"/>
 						<reference key="parent" ref="191373211"/>
 					</object>
 				</array>
@@ -315,7 +323,7 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">14</int>
+			<int key="maxID">15</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
