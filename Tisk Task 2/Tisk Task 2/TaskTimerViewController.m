@@ -38,14 +38,15 @@
     // Do any additional setup after loading the view from its nib.
     
     titleLabel.text = taskInfo.title;
-    durationLabel.text = [NSString stringWithFormat:@"Duration: %@", taskInfo.duration];
+    double duration = [taskInfo.duration doubleValue];
+    durationLabel.text = [NSString stringWithFormat:@"Duration: %f", duration];
     double elapsed = [taskInfo.elapsedTime doubleValue];
     elapsedLabel.text = [NSString stringWithFormat:@"Elapsed: %f", elapsed];
-    timeLeft = 200.0f;
-    NSLog(@"timeLeft is %f", timeLeft);
+    //timeLeft = ;
+    //NSLog(@"timeLeft is %f", timeLeft);
     countdownTimer = [[NSTimer alloc] init];
     //taskTimer = [NSTimer timerWithTimeInterval:1 target:self selector:@selector(updateCountdownLabel) userInfo:nil repeats:YES];
-    countdownTimer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(updateCountdownLabel) userInfo:nil repeats:YES];
+    //countdownTimer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(updateCountdownLabel) userInfo:nil repeats:YES];
     
     BOOL running = [taskInfo.isRunning boolValue];
     if (running == YES) 
@@ -55,6 +56,7 @@
     else
     {
         [timerButton setTitle:@"Start Working" forState:UIControlStateNormal];
+        
     }
 }
 
@@ -99,6 +101,7 @@
 - (void) startTimer
 {
     NSLog(@"startTimer");
+    
 }
 
 - (void) stopTimer
