@@ -434,6 +434,8 @@
     
     [selectedInfo setValue:newToday forKey:@"isToday"];
     
+    NSLog(@"selectedInfo is now %@", selectedInfo);
+    
     
     
     /*
