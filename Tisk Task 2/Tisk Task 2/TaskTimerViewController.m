@@ -11,6 +11,7 @@
 @implementation TaskTimerViewController
 
 @synthesize taskInfo, countdownTimer, timerButton, titleLabel, durationLabel, countdownLabel;
+@synthesize elapsedLabel;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -37,7 +38,14 @@
     // Do any additional setup after loading the view from its nib.
     
     titleLabel.text = taskInfo.title;
-    durationLabel.text = [NSString stringWithFormat:@"%@", taskInfo.duration];
+    durationLabel.text = [NSString stringWithFormat:@"Duration: %@", taskInfo.duration];
+    double elapsed = [taskInfo.elapsedTime doubleValue];
+    elapsedLabel.text = [NSString stringWithFormat:@"Elapsed: %f", elapsed];
+    timeLeft = 200.0f;
+    NSLog(@"timeLeft is %f", timeLeft);
+    countdownTimer = [[NSTimer alloc] init];
+    //taskTimer = [NSTimer timerWithTimeInterval:1 target:self selector:@selector(updateCountdownLabel) userInfo:nil repeats:YES];
+    countdownTimer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(updateCountdownLabel) userInfo:nil repeats:YES];
     
     BOOL running = [taskInfo.isRunning boolValue];
     if (running == YES) 
@@ -55,6 +63,12 @@
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
+}
+
+- (void) viewDidDisappear:(BOOL)animated
+{
+    [countdownTimer invalidate];
+    countdownTimer = nil;
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -90,6 +104,26 @@
 - (void) stopTimer
 {
     NSLog(@"stopTimer");
+}
+
+- (void) updateCountdownLabel
+{
+    NSLog(@"updateCountdownLabel");
+    countdownLabel.text = [NSString stringWithFormat:@"%f", timeLeft];
+    timeLeft--;
+}
+
+#pragma mark -
+#pragma mark Memory Management
+
+- (void) dealloc
+{
+    [titleLabel release];
+    [durationLabel release];
+    [countdownTimer release];
+    [countdownLabel release];
+    
+    [super dealloc];
 }
 
 @end
