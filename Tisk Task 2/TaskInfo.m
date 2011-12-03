@@ -7,7 +7,6 @@
 //
 
 #import "TaskInfo.h"
-#import "TaskDetails.h"
 
 
 @implementation TaskInfo
@@ -17,6 +16,11 @@
 @dynamic isRunning;
 @dynamic isToday;
 @dynamic title;
-@dynamic details;
+@dynamic completionDate;
+@dynamic specifics;
+@dynamic creationDate;
+@dynamic elapsedTime;
+@dynamic projectedEndTime;
+@dynamic startTime;
 
 @end

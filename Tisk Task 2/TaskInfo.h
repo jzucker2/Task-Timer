@@ -1,5 +1,5 @@
 //
-//  TaskDetails.h
+//  TaskInfo.h
 //  Tisk Task 2
 //
 //  Created by Jordan Zucker on 12/2/11.
@@ -9,16 +9,19 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-@class TaskInfo;
 
-@interface TaskDetails : NSManagedObject
+@interface TaskInfo : NSManagedObject
 
+@property (nonatomic, retain) NSNumber * duration;
+@property (nonatomic, retain) NSNumber * isCompleted;
+@property (nonatomic, retain) NSNumber * isRunning;
+@property (nonatomic, retain) NSNumber * isToday;
+@property (nonatomic, retain) NSString * title;
 @property (nonatomic, retain) NSDate * completionDate;
-@property (nonatomic, retain) NSDate * creationDate;
 @property (nonatomic, retain) NSString * specifics;
+@property (nonatomic, retain) NSDate * creationDate;
 @property (nonatomic, retain) NSNumber * elapsedTime;
 @property (nonatomic, retain) NSDate * projectedEndTime;
 @property (nonatomic, retain) NSDate * startTime;
-@property (nonatomic, retain) TaskInfo *info;
 
 @end
