@@ -434,6 +434,14 @@
     
     [selectedInfo setValue:newToday forKey:@"isToday"];
     
+    NSError *error;
+    if (![managedObjectContext save:&error]) 
+    {
+        // Update to handle the error appropriately.
+        NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+        exit(-1);  // Fail
+    }
+    
     NSLog(@"selectedInfo is now %@", selectedInfo);
     
     
