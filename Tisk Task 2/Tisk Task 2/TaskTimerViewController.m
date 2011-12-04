@@ -35,19 +35,24 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    NSLog(@"viewDidLoad");
+    NSLog(@"taskInfo is %@", taskInfo);
     // Do any additional setup after loading the view from its nib.
     
+    /*
     titleLabel.text = taskInfo.title;
     double duration = [taskInfo.duration doubleValue];
     durationLabel.text = [NSString stringWithFormat:@"Duration: %f", duration];
     double elapsed = [taskInfo.elapsedTime doubleValue];
     elapsedLabel.text = [NSString stringWithFormat:@"Elapsed: %f", elapsed];
+     */
     //timeLeft = ;
     //NSLog(@"timeLeft is %f", timeLeft);
-    countdownTimer = [[NSTimer alloc] init];
+    //countdownTimer = [[NSTimer alloc] init];
     //taskTimer = [NSTimer timerWithTimeInterval:1 target:self selector:@selector(updateCountdownLabel) userInfo:nil repeats:YES];
     //countdownTimer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(updateCountdownLabel) userInfo:nil repeats:YES];
     
+    /*
     BOOL running = [taskInfo.isRunning boolValue];
     if (running == YES) 
     {
@@ -57,8 +62,44 @@
     else
     {
         [timerButton setTitle:@"Start Working" forState:UIControlStateNormal];
+        timeLeft = duration - elapsed;
         
     }
+     */
+}
+
+- (void) viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    NSLog(@"viewDidAppear");
+    countdownTimer = [[NSTimer alloc] init];
+    
+    titleLabel.text = taskInfo.title;
+    double duration = [taskInfo.duration doubleValue];
+    durationLabel.text = [NSString stringWithFormat:@"Duration: %f", duration];
+    double elapsed = [taskInfo.elapsedTime doubleValue];
+    elapsedLabel.text = [NSString stringWithFormat:@"Elapsed: %f", elapsed];
+    
+    BOOL running = [taskInfo.isRunning boolValue];
+    if (running == YES) 
+    {
+        [timerButton setTitle:@"Stop Working" forState:UIControlStateNormal];
+        [self continueTimer];
+        
+    }
+    else
+    {
+        [timerButton setTitle:@"Start Working" forState:UIControlStateNormal];
+        //timeLeft = duration - elapsed;
+        
+        
+    }
+}
+
+- (void) viewWillUnload
+{
+    [super viewWillUnload];
+    NSLog(@"viewWillUnload");
 }
 
 - (void)viewDidUnload
@@ -66,10 +107,13 @@
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
+    NSLog(@"viewDidUnload");
 }
 
 - (void) viewDidDisappear:(BOOL)animated
 {
+    NSLog(@"viewDidDisappear");
+    //[self stopTimer];
     [countdownTimer invalidate];
     countdownTimer = nil;
 }
@@ -90,11 +134,13 @@
     
     if (runningBOOL == YES) {
         [timerButton setTitle:@"Start Working" forState:UIControlStateNormal];
+        NSLog(@"timer button hit, call stop timer");
         [self stopTimer];
     }
     else
     {
         [timerButton setTitle:@"Stop Working" forState:UIControlStateNormal];
+        NSLog(@"timer button hit, call start timer");
         [self startTimer];
     }
 }
@@ -102,17 +148,119 @@
 - (void) startTimer
 {
     NSLog(@"startTimer");
+    NSDate *start = [NSDate date];
+    //NSTimeInterval = timeLeft;
+    NSDate *end = [start dateByAddingTimeInterval:timeLeft];
+    NSNumber *running = [NSNumber numberWithBool:YES];
+    [taskInfo setValue:start forKey:@"startTime"];
+    [taskInfo setValue:end forKey:@"projectedEndTime"];
+    [taskInfo setValue:running forKey:@"isRunning"];
+    
+    NSManagedObjectContext *managedObjectContext = [taskInfo managedObjectContext];
+    NSError *error;
+    if (managedObjectContext != nil) {
+        if ([managedObjectContext hasChanges] && ![managedObjectContext save:&error]) {
+			// Update to handle the error appropriately.
+			NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+			exit(-1);  // Fail
+        } 
+    }
+    
+    double duration = [taskInfo.duration doubleValue];
+    double elapsed = [taskInfo.elapsedTime doubleValue];
+    timeLeft = duration - elapsed;
+    
+    // start timerCountdown label
+    countdownTimer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(updateCountdownLabel) userInfo:nil repeats:YES];
     
 }
 
 - (void) stopTimer
 {
     NSLog(@"stopTimer");
+    //NSDate *start = [NSDate date];
+    //NSTimeInterval = timeLeft;
+    //NSDate *end = [start dateByAddingTimeInterval:timeLeft];
+    NSNumber *running = [NSNumber numberWithBool:NO];
+    
+    double elapsed = [taskInfo.elapsedTime doubleValue];
+    
+    elapsed += timeLeft;
+    NSNumber *elapsedNumber = [NSNumber numberWithDouble:elapsed];
+    [taskInfo setValue:elapsedNumber forKey:@"elapsedTime"];
+    
+    //[taskInfo setValue:start forKey:@"startTime"];
+    //[taskInfo setValue:end forKey:@"projectedEndTime"];
+    [taskInfo setValue:running forKey:@"isRunning"];
+    
+    NSManagedObjectContext *managedObjectContext = [taskInfo managedObjectContext];
+    NSError *error;
+    if (managedObjectContext != nil) {
+        if ([managedObjectContext hasChanges] && ![managedObjectContext save:&error]) {
+			// Update to handle the error appropriately.
+			NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+			exit(-1);  // Fail
+        } 
+    }
+    
+    [countdownTimer invalidate];
+    countdownTimer = nil;
+    
+}
+
+- (void) continueTimer
+{
+    NSLog(@"continueTimer");
+    
+    NSDate *endTime = taskInfo.projectedEndTime;
+    //NSTimeInterval = timeLeft;
+    //NSDate *now = [NSDate date];
+    timeLeft = [endTime timeIntervalSinceNow];
+    NSLog(@"timeLeft is %f", timeLeft);
+    
+    // start timerCountdown label
+    countdownTimer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(updateCountdownLabel) userInfo:nil repeats:YES];
+}
+
+- (void) endTimer
+{
+    NSLog(@"endTimer");
+    NSDate *finishDate = [NSDate date];
+    //NSTimeInterval = timeLeft;
+    //NSDate *end = [start dateByAddingTimeInterval:timeLeft];
+    NSNumber *running = [NSNumber numberWithBool:NO];
+    
+    double elapsed = [taskInfo.elapsedTime doubleValue];
+    
+    elapsed += timeLeft;
+    NSNumber *elapsedNumber = [NSNumber numberWithDouble:elapsed];
+    [taskInfo setValue:elapsedNumber forKey:@"elapsedTime"];
+    
+    [taskInfo setValue:finishDate forKey:@"completionDate"];
+    NSNumber *completed = [NSNumber numberWithBool:YES];
+    [taskInfo setValue:completed forKey:@"isCompleted"];
+    
+    //[taskInfo setValue:start forKey:@"startTime"];
+    //[taskInfo setValue:end forKey:@"projectedEndTime"];
+    [taskInfo setValue:running forKey:@"isRunning"];
+    
+    NSManagedObjectContext *managedObjectContext = [taskInfo managedObjectContext];
+    NSError *error;
+    if (managedObjectContext != nil) {
+        if ([managedObjectContext hasChanges] && ![managedObjectContext save:&error]) {
+			// Update to handle the error appropriately.
+			NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+			exit(-1);  // Fail
+        } 
+    }
+    
+    [countdownTimer invalidate];
+    countdownTimer = nil;
 }
 
 - (void) updateCountdownLabel
 {
-    NSLog(@"updateCountdownLabel");
+    //NSLog(@"updateCountdownLabel");
     countdownLabel.text = [NSString stringWithFormat:@"%f", timeLeft];
     if (timeLeft >0) {
         timeLeft--;
@@ -120,6 +268,7 @@
     else
     {
         NSLog(@"finish task");
+        [self endTimer];
     }
 }
 

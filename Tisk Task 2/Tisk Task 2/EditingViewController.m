@@ -52,12 +52,14 @@
     [super viewWillAppear:animated];
     
     // Configure the user interface according to state.
-    if (editingDuration) {
+    if (editingDuration) 
+    {
         textField.hidden = YES;
         datePicker.hidden = NO;
         
     }
-	else {
+	else 
+    {
         textField.hidden = NO;
         datePicker.hidden = YES;
         textField.text = [editedObject valueForKey:editedFieldKey];
@@ -82,7 +84,8 @@
 #pragma mark -
 #pragma mark Save and cancel operations
 
-- (IBAction)save {
+- (IBAction)save 
+{
 	
 	// Set the action name for the undo operation.
 	NSUndoManager * undoManager = [[editedObject managedObjectContext] undoManager];

@@ -34,8 +34,12 @@
 
 - (void) startTimer;
 
+- (void) continueTimer;
+
 - (void) stopTimer;
 
 - (void) updateCountdownLabel;
+
+- (void) endTimer;
 
 @end
