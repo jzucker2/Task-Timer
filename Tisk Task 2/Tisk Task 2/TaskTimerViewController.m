@@ -215,7 +215,8 @@
     NSDate *endTime = taskInfo.projectedEndTime;
     //NSTimeInterval = timeLeft;
     //NSDate *now = [NSDate date];
-    timeLeft = [endTime timeIntervalSinceNow];
+    //double duration = 
+    timeLeft = -[endTime timeIntervalSinceNow];
     NSLog(@"timeLeft is %f", timeLeft);
     
     // start timerCountdown label
