@@ -184,8 +184,9 @@
     NSNumber *running = [NSNumber numberWithBool:NO];
     
     double elapsed = [taskInfo.elapsedTime doubleValue];
+    double duration = [taskInfo.duration doubleValue];
     
-    elapsed += timeLeft;
+    elapsed = (duration - timeLeft);
     NSNumber *elapsedNumber = [NSNumber numberWithDouble:elapsed];
     [taskInfo setValue:elapsedNumber forKey:@"elapsedTime"];
     
@@ -213,11 +214,23 @@
     NSLog(@"continueTimer");
     
     NSDate *endTime = taskInfo.projectedEndTime;
+    NSDate *startTime = taskInfo.startTime;
     //NSTimeInterval = timeLeft;
     //NSDate *now = [NSDate date];
     //double duration = 
-    timeLeft = -[endTime timeIntervalSinceNow];
+    double timeDiff = [endTime timeIntervalSinceDate:startTime];
+    double timeSinceNow = [endTime timeIntervalSinceNow];
+    double elapsed = [taskInfo.elapsedTime doubleValue];
+    double duration = [taskInfo.duration doubleValue];
+    NSLog(@"timeDiff is %f", timeDiff);
     NSLog(@"timeLeft is %f", timeLeft);
+    NSLog(@"timeSinceNow is %f", timeSinceNow);
+    NSLog(@"elapsed is %f", elapsed);
+    NSLog(@"duration is %f", duration);
+    
+    //NSLog(@"timeLeft is %f", timeLeft);
+    
+    timeLeft = 300;
     
     // start timerCountdown label
     countdownTimer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(updateCountdownLabel) userInfo:nil repeats:YES];
@@ -232,8 +245,9 @@
     NSNumber *running = [NSNumber numberWithBool:NO];
     
     double elapsed = [taskInfo.elapsedTime doubleValue];
+    double duration = [taskInfo.duration doubleValue];
     
-    elapsed += timeLeft;
+    elapsed = (duration - timeLeft);
     NSNumber *elapsedNumber = [NSNumber numberWithDouble:elapsed];
     [taskInfo setValue:elapsedNumber forKey:@"elapsedTime"];
     
