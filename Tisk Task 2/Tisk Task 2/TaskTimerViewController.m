@@ -218,14 +218,14 @@
     NSLog(@"continueTimer");
     
     NSDate *endTime = taskInfo.projectedEndTime;
-    NSDate *startTime = taskInfo.startTime;
+    //NSDate *startTime = taskInfo.startTime;
     //NSTimeInterval = timeLeft;
     //NSDate *now = [NSDate date];
     //double duration = 
-    double timeDiff = [endTime timeIntervalSinceDate:startTime];
+    //double timeDiff = [endTime timeIntervalSinceDate:startTime];
     double timeSinceNow = [endTime timeIntervalSinceNow];
-    double elapsed = [taskInfo.elapsedTime doubleValue];
-    double duration = [taskInfo.duration doubleValue];
+    //double elapsed = [taskInfo.elapsedTime doubleValue];
+    //double duration = [taskInfo.duration doubleValue];
     //NSLog(@"timeDiff is %f", timeDiff);
     //NSLog(@"timeLeft is %f", timeLeft);
     //NSLog(@"timeSinceNow is %f", timeSinceNow);
