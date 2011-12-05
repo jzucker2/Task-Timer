@@ -102,8 +102,10 @@
      */
     
     NSError *error;
-    if (managedObjectContext != nil) {
-        if ([managedObjectContext hasChanges] && ![managedObjectContext save:&error]) {
+    if (managedObjectContext != nil) 
+    {
+        if ([managedObjectContext hasChanges] && ![managedObjectContext save:&error]) 
+        {
 			// Update to handle the error appropriately.
 			NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
 			exit(-1);  // Fail
