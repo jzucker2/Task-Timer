@@ -325,7 +325,15 @@
     localNotification.soundName = UILocalNotificationDefaultSoundName;
     localNotification.applicationIconBadgeNumber = 1;
     
+    
+    NSDictionary *infoDict = [NSDictionary dictionaryWithObjectsAndKeys:taskInfo.title, @"title", taskInfo.projectedEndTime, @"endTime", nil];
+    
+    
+    localNotification.userInfo = infoDict;
+    
     [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
+    
+    
     [localNotification release];
     
     
