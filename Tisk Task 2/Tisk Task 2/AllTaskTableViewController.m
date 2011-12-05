@@ -337,6 +337,10 @@
 	NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
 	NSEntityDescription *entity = [NSEntityDescription entityForName:@"TaskInfo" inManagedObjectContext:managedObjectContext];
 	[fetchRequest setEntity:entity];
+    
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"isCompleted == %@", [NSNumber numberWithBool:NO]];
+    [fetchRequest setPredicate:predicate];
+    
 	
 	// Create the sort descriptors array.
 	//NSSortDescriptor *authorDescriptor = [[NSSortDescriptor alloc] initWithKey:@"author" ascending:YES];

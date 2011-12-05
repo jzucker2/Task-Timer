@@ -8,11 +8,17 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CompletedTaskTableViewController : UITableViewController
+#import "TaskInfo.h"
+
+@interface CompletedTaskTableViewController : UITableViewController <NSFetchedResultsControllerDelegate>
 {
     NSManagedObjectContext *managedObjectContext;
+    NSFetchedResultsController *fetchedResultsController;
 
 }
+@property (nonatomic, retain) NSFetchedResultsController *fetchedResultsController;
 @property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
+
+- (void) configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath;
 
 @end

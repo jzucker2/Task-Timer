@@ -220,8 +220,11 @@
 	NSEntityDescription *entity = [NSEntityDescription entityForName:@"TaskInfo" inManagedObjectContext:managedObjectContext];
 	[fetchRequest setEntity:entity];
     
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"isToday == %@", [NSNumber numberWithBool:YES]];
+    //NSPredicate *predicate = [NSPredicate predicateWithFormat:@"(isToday == %@) AND (isCompleted == %@)", [NSNumber numberWithBool:YES], [NSNumber numberWithBool:NO]];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"(isToday == %@)", [NSNumber numberWithBool:YES]];
     [fetchRequest setPredicate:predicate];
+    
+    //NSPredicate *predicate = [NSPredicate pre
 	
 	// Create the sort descriptors array.
 	NSSortDescriptor *titleDescriptor = [[NSSortDescriptor alloc] initWithKey:@"title" ascending:YES];

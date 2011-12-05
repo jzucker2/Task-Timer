@@ -262,6 +262,9 @@
     NSNumber *completed = [NSNumber numberWithBool:YES];
     [taskInfo setValue:completed forKey:@"isCompleted"];
     
+    NSNumber *todayBOOL = [NSNumber numberWithBool:NO];
+    [taskInfo setValue:todayBOOL forKey:@"isToday"];
+    
     //[taskInfo setValue:start forKey:@"startTime"];
     //[taskInfo setValue:end forKey:@"projectedEndTime"];
     [taskInfo setValue:running forKey:@"isRunning"];
