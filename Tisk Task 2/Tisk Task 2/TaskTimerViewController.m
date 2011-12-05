@@ -148,8 +148,12 @@
 - (void) startTimer
 {
     NSLog(@"startTimer");
+    double duration = [taskInfo.duration doubleValue];
+    double elapsed = [taskInfo.elapsedTime doubleValue];
+    timeLeft = duration - elapsed;
     NSDate *start = [NSDate date];
     //NSTimeInterval = timeLeft;
+    NSLog(@"timeLeft is %f", timeLeft);
     NSDate *end = [start dateByAddingTimeInterval:timeLeft];
     NSNumber *running = [NSNumber numberWithBool:YES];
     [taskInfo setValue:start forKey:@"startTime"];
@@ -166,9 +170,9 @@
         } 
     }
     
-    double duration = [taskInfo.duration doubleValue];
-    double elapsed = [taskInfo.elapsedTime doubleValue];
-    timeLeft = duration - elapsed;
+    //double duration = [taskInfo.duration doubleValue];
+    //double elapsed = [taskInfo.elapsedTime doubleValue];
+    //timeLeft = duration - elapsed;
     
     // start timerCountdown label
     countdownTimer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(updateCountdownLabel) userInfo:nil repeats:YES];
@@ -228,9 +232,12 @@
     NSLog(@"elapsed is %f", elapsed);
     NSLog(@"duration is %f", duration);
     
+    timeSinceNow = nearbyint(timeSinceNow);
+    NSLog(@"timeSinceNow is now %f", timeSinceNow);
+    
     //NSLog(@"timeLeft is %f", timeLeft);
     
-    timeLeft = 300;
+    timeLeft = timeSinceNow;
     
     // start timerCountdown label
     countdownTimer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(updateCountdownLabel) userInfo:nil repeats:YES];
