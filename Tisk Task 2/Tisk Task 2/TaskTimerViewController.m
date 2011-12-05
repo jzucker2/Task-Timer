@@ -35,7 +35,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    NSLog(@"viewDidLoad");
+    //NSLog(@"viewDidLoad");
     NSLog(@"taskInfo is %@", taskInfo);
     // Do any additional setup after loading the view from its nib.
     
@@ -71,7 +71,7 @@
 - (void) viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-    NSLog(@"viewDidAppear");
+    //NSLog(@"viewDidAppear");
     countdownTimer = [[NSTimer alloc] init];
     
     titleLabel.text = taskInfo.title;
@@ -112,7 +112,7 @@
 
 - (void) viewDidDisappear:(BOOL)animated
 {
-    NSLog(@"viewDidDisappear");
+    //NSLog(@"viewDidDisappear");
     //[self stopTimer];
     [countdownTimer invalidate];
     countdownTimer = nil;
@@ -129,18 +129,18 @@
 
 - (IBAction)timerButtonAction:(id)sender
 {
-    NSLog(@"timerButton");
+    //NSLog(@"timerButton");
     BOOL runningBOOL = [taskInfo.isRunning boolValue];
     
     if (runningBOOL == YES) {
         [timerButton setTitle:@"Start Working" forState:UIControlStateNormal];
-        NSLog(@"timer button hit, call stop timer");
+        //NSLog(@"timer button hit, call stop timer");
         [self stopTimer];
     }
     else
     {
         [timerButton setTitle:@"Stop Working" forState:UIControlStateNormal];
-        NSLog(@"timer button hit, call start timer");
+        //NSLog(@"timer button hit, call start timer");
         [self startTimer];
     }
 }
@@ -153,7 +153,7 @@
     timeLeft = duration - elapsed;
     NSDate *start = [NSDate date];
     //NSTimeInterval = timeLeft;
-    NSLog(@"timeLeft is %f", timeLeft);
+    //NSLog(@"timeLeft is %f", timeLeft);
     NSDate *end = [start dateByAddingTimeInterval:timeLeft];
     NSNumber *running = [NSNumber numberWithBool:YES];
     [taskInfo setValue:start forKey:@"startTime"];
@@ -226,14 +226,14 @@
     double timeSinceNow = [endTime timeIntervalSinceNow];
     double elapsed = [taskInfo.elapsedTime doubleValue];
     double duration = [taskInfo.duration doubleValue];
-    NSLog(@"timeDiff is %f", timeDiff);
-    NSLog(@"timeLeft is %f", timeLeft);
-    NSLog(@"timeSinceNow is %f", timeSinceNow);
-    NSLog(@"elapsed is %f", elapsed);
-    NSLog(@"duration is %f", duration);
+    //NSLog(@"timeDiff is %f", timeDiff);
+    //NSLog(@"timeLeft is %f", timeLeft);
+    //NSLog(@"timeSinceNow is %f", timeSinceNow);
+    //NSLog(@"elapsed is %f", elapsed);
+    //NSLog(@"duration is %f", duration);
     
     timeSinceNow = nearbyint(timeSinceNow);
-    NSLog(@"timeSinceNow is now %f", timeSinceNow);
+    //NSLog(@"timeSinceNow is now %f", timeSinceNow);
     
     //NSLog(@"timeLeft is %f", timeLeft);
     
@@ -275,6 +275,9 @@
 			exit(-1);  // Fail
         } 
     }
+    
+    [timerButton setTitle:@"Done" forState:UIControlStateNormal];
+    [timerButton setEnabled:NO];
     
     [countdownTimer invalidate];
     countdownTimer = nil;
