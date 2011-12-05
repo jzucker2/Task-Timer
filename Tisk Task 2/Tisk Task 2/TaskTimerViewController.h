@@ -42,4 +42,6 @@
 
 - (void) endTimer;
 
+- (void) setLocalNotification;
+
 @end

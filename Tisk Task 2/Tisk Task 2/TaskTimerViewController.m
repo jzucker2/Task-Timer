@@ -170,6 +170,8 @@
         } 
     }
     
+    [self setLocalNotification];
+    
     //double duration = [taskInfo.duration doubleValue];
     //double elapsed = [taskInfo.elapsedTime doubleValue];
     //timeLeft = duration - elapsed;
@@ -298,6 +300,36 @@
         NSLog(@"finish task");
         [self endTimer];
     }
+}
+
+#pragma mark -
+#pragma mark Local Notification
+
+- (void) setLocalNotification
+{
+    NSLog(@"setLocalNotification");
+    NSLog(@"taskInfo is %@", taskInfo);
+    
+    // for now, only one notification at a time
+    [[UIApplication sharedApplication] cancelAllLocalNotifications];
+    
+    UILocalNotification *localNotification = [[UILocalNotification alloc] init];
+    if (localNotification == nil) {
+        return;
+    }
+    //localNotification.alertLaunchImage
+    localNotification.fireDate = taskInfo.projectedEndTime;
+    //localNotification.timeZone = [NSTimeZone defaultTimeZone];
+    localNotification.alertBody = [NSString stringWithFormat:@"%@ is done", taskInfo.title];
+    localNotification.alertAction = @"Finish";
+    localNotification.soundName = UILocalNotificationDefaultSoundName;
+    localNotification.applicationIconBadgeNumber = 1;
+    
+    [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
+    [localNotification release];
+    
+    
+    
 }
 
 #pragma mark -
