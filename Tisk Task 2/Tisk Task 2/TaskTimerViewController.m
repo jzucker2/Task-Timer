@@ -12,6 +12,7 @@
 
 @synthesize taskInfo, countdownTimer, timerButton, titleLabel, durationLabel, countdownLabel;
 @synthesize elapsedLabel;
+@synthesize specificsView;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -37,6 +38,7 @@
     [super viewDidLoad];
     //NSLog(@"viewDidLoad");
     NSLog(@"taskInfo is %@", taskInfo);
+    [specificsView setDelegate:self];
     // Do any additional setup after loading the view from its nib.
     
     /*
@@ -68,9 +70,40 @@
      */
 }
 
+- (void) viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    //NSLog(@"viewDidAppear");
+    countdownTimer = [[NSTimer alloc] init];
+    
+    titleLabel.text = taskInfo.title;
+    double duration = [taskInfo.duration doubleValue];
+    durationLabel.text = [NSString stringWithFormat:@"Duration: %f", duration];
+    double elapsed = [taskInfo.elapsedTime doubleValue];
+    elapsedLabel.text = [NSString stringWithFormat:@"Elapsed: %f", elapsed];
+    specificsView.text = taskInfo.specifics;
+    
+    BOOL running = [taskInfo.isRunning boolValue];
+    if (running == YES) 
+    {
+        [timerButton setTitle:@"Stop Working" forState:UIControlStateNormal];
+        [self continueTimer];
+        
+    }
+    else
+    {
+        [timerButton setTitle:@"Start Working" forState:UIControlStateNormal];
+        //timeLeft = duration - elapsed;
+        
+        
+    }
+    
+}
+
 - (void) viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
+    /*
     //NSLog(@"viewDidAppear");
     countdownTimer = [[NSTimer alloc] init];
     
@@ -94,6 +127,7 @@
         
         
     }
+     */
 }
 
 - (void) viewWillUnload
@@ -110,12 +144,18 @@
     NSLog(@"viewDidUnload");
 }
 
+- (void) viewWillDisappear:(BOOL)animated
+{
+    [countdownTimer invalidate];
+    countdownTimer = nil;
+}
+
 - (void) viewDidDisappear:(BOOL)animated
 {
     //NSLog(@"viewDidDisappear");
     //[self stopTimer];
-    [countdownTimer invalidate];
-    countdownTimer = nil;
+    //[countdownTimer invalidate];
+    //countdownTimer = nil;
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation

@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "TaskInfo.h"
 
-@interface TaskTimerViewController : UIViewController
+@interface TaskTimerViewController : UIViewController <UITextViewDelegate>
 {
     IBOutlet UILabel *titleLabel;
     IBOutlet UILabel *durationLabel;
@@ -19,9 +19,11 @@
     NSTimer *countdownTimer;
     TaskInfo *taskInfo;
     double timeLeft;
+    IBOutlet UITextView *specificsView;
     
 }
 
+@property (nonatomic, retain) IBOutlet UITextView *specificsView;
 @property (nonatomic, retain) IBOutlet UILabel *elapsedLabel;
 @property (nonatomic, retain) TaskInfo *taskInfo;
 @property (nonatomic, retain) NSTimer *countdownTimer;
