@@ -46,4 +46,12 @@
 
 - (void) setLocalNotification;
 
+- (void) scheduleAlarm;
+
+- (void) cancelAlarm;
+
+- (void) scheduleReminder:(TaskInfo *) task;
+
+- (void) cancelReminder:(TaskInfo *) task;
+
 @end

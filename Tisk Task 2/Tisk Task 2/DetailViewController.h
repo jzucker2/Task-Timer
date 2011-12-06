@@ -27,4 +27,8 @@
 
 - (IBAction)todaySwitchValueChanged:(id)sender;
 
+- (void) scheduleReminder:(TaskInfo *) task;
+
+- (void) cancelReminder:(TaskInfo *) task;
+
 @end
