@@ -25,10 +25,10 @@
 		335596CC1489837C00D04AAF /* TaskTimerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 335596CA1489837C00D04AAF /* TaskTimerViewController.m */; };
 		335596CD1489837C00D04AAF /* TaskTimerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 335596CB1489837C00D04AAF /* TaskTimerView.xib */; };
 		335596D61489968000D04AAF /* start-button.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 335596D51489968000D04AAF /* start-button.jpg */; };
-		339DA18A148D80DE0047E48E /* TaskInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 339DA189148D80DE0047E48E /* TaskInfo.m */; };
 		339DA18D148D88C90047E48E /* NSManagedObjectContext+FetchedObjectFromURI.m in Sources */ = {isa = PBXBuildFile; fileRef = 339DA18C148D88C90047E48E /* NSManagedObjectContext+FetchedObjectFromURI.m */; };
 		339DA198148DA3580047E48E /* CompletedDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 339DA196148DA3580047E48E /* CompletedDetailViewController.m */; };
 		339DA199148DA3580047E48E /* CompletedDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 339DA197148DA3580047E48E /* CompletedDetailView.xib */; };
+		33A38CB5148E00A40015E157 /* TaskInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 33A38CB4148E00A40015E157 /* TaskInfo.m */; };
 		33D900F8146DDC3F00EEBF6E /* TaskDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 33D900F6146DDC3F00EEBF6E /* TaskDataModel.xcdatamodeld */; };
 		33D9010C146DE0B200EEBF6E /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33D9010B146DE0B200EEBF6E /* CoreData.framework */; };
 		33D9011C146DE6F700EEBF6E /* AllTaskTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33D9011A146DE6F700EEBF6E /* AllTaskTableViewController.m */; };
@@ -68,13 +68,13 @@
 		335596CA1489837C00D04AAF /* TaskTimerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TaskTimerViewController.m; sourceTree = "<group>"; };
 		335596CB1489837C00D04AAF /* TaskTimerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TaskTimerView.xib; sourceTree = "<group>"; };
 		335596D51489968000D04AAF /* start-button.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "start-button.jpg"; sourceTree = "<group>"; };
-		339DA188148D80DE0047E48E /* TaskInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TaskInfo.h; sourceTree = "<group>"; };
-		339DA189148D80DE0047E48E /* TaskInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TaskInfo.m; sourceTree = "<group>"; };
 		339DA18B148D88C90047E48E /* NSManagedObjectContext+FetchedObjectFromURI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObjectContext+FetchedObjectFromURI.h"; sourceTree = "<group>"; };
 		339DA18C148D88C90047E48E /* NSManagedObjectContext+FetchedObjectFromURI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObjectContext+FetchedObjectFromURI.m"; sourceTree = "<group>"; };
 		339DA195148DA3580047E48E /* CompletedDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CompletedDetailViewController.h; sourceTree = "<group>"; };
 		339DA196148DA3580047E48E /* CompletedDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CompletedDetailViewController.m; sourceTree = "<group>"; };
 		339DA197148DA3580047E48E /* CompletedDetailView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CompletedDetailView.xib; sourceTree = "<group>"; };
+		33A38CB3148E00A40015E157 /* TaskInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TaskInfo.h; sourceTree = "<group>"; };
+		33A38CB4148E00A40015E157 /* TaskInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TaskInfo.m; sourceTree = "<group>"; };
 		33D900F7146DDC3F00EEBF6E /* TaskDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TaskDataModel.xcdatamodel; sourceTree = "<group>"; };
 		33D9010B146DE0B200EEBF6E /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		33D90119146DE6F700EEBF6E /* AllTaskTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AllTaskTableViewController.h; sourceTree = "<group>"; };
@@ -207,8 +207,8 @@
 		33D90106146DDF6100EEBF6E /* Task Models */ = {
 			isa = PBXGroup;
 			children = (
-				339DA188148D80DE0047E48E /* TaskInfo.h */,
-				339DA189148D80DE0047E48E /* TaskInfo.m */,
+				33A38CB3148E00A40015E157 /* TaskInfo.h */,
+				33A38CB4148E00A40015E157 /* TaskInfo.m */,
 			);
 			name = "Task Models";
 			sourceTree = "<group>";
@@ -397,9 +397,9 @@
 				33DB79F714882C7400FC7BF9 /* AddViewController.m in Sources */,
 				335596C31489711F00D04AAF /* CompletedTaskTableViewController.m in Sources */,
 				335596CC1489837C00D04AAF /* TaskTimerViewController.m in Sources */,
-				339DA18A148D80DE0047E48E /* TaskInfo.m in Sources */,
 				339DA18D148D88C90047E48E /* NSManagedObjectContext+FetchedObjectFromURI.m in Sources */,
 				339DA198148DA3580047E48E /* CompletedDetailViewController.m in Sources */,
+				33A38CB5148E00A40015E157 /* TaskInfo.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

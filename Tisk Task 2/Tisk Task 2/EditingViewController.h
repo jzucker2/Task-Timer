@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface EditingViewController : UIViewController
+@interface EditingViewController : UIViewController <UITextViewDelegate>
 {
     UITextField *textField;
     NSManagedObject *editedObject;
@@ -16,14 +16,19 @@
     NSString *editedFieldName;
     
     BOOL editingDuration;
+    BOOL editingSpecifics;
     UIDatePicker *datePicker;
+    UITextView *textView;
+    
 }
 
+@property (nonatomic, retain) IBOutlet UITextView *textView;
 @property (nonatomic, retain) IBOutlet UITextField *textField;
 @property (nonatomic, retain) NSManagedObject *editedObject;
 @property (nonatomic, retain) NSString *editedFieldKey;
 @property (nonatomic, retain) NSString *editedFieldName;
 
+@property (nonatomic, assign, getter = isEditingSpecifics) BOOL editingSpecifics;
 @property (nonatomic, assign, getter = isEditingDuration) BOOL editingDuration;
 @property (nonatomic, retain) IBOutlet UIDatePicker *datePicker;
 

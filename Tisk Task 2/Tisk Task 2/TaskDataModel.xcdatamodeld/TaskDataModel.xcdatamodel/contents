@@ -3,7 +3,7 @@
     <entity name="TaskInfo" representedClassName="TaskInfo" syncable="YES">
         <attribute name="completionDate" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="creationDate" attributeType="Date" syncable="YES"/>
-        <attribute name="duration" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="duration" attributeType="Double" minValueString="0" defaultValueString="1" syncable="YES"/>
         <attribute name="elapsedTime" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="isCompleted" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
         <attribute name="isRepeating" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>

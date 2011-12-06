@@ -10,7 +10,7 @@
 
 @implementation EditingViewController
 
-@synthesize textField, editedObject, editedFieldKey, editedFieldName, editingDuration, datePicker;
+@synthesize textField, editedObject, editedFieldKey, editedFieldName, editingDuration, datePicker, editingSpecifics, textView;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -45,27 +45,55 @@
 	UIBarButtonItem *cancelButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(cancel)];
 	self.navigationItem.leftBarButtonItem = cancelButton;
 	[cancelButton release];
+    
+    [textView setDelegate:self];
+    NSLog(@"end of viewDidLoad");
 }
 
 - (void) viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    
+    NSLog(@"viewWillAppear start");
     // Configure the user interface according to state.
+    
     if (editingDuration) 
     {
+        NSLog(@"EditingDuration");
         textField.hidden = YES;
         datePicker.hidden = NO;
+        textView.hidden = YES;
+        /*
+        if ([editedObject valueForKey:editedFieldKey) {
+            <#statements#>
+        }
+         */
+        double countdown = [[editedObject valueForKey:editedFieldKey] doubleValue];
+        [datePicker setCountDownDuration:countdown];
         
     }
-	else 
-    {
+    if (editingSpecifics) {
+        NSLog(@"editingSpecifics");
+        textField.hidden = YES;
+        datePicker.hidden = YES;
+        textView.hidden = NO;
+        [textView setText:[editedObject valueForKey:editedFieldKey]];
+        
+    }
+	if ((editingSpecifics == NO) && (editingDuration == NO)) {
+        NSLog(@"editing text field");
+        textView.hidden = YES;
         textField.hidden = NO;
         datePicker.hidden = YES;
         textField.text = [editedObject valueForKey:editedFieldKey];
 		textField.placeholder = self.title;
         [textField becomeFirstResponder];
     }
+    else
+    {
+        NSLog(@"error");
+        
+    }
+    NSLog(@"viewWillAppear end");
 }
 
 - (void)viewDidUnload
@@ -98,8 +126,15 @@
         NSNumber *duration = [NSNumber numberWithDouble:datePicker.countDownDuration];
         [editedObject setValue:duration forKey:editedFieldKey];
     }
-	else {
+    if (editingSpecifics) {
+        [editedObject setValue:textView.text forKey:editedFieldKey];
+    }
+	if ((editingDuration == NO) && (editingSpecifics == NO)) {
         [editedObject setValue:textField.text forKey:editedFieldKey];
+    } 
+    else
+    {
+        NSLog(@"error");
     }
 	
     [self.navigationController popViewControllerAnimated:YES];
@@ -111,11 +146,35 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
+#pragma mark -
+#pragma mark UITextViewDelegate
+
+- (void) textViewDidBeginEditing:(UITextView *)textView
+{
+    
+}
+
+- (void) textViewDidChange:(UITextView *)textView
+{
+    
+}
+
+- (void) textViewDidChangeSelection:(UITextView *)textView
+{
+    
+}
+
+- (void) textViewDidEndEditing:(UITextView *)textView
+{
+    
+}
+
 
 #pragma mark -
 #pragma mark Memory management
 
 - (void)dealloc {
+    [textView release];
     [textField release];
     [editedObject release];
     [editedFieldKey release];

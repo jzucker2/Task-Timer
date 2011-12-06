@@ -123,7 +123,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // 4 rows
-    return 4;
+    return 5;
 }
 
 
@@ -174,7 +174,11 @@
             cell.textLabel.text = @"Is Running";
             NSString *isRunning = [NSString stringWithFormat:@"%@", taskInfo.isRunning];
 			cell.detailTextLabel.text = isRunning;
-			break; 
+			break;
+        case 4:
+            cell.textLabel.text = @"Specifics";
+            cell.detailTextLabel.text = taskInfo.specifics;
+            break;
     }
     return cell;
 }
@@ -195,29 +199,38 @@
     EditingViewController *controller = [[EditingViewController alloc] initWithNibName:@"EditingView" bundle:nil];
     
     controller.editedObject = taskInfo;
-    if (indexPath.row < 2) {
-        switch (indexPath.row) {
-            case 0: {
-                controller.editedFieldKey = @"title";
-                //controller.editedFieldName = NSLocalizedString(@"title", @"display name for title");
-                controller.editedFieldName = @"title";
-                controller.editingDuration = NO;
-            } break;
-            case 1: {
-                controller.editedFieldKey = @"duration";
-                //controller.editedFieldName = NSLocalizedString(@"duration", @"display name for author");
-                controller.editedFieldName = @"duration";
-                controller.editingDuration = YES;
-            } break;
-        }
-        
-        [self.navigationController pushViewController:controller animated:YES];
+    switch (indexPath.row) {
+        case 0: {
+            NSLog(@"title");
+            controller.editedFieldKey = @"title";
+            //controller.editedFieldName = NSLocalizedString(@"title", @"display name for title");
+            controller.editedFieldName = @"title";
+            controller.editingDuration = NO;
+            controller.editingSpecifics = NO;
+            [self.navigationController pushViewController:controller animated:YES];
+        } break;
+        case 1: {
+            NSLog(@"duration");
+            controller.editedFieldKey = @"duration";
+            //controller.editedFieldName = NSLocalizedString(@"duration", @"display name for author");
+            controller.editedFieldName = @"duration";
+            controller.editingDuration = YES;
+            controller.editingSpecifics = NO;
+            [self.navigationController pushViewController:controller animated:YES];
+        } break;
+        case 4: {
+            NSLog(@"specifics");
+            controller.editedFieldKey = @"specifics";
+            controller.editedFieldName = @"specifics";
+            controller.editingDuration = NO;
+            controller.editingSpecifics = YES;
+            [self.navigationController pushViewController:controller animated:YES];
+        } break;
+        default: {
+            NSLog(@"uneditable");
+            [tableView deselectRowAtIndexPath:indexPath animated:NO];
+        } break;
     }
-    else
-    {
-        [tableView deselectRowAtIndexPath:indexPath animated:NO];
-    }
-        
 	[controller release];
 }
 
