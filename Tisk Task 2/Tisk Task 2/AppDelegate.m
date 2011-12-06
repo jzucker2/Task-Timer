@@ -13,6 +13,8 @@
 #import "SettingsTableViewController.h"
 #import "CompletedTaskTableViewController.h"
 
+#import "NSManagedObjectContext+FetchedObjectFromURI.h"
+
 @implementation AppDelegate
 
 @synthesize window = _window;
@@ -31,6 +33,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    NSLog(@"didFinishLaunchingWithOptions");
     self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
     // Override point for customization after application launch.
     
@@ -117,6 +120,7 @@
 
 - (void)applicationWillEnterForeground:(UIApplication *)application
 {
+    NSLog(@"applicationWillEnterForeground");
     /*
      Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
      */
@@ -124,6 +128,7 @@
 
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
+    NSLog(@"applicationDidBecomeActive");
     /*
      Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
      */
@@ -153,9 +158,63 @@
 
 - (void) application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification
 {
-    NSLog(@"local notification in app delegate");
+    NSLog(@"didReceiveLocalNotification");
     NSLog(@"userInfo is %@", notification.userInfo);
+    NSString *title = [notification.userInfo objectForKey:@"title"];
+    NSLog(@"title is %@", title);
+    
+    NSString *taskString = [notification.userInfo objectForKey:@"taskURLString"];
+    
+    NSURL *taskURL = [NSURL URLWithString:taskString];
+    
+    TaskInfo *taskInfo = (TaskInfo *) [managedObjectContext objectWithURI:taskURL];
+    NSLog(@"taskInfo is %@", taskInfo);
+    
+    [self endTask:taskInfo];
+    
 }
+
+#pragma mark -
+#pragma mark end Task
+
+- (void) endTask:(TaskInfo *)taskInfo
+{
+    NSDate *finishDate = [NSDate date];
+    //NSTimeInterval = timeLeft;
+    //NSDate *end = [start dateByAddingTimeInterval:timeLeft];
+    NSNumber *running = [NSNumber numberWithBool:NO];
+    
+    double elapsed = [taskInfo.elapsedTime doubleValue];
+    double duration = [taskInfo.duration doubleValue];
+    
+    //elapsed = (duration - timeLeft);
+    NSNumber *elapsedNumber = [NSNumber numberWithDouble:elapsed];
+    [taskInfo setValue:elapsedNumber forKey:@"elapsedTime"];
+    
+    [taskInfo setValue:finishDate forKey:@"completionDate"];
+    NSNumber *completed = [NSNumber numberWithBool:YES];
+    [taskInfo setValue:completed forKey:@"isCompleted"];
+    
+    NSNumber *todayBOOL = [NSNumber numberWithBool:NO];
+    [taskInfo setValue:todayBOOL forKey:@"isToday"];
+    
+    //[taskInfo setValue:start forKey:@"startTime"];
+    //[taskInfo setValue:end forKey:@"projectedEndTime"];
+    [taskInfo setValue:running forKey:@"isRunning"];
+    
+    //NSManagedObjectContext *managedObjectContext = [taskInfo managedObjectContext];
+    NSError *error;
+    if (managedObjectContext != nil) {
+        if ([managedObjectContext hasChanges] && ![managedObjectContext save:&error]) {
+			// Update to handle the error appropriately.
+			NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+			exit(-1);  // Fail
+        } 
+    }
+
+}
+
+
 
 #pragma mark -
 #pragma mark Core Data stack

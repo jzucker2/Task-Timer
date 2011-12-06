@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+#import "TaskInfo.h"
+
 @interface AppDelegate : UIResponder <UIApplicationDelegate, UITabBarControllerDelegate>
 {
     NSManagedObjectModel *managedObjectModel;
@@ -24,5 +26,7 @@
 @property (nonatomic, retain, readonly) NSPersistentStoreCoordinator *persistentStoreCoordinator;
 
 @property (nonatomic, readonly) NSString *applicationDocumentsDirectory;
+
+- (void) endTask:(TaskInfo *) taskInfo;
 
 @end

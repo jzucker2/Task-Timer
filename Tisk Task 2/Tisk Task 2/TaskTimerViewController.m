@@ -210,6 +210,17 @@
         } 
     }
     
+    // need to disable notification for timer
+    NSArray *notificationArray = [[UIApplication sharedApplication] scheduledLocalNotifications];
+    UILocalNotification *notification = nil;
+    for (notification in notificationArray) {
+        NSString *title = [notification.userInfo objectForKey:@"title"];
+        NSDate *endTime = [notification.userInfo objectForKey:@"endTime"];
+        if ((title == taskInfo.title) && (endTime == taskInfo.projectedEndTime)) {
+            [[UIApplication sharedApplication] cancelLocalNotification:notification];
+        }
+    }
+    
     [countdownTimer invalidate];
     countdownTimer = nil;
     
@@ -248,6 +259,7 @@
 - (void) endTimer
 {
     NSLog(@"endTimer");
+    /*
     NSDate *finishDate = [NSDate date];
     //NSTimeInterval = timeLeft;
     //NSDate *end = [start dateByAddingTimeInterval:timeLeft];
@@ -280,7 +292,8 @@
 			exit(-1);  // Fail
         } 
     }
-    
+    */
+     
     [timerButton setTitle:@"Done" forState:UIControlStateNormal];
     [timerButton setEnabled:NO];
     
@@ -311,7 +324,7 @@
     NSLog(@"taskInfo is %@", taskInfo);
     
     // for now, only one notification at a time
-    [[UIApplication sharedApplication] cancelAllLocalNotifications];
+    //[[UIApplication sharedApplication] cancelAllLocalNotifications];
     
     UILocalNotification *localNotification = [[UILocalNotification alloc] init];
     if (localNotification == nil) {
@@ -325,8 +338,14 @@
     localNotification.soundName = UILocalNotificationDefaultSoundName;
     localNotification.applicationIconBadgeNumber = 1;
     
+    NSManagedObjectID *taskID = [taskInfo objectID];
+    NSURL *taskURL = [taskID URIRepresentation];
+    //NSString *taskURLString = [NSString stri
     
-    NSDictionary *infoDict = [NSDictionary dictionaryWithObjectsAndKeys:taskInfo.title, @"title", taskInfo.projectedEndTime, @"endTime", nil];
+    
+    NSString *URLstring = [taskURL absoluteString];
+    
+    NSDictionary *infoDict = [NSDictionary dictionaryWithObjectsAndKeys:taskInfo.title, @"title", taskInfo.projectedEndTime, @"endTime", URLstring, @"taskURLString", nil];
     
     
     localNotification.userInfo = infoDict;
