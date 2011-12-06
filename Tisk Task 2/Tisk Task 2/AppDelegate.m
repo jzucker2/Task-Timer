@@ -179,6 +179,10 @@
     NSString *title = [notification.userInfo objectForKey:@"title"];
     NSLog(@"title is %@", title);
     
+    if (!title) {
+        return;
+    }
+    
     NSString *taskString = [notification.userInfo objectForKey:@"taskURLString"];
     
     NSURL *taskURL = [NSURL URLWithString:taskString];
