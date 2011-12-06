@@ -181,7 +181,15 @@
     TaskInfo *taskInfo = (TaskInfo *) [managedObjectContext objectWithURI:taskURL];
     NSLog(@"taskInfo is %@", taskInfo);
     
-    [self endTask:taskInfo];
+    NSString *type = [notification.userInfo objectForKey:@"type"];
+    
+    if ([type isEqualToString:@"alarm"]) {
+        [self endTask:taskInfo];
+    }
+    else
+    {
+        [self handleReminderWithTask:taskInfo];
+    }
     
 }
 
@@ -223,6 +231,14 @@
         } 
     }
 
+}
+
+#pragma mark -
+#pragma mark Handle Reminder
+
+- (void) handleReminderWithTask:(TaskInfo *)taskInfo
+{
+    NSLog(@"handle reminder");
 }
 
 

@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 #import "TaskInfo.h"
+#import "MetaData.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate, UITabBarControllerDelegate>
 {
@@ -28,5 +29,7 @@
 @property (nonatomic, readonly) NSString *applicationDocumentsDirectory;
 
 - (void) endTask:(TaskInfo *) taskInfo;
+
+- (void) handleReminderWithTask:(TaskInfo *)taskInfo;
 
 @end

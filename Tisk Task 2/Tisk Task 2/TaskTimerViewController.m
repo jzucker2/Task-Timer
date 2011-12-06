@@ -255,8 +255,11 @@
     UILocalNotification *notification = nil;
     for (notification in notificationArray) {
         NSString *title = [notification.userInfo objectForKey:@"title"];
-        NSDate *endTime = [notification.userInfo objectForKey:@"endTime"];
-        if ((title == taskInfo.title) && (endTime == taskInfo.projectedEndTime)) 
+        NSString *type = [notification.userInfo objectForKey:@"type"];
+        //NSDate *endTime = [notification.userInfo objectForKey:@"endTime"];
+        //if ((title == taskInfo.title) && (endTime == taskInfo.projectedEndTime))
+        //check for notification type "alarm"
+        if (([title isEqualToString:taskInfo.title]) && ([type isEqualToString:@"alarm"]))
         {
             //notification.applicationIconBadgeNumber--;
             [[UIApplication sharedApplication] cancelLocalNotification:notification];
@@ -387,7 +390,7 @@
     
     NSString *URLstring = [taskURL absoluteString];
     
-    NSDictionary *infoDict = [NSDictionary dictionaryWithObjectsAndKeys:taskInfo.title, @"title", taskInfo.projectedEndTime, @"endTime", URLstring, @"taskURLString", nil];
+    NSDictionary *infoDict = [NSDictionary dictionaryWithObjectsAndKeys:taskInfo.title, @"title", taskInfo.projectedEndTime, @"endTime", URLstring, @"taskURLString", @"alarm", @"type", nil];
     
     
     localNotification.userInfo = infoDict;
