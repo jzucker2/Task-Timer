@@ -92,8 +92,13 @@
     if (notification != nil) {
         [self application:[UIApplication sharedApplication] didReceiveLocalNotification:notification];
     }
+    
+    
     //[self application:[UIApplication sharedApplication] didReceiveLocalNotification:notification];
     
+    
+    // reset methods
+    //[[UIApplication sharedApplication] cancelAllLocalNotifications];
     //[[UIApplication sharedApplication] setApplicationIconBadgeNumber:0];
     return YES;
 }
