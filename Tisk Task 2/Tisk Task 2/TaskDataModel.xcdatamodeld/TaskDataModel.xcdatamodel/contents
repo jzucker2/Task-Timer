@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="878" systemVersion="11C74" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="MetaData" representedClassName="MetaData" syncable="YES">
-        <attribute name="numberAllTasks" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
-        <attribute name="overallTasksFinished" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
-        <attribute name="overallTimeSpent" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
-        <attribute name="tasksFinishedToday" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
-        <attribute name="timeLeftAllTasks" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
-        <attribute name="timeLeftToday" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
-        <attribute name="timeSpentToday" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="numberActiveAlarms" attributeType="Integer 16" minValueString="0" defaultValueString="0" syncable="YES"/>
+        <attribute name="numberActiveReminders" attributeType="Integer 16" minValueString="0" defaultValueString="0" syncable="YES"/>
+        <attribute name="numberAllTasks" attributeType="Integer 16" minValueString="0" defaultValueString="0" syncable="YES"/>
+        <attribute name="overallTasksFinished" attributeType="Integer 16" minValueString="0" defaultValueString="0" syncable="YES"/>
+        <attribute name="overallTimeSpent" attributeType="Double" minValueString="0" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="tasksFinishedToday" attributeType="Integer 16" minValueString="0" defaultValueString="0" syncable="YES"/>
+        <attribute name="timeLeftAllTasks" attributeType="Double" minValueString="0" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="timeLeftToday" attributeType="Double" minValueString="0" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="timeSpentToday" attributeType="Double" minValueString="0" defaultValueString="0.0" syncable="YES"/>
     </entity>
     <entity name="TaskInfo" representedClassName="TaskInfo" syncable="YES">
         <attribute name="completionDate" optional="YES" attributeType="Date" syncable="YES"/>
@@ -24,7 +26,7 @@
         <attribute name="title" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="TaskInfo" positionX="160" positionY="192" width="128" height="225"/>
         <element name="MetaData" positionX="160" positionY="192" width="128" height="150"/>
+        <element name="TaskInfo" positionX="160" positionY="192" width="128" height="225"/>
     </elements>
 </model>

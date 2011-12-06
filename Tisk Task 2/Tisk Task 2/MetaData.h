@@ -12,12 +12,14 @@
 
 @interface MetaData : NSManagedObject
 
-@property (nonatomic, retain) NSNumber * timeLeftToday;
-@property (nonatomic, retain) NSNumber * tasksFinishedToday;
-@property (nonatomic, retain) NSNumber * timeSpentToday;
-@property (nonatomic, retain) NSNumber * overallTasksFinished;
 @property (nonatomic, retain) NSNumber * numberAllTasks;
+@property (nonatomic, retain) NSNumber * overallTasksFinished;
 @property (nonatomic, retain) NSNumber * overallTimeSpent;
+@property (nonatomic, retain) NSNumber * tasksFinishedToday;
 @property (nonatomic, retain) NSNumber * timeLeftAllTasks;
+@property (nonatomic, retain) NSNumber * timeLeftToday;
+@property (nonatomic, retain) NSNumber * timeSpentToday;
+@property (nonatomic, retain) NSNumber * numberActiveAlarms;
+@property (nonatomic, retain) NSNumber * numberActiveReminders;
 
 @end

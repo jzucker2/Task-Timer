@@ -11,12 +11,14 @@
 
 @implementation MetaData
 
-@dynamic timeLeftToday;
-@dynamic tasksFinishedToday;
-@dynamic timeSpentToday;
-@dynamic overallTasksFinished;
 @dynamic numberAllTasks;
+@dynamic overallTasksFinished;
 @dynamic overallTimeSpent;
+@dynamic tasksFinishedToday;
 @dynamic timeLeftAllTasks;
+@dynamic timeLeftToday;
+@dynamic timeSpentToday;
+@dynamic numberActiveAlarms;
+@dynamic numberActiveReminders;
 
 @end

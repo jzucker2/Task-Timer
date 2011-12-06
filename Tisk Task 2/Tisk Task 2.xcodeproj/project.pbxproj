@@ -19,13 +19,13 @@
 		33314708146DD9FC008ED8B6 /* second@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 33314707146DD9FC008ED8B6 /* second@2x.png */; };
 		333B93E91489E80D0072F9A7 /* redlight.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 333B93E81489E80D0072F9A7 /* redlight.jpg */; };
 		333B93EB1489E8910072F9A7 /* Signal_Light_-_Green.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 333B93EA1489E8910072F9A7 /* Signal_Light_-_Green.jpg */; };
+		334B9CF6148ED4FA00598AE7 /* MetaData.m in Sources */ = {isa = PBXBuildFile; fileRef = 334B9CF5148ED4FA00598AE7 /* MetaData.m */; };
 		335596C31489711F00D04AAF /* CompletedTaskTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 335596C11489711F00D04AAF /* CompletedTaskTableViewController.m */; };
 		335596C41489711F00D04AAF /* CompletedTaskTableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 335596C21489711F00D04AAF /* CompletedTaskTableView.xib */; };
 		335596C81489798900D04AAF /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 335596C71489798900D04AAF /* icon.png */; };
 		335596CC1489837C00D04AAF /* TaskTimerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 335596CA1489837C00D04AAF /* TaskTimerViewController.m */; };
 		335596CD1489837C00D04AAF /* TaskTimerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 335596CB1489837C00D04AAF /* TaskTimerView.xib */; };
 		335596D61489968000D04AAF /* start-button.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 335596D51489968000D04AAF /* start-button.jpg */; };
-		33587807148EB13500890E31 /* MetaData.m in Sources */ = {isa = PBXBuildFile; fileRef = 33587806148EB13500890E31 /* MetaData.m */; };
 		3358780B148EC9E900890E31 /* CountdownFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3358780A148EC9E900890E31 /* CountdownFormatter.m */; };
 		339DA18D148D88C90047E48E /* NSManagedObjectContext+FetchedObjectFromURI.m in Sources */ = {isa = PBXBuildFile; fileRef = 339DA18C148D88C90047E48E /* NSManagedObjectContext+FetchedObjectFromURI.m */; };
 		339DA198148DA3580047E48E /* CompletedDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 339DA196148DA3580047E48E /* CompletedDetailViewController.m */; };
@@ -62,6 +62,8 @@
 		33314707146DD9FC008ED8B6 /* second@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "second@2x.png"; sourceTree = "<group>"; };
 		333B93E81489E80D0072F9A7 /* redlight.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = redlight.jpg; sourceTree = "<group>"; };
 		333B93EA1489E8910072F9A7 /* Signal_Light_-_Green.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Signal_Light_-_Green.jpg"; sourceTree = "<group>"; };
+		334B9CF4148ED4FA00598AE7 /* MetaData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MetaData.h; sourceTree = "<group>"; };
+		334B9CF5148ED4FA00598AE7 /* MetaData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MetaData.m; sourceTree = "<group>"; };
 		335596C01489711F00D04AAF /* CompletedTaskTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CompletedTaskTableViewController.h; sourceTree = "<group>"; };
 		335596C11489711F00D04AAF /* CompletedTaskTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CompletedTaskTableViewController.m; sourceTree = "<group>"; };
 		335596C21489711F00D04AAF /* CompletedTaskTableView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CompletedTaskTableView.xib; sourceTree = "<group>"; };
@@ -70,8 +72,6 @@
 		335596CA1489837C00D04AAF /* TaskTimerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TaskTimerViewController.m; sourceTree = "<group>"; };
 		335596CB1489837C00D04AAF /* TaskTimerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TaskTimerView.xib; sourceTree = "<group>"; };
 		335596D51489968000D04AAF /* start-button.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "start-button.jpg"; sourceTree = "<group>"; };
-		33587805148EB13500890E31 /* MetaData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MetaData.h; sourceTree = "<group>"; };
-		33587806148EB13500890E31 /* MetaData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MetaData.m; sourceTree = "<group>"; };
 		33587809148EC9E900890E31 /* CountdownFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CountdownFormatter.h; sourceTree = "<group>"; };
 		3358780A148EC9E900890E31 /* CountdownFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CountdownFormatter.m; sourceTree = "<group>"; };
 		339DA18B148D88C90047E48E /* NSManagedObjectContext+FetchedObjectFromURI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObjectContext+FetchedObjectFromURI.h"; sourceTree = "<group>"; };
@@ -225,8 +225,8 @@
 			children = (
 				33A38CB3148E00A40015E157 /* TaskInfo.h */,
 				33A38CB4148E00A40015E157 /* TaskInfo.m */,
-				33587805148EB13500890E31 /* MetaData.h */,
-				33587806148EB13500890E31 /* MetaData.m */,
+				334B9CF4148ED4FA00598AE7 /* MetaData.h */,
+				334B9CF5148ED4FA00598AE7 /* MetaData.m */,
 			);
 			name = "Task Models";
 			sourceTree = "<group>";
@@ -418,8 +418,8 @@
 				339DA18D148D88C90047E48E /* NSManagedObjectContext+FetchedObjectFromURI.m in Sources */,
 				339DA198148DA3580047E48E /* CompletedDetailViewController.m in Sources */,
 				33A38CB5148E00A40015E157 /* TaskInfo.m in Sources */,
-				33587807148EB13500890E31 /* MetaData.m in Sources */,
 				3358780B148EC9E900890E31 /* CountdownFormatter.m in Sources */,
+				334B9CF6148ED4FA00598AE7 /* MetaData.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
