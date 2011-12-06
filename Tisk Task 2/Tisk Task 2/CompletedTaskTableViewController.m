@@ -176,6 +176,7 @@
     //NSLog(@"taskInfo is %@", selectedInfo);
     CompletedDetailViewController *detailView = [[CompletedDetailViewController alloc] initWithNibName:@"CompletedDetailView" bundle:nil];
     detailView.taskInfo = selectedInfo;
+    //[detailView hidesBottomBarWhenPushed];
     [self.navigationController pushViewController:detailView animated:YES];
     [detailView release];
     

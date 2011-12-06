@@ -166,6 +166,7 @@
      [self.navigationController pushViewController:detailViewController animated:YES];
      [detailViewController release];
      */
+    //[self hidesBottomBarWhenPushed];
 }
 
 @end
