@@ -26,6 +26,7 @@
 		335596CD1489837C00D04AAF /* TaskTimerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 335596CB1489837C00D04AAF /* TaskTimerView.xib */; };
 		335596D61489968000D04AAF /* start-button.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 335596D51489968000D04AAF /* start-button.jpg */; };
 		33587807148EB13500890E31 /* MetaData.m in Sources */ = {isa = PBXBuildFile; fileRef = 33587806148EB13500890E31 /* MetaData.m */; };
+		3358780B148EC9E900890E31 /* CountdownFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3358780A148EC9E900890E31 /* CountdownFormatter.m */; };
 		339DA18D148D88C90047E48E /* NSManagedObjectContext+FetchedObjectFromURI.m in Sources */ = {isa = PBXBuildFile; fileRef = 339DA18C148D88C90047E48E /* NSManagedObjectContext+FetchedObjectFromURI.m */; };
 		339DA198148DA3580047E48E /* CompletedDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 339DA196148DA3580047E48E /* CompletedDetailViewController.m */; };
 		339DA199148DA3580047E48E /* CompletedDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 339DA197148DA3580047E48E /* CompletedDetailView.xib */; };
@@ -71,6 +72,8 @@
 		335596D51489968000D04AAF /* start-button.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "start-button.jpg"; sourceTree = "<group>"; };
 		33587805148EB13500890E31 /* MetaData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MetaData.h; sourceTree = "<group>"; };
 		33587806148EB13500890E31 /* MetaData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MetaData.m; sourceTree = "<group>"; };
+		33587809148EC9E900890E31 /* CountdownFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CountdownFormatter.h; sourceTree = "<group>"; };
+		3358780A148EC9E900890E31 /* CountdownFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CountdownFormatter.m; sourceTree = "<group>"; };
 		339DA18B148D88C90047E48E /* NSManagedObjectContext+FetchedObjectFromURI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObjectContext+FetchedObjectFromURI.h"; sourceTree = "<group>"; };
 		339DA18C148D88C90047E48E /* NSManagedObjectContext+FetchedObjectFromURI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObjectContext+FetchedObjectFromURI.m"; sourceTree = "<group>"; };
 		339DA195148DA3580047E48E /* CompletedDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CompletedDetailViewController.h; sourceTree = "<group>"; };
@@ -152,6 +155,7 @@
 				33D90124146DE71300EEBF6E /* Today Task Table View */,
 				33D9011E146DE6FF00EEBF6E /* All Task Table View */,
 				335596C61489712400D04AAF /* Completed Task Table View */,
+				3358780C148EC9F000890E31 /* New Group */,
 			);
 			path = "Tisk Task 2";
 			sourceTree = "<group>";
@@ -186,6 +190,15 @@
 				335596CB1489837C00D04AAF /* TaskTimerView.xib */,
 			);
 			name = "Task Timer View";
+			sourceTree = "<group>";
+		};
+		3358780C148EC9F000890E31 /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+				33587809148EC9E900890E31 /* CountdownFormatter.h */,
+				3358780A148EC9E900890E31 /* CountdownFormatter.m */,
+			);
+			name = "New Group";
 			sourceTree = "<group>";
 		};
 		339DA18E148D890D0047E48E /* New Group */ = {
@@ -406,6 +419,7 @@
 				339DA198148DA3580047E48E /* CompletedDetailViewController.m in Sources */,
 				33A38CB5148E00A40015E157 /* TaskInfo.m in Sources */,
 				33587807148EB13500890E31 /* MetaData.m in Sources */,
+				3358780B148EC9E900890E31 /* CountdownFormatter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

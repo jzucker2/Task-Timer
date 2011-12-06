@@ -105,6 +105,8 @@
     
     // Configure the cell...
     
+    CountdownFormatter *formatter = [[CountdownFormatter alloc] init];
+    
     switch (indexPath.row) {
         case 0:
             cell.textLabel.text = @"Title";
@@ -112,11 +114,13 @@
             break;
         case 1:
             cell.textLabel.text = @"Duration";
-            cell.detailTextLabel.text = [NSString stringWithFormat:@"%@", taskInfo.duration];
+            NSString *durationString = [formatter stringForCountdownInterval:taskInfo.duration];
+            cell.detailTextLabel.text = [NSString stringWithFormat:@"%@", durationString];
             break;
         case 2:
             cell.textLabel.text = @"Elapsed";
-            cell.detailTextLabel.text = [NSString stringWithFormat:@"%@", taskInfo.elapsedTime];
+            NSString *elapsedString = [formatter stringForCountdownInterval:taskInfo.elapsedTime];
+            cell.detailTextLabel.text = [NSString stringWithFormat:@"%@", elapsedString];
             break;
         case 3:
             cell.textLabel.text = @"Completion Date";
@@ -154,6 +158,8 @@
         default:
             break;
     }
+    
+    [formatter release];
     
     return cell;
 }

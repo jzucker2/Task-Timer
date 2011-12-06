@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "TaskInfo.h"
+#import "CountdownFormatter.h"
 
 @interface CompletedDetailViewController : UITableViewController
 {

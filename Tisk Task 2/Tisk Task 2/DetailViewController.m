@@ -137,6 +137,8 @@
 		cell.editingAccessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
 	
+    
+    
 	switch (indexPath.row) {
         case 0: 
 			cell.textLabel.text = @"Title";
@@ -144,7 +146,9 @@
 			break;
         case 1: 
 			cell.textLabel.text = @"Duration";
-            NSString *duration = [NSString stringWithFormat:@"%@", taskInfo.duration];
+            CountdownFormatter *formatter = [[CountdownFormatter alloc] init];
+            NSString *duration = [formatter stringForCountdownInterval:taskInfo.duration];
+            //NSString *duration = [NSString stringWithFormat:@"%@", taskInfo.duration];
 			cell.detailTextLabel.text = duration;
 			break;
         case 2:
@@ -180,6 +184,9 @@
             cell.detailTextLabel.text = taskInfo.specifics;
             break;
     }
+    
+    
+    
     return cell;
 }
 

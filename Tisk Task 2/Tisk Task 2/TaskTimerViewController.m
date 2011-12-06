@@ -14,12 +14,14 @@
 @synthesize elapsedLabel;
 @synthesize specificsView;
 @synthesize finishEarlyButton;
+@synthesize timerFormatter;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        timerFormatter = [[CountdownFormatter alloc] init];
     }
     return self;
 }
@@ -78,10 +80,21 @@
     countdownTimer = [[NSTimer alloc] init];
     
     titleLabel.text = taskInfo.title;
-    double duration = [taskInfo.duration doubleValue];
-    durationLabel.text = [NSString stringWithFormat:@"Duration: %f", duration];
-    double elapsed = [taskInfo.elapsedTime doubleValue];
-    elapsedLabel.text = [NSString stringWithFormat:@"Elapsed: %f", elapsed];
+    //double duration = [taskInfo.duration doubleValue];
+    
+    NSLog(@"first use countdownformatter");
+    CountdownFormatter *formatter = [[CountdownFormatter alloc] init];
+    NSString *durationString = [formatter stringForCountdownInterval:taskInfo.duration];
+    NSString *elapsedString = [formatter stringForCountdownInterval:taskInfo.elapsedTime];
+    
+    //durationString = [NSString stringWithFormat:@"Duration: %@", durationString];
+    //elapsedString = [NSString stringWithFormat:@"Elapsed: %@", elapsedString];
+    
+    [formatter release];
+    
+    durationLabel.text = [NSString stringWithFormat:@"Duration: %@", durationString];
+    //double elapsed = [taskInfo.elapsedTime doubleValue];
+    elapsedLabel.text = [NSString stringWithFormat:@"Elapsed: %@", elapsedString];
     specificsView.text = taskInfo.specifics;
     
     BOOL running = [taskInfo.isRunning boolValue];
@@ -411,7 +424,11 @@
 - (void) updateCountdownLabel
 {
     //NSLog(@"updateCountdownLabel");
-    countdownLabel.text = [NSString stringWithFormat:@"%f", timeLeft];
+    NSNumber *timeLeftNumber = [NSNumber numberWithDouble:timeLeft];
+    NSString *countdownString = [timerFormatter stringForCountdownInterval:timeLeftNumber];
+    
+    //countdownLabel.text = [NSString stringWithFormat:@"%f", timeLeft];
+    countdownLabel.text = [NSString stringWithFormat:@"%@", countdownString];
     if (timeLeft >0) {
         timeLeft--;
     }
@@ -603,6 +620,7 @@
 
 - (void) dealloc
 {
+    [timerFormatter release];
     [titleLabel release];
     [durationLabel release];
     [elapsedLabel release];

@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "TaskInfo.h"
+#import "CountdownFormatter.h"
 
 @interface TaskTimerViewController : UIViewController <UITextViewDelegate>
 {
@@ -21,9 +22,11 @@
     double timeLeft;
     IBOutlet UITextView *specificsView;
     IBOutlet UIButton *finishEarlyButton;
+    CountdownFormatter *timerFormatter;
     
 }
 
+@property (nonatomic, retain) CountdownFormatter *timerFormatter;
 @property (nonatomic, retain) IBOutlet UIButton *finishEarlyButton;
 @property (nonatomic, retain) IBOutlet UITextView *specificsView;
 @property (nonatomic, retain) IBOutlet UILabel *elapsedLabel;
