@@ -239,7 +239,48 @@
 
 - (void) handleReminderWithTask:(TaskInfo *)taskInfo
 {
-    NSLog(@"handle reminder");
+    NSLog(@"handle reminder for %@", taskInfo);
+    
+    UILocalNotification *localNotification = [[UILocalNotification alloc] init];
+    if (localNotification == nil) {
+        return;
+    }
+    
+    /*
+     need to figure out precisely when to fire timer, some factors:
+     1. how much time left in day vs. how much time left in task
+     2. time zone
+     3. how many times have you been reminded? should i keep track of that? probably, but won't for now. should increase frequency of reminders when timesReminded increases
+     4. how long duration is in general. Remind more frequently for shorter tasks but can't take 3 hours to remind for a 3 hour task
+     
+     */
+    
+    // since this is a reminder, going to cut time until next reminder in half
+    double duration = [taskInfo.duration doubleValue];
+    duration = duration/2;
+    //double elapsed = [taskInfo.elapsedTime doubleValue];
+    //double reminderTime = duration - elapsed;
+    NSDate *date = [NSDate dateWithTimeIntervalSinceNow:duration];
+    localNotification.fireDate = date;
+    localNotification.alertBody = [NSString stringWithFormat:@"%@ still needs work today", taskInfo.title];
+    localNotification.alertAction = @"Start Working";
+    localNotification.soundName = UILocalNotificationDefaultSoundName;
+    localNotification.applicationIconBadgeNumber++;
+    
+    NSManagedObjectID *taskID = [taskInfo objectID];
+    NSURL *taskURL = [taskID URIRepresentation];
+    
+    NSString *URLString = [taskURL absoluteString];
+    
+    NSDictionary *infoDict = [NSDictionary dictionaryWithObjectsAndKeys:taskInfo.title, @"title", URLString, @"taskURLString", @"reminder", @"type", nil];
+    
+    
+    localNotification.userInfo = infoDict;
+    
+    [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
+    
+    
+    [localNotification release];
 }
 
 
