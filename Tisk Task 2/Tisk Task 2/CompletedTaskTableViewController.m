@@ -171,8 +171,13 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSLog(@"selected row");
-    
+    //NSLog(@"selected row");
+    TaskInfo *selectedInfo = (TaskInfo *)[[self fetchedResultsController] objectAtIndexPath:indexPath];
+    //NSLog(@"taskInfo is %@", selectedInfo);
+    CompletedDetailViewController *detailView = [[CompletedDetailViewController alloc] initWithNibName:@"CompletedDetailView" bundle:nil];
+    detailView.taskInfo = selectedInfo;
+    [self.navigationController pushViewController:detailView animated:YES];
+    [detailView release];
     
 }
 

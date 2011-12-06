@@ -34,6 +34,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     NSLog(@"didFinishLaunchingWithOptions");
+    NSLog(@"options are %@", launchOptions);
     self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
     // Override point for customization after application launch.
     
@@ -86,6 +87,14 @@
     
     self.window.rootViewController = self.tabBarController;
     [self.window makeKeyAndVisible];
+    
+    UILocalNotification *notification = [launchOptions objectForKey:UIApplicationLaunchOptionsLocalNotificationKey];
+    if (notification != nil) {
+        [self application:[UIApplication sharedApplication] didReceiveLocalNotification:notification];
+    }
+    //[self application:[UIApplication sharedApplication] didReceiveLocalNotification:notification];
+    
+    //[[UIApplication sharedApplication] setApplicationIconBadgeNumber:0];
     return YES;
 }
 
@@ -132,6 +141,7 @@
     /*
      Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
      */
+    //[self.tabBarController.viewControllers.lastObject viewWillAppear:YES];
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application
@@ -159,6 +169,7 @@
 - (void) application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification
 {
     NSLog(@"didReceiveLocalNotification");
+    [UIApplication sharedApplication].applicationIconBadgeNumber--;
     NSLog(@"userInfo is %@", notification.userInfo);
     NSString *title = [notification.userInfo objectForKey:@"title"];
     NSLog(@"title is %@", title);
@@ -185,7 +196,7 @@
     NSNumber *running = [NSNumber numberWithBool:NO];
     
     double elapsed = [taskInfo.elapsedTime doubleValue];
-    double duration = [taskInfo.duration doubleValue];
+    //double duration = [taskInfo.duration doubleValue];
     
     //elapsed = (duration - timeLeft);
     NSNumber *elapsedNumber = [NSNumber numberWithDouble:elapsed];

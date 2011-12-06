@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 #import "TaskInfo.h"
+#import "CompletedDetailViewController.h"
 
 @interface CompletedTaskTableViewController : UITableViewController <NSFetchedResultsControllerDelegate>
 {

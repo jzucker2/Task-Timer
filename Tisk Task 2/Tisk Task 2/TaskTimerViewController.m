@@ -216,7 +216,9 @@
     for (notification in notificationArray) {
         NSString *title = [notification.userInfo objectForKey:@"title"];
         NSDate *endTime = [notification.userInfo objectForKey:@"endTime"];
-        if ((title == taskInfo.title) && (endTime == taskInfo.projectedEndTime)) {
+        if ((title == taskInfo.title) && (endTime == taskInfo.projectedEndTime)) 
+        {
+            //notification.applicationIconBadgeNumber--;
             [[UIApplication sharedApplication] cancelLocalNotification:notification];
         }
     }
@@ -336,7 +338,7 @@
     localNotification.alertBody = [NSString stringWithFormat:@"%@ is done", taskInfo.title];
     localNotification.alertAction = @"Finish";
     localNotification.soundName = UILocalNotificationDefaultSoundName;
-    localNotification.applicationIconBadgeNumber = 1;
+    localNotification.applicationIconBadgeNumber++;
     
     NSManagedObjectID *taskID = [taskInfo objectID];
     NSURL *taskURL = [taskID URIRepresentation];
