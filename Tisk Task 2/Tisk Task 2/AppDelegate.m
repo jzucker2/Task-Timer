@@ -210,6 +210,7 @@
     NSNumber *elapsedNumber = [NSNumber numberWithDouble:elapsed];
     [taskInfo setValue:elapsedNumber forKey:@"elapsedTime"];
     
+    
     [taskInfo setValue:finishDate forKey:@"completionDate"];
     NSNumber *completed = [NSNumber numberWithBool:YES];
     [taskInfo setValue:completed forKey:@"isCompleted"];

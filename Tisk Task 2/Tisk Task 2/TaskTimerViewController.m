@@ -250,6 +250,7 @@
         } 
     }
     
+    
     // need to disable notification for timer
     NSArray *notificationArray = [[UIApplication sharedApplication] scheduledLocalNotifications];
     UILocalNotification *notification = nil;

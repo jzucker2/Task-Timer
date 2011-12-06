@@ -430,17 +430,19 @@
 
     //[self.tableView indexPathForCell:<#(UITableViewCell *)#>
     TaskInfo *selectedInfo = (TaskInfo *)[[self fetchedResultsController] objectAtIndexPath:switchIndexPath];
-    NSLog(@"selectedInfo is %@", selectedInfo);
+    //NSLog(@"selectedInfo is %@", selectedInfo);
     //NSLog(@"title is %@", selectedInfo.title);
     
     NSNumber *newToday;
     BOOL oldToday = [selectedInfo.isToday boolValue];
     if (oldToday == YES) {
         newToday = [NSNumber numberWithBool:NO];
+        [self cancelReminder:selectedInfo];
     }
     else
     {
         newToday = [NSNumber numberWithBool:YES];
+        [self scheduleReminder:selectedInfo];
     }
     
     [selectedInfo setValue:newToday forKey:@"isToday"];
@@ -453,7 +455,7 @@
         exit(-1);  // Fail
     }
     
-    NSLog(@"selectedInfo is now %@", selectedInfo);
+    //NSLog(@"selectedInfo is now %@", selectedInfo);
     
     
     
@@ -470,6 +472,79 @@
     }
     [dnc removeObserver:self name:NSManagedObjectContextDidSaveNotification object:selectedInfo];
      */
+    
+}
+
+#pragma mark -
+#pragma mark Reminders
+
+- (void) scheduleReminder:(TaskInfo *)taskInfo
+{
+    NSLog(@"scheduleReminder with %@", taskInfo);
+    UILocalNotification *localNotification = [[UILocalNotification alloc] init];
+    if (localNotification == nil) {
+        return;
+    }
+    
+    /*
+    need to figure out precisely when to fire timer, some factors:
+     1. how much time left in day vs. how much time left in task
+     2. time zone
+     3. how many times have you been reminded? should i keep track of that? probably, but won't for now
+     4. how long duration is in general. Remind more frequently for shorter tasks but can't take 3 hours to remind for a 3 hour task
+     
+     */
+    double duration = [taskInfo.duration doubleValue];
+    //double elapsed = [taskInfo.elapsedTime doubleValue];
+    //double reminderTime = duration - elapsed;
+    NSDate *date = [NSDate dateWithTimeIntervalSinceNow:duration];
+    localNotification.fireDate = date;
+    localNotification.alertBody = [NSString stringWithFormat:@"%@ still needs work today", taskInfo.title];
+    localNotification.alertAction = @"Start Working";
+    localNotification.soundName = UILocalNotificationDefaultSoundName;
+    localNotification.applicationIconBadgeNumber++;
+    
+    NSManagedObjectID *taskID = [taskInfo objectID];
+    NSURL *taskURL = [taskID URIRepresentation];
+    
+    NSString *URLString = [taskURL absoluteString];
+    
+    NSDictionary *infoDict = [NSDictionary dictionaryWithObjectsAndKeys:taskInfo.title, @"title", URLString, @"taskURLString", @"reminder", @"type", nil];
+    
+    
+    localNotification.userInfo = infoDict;
+    
+    [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
+    
+    
+    [localNotification release];
+    
+    
+    
+}
+
+- (void) cancelReminder:(TaskInfo *)taskInfo
+{
+    NSLog(@"cancelReminder for %@", taskInfo);
+    
+    // need to disable notification for timer
+    NSArray *notificationArray = [[UIApplication sharedApplication] scheduledLocalNotifications];
+    UILocalNotification *notification = nil;
+    for (notification in notificationArray) {
+        NSString *title = [notification.userInfo objectForKey:@"title"];
+        NSString *type = [notification.userInfo objectForKey:@"type"];
+        //NSDate *endTime = [notification.userInfo objectForKey:@"endTime"];
+        //if ((title == taskInfo.title) && (endTime == taskInfo.projectedEndTime))
+        //check for notification type "alarm"
+        if (([title isEqualToString:taskInfo.title]) && ([type isEqualToString:@"reminder"]))
+        {
+            //notification.applicationIconBadgeNumber--;
+            [[UIApplication sharedApplication] cancelLocalNotification:notification];
+            
+            // **** do i need to release this notification???
+        }
+    }
+    
     
 }
 
