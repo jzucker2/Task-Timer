@@ -20,9 +20,11 @@
     TaskInfo *taskInfo;
     double timeLeft;
     IBOutlet UITextView *specificsView;
+    IBOutlet UIButton *finishEarlyButton;
     
 }
 
+@property (nonatomic, retain) IBOutlet UIButton *finishEarlyButton;
 @property (nonatomic, retain) IBOutlet UITextView *specificsView;
 @property (nonatomic, retain) IBOutlet UILabel *elapsedLabel;
 @property (nonatomic, retain) TaskInfo *taskInfo;
@@ -33,6 +35,8 @@
 @property (nonatomic, retain) IBOutlet UIButton *timerButton;
 
 - (IBAction)timerButtonAction:(id)sender;
+
+- (IBAction)finishEarlyAction:(id)sender;
 
 - (void) startTimer;
 
@@ -53,5 +57,9 @@
 - (void) scheduleReminder:(TaskInfo *) task;
 
 - (void) cancelReminder:(TaskInfo *) task;
+
+- (void) finishTimer;
+
+
 
 @end

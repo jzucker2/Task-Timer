@@ -13,6 +13,7 @@
 @synthesize taskInfo, countdownTimer, timerButton, titleLabel, durationLabel, countdownLabel;
 @synthesize elapsedLabel;
 @synthesize specificsView;
+@synthesize finishEarlyButton;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -87,11 +88,13 @@
     if (running == YES) 
     {
         [timerButton setTitle:@"Stop Working" forState:UIControlStateNormal];
+        [finishEarlyButton setEnabled:YES];
         [self continueTimer];
         
     }
     else
     {
+        [finishEarlyButton setEnabled:NO];
         [timerButton setTitle:@"Start Working" forState:UIControlStateNormal];
         //timeLeft = duration - elapsed;
         
@@ -176,13 +179,20 @@
         [timerButton setTitle:@"Start Working" forState:UIControlStateNormal];
         //NSLog(@"timer button hit, call stop timer");
         [self stopTimer];
+        [finishEarlyButton setEnabled:NO];
     }
     else
     {
         [timerButton setTitle:@"Stop Working" forState:UIControlStateNormal];
         //NSLog(@"timer button hit, call start timer");
         [self startTimer];
+        [finishEarlyButton setEnabled:YES];
     }
+}
+
+- (IBAction)finishEarlyAction:(id)sender
+{
+    [self finishTimer];
 }
 
 - (void) startTimer
@@ -352,6 +362,50 @@
     
     [countdownTimer invalidate];
     countdownTimer = nil;
+}
+
+- (void)finishTimer
+{
+    [finishEarlyButton setEnabled:NO];
+    [self endTimer];
+    
+    [self cancelAlarm];
+    
+    NSDate *finishDate = [NSDate date];
+    //NSTimeInterval = timeLeft;
+    //NSDate *end = [start dateByAddingTimeInterval:timeLeft];
+    NSNumber *running = [NSNumber numberWithBool:NO];
+    
+    double elapsed = [taskInfo.elapsedTime doubleValue];
+    //double duration = [taskInfo.duration doubleValue];
+    
+    //elapsed = (duration - timeLeft);
+    NSNumber *elapsedNumber = [NSNumber numberWithDouble:elapsed];
+    [taskInfo setValue:elapsedNumber forKey:@"elapsedTime"];
+    
+    
+    [taskInfo setValue:finishDate forKey:@"completionDate"];
+    NSNumber *completed = [NSNumber numberWithBool:YES];
+    [taskInfo setValue:completed forKey:@"isCompleted"];
+    
+    NSNumber *todayBOOL = [NSNumber numberWithBool:NO];
+    [taskInfo setValue:todayBOOL forKey:@"isToday"];
+    
+    //[taskInfo setValue:start forKey:@"startTime"];
+    //[taskInfo setValue:end forKey:@"projectedEndTime"];
+    [taskInfo setValue:running forKey:@"isRunning"];
+    
+    //NSManagedObjectContext *managedObjectContext = [taskInfo managedObjectContext];
+    NSManagedObjectContext *managedObjectContext = [taskInfo managedObjectContext];
+    NSError *error;
+    if (managedObjectContext != nil) {
+        if ([managedObjectContext hasChanges] && ![managedObjectContext save:&error]) {
+			// Update to handle the error appropriately.
+			NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+			exit(-1);  // Fail
+        } 
+    }
+    
 }
 
 - (void) updateCountdownLabel
