@@ -8,11 +8,21 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TodayTaskViewController : UIViewController
+#import "TaskInfo.h"
+#import "TaskTimerViewController.h"
+
+@interface TodayTaskViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, NSFetchedResultsControllerDelegate>
 {
     NSManagedObjectContext *managedObjectContext;
+    NSFetchedResultsController *fetchedResultsController;
+    IBOutlet UITableView *todayTableView;
 }
 
+@property (nonatomic, retain) IBOutlet UITableView *todayTableView;
+@property (nonatomic, retain) NSFetchedResultsController *fetchedResultsController;
 @property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
+
+- (void) configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath;
+
 
 @end

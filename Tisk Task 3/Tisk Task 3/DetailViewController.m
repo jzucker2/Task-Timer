@@ -345,7 +345,7 @@
         currentNumber = [NSNumber numberWithBool:NO];
     }
     
-    //[task setValue:currentNumber forKey:@"current"];
+    [taskInfo setValue:currentNumber forKey:@"isToday"];
     
     
 }
