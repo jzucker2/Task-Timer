@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		339649F7148EF35F00F37839 /* TaskInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 339649F6148EF35F00F37839 /* TaskInfo.m */; };
+		339649FB148EF36000F37839 /* MetaData.m in Sources */ = {isa = PBXBuildFile; fileRef = 339649FA148EF36000F37839 /* MetaData.m */; };
+		339649FF148EF76600F37839 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 339649FE148EF76600F37839 /* DetailViewController.m */; };
+		33964A03148EF79000F37839 /* CountdownFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 33964A02148EF79000F37839 /* CountdownFormatter.m */; };
+		33964A08148EF86C00F37839 /* EditingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33964A06148EF86C00F37839 /* EditingViewController.m */; };
+		33964A09148EF86C00F37839 /* EditingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 33964A07148EF86C00F37839 /* EditingView.xib */; };
+		33964A0D148EFA2900F37839 /* AddViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33964A0C148EFA2900F37839 /* AddViewController.m */; };
 		33E2E485148EE31E005910F5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33E2E484148EE31E005910F5 /* UIKit.framework */; };
 		33E2E487148EE31E005910F5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33E2E486148EE31E005910F5 /* Foundation.framework */; };
 		33E2E489148EE31E005910F5 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33E2E488148EE31E005910F5 /* CoreGraphics.framework */; };
@@ -29,6 +36,19 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		339649F5148EF35F00F37839 /* TaskInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TaskInfo.h; sourceTree = "<group>"; };
+		339649F6148EF35F00F37839 /* TaskInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TaskInfo.m; sourceTree = "<group>"; };
+		339649F9148EF36000F37839 /* MetaData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MetaData.h; sourceTree = "<group>"; };
+		339649FA148EF36000F37839 /* MetaData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MetaData.m; sourceTree = "<group>"; };
+		339649FD148EF76600F37839 /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
+		339649FE148EF76600F37839 /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
+		33964A01148EF79000F37839 /* CountdownFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CountdownFormatter.h; sourceTree = "<group>"; };
+		33964A02148EF79000F37839 /* CountdownFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CountdownFormatter.m; sourceTree = "<group>"; };
+		33964A05148EF86C00F37839 /* EditingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditingViewController.h; sourceTree = "<group>"; };
+		33964A06148EF86C00F37839 /* EditingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditingViewController.m; sourceTree = "<group>"; };
+		33964A07148EF86C00F37839 /* EditingView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EditingView.xib; sourceTree = "<group>"; };
+		33964A0B148EFA2900F37839 /* AddViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddViewController.h; sourceTree = "<group>"; };
+		33964A0C148EFA2900F37839 /* AddViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddViewController.m; sourceTree = "<group>"; };
 		33E2E480148EE31E005910F5 /* Tisk Task 3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Tisk Task 3.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		33E2E484148EE31E005910F5 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		33E2E486148EE31E005910F5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -73,6 +93,54 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		339649FC148EF36600F37839 /* Data Models */ = {
+			isa = PBXGroup;
+			children = (
+				339649F9148EF36000F37839 /* MetaData.h */,
+				339649FA148EF36000F37839 /* MetaData.m */,
+				339649F5148EF35F00F37839 /* TaskInfo.h */,
+				339649F6148EF35F00F37839 /* TaskInfo.m */,
+			);
+			name = "Data Models";
+			sourceTree = "<group>";
+		};
+		33964A00148EF76A00F37839 /* Detail View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				339649FD148EF76600F37839 /* DetailViewController.h */,
+				339649FE148EF76600F37839 /* DetailViewController.m */,
+			);
+			name = "Detail View Controller";
+			sourceTree = "<group>";
+		};
+		33964A04148EF79300F37839 /* Countdown Formatter */ = {
+			isa = PBXGroup;
+			children = (
+				33964A01148EF79000F37839 /* CountdownFormatter.h */,
+				33964A02148EF79000F37839 /* CountdownFormatter.m */,
+			);
+			name = "Countdown Formatter";
+			sourceTree = "<group>";
+		};
+		33964A0A148EF87000F37839 /* Editing View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				33964A05148EF86C00F37839 /* EditingViewController.h */,
+				33964A06148EF86C00F37839 /* EditingViewController.m */,
+				33964A07148EF86C00F37839 /* EditingView.xib */,
+			);
+			name = "Editing View Controller";
+			sourceTree = "<group>";
+		};
+		33964A0E148EFA2C00F37839 /* Add View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				33964A0B148EFA2900F37839 /* AddViewController.h */,
+				33964A0C148EFA2900F37839 /* AddViewController.m */,
+			);
+			name = "Add View Controller";
+			sourceTree = "<group>";
+		};
 		33E2E475148EE31E005910F5 = {
 			isa = PBXGroup;
 			children = (
@@ -111,6 +179,7 @@
 				33E2E4CD148EE518005910F5 /* All Task View Controller */,
 				33E2E4D3148EE551005910F5 /* History View Controller */,
 				33E2E4D9148EE580005910F5 /* Today Task View Controller */,
+				33964A04148EF79300F37839 /* Countdown Formatter */,
 			);
 			path = "Tisk Task 3";
 			sourceTree = "<group>";
@@ -161,6 +230,9 @@
 				33E2E4C8148EE515005910F5 /* AllTaskViewController.h */,
 				33E2E4C9148EE515005910F5 /* AllTaskViewController.m */,
 				33E2E4CA148EE515005910F5 /* AllTaskView.xib */,
+				33964A00148EF76A00F37839 /* Detail View Controller */,
+				33964A0A148EF87000F37839 /* Editing View Controller */,
+				33964A0E148EFA2C00F37839 /* Add View Controller */,
 			);
 			name = "All Task View Controller";
 			sourceTree = "<group>";
@@ -190,6 +262,7 @@
 			children = (
 				33E2E4B3148EE366005910F5 /* Images */,
 				33E2E4B0148EE358005910F5 /* TaskDataModel.xcdatamodeld */,
+				339649FC148EF36600F37839 /* Data Models */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -253,6 +326,7 @@
 				33E2E4CC148EE515005910F5 /* AllTaskView.xib in Resources */,
 				33E2E4D2148EE54D005910F5 /* HistoryView.xib in Resources */,
 				33E2E4D8148EE57B005910F5 /* TodayTaskView.xib in Resources */,
+				33964A09148EF86C00F37839 /* EditingView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -270,6 +344,12 @@
 				33E2E4CB148EE515005910F5 /* AllTaskViewController.m in Sources */,
 				33E2E4D1148EE54D005910F5 /* HistoryViewController.m in Sources */,
 				33E2E4D7148EE57B005910F5 /* TodayTaskViewController.m in Sources */,
+				339649F7148EF35F00F37839 /* TaskInfo.m in Sources */,
+				339649FB148EF36000F37839 /* MetaData.m in Sources */,
+				339649FF148EF76600F37839 /* DetailViewController.m in Sources */,
+				33964A03148EF79000F37839 /* CountdownFormatter.m in Sources */,
+				33964A08148EF86C00F37839 /* EditingViewController.m in Sources */,
+				33964A0D148EFA2900F37839 /* AddViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

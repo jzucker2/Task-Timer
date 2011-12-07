@@ -219,7 +219,7 @@
     }
 	
 	
-	NSString *storePath = [[self applicationDocumentsDirectory] stringByAppendingPathComponent: @"TaskData.sqlite"];
+	NSString *storePath = [[self applicationDocumentsDirectory] stringByAppendingPathComponent: @"TiskTaskData.sqlite"];
 	/*
 	 Set up the store.
 	 For the sake of illustration, provide a pre-populated default store.
@@ -227,7 +227,7 @@
 	NSFileManager *fileManager = [NSFileManager defaultManager];
 	// If the expected store doesn't exist, copy the default store.
 	if (![fileManager fileExistsAtPath:storePath]) {
-		NSString *defaultStorePath = [[NSBundle mainBundle] pathForResource:@"TaskData" ofType:@"sqlite"];
+		NSString *defaultStorePath = [[NSBundle mainBundle] pathForResource:@"TiskTaskData" ofType:@"sqlite"];
 		if (defaultStorePath) {
 			[fileManager copyItemAtPath:defaultStorePath toPath:storePath error:NULL];
 		}
