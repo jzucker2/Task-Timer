@@ -106,9 +106,17 @@
     NSMutableDictionary *metadata = [self fetchPList];
     NSLog(@"metadata is %@", metadata);
     
-    // update notifications
-    
     // update allTasks
+    NSMutableDictionary *allTasks = [metadata objectForKey:@"AllTasks"];
+    // first increase total tasks
+    NSInteger totalTasks = [[allTasks objectForKey:@"TotalTasks"] integerValue];
+    totalTasks++;
+    [allTasks setObject:[NSNumber numberWithInteger:totalTasks] forKey:@"TotalTasks"];
+    // next increase timeleft
+    double timeLeft = [[allTasks objectForKey:@"TimeLeft"] doubleValue];
+    timeLeft = timeLeft + [taskInfo.duration doubleValue];
+    [allTasks setObject:[NSNumber numberWithDouble:timeLeft] forKey:@"TimeLeft"];
+    
     
     [self writeToPlist:metadata];
 }
@@ -121,9 +129,16 @@
     
     // update notifications
     NSMutableDictionary *notificationDict = [metadata objectForKey:@"Notifications"];
-    [notificationDict setObject:@"1" forKey:@"Total"];
+    // don't change total, just decrement reminders and increment alarms
+    // increment alarms
+    NSInteger alarms = [[notificationDict objectForKey:@"ActiveAlarms"] integerValue];
+    alarms++;
+    [notificationDict setObject:[NSNumber numberWithInteger:alarms] forKey:@"ActiveAlarms"];
+    // decrement reminders
+    NSInteger reminders = [[notificationDict objectForKey:@"ActiveReminders"] integerValue];
+    reminders--;
+    [notificationDict setObject:[NSNumber numberWithInteger:reminders] forKey:@"ActiveReminders"];
     
-    // update TodayTasks
     
     [self writeToPlist:metadata];
 }
@@ -135,10 +150,12 @@
     NSLog(@"metadata is %@", metadata);
     
     // update AllTasks
+    NSMutableDictionary *allTasks = [metadata objectForKey:@"AllTasks"];
     
     BOOL isToday = [taskInfo.isToday boolValue];
     if (isToday == YES) {
         // update Today Tasks
+        NSMutableDictionary *todayTasks = [metadata objectForKey:@"TodayTasks"];
     }
     
     [self writeToPlist:metadata];
@@ -151,8 +168,10 @@
     NSLog(@"metadata is %@", metadata);
     
     // update alltasks
+    NSMutableDictionary *allTasks = [metadata objectForKey:@"AllTasks"];
     
     // update todayTasks
+    NSMutableDictionary *todayTasks = [metadata objectForKey:@"TodayTasks"];
     
     [self writeToPlist:metadata];
 }
@@ -164,11 +183,13 @@
     NSLog(@"metadata is %@", metadata);
     
     // update allTasks
+    NSMutableDictionary *allTasks = [metadata objectForKey:@"AllTasks"];
     
     // update todayTasks
+    NSMutableDictionary *todayTasks = [metadata objectForKey:@"TodayTasks"];
     
     // update history
-    
+    NSMutableDictionary *history = [metadata objectForKey:@"History"];
     
     [self writeToPlist:metadata];
     
@@ -182,12 +203,16 @@
     NSLog(@"metadata is %@", metadata);
     
     // update notifications
+    NSMutableDictionary *notificationDict = [metadata objectForKey:@"Notifications"];
     
     // update allTasks
+    NSMutableDictionary *allTasks = [metadata objectForKey:@"AllTasks"];
     
     // update todayTasks
+    NSMutableDictionary *todayTasks = [metadata objectForKey:@"TodayTasks"];
     
     // update history
+    NSMutableDictionary *history = [metadata objectForKey:@"History"];
     
     [self writeToPlist:metadata];
 }
@@ -202,14 +227,18 @@
     
     if (isToday == YES) {
         // update notifications
+        NSMutableDictionary *notificationDict = [metadata objectForKey:@"Notifications"];
         
         // update today tasks
+        NSMutableDictionary *todayTasks = [metadata objectForKey:@"TodayTasks"];
     }
     else
     {
         // update notifications
+        NSMutableDictionary *notificationDict = [metadata objectForKey:@"Notifications"];
         
         // update today tasks
+        NSMutableDictionary *todayTasks = [metadata objectForKey:@"TodayTasks"];
     }
     
     [self writeToPlist:metadata];
