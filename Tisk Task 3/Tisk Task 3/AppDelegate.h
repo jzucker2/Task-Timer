@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "NSManagedObjectContext+FetchedObjectFromURI.h"
+#import "TaskInfo.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate, UITabBarControllerDelegate>
 {
@@ -24,5 +26,6 @@
 @property (nonatomic, retain, readonly) NSPersistentStoreCoordinator *persistentStoreCoordinator;
 
 @property (nonatomic, readonly) NSString *applicationDocumentsDirectory;
+
 
 @end

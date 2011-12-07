@@ -32,6 +32,8 @@
 
 - (void) endTask;
 
+- (void) finishTask;
+
 - (void) changeToday:(BOOL)today;
 
 - (void) scheduleReminder;

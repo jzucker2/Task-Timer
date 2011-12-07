@@ -335,7 +335,7 @@
 {
     //NSLog(@"today switch tapped");
     
-    
+    /*
     NSNumber *currentNumber;
     if (todaySwitch.isOn) {
         currentNumber = [NSNumber numberWithBool:YES];
@@ -344,8 +344,10 @@
     {
         currentNumber = [NSNumber numberWithBool:NO];
     }
+     */
     
-    [taskInfo setValue:currentNumber forKey:@"isToday"];
+    //[taskInfo setValue:currentNumber forKey:@"isToday"];
+    [taskInfo changeToday:todaySwitch.isOn];
     
     
 }

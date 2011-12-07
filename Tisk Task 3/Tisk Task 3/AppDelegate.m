@@ -170,6 +170,37 @@
 - (void) application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification
 {
     NSLog(@"didReceiveLocalNotification");
+    
+    [UIApplication sharedApplication].applicationIconBadgeNumber--;
+    NSLog(@"userInfo is %@", notification.userInfo);
+    NSString *title = [notification.userInfo objectForKey:@"title"];
+    NSLog(@"title is %@", title);
+    
+    if (!title) {
+        return;
+    }
+    
+    NSString *taskString = [notification.userInfo objectForKey:@"taskURLString"];
+    
+    NSURL *taskURL = [NSURL URLWithString:taskString];
+    
+    TaskInfo *taskInfo = (TaskInfo *) [managedObjectContext objectWithURI:taskURL];
+    NSLog(@"taskInfo is %@", taskInfo);
+    
+    NSString *type = [notification.userInfo objectForKey:@"type"];
+    
+    if ([type isEqualToString:@"alarm"]) {
+        [taskInfo endTask];
+    }
+    else
+    {
+        NSInteger reminder = [taskInfo.timesReminded integerValue];
+        reminder++;
+        NSNumber *timesReminded = [NSNumber numberWithInteger:reminder];
+        [taskInfo setTimesReminded:timesReminded];
+        [taskInfo scheduleReminder];
+    }
+
 }
 
 #pragma mark -

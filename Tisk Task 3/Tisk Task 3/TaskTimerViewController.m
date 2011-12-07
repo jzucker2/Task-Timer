@@ -145,27 +145,51 @@
 
 - (void) startTimer
 {
+    double duration = [taskInfo.duration doubleValue];
+    double elapsed = [taskInfo.elapsedTime doubleValue];
+    timeLeft = duration - elapsed;
     
+    [taskInfo startTask];
+    
+    countdownTimer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(updateCountdownLabel) userInfo:nil repeats:YES];
 }
 
 - (void) continueTimer
 {
+    NSDate *endTime = taskInfo.projectedEndTime;
+    double timeSinceNow = [endTime timeIntervalSinceNow];
     
+    timeSinceNow = nearbyint(timeSinceNow);
+    
+    timeLeft = timeSinceNow;
+    
+    countdownTimer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(updateCountdownLabel) userInfo:nil repeats:YES];
 }
 
 - (void) stopTimer
 {
     
+    [taskInfo stopTask];
+    
+    [countdownTimer invalidate];
+    countdownTimer = nil;
 }
 
 - (void) finishTimer
 {
+    [taskInfo finishTask];
     
+    [finishEarlyButton setEnabled:NO];
+    [self endTimer];
 }
 
 - (void) endTimer
 {
+    [timerButton setTitle:@"Done" forState:UIControlStateNormal];
+    [timerButton setEnabled:NO];
     
+    [countdownTimer invalidate];
+    countdownTimer = nil;
 }
 
 #pragma mark -

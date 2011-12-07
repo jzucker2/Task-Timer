@@ -374,19 +374,27 @@
     //NSLog(@"selectedInfo is %@", selectedInfo);
     //NSLog(@"title is %@", selectedInfo.title);
     
-    NSNumber *newToday;
+    
+    //NSNumber *newToday;
     BOOL oldToday = [selectedInfo.isToday boolValue];
+    BOOL newToday;
     if (oldToday == YES) {
-        newToday = [NSNumber numberWithBool:NO];
+        //newToday = [NSNumber numberWithBool:NO];
         //[self cancelReminder:selectedInfo];
+        newToday = NO;
     }
     else
     {
-        newToday = [NSNumber numberWithBool:YES];
+        newToday = YES;
+        //newToday = [NSNumber numberWithBool:YES];
         //[self scheduleReminder:selectedInfo];
     }
     
-    [selectedInfo setValue:newToday forKey:@"isToday"];
+    [selectedInfo changeToday:newToday];
+    //[selectedInfo setValue:newToday forKey:@"isToday"];
+    
+    
+    
     
     /*
     NSError *error;

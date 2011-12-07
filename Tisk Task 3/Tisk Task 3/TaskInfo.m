@@ -30,17 +30,80 @@
 
 - (void) startTask
 {
+    double duration = [self.duration doubleValue];
+    double elapsed = [self.elapsedTime doubleValue];
+
+    double timeLeft = duration - elapsed;
     
+    NSDate *start = [NSDate date];
+    NSDate *end = [start dateByAddingTimeInterval:timeLeft];
+    
+    [self setStartTime:start];
+    [self setProjectedEndTime:end];
+    
+    NSNumber *running = [NSNumber numberWithBool:YES];
+    [self setIsRunning:running];
+    
+    [self cancelReminder];
+    [self scheduleAlarm];
 }
 
 - (void) stopTask
 {
+    //double elapsed = [self.elapsedTime doubleValue];
+    double duration = [self.duration doubleValue];
     
+    double timeLeft = [self.projectedEndTime timeIntervalSinceNow];
+    NSLog(@"timeLeft is %f", timeLeft);
+    
+    double elapsed = duration - timeLeft;
+    elapsed = nearbyint(elapsed);
+    NSNumber *elapsedTime = [NSNumber numberWithDouble:elapsed];
+    [self setElapsedTime:elapsedTime];
+    
+    NSNumber *running = [NSNumber numberWithBool:NO];
+    [self setIsRunning:running];
+    
+    
+    
+    [self scheduleReminder];
+    [self cancelAlarm];
 }
 
 - (void) endTask
 {
+    NSDate *finishDate = [NSDate date];
+    [self setCompletionDate:finishDate];
     
+    NSNumber *completed = [NSNumber numberWithBool:YES];
+    [self setIsCompleted:completed];
+    
+    NSNumber *running = [NSNumber numberWithBool:NO];
+    [self setIsRunning:running];
+    
+    NSNumber *today = [NSNumber numberWithBool:NO];
+    [self setIsToday:today];
+    
+    
+    
+    
+}
+
+- (void) finishTask
+{
+    [self cancelAlarm];
+    
+    NSDate *finishDate = [NSDate date];
+    [self setCompletionDate:finishDate];
+    
+    NSNumber *completed = [NSNumber numberWithBool:YES];
+    [self setIsCompleted:completed];
+    
+    NSNumber *running = [NSNumber numberWithBool:NO];
+    [self setIsRunning:running];
+    
+    NSNumber *today = [NSNumber numberWithBool:NO];
+    [self setIsToday:today];
 }
 
 #pragma mark -
@@ -81,9 +144,13 @@
      
      */
     double duration = [self.duration doubleValue];
+    double timesReminded = [self.timesReminded doubleValue];
+    NSLog(@"timesReminded is %f", timesReminded);
+    
+    double timeTilReminder = duration/(++timesReminded);
     //double elapsed = [taskInfo.elapsedTime doubleValue];
     //double reminderTime = duration - elapsed;
-    NSDate *date = [NSDate dateWithTimeIntervalSinceNow:duration];
+    NSDate *date = [NSDate dateWithTimeIntervalSinceNow:timeTilReminder];
     localNotification.fireDate = date;
     localNotification.alertBody = [NSString stringWithFormat:@"%@ still needs work today", self.title];
     localNotification.alertAction = @"Start Working";
