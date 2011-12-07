@@ -17,8 +17,10 @@
     IBOutlet UITableView *allTaskTableView;
     NSFetchedResultsController *fetchedResultsController;
     NSManagedObjectContext *addingManagedObjectContext;
+    IBOutlet UILabel *metadataLabel;
 }
 
+@property (nonatomic, retain) IBOutlet UILabel *metadataLabel;
 @property (nonatomic, retain) NSManagedObjectContext *addingManagedObjectContext;
 @property (nonatomic, retain) NSFetchedResultsController *fetchedResultsController;
 @property (nonatomic, retain) IBOutlet UITableView *allTaskTableView;

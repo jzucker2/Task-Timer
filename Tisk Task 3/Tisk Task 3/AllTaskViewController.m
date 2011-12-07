@@ -8,6 +8,7 @@
 
 #import "AllTaskViewController.h"
 #import "MetaDataWrapper.h"
+#import "CountdownFormatter.h"
 
 @implementation AllTaskViewController
 
@@ -15,6 +16,7 @@
 @synthesize allTaskTableView;
 @synthesize fetchedResultsController;
 @synthesize addingManagedObjectContext;
+@synthesize metadataLabel;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -63,7 +65,22 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    [self.allTaskTableView reloadData];
+    
+    MetaDataWrapper *metadataWrapper = [[MetaDataWrapper alloc] init];
+    NSMutableDictionary *metadata = [metadataWrapper fetchPList];
+    NSMutableDictionary *allTasksDict = [metadata objectForKey:@"AllTasks"];
+    
+    CountdownFormatter *formatter = [[CountdownFormatter alloc] init];
+    
+    
+    NSString *timeSpent = [formatter stringForCountdownInterval:[allTasksDict objectForKey:@"TimeElapsed"]];
+    NSString *timeLeft = [formatter stringForCountdownInterval:[allTasksDict objectForKey:@"TimeLeft"]];
+    
+    [formatter release];
+    
+    [metadataWrapper release];
+    
+    metadataLabel.text = [NSString stringWithFormat:@"Spent:%@   Left:%@", timeSpent, timeLeft];
 }
 
 
@@ -439,6 +456,7 @@
 
 - (void) dealloc
 {
+    [metadataLabel release];
     [addingManagedObjectContext release];
     [fetchedResultsController release];
     [allTaskTableView release];

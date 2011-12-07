@@ -64,12 +64,13 @@
     
     MetaDataWrapper *metadataWrapper = [[MetaDataWrapper alloc] init];
     NSMutableDictionary *metadata = [metadataWrapper fetchPList];
+    NSMutableDictionary *todayDict = [metadata objectForKey:@"TodayTasks"];
     
     CountdownFormatter *formatter = [[CountdownFormatter alloc] init];
     
     
-    NSString *timeSpent = [formatter stringForCountdownInterval:[metadata objectForKey:@"TimeSpentToday"]];
-    NSString *timeLeft = [formatter stringForCountdownInterval:[metadata objectForKey:@"TimeLeftToday"]];
+    NSString *timeSpent = [formatter stringForCountdownInterval:[todayDict objectForKey:@"TimeElapsed"]];
+    NSString *timeLeft = [formatter stringForCountdownInterval:[todayDict objectForKey:@"TimeLeft"]];
     
     [formatter release];
     
