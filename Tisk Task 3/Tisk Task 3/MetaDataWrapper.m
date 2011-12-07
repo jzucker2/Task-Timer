@@ -145,17 +145,59 @@
 
 - (void) deleteTask:(TaskInfo *) taskInfo
 {
+    
+    // ******** needs work *********
     // fetch metadata
     NSMutableDictionary *metadata = [self fetchPList];
     NSLog(@"metadata is %@", metadata);
     
-    // update AllTasks
+    // update notifications
+    NSMutableDictionary *notificationDict = [metadata objectForKey:@"Notifications"];
+    BOOL running = [taskInfo.isRunning boolValue];
+    BOOL today = [taskInfo.isToday boolValue];
+    if (today == YES) {
+        if (running == YES) {
+            // decrement alarms
+            NSInteger alarms = [[notificationDict objectForKey:@"ActiveAlarms"] integerValue];
+            alarms--;
+            [notificationDict setObject:[NSNumber numberWithInteger:alarms] forKey:@"ActiveAlarms"];
+        }
+        else
+        {
+            // decrement reminders
+            NSInteger reminders = [[notificationDict objectForKey:@"ActiveReminders"] integerValue];
+            reminders--;
+            [notificationDict setObject:[NSNumber numberWithInteger:reminders] forKey:@"ActiveReminders"];
+        }
+    }
+        
+    // update allTasks
     NSMutableDictionary *allTasks = [metadata objectForKey:@"AllTasks"];
+    // first decrease total tasks
+    NSInteger totalTasks = [[allTasks objectForKey:@"TotalTasks"] integerValue];
+    totalTasks--;
+    [allTasks setObject:[NSNumber numberWithInteger:totalTasks] forKey:@"TotalTasks"];
+    // next decrease timeleft
+    double timeLeft = [[allTasks objectForKey:@"TimeLeft"] doubleValue];
+    timeLeft = timeLeft - [taskInfo.duration doubleValue];
+    [allTasks setObject:[NSNumber numberWithDouble:timeLeft] forKey:@"TimeLeft"];
+    // next decrease timeelapsed
+    double timeElapsed = [[allTasks objectForKey:@"TimeElapsed"] doubleValue];
+    timeElapsed = timeElapsed - [taskInfo.elapsedTime doubleValue];
+    [allTasks setObject:[NSNumber numberWithDouble:timeElapsed] forKey:@"TimeElapsed"];
+    
+    
     
     BOOL isToday = [taskInfo.isToday boolValue];
     if (isToday == YES) {
         // update Today Tasks
         NSMutableDictionary *todayTasks = [metadata objectForKey:@"TodayTasks"];
+        // decrement total tasks
+        NSInteger totalTasks = [[todayTasks objectForKey:@"TotalTasks"] integerValue];
+        totalTasks--;
+        [todayTasks setObject:[NSNumber numberWithInteger:totalTasks] forKey:@"TotalTasks"];
+        
+        
     }
     
     [self writeToPlist:metadata];
@@ -167,11 +209,45 @@
     NSMutableDictionary *metadata = [self fetchPList];
     NSLog(@"metadata is %@", metadata);
     
-    // update alltasks
+    // update notifications
+    NSMutableDictionary *notificationDict = [metadata objectForKey:@"Notifications"];
+    // don't change total, just decrement reminders and increment alarms
+    // decrement alarms
+    NSInteger alarms = [[notificationDict objectForKey:@"ActiveAlarms"] integerValue];
+    alarms--;
+    [notificationDict setObject:[NSNumber numberWithInteger:alarms] forKey:@"ActiveAlarms"];
+    // increment reminders
+    NSInteger reminders = [[notificationDict objectForKey:@"ActiveReminders"] integerValue];
+    reminders++;
+    [notificationDict setObject:[NSNumber numberWithInteger:reminders] forKey:@"ActiveReminders"];
+    
+    // update allTasks
     NSMutableDictionary *allTasks = [metadata objectForKey:@"AllTasks"];
+    // next decrease timeleft
+    double timeLeft = [[allTasks objectForKey:@"TimeLeft"] doubleValue];
+    double elapsed = [taskInfo.elapsedTime doubleValue];
+    timeLeft = timeLeft - elapsed;
+    [allTasks setObject:[NSNumber numberWithDouble:timeLeft] forKey:@"TimeLeft"];
+    // next increase timeelapsed
+    double timeElapsed = [[allTasks objectForKey:@"TimeElapsed"] doubleValue];
+    timeElapsed = timeElapsed + elapsed;
+    [allTasks setObject:[NSNumber numberWithDouble:timeElapsed] forKey:@"TimeElapsed"];
+    
     
     // update todayTasks
     NSMutableDictionary *todayTasks = [metadata objectForKey:@"TodayTasks"];
+    // decrement active tasks
+    NSInteger activeTasks = [[todayTasks objectForKey:@"ActiveTasks"] integerValue];
+    activeTasks--;
+    [todayTasks setObject:[NSNumber numberWithInteger:activeTasks] forKey:@"ActiveTasks"];
+    // decrease timeleft
+    double todayTimeLeft = [[todayTasks objectForKey:@"TimeLeft"] doubleValue];
+    todayTimeLeft = todayTimeLeft - [taskInfo.elapsedTime doubleValue];
+    [todayTasks setObject:[NSNumber numberWithDouble:todayTimeLeft] forKey:@"TimeLeft"];
+    // increase elapsed
+    double todayTimeElapsed = [[todayTasks objectForKey:@"TimeElapsed"] doubleValue];
+    todayTimeElapsed = todayTimeElapsed + [taskInfo.elapsedTime doubleValue];
+    [todayTasks setObject:[NSNumber numberWithDouble:todayTimeElapsed] forKey:@"TimeElapsed"];
     
     [self writeToPlist:metadata];
 }
@@ -182,14 +258,60 @@
     NSMutableDictionary *metadata = [self fetchPList];
     NSLog(@"metadata is %@", metadata);
     
+    // update notifications
+    NSMutableDictionary *notificationDict = [metadata objectForKey:@"Notifications"];
+    // decrement total
+    NSInteger totalNotes = [[notificationDict objectForKey:@"Total"] integerValue];
+    totalNotes--;
+    [notificationDict setObject:[NSNumber numberWithInteger:totalNotes] forKey:@"Total"];
+    // decrement alarms
+    NSInteger alarms = [[notificationDict objectForKey:@"ActiveAlarms"] integerValue];
+    alarms--;
+    [notificationDict setObject:[NSNumber numberWithInteger:alarms] forKey:@"ActiveAlarms"];
+    
     // update allTasks
     NSMutableDictionary *allTasks = [metadata objectForKey:@"AllTasks"];
+    NSInteger totalAllTasks = [[allTasks objectForKey:@"TotalTasks"] integerValue];
+    totalAllTasks--;
+    [allTasks setObject:[NSNumber numberWithInteger:totalAllTasks] forKey:@"TotalTasks"];
+    // next decrease timeleft
+    double timeLeft = [[allTasks objectForKey:@"TimeLeft"] doubleValue];
+    double elapsed = [taskInfo.elapsedTime doubleValue];
+    timeLeft = timeLeft - elapsed;
+    [allTasks setObject:[NSNumber numberWithDouble:timeLeft] forKey:@"TimeLeft"];
+    // next increase timeelapsed
+    double timeElapsed = [[allTasks objectForKey:@"TimeElapsed"] doubleValue];
+    timeElapsed = timeElapsed + elapsed;
+    [allTasks setObject:[NSNumber numberWithDouble:timeElapsed] forKey:@"TimeElapsed"];
+    
     
     // update todayTasks
     NSMutableDictionary *todayTasks = [metadata objectForKey:@"TodayTasks"];
+    // decrement total tasks
+    NSInteger totalToday = [[todayTasks objectForKey:@"TotalTasks"] integerValue];
+    totalToday--;
+    [todayTasks setObject:[NSNumber numberWithInteger:totalToday] forKey:@"TotalTasks"];
+    // decrement active tasks
+    NSInteger activeTasks = [[todayTasks objectForKey:@"ActiveTasks"] integerValue];
+    activeTasks--;
+    [todayTasks setObject:[NSNumber numberWithInteger:activeTasks] forKey:@"ActiveTasks"];
+    // decrease timeleft
+    double todayTimeLeft = [[todayTasks objectForKey:@"TimeLeft"] doubleValue];
+    todayTimeLeft = todayTimeLeft - [taskInfo.elapsedTime doubleValue];
+    [todayTasks setObject:[NSNumber numberWithDouble:todayTimeLeft] forKey:@"TimeLeft"];
+    // increase elapsed
+    double todayTimeElapsed = [[todayTasks objectForKey:@"TimeElapsed"] doubleValue];
+    todayTimeElapsed = todayTimeElapsed + [taskInfo.elapsedTime doubleValue];
+    [todayTasks setObject:[NSNumber numberWithDouble:todayTimeElapsed] forKey:@"TimeElapsed"];
     
     // update history
     NSMutableDictionary *history = [metadata objectForKey:@"History"];
+    NSInteger historyTasks = [[history objectForKey:@"TotalTasks"] integerValue];
+    historyTasks++;
+    [history setObject:[NSNumber numberWithInteger:historyTasks] forKey:@"TotalTasks"];
+    double historyElapsed = [[history objectForKey:@"TimeElapsed"] doubleValue];
+    historyElapsed = historyElapsed + [taskInfo.elapsedTime doubleValue];
+    [history setObject:[NSNumber numberWithDouble:historyElapsed] forKey:@"TimeElapsed"];
     
     [self writeToPlist:metadata];
     
@@ -204,15 +326,58 @@
     
     // update notifications
     NSMutableDictionary *notificationDict = [metadata objectForKey:@"Notifications"];
+    // decrement total
+    NSInteger totalNotes = [[notificationDict objectForKey:@"Total"] integerValue];
+    totalNotes--;
+    [notificationDict setObject:[NSNumber numberWithInteger:totalNotes] forKey:@"Total"];
+    // decrement alarms
+    NSInteger alarms = [[notificationDict objectForKey:@"ActiveAlarms"] integerValue];
+    alarms--;
+    [notificationDict setObject:[NSNumber numberWithInteger:alarms] forKey:@"ActiveAlarms"];
     
     // update allTasks
     NSMutableDictionary *allTasks = [metadata objectForKey:@"AllTasks"];
+    NSInteger totalAllTasks = [[allTasks objectForKey:@"TotalTasks"] integerValue];
+    totalAllTasks--;
+    [allTasks setObject:[NSNumber numberWithInteger:totalAllTasks] forKey:@"TotalTasks"];
+    // next decrease timeleft
+    double timeLeft = [[allTasks objectForKey:@"TimeLeft"] doubleValue];
+    double duration = [taskInfo.duration doubleValue];
+    timeLeft = timeLeft - duration;
+    [allTasks setObject:[NSNumber numberWithDouble:timeLeft] forKey:@"TimeLeft"];
+    // next increase timeelapsed
+    double timeElapsed = [[allTasks objectForKey:@"TimeElapsed"] doubleValue];
+    timeElapsed = timeElapsed + [taskInfo.elapsedTime doubleValue];
+    [allTasks setObject:[NSNumber numberWithDouble:timeElapsed] forKey:@"TimeElapsed"];
+    
     
     // update todayTasks
     NSMutableDictionary *todayTasks = [metadata objectForKey:@"TodayTasks"];
+    // decrement total tasks
+    NSInteger totalToday = [[todayTasks objectForKey:@"TotalTasks"] integerValue];
+    totalToday--;
+    [todayTasks setObject:[NSNumber numberWithInteger:totalToday] forKey:@"TotalTasks"];
+    // decrement active tasks
+    NSInteger activeTasks = [[todayTasks objectForKey:@"ActiveTasks"] integerValue];
+    activeTasks--;
+    [todayTasks setObject:[NSNumber numberWithInteger:activeTasks] forKey:@"ActiveTasks"];
+    // decrease timeleft
+    double todayTimeLeft = [[todayTasks objectForKey:@"TimeLeft"] doubleValue];
+    todayTimeLeft = todayTimeLeft - [taskInfo.duration doubleValue];
+    [todayTasks setObject:[NSNumber numberWithDouble:todayTimeLeft] forKey:@"TimeLeft"];
+    // increase elapsed
+    double todayTimeElapsed = [[todayTasks objectForKey:@"TimeElapsed"] doubleValue];
+    todayTimeElapsed = todayTimeElapsed + [taskInfo.elapsedTime doubleValue];
+    [todayTasks setObject:[NSNumber numberWithDouble:todayTimeElapsed] forKey:@"TimeElapsed"];
     
     // update history
     NSMutableDictionary *history = [metadata objectForKey:@"History"];
+    NSInteger historyTasks = [[history objectForKey:@"TotalTasks"] integerValue];
+    historyTasks++;
+    [history setObject:[NSNumber numberWithInteger:historyTasks] forKey:@"TotalTasks"];
+    double historyElapsed = [[history objectForKey:@"TimeElapsed"] doubleValue];
+    historyElapsed = historyElapsed + [taskInfo.elapsedTime doubleValue];
+    [history setObject:[NSNumber numberWithDouble:historyElapsed] forKey:@"TimeElapsed"];
     
     [self writeToPlist:metadata];
 }
@@ -228,17 +393,57 @@
     if (isToday == YES) {
         // update notifications
         NSMutableDictionary *notificationDict = [metadata objectForKey:@"Notifications"];
+        // increment total
+        NSInteger totalNotes = [[notificationDict objectForKey:@"Total"] integerValue];
+        totalNotes++;
+        [notificationDict setObject:[NSNumber numberWithInteger:totalNotes] forKey:@"Total"];
+        // increment reminders
+        NSInteger reminders = [[notificationDict objectForKey:@"ActiveReminders"] integerValue];
+        reminders++;
+        [notificationDict setObject:[NSNumber numberWithInteger:reminders] forKey:@"ActiveReminders"];
         
-        // update today tasks
+        // update todayTasks
         NSMutableDictionary *todayTasks = [metadata objectForKey:@"TodayTasks"];
+        // increment total tasks
+        NSInteger totalToday = [[todayTasks objectForKey:@"TotalTasks"] integerValue];
+        totalToday++;
+        [todayTasks setObject:[NSNumber numberWithInteger:totalToday] forKey:@"TotalTasks"];
+        // increase timeleft
+        double todayTimeLeft = [[todayTasks objectForKey:@"TimeLeft"] doubleValue];
+        todayTimeLeft = todayTimeLeft + [taskInfo.elapsedTime doubleValue];
+        [todayTasks setObject:[NSNumber numberWithDouble:todayTimeLeft] forKey:@"TimeLeft"];
+        // increase elapsed
+        double todayTimeElapsed = [[todayTasks objectForKey:@"TimeElapsed"] doubleValue];
+        todayTimeElapsed = todayTimeElapsed + [taskInfo.elapsedTime doubleValue];
+        [todayTasks setObject:[NSNumber numberWithDouble:todayTimeElapsed] forKey:@"TimeElapsed"];
     }
     else
     {
         // update notifications
         NSMutableDictionary *notificationDict = [metadata objectForKey:@"Notifications"];
+        // decrement total
+        NSInteger totalNotes = [[notificationDict objectForKey:@"Total"] integerValue];
+        totalNotes--;
+        [notificationDict setObject:[NSNumber numberWithInteger:totalNotes] forKey:@"Total"];
+        // decrement reminders
+        NSInteger reminders = [[notificationDict objectForKey:@"ActiveReminders"] integerValue];
+        reminders--;
+        [notificationDict setObject:[NSNumber numberWithInteger:reminders] forKey:@"ActiveReminders"];
         
-        // update today tasks
+        // update todayTasks
         NSMutableDictionary *todayTasks = [metadata objectForKey:@"TodayTasks"];
+        // decrement total tasks
+        NSInteger totalToday = [[todayTasks objectForKey:@"TotalTasks"] integerValue];
+        totalToday--;
+        [todayTasks setObject:[NSNumber numberWithInteger:totalToday] forKey:@"TotalTasks"];
+        // decrease timeleft
+        double todayTimeLeft = [[todayTasks objectForKey:@"TimeLeft"] doubleValue];
+        todayTimeLeft = todayTimeLeft - [taskInfo.elapsedTime doubleValue];
+        [todayTasks setObject:[NSNumber numberWithDouble:todayTimeLeft] forKey:@"TimeLeft"];
+        // decrease elapsed
+        double todayTimeElapsed = [[todayTasks objectForKey:@"TimeElapsed"] doubleValue];
+        todayTimeElapsed = todayTimeElapsed - [taskInfo.elapsedTime doubleValue];
+        [todayTasks setObject:[NSNumber numberWithDouble:todayTimeElapsed] forKey:@"TimeElapsed"];
     }
     
     [self writeToPlist:metadata];
