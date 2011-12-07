@@ -7,6 +7,7 @@
 //
 
 #import "TaskInfo.h"
+#import "MetaDataWrapper.h"
 
 
 @implementation TaskInfo
@@ -46,6 +47,10 @@
     
     [self cancelReminder];
     [self scheduleAlarm];
+    
+    MetaDataWrapper *metadata = [[MetaDataWrapper alloc] init];
+    [metadata startTask:self];
+    [metadata release];
 }
 
 - (void) stopTask
@@ -68,6 +73,10 @@
     
     [self scheduleReminder];
     [self cancelAlarm];
+    
+    MetaDataWrapper *metadata = [[MetaDataWrapper alloc] init];
+    [metadata stopTask:self];
+    [metadata release];
 }
 
 - (void) endTask
@@ -85,7 +94,9 @@
     [self setIsToday:today];
     
     
-    
+    MetaDataWrapper *metadata = [[MetaDataWrapper alloc] init];
+    [metadata endTask:self];
+    [metadata release];
     
 }
 
@@ -104,6 +115,10 @@
     
     NSNumber *today = [NSNumber numberWithBool:NO];
     [self setIsToday:today];
+    
+    MetaDataWrapper *metadata = [[MetaDataWrapper alloc] init];
+    [metadata finishTask:self];
+    [metadata release];
 }
 
 #pragma mark -
@@ -121,6 +136,10 @@
         NSLog(@"cancel reminder");
         [self cancelReminder];
     }
+    
+    MetaDataWrapper *metadata = [[MetaDataWrapper alloc] init];
+    [metadata changeToday:self];
+    [metadata release];
 }
 
 

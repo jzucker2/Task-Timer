@@ -16,8 +16,10 @@
     NSManagedObjectContext *managedObjectContext;
     NSFetchedResultsController *fetchedResultsController;
     IBOutlet UITableView *todayTableView;
+    IBOutlet UILabel *metadataLabel;
 }
 
+@property (nonatomic, retain) IBOutlet UILabel *metadataLabel;
 @property (nonatomic, retain) IBOutlet UITableView *todayTableView;
 @property (nonatomic, retain) NSFetchedResultsController *fetchedResultsController;
 @property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;

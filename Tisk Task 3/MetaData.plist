@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>NumberActiveAlarms</key>
+	<integer>0</integer>
+	<key>NumberActiveReminders</key>
+	<integer>0</integer>
+	<key>NumberActiveTasks</key>
+	<integer>0</integer>
+	<key>NumberAllTasks</key>
+	<integer>0</integer>
+	<key>TimeLeftAllTasks</key>
+	<integer>0</integer>
+	<key>TasksFinishedToday</key>
+	<integer>0</integer>
+	<key>TasksLeftToday</key>
+	<integer>0</integer>
+	<key>TimeSpentToday</key>
+	<integer>0</integer>
+	<key>TimeLeftToday</key>
+	<integer>0</integer>
+	<key>OverallTasksFinished</key>
+	<integer>0</integer>
+	<key>OverallTimeSpent</key>
+	<integer>0</integer>
+</dict>
+</plist>

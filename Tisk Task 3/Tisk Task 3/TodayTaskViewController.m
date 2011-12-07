@@ -7,11 +7,14 @@
 //
 
 #import "TodayTaskViewController.h"
+#import "MetaDataWrapper.h"
+#import "CountdownFormatter.h"
 
 @implementation TodayTaskViewController
 
 @synthesize managedObjectContext;
 @synthesize todayTableView, fetchedResultsController;
+@synthesize metadataLabel;
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -58,6 +61,21 @@
 {
     [super viewWillAppear:animated];
     [self.todayTableView reloadData];
+    
+    MetaDataWrapper *metadataWrapper = [[MetaDataWrapper alloc] init];
+    NSMutableDictionary *metadata = [metadataWrapper fetchPList];
+    
+    CountdownFormatter *formatter = [[CountdownFormatter alloc] init];
+    
+    
+    NSString *timeSpent = [formatter stringForCountdownInterval:[metadata objectForKey:@"TimeSpentToday"]];
+    NSString *timeLeft = [formatter stringForCountdownInterval:[metadata objectForKey:@"TimeLeftToday"]];
+    
+    [formatter release];
+    
+    [metadataWrapper release];
+    
+    metadataLabel.text = [NSString stringWithFormat:@"Spent:%@   Left:%@", timeSpent, timeLeft];
 }
 
 

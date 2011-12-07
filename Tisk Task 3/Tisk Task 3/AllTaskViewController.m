@@ -7,6 +7,7 @@
 //
 
 #import "AllTaskViewController.h"
+#import "MetaDataWrapper.h"
 
 @implementation AllTaskViewController
 
@@ -238,6 +239,12 @@
 		}
 		[dnc removeObserver:self name:NSManagedObjectContextDidSaveNotification object:addingManagedObjectContext];
 	}
+    
+    
+    
+
+    
+    
 	// Release the adding managed object context.
 	self.addingManagedObjectContext = nil;
     
