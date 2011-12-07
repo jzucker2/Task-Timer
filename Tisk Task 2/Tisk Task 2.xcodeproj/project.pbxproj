@@ -155,7 +155,7 @@
 				33D90124146DE71300EEBF6E /* Today Task Table View */,
 				33D9011E146DE6FF00EEBF6E /* All Task Table View */,
 				335596C61489712400D04AAF /* Completed Task Table View */,
-				3358780C148EC9F000890E31 /* New Group */,
+				3358780C148EC9F000890E31 /* Countdown Formatter */,
 			);
 			path = "Tisk Task 2";
 			sourceTree = "<group>";
@@ -192,13 +192,13 @@
 			name = "Task Timer View";
 			sourceTree = "<group>";
 		};
-		3358780C148EC9F000890E31 /* New Group */ = {
+		3358780C148EC9F000890E31 /* Countdown Formatter */ = {
 			isa = PBXGroup;
 			children = (
 				33587809148EC9E900890E31 /* CountdownFormatter.h */,
 				3358780A148EC9E900890E31 /* CountdownFormatter.m */,
 			);
-			name = "New Group";
+			name = "Countdown Formatter";
 			sourceTree = "<group>";
 		};
 		339DA18E148D890D0047E48E /* New Group */ = {
@@ -244,6 +244,7 @@
 		33D90109146DDF9600EEBF6E /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				335596D51489968000D04AAF /* start-button.jpg */,
 				333B93E81489E80D0072F9A7 /* redlight.jpg */,
 				333B93EA1489E8910072F9A7 /* Signal_Light_-_Green.jpg */,
 				335596C71489798900D04AAF /* icon.png */,
@@ -258,7 +259,6 @@
 		33D9010A146DDFA000EEBF6E /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				335596D51489968000D04AAF /* start-button.jpg */,
 				33D900F6146DDC3F00EEBF6E /* TaskDataModel.xcdatamodeld */,
 				33D90109146DDF9600EEBF6E /* Images */,
 			);
