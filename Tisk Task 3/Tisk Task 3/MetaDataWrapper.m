@@ -8,7 +8,11 @@
 
 #import "MetaDataWrapper.h"
 
+
 @implementation MetaDataWrapper
+
+#pragma mark -
+#pragma mark Lifecycle Methods
 
 - (id) init
 {
@@ -19,6 +23,28 @@
     
     return self;
 }
+
+- (void) dealloc
+{
+    [super dealloc];
+}
+
+#pragma mark -
+#pragma mark Write to Plist
+
+- (void) writeToPlist:(NSMutableDictionary *)dictionary
+{
+    // find plist path
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    NSString *path = [documentsDirectory stringByAppendingPathComponent:@"MetaData.plist"];
+    
+    // write to plist
+    [dictionary writeToFile:path atomically:YES];
+}
+
+#pragma mark -
+#pragma mark Retrieval Methods
 
 - (NSMutableDictionary *) fetchPList
 {
@@ -52,28 +78,39 @@
     return temp;
 }
 
+/*
+- (NSMutableDictionary *) fetchNotificationDictionary
+{
+    
+}
+
+- (NSMutableDictionary *) fetchAllTasksDictionary
+{
+    
+}
+
+- (NSMutableDictionary *) fetchTodayTasksDictionary
+{
+    
+}
+
+- (NSMutableDictionary *) fetchHistoryDictionary
+{
+    
+}
+ */
+
 - (void) addNewTask:(TaskInfo *) taskInfo
 {
     // fetch metadata
     NSMutableDictionary *metadata = [self fetchPList];
     NSLog(@"metadata is %@", metadata);
     
-    // increment number of all tasks
-    NSInteger numberAllTasks = [[metadata objectForKey:@"NumberAllTasks"] integerValue];
-    numberAllTasks++;
-    [metadata setObject:[NSNumber numberWithInteger:numberAllTasks] forKey:@"NumberAllTasks"];
+    // update notifications
     
-    // increase time left for all tasks by duration
-    double timeLeftAll = [[metadata objectForKey:@"TimeLeftAllTasks"] doubleValue];
-    timeLeftAll += [taskInfo.duration doubleValue];
+    // update allTasks
     
-    // find plist path
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *documentsDirectory = [paths objectAtIndex:0];
-    NSString *path = [documentsDirectory stringByAppendingPathComponent:@"MetaData.plist"];
-    
-    // write to plist
-    [metadata writeToFile:path atomically:YES];
+    [self writeToPlist:metadata];
 }
 
 - (void) startTask:(TaskInfo *)taskInfo
@@ -82,28 +119,13 @@
     NSMutableDictionary *metadata = [self fetchPList];
     NSLog(@"metadata is %@", metadata);
     
-    // increment number of active tasks
-    NSInteger numberActiveTasks = [[metadata objectForKey:@"NumberActiveTasks"] integerValue];
-    numberActiveTasks++;
-    [metadata setObject:[NSNumber numberWithInteger:numberActiveTasks] forKey:@"NumberActiveTasks"];
+    // update notifications
+    NSMutableDictionary *notificationDict = [metadata objectForKey:@"Notifications"];
+    [notificationDict setObject:@"1" forKey:@"Total"];
     
-    // increase number active alarms
-    NSInteger numberActiveAlarms = [[metadata objectForKey:@"NumberActiveAlarms"] integerValue];
-    numberActiveAlarms++;
-    [metadata setObject:[NSNumber numberWithInteger:numberActiveAlarms] forKey:@"NumberActiveAlarms"];
+    // update TodayTasks
     
-    // decrease number active reminders
-    NSInteger numberActiveReminders = [[metadata objectForKey:@"NumberActiveReminders"] integerValue];
-    numberActiveReminders--;
-    [metadata setObject:[NSNumber numberWithInteger:numberActiveReminders] forKey:@"NumberActiveReminders"];
-    
-    // find plist path
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *documentsDirectory = [paths objectAtIndex:0];
-    NSString *path = [documentsDirectory stringByAppendingPathComponent:@"MetaData.plist"];
-    
-    // write to plist
-    [metadata writeToFile:path atomically:YES];
+    [self writeToPlist:metadata];
 }
 
 - (void) deleteTask:(TaskInfo *) taskInfo
@@ -111,6 +133,15 @@
     // fetch metadata
     NSMutableDictionary *metadata = [self fetchPList];
     NSLog(@"metadata is %@", metadata);
+    
+    // update AllTasks
+    
+    BOOL isToday = [taskInfo.isToday boolValue];
+    if (isToday == YES) {
+        // update Today Tasks
+    }
+    
+    [self writeToPlist:metadata];
 }
 
 - (void) stopTask:(TaskInfo *) taskInfo
@@ -119,38 +150,11 @@
     NSMutableDictionary *metadata = [self fetchPList];
     NSLog(@"metadata is %@", metadata);
     
-    // decrement number of active tasks
-    NSInteger numberActiveTasks = [[metadata objectForKey:@"NumberActiveTasks"] integerValue];
-    numberActiveTasks--;
-    [metadata setObject:[NSNumber numberWithInteger:numberActiveTasks] forKey:@"NumberActiveTasks"];
+    // update alltasks
     
-    // decrease number active alarms
-    NSInteger numberActiveAlarms = [[metadata objectForKey:@"NumberActiveAlarms"] integerValue];
-    numberActiveAlarms--;
-    [metadata setObject:[NSNumber numberWithInteger:numberActiveAlarms] forKey:@"NumberActiveAlarms"];
+    // update todayTasks
     
-    // increase number active reminders
-    NSInteger numberActiveReminders = [[metadata objectForKey:@"NumberActiveReminders"] integerValue];
-    numberActiveReminders++;
-    [metadata setObject:[NSNumber numberWithInteger:numberActiveReminders] forKey:@"NumberActiveReminders"];
-    
-    // update time left today
-    double timeLeftToday = [[metadata objectForKey:@"TimeLeftToday"] doubleValue];
-    timeLeftToday = timeLeftToday - [taskInfo.elapsedTime doubleValue];
-    [metadata setObject:[NSNumber numberWithDouble:timeLeftToday] forKey:@"TimeLeftToday"];
-    
-    // update time spent today
-    double timeSpentToday = [[metadata objectForKey:@"TimeSpentToday"] doubleValue];
-    timeSpentToday = timeSpentToday + [taskInfo.elapsedTime doubleValue];
-    [metadata setObject:[NSNumber numberWithDouble:timeSpentToday] forKey:@"TimeSpentToday"];
-    
-    // find plist path
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *documentsDirectory = [paths objectAtIndex:0];
-    NSString *path = [documentsDirectory stringByAppendingPathComponent:@"MetaData.plist"];
-    
-    // write to plist
-    [metadata writeToFile:path atomically:YES];
+    [self writeToPlist:metadata];
 }
 
 - (void) endTask:(TaskInfo *) taskInfo
@@ -159,49 +163,14 @@
     NSMutableDictionary *metadata = [self fetchPList];
     NSLog(@"metadata is %@", metadata);
     
-    // decrement number of active tasks
-    NSInteger numberActiveTasks = [[metadata objectForKey:@"NumberActiveTasks"] integerValue];
-    numberActiveTasks--;
-    [metadata setObject:[NSNumber numberWithInteger:numberActiveTasks] forKey:@"NumberActiveTasks"];
+    // update allTasks
     
-    // decrease number active alarms
-    NSInteger numberActiveAlarms = [[metadata objectForKey:@"NumberActiveAlarms"] integerValue];
-    numberActiveAlarms--;
-    [metadata setObject:[NSNumber numberWithInteger:numberActiveAlarms] forKey:@"NumberActiveAlarms"];
+    // update todayTasks
     
-    // update time left today
-    double timeLeftToday = [[metadata objectForKey:@"TimeLeftToday"] doubleValue];
-    timeLeftToday = timeLeftToday - [taskInfo.elapsedTime doubleValue];
-    [metadata setObject:[NSNumber numberWithDouble:timeLeftToday] forKey:@"TimeLeftToday"];
-    
-    // update time spent today
-    double timeSpentToday = [[metadata objectForKey:@"TimeSpentToday"] doubleValue];
-    timeSpentToday = timeSpentToday + [taskInfo.elapsedTime doubleValue];
-    [metadata setObject:[NSNumber numberWithDouble:timeSpentToday] forKey:@"TimeSpentToday"];
-    
-    // increase tasks finished today
-    NSInteger tasksFinishedToday = [[metadata objectForKey:@"TasksFinishedToday"] integerValue];
-    tasksFinishedToday--;
-    [metadata setObject:[NSNumber numberWithInteger:tasksFinishedToday] forKey:@"TasksFinishedToday"];
-    
-    // increase tasks finished overall
-    NSInteger tasksFinishedOverall = [[metadata objectForKey:@"OverallTasksFinished"] integerValue];
-    tasksFinishedOverall--;
-    [metadata setObject:[NSNumber numberWithInteger:tasksFinishedOverall] forKey:@"OverallTasksFinished"];
-    
-    // increase overall time spent
-    double overallTimeSpent = [[metadata objectForKey:@"OverallTimeSpent"] doubleValue];
-    overallTimeSpent = overallTimeSpent + [taskInfo.elapsedTime doubleValue];
-    [metadata setObject:[NSNumber numberWithDouble:overallTimeSpent] forKey:@"OverallTimeSpent"];
+    // update history
     
     
-    // find plist path
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *documentsDirectory = [paths objectAtIndex:0];
-    NSString *path = [documentsDirectory stringByAppendingPathComponent:@"MetaData.plist"];
-    
-    // write to plist
-    [metadata writeToFile:path atomically:YES];
+    [self writeToPlist:metadata];
     
     
 }
@@ -212,49 +181,15 @@
     NSMutableDictionary *metadata = [self fetchPList];
     NSLog(@"metadata is %@", metadata);
     
-    // decrement number of active tasks
-    NSInteger numberActiveTasks = [[metadata objectForKey:@"NumberActiveTasks"] integerValue];
-    numberActiveTasks--;
-    [metadata setObject:[NSNumber numberWithInteger:numberActiveTasks] forKey:@"NumberActiveTasks"];
+    // update notifications
     
-    // decrease number active alarms
-    NSInteger numberActiveAlarms = [[metadata objectForKey:@"NumberActiveAlarms"] integerValue];
-    numberActiveAlarms--;
-    [metadata setObject:[NSNumber numberWithInteger:numberActiveAlarms] forKey:@"NumberActiveAlarms"];
+    // update allTasks
     
-    // update time left today
-    double timeLeftToday = [[metadata objectForKey:@"TimeLeftToday"] doubleValue];
-    timeLeftToday = timeLeftToday - [taskInfo.elapsedTime doubleValue];
-    [metadata setObject:[NSNumber numberWithDouble:timeLeftToday] forKey:@"TimeLeftToday"];
+    // update todayTasks
     
-    // update time spent today
-    double timeSpentToday = [[metadata objectForKey:@"TimeSpentToday"] doubleValue];
-    timeSpentToday = timeSpentToday + [taskInfo.elapsedTime doubleValue];
-    [metadata setObject:[NSNumber numberWithDouble:timeSpentToday] forKey:@"TimeSpentToday"];
+    // update history
     
-    // increase tasks finished today
-    NSInteger tasksFinishedToday = [[metadata objectForKey:@"TasksFinishedToday"] integerValue];
-    tasksFinishedToday--;
-    [metadata setObject:[NSNumber numberWithInteger:tasksFinishedToday] forKey:@"TasksFinishedToday"];
-    
-    // increase tasks finished overall
-    NSInteger tasksFinishedOverall = [[metadata objectForKey:@"OverallTasksFinished"] integerValue];
-    tasksFinishedOverall--;
-    [metadata setObject:[NSNumber numberWithInteger:tasksFinishedOverall] forKey:@"OverallTasksFinished"];
-    
-    // increase overall time spent
-    double overallTimeSpent = [[metadata objectForKey:@"OverallTimeSpent"] doubleValue];
-    overallTimeSpent = overallTimeSpent + [taskInfo.elapsedTime doubleValue];
-    [metadata setObject:[NSNumber numberWithDouble:overallTimeSpent] forKey:@"OverallTimeSpent"];
-    
-    
-    // find plist path
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *documentsDirectory = [paths objectAtIndex:0];
-    NSString *path = [documentsDirectory stringByAppendingPathComponent:@"MetaData.plist"];
-    
-    // write to plist
-    [metadata writeToFile:path atomically:YES];
+    [self writeToPlist:metadata];
 }
 
 - (void) changeToday:(TaskInfo *)taskInfo
@@ -265,57 +200,19 @@
     
     BOOL isToday = [taskInfo.isToday boolValue];
     
-    // adjust number of tasks for today
-    NSInteger tasksLeftToday = [[metadata objectForKey:@"TasksLeftToday"] integerValue];
     if (isToday == YES) {
-        tasksLeftToday++;
+        // update notifications
+        
+        // update today tasks
     }
     else
     {
-        tasksLeftToday--;
+        // update notifications
+        
+        // update today tasks
     }
-    [metadata setObject:[NSNumber numberWithInteger:tasksLeftToday] forKey:@"TasksLeftToday"];
     
-    // update number active reminders
-    NSInteger numberActiveReminders = [[metadata objectForKey:@"NumberActiveReminders"] integerValue];
-    if (isToday == YES) {
-        numberActiveReminders++;
-    }
-    else
-    {
-        numberActiveReminders--;
-    }
-    [metadata setObject:[NSNumber numberWithInteger:numberActiveReminders] forKey:@"NumberActiveReminders"];
-    
-    
-    
-    // update time left for today
-    double timeLeftToday = [[metadata objectForKey:@"TimeLeftToday"] doubleValue];
-    double elapsed = [taskInfo.elapsedTime doubleValue];
-    double duration = [taskInfo.duration doubleValue];
-    double timeLeft = duration - elapsed;
-    if (isToday == YES) {
-        timeLeftToday = timeLeftToday + timeLeft;
-    }
-    else
-    {
-        timeLeftToday = timeLeftToday - timeLeft;
-    }
-    //timeLeftToday = timeLeftToday + [taskInfo.duration doubleValue];
-    [metadata setObject:[NSNumber numberWithDouble:timeLeftToday] forKey:@"TimeLeftToday"];
-    
-    // find plist path
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *documentsDirectory = [paths objectAtIndex:0];
-    NSString *path = [documentsDirectory stringByAppendingPathComponent:@"MetaData.plist"];
-    
-    // write to plist
-    [metadata writeToFile:path atomically:YES];
-}
-
-- (void) dealloc
-{
-    [super dealloc];
+    [self writeToPlist:metadata];
 }
 
 @end

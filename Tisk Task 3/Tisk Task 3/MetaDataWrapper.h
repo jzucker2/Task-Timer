@@ -13,6 +13,19 @@
 
 - (NSMutableDictionary *) fetchPList;
 
+/*
+
+- (NSMutableDictionary *) fetchNotificationDictionary;
+
+- (NSMutableDictionary *) fetchAllTasksDictionary;
+
+- (NSMutableDictionary *) fetchTodayTasksDictionary;
+
+- (NSMutableDictionary *) fetchHistoryDictionary;
+ */
+
+- (void) writeToPlist:(NSMutableDictionary *) dictionary;
+
 - (void) addNewTask:(TaskInfo *) taskInfo;
 
 - (void) startTask:(TaskInfo *) taskInfo;

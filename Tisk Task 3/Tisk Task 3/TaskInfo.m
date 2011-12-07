@@ -70,10 +70,10 @@
     [self setIsRunning:running];
     
     
-    
     [self scheduleReminder];
     [self cancelAlarm];
     
+        
     MetaDataWrapper *metadata = [[MetaDataWrapper alloc] init];
     [metadata stopTask:self];
     [metadata release];

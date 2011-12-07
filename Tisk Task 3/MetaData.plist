@@ -4,7 +4,7 @@
 <dict>
 	<key>Notifications</key>
 	<dict>
-		<key>TotalTasks</key>
+		<key>Total</key>
 		<integer>0</integer>
 		<key>ActiveAlarms</key>
 		<integer>0</integer>
