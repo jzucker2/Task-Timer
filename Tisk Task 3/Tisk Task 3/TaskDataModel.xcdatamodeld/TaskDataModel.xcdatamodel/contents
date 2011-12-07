@@ -23,10 +23,11 @@
         <attribute name="projectedEndTime" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="specifics" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="startTime" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="timesReminded" attributeType="Integer 16" minValueString="0" defaultValueString="0" syncable="YES"/>
         <attribute name="title" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
         <element name="MetaData" positionX="160" positionY="192" width="128" height="180"/>
-        <element name="TaskInfo" positionX="160" positionY="192" width="128" height="225"/>
+        <element name="TaskInfo" positionX="160" positionY="192" width="128" height="240"/>
     </elements>
 </model>

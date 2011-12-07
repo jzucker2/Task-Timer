@@ -24,11 +24,23 @@
 @property (nonatomic, retain) NSString * specifics;
 @property (nonatomic, retain) NSDate * startTime;
 @property (nonatomic, retain) NSString * title;
+@property (nonatomic, retain) NSNumber * timesReminded;
 
 - (void) startTask;
 
 - (void) stopTask;
 
 - (void) endTask;
+
+- (void) changeToday:(BOOL)today;
+
+- (void) scheduleReminder;
+
+- (void) cancelReminder;
+
+- (void) scheduleAlarm;
+
+- (void) cancelAlarm;
+
 
 @end
