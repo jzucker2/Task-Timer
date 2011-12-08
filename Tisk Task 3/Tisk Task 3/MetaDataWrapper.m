@@ -386,9 +386,10 @@
 
 - (void) changeToday:(TaskInfo *)taskInfo
 {
+    NSLog(@"changeToday in metadataWrapper");
     // fetch metadata
     NSMutableDictionary *metadata = [self fetchPList];
-    NSLog(@"metadata is %@", metadata);
+    NSLog(@"metadata is initially %@", metadata);
     
     BOOL isToday = [taskInfo.isToday boolValue];
     
@@ -410,9 +411,10 @@
         NSInteger totalToday = [[todayTasks objectForKey:@"TotalTasks"] integerValue];
         totalToday++;
         [todayTasks setObject:[NSNumber numberWithInteger:totalToday] forKey:@"TotalTasks"];
-        // increase timeleft
+        // increase timeleft for today
         double todayTimeLeft = [[todayTasks objectForKey:@"TimeLeft"] doubleValue];
-        todayTimeLeft = todayTimeLeft + [taskInfo.elapsedTime doubleValue];
+        double taskTimeLeft = [taskInfo.duration doubleValue] - [taskInfo.elapsedTime doubleValue];
+        todayTimeLeft = todayTimeLeft + taskTimeLeft;
         [todayTasks setObject:[NSNumber numberWithDouble:todayTimeLeft] forKey:@"TimeLeft"];
         // increase elapsed
         double todayTimeElapsed = [[todayTasks objectForKey:@"TimeElapsed"] doubleValue];
@@ -439,14 +441,17 @@
         totalToday--;
         [todayTasks setObject:[NSNumber numberWithInteger:totalToday] forKey:@"TotalTasks"];
         // decrease timeleft
+        double taskTimeLeft = [taskInfo.duration doubleValue] - [taskInfo.elapsedTime doubleValue];
         double todayTimeLeft = [[todayTasks objectForKey:@"TimeLeft"] doubleValue];
-        todayTimeLeft = todayTimeLeft - [taskInfo.elapsedTime doubleValue];
+        todayTimeLeft = todayTimeLeft - taskTimeLeft;
         [todayTasks setObject:[NSNumber numberWithDouble:todayTimeLeft] forKey:@"TimeLeft"];
         // decrease elapsed
         double todayTimeElapsed = [[todayTasks objectForKey:@"TimeElapsed"] doubleValue];
         todayTimeElapsed = todayTimeElapsed - [taskInfo.elapsedTime doubleValue];
         [todayTasks setObject:[NSNumber numberWithDouble:todayTimeElapsed] forKey:@"TimeElapsed"];
     }
+    
+    NSLog(@"metadata is now %@", metadata);
     
     [self writeToPlist:metadata];
 }

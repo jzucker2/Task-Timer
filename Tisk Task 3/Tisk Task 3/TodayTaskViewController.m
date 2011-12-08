@@ -62,6 +62,9 @@
     [super viewWillAppear:animated];
     [self.todayTableView reloadData];
     
+    [self updateMetadataLabel];
+    
+    /*
     MetaDataWrapper *metadataWrapper = [[MetaDataWrapper alloc] init];
     NSMutableDictionary *metadata = [metadataWrapper fetchPList];
     NSMutableDictionary *todayDict = [metadata objectForKey:@"TodayTasks"];
@@ -77,6 +80,7 @@
     [metadataWrapper release];
     
     metadataLabel.text = [NSString stringWithFormat:@"Spent:%@   Left:%@", timeSpent, timeLeft];
+     */
 }
 
 
@@ -84,6 +88,28 @@
 {
     // Return YES for supported orientations
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
+}
+
+#pragma mark -
+#pragma mark Metadata Label
+
+- (void) updateMetadataLabel
+{
+    MetaDataWrapper *metadataWrapper = [[MetaDataWrapper alloc] init];
+    NSMutableDictionary *metadata = [metadataWrapper fetchPList];
+    NSMutableDictionary *todayDict = [metadata objectForKey:@"TodayTasks"];
+    
+    CountdownFormatter *formatter = [[CountdownFormatter alloc] init];
+    
+    
+    NSString *timeSpent = [formatter stringForCountdownInterval:[todayDict objectForKey:@"TimeElapsed"]];
+    NSString *timeLeft = [formatter stringForCountdownInterval:[todayDict objectForKey:@"TimeLeft"]];
+    
+    [formatter release];
+    
+    [metadataWrapper release];
+    
+    metadataLabel.text = [NSString stringWithFormat:@"Spent:%@   Left:%@", timeSpent, timeLeft];
 }
 
 #pragma mark - Table view data source
@@ -269,6 +295,7 @@
 - (void)controllerDidChangeContent:(NSFetchedResultsController *)controller {
 	// The fetch controller has sent all current change notifications, so tell the table view to process all updates.
 	[self.todayTableView endUpdates];
+    //[self updateMetadataLabel];
 }
 
 

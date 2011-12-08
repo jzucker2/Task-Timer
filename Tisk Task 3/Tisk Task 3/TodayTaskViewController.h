@@ -26,5 +26,7 @@
 
 - (void) configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath;
 
+- (void) updateMetadataLabel;
+
 
 @end

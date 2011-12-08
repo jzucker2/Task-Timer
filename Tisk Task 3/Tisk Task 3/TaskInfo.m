@@ -167,6 +167,7 @@
     NSLog(@"timesReminded is %f", timesReminded);
     
     double timeTilReminder = duration/(++timesReminded);
+    NSLog(@"timeTilReminder is %f", timeTilReminder);
     //double elapsed = [taskInfo.elapsedTime doubleValue];
     //double reminderTime = duration - elapsed;
     NSDate *date = [NSDate dateWithTimeIntervalSinceNow:timeTilReminder];
