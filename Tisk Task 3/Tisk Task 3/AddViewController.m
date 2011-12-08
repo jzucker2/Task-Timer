@@ -46,6 +46,16 @@
 
 - (IBAction)save:(id)sender {
 	[delegate addViewController:self didFinishWithSave:YES];
+    
+    NSLog(@"in addview delegate taskInfo is %@", taskInfo);
+    /*
+    NSManagedObjectID *taskID = [taskInfo objectID];
+    NSURL *taskURL = [taskID URIRepresentation];
+    NSString *urlString = [taskURL absoluteString];
+    
+    NSLog(@"urlString is %@", urlString);
+     */
+    
 }
 
 

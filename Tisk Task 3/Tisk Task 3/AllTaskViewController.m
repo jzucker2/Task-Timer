@@ -244,8 +244,16 @@
 		 3	In the notification method (addControllerContextDidSave:), merge the changes
 		 4	Unregister as an observer
 		 */
+        
+        // package into dictionary
+        
 		NSNotificationCenter *dnc = [NSNotificationCenter defaultCenter];
 		[dnc addObserver:self selector:@selector(addControllerContextDidSave:) name:NSManagedObjectContextDidSaveNotification object:addingManagedObjectContext];
+        
+        
+        
+        // add notification for taskInfo to update metadata
+        //NSNotificationCenter *
 		
 		NSError *error;
 		if (![addingManagedObjectContext save:&error]) 
@@ -271,10 +279,25 @@
 
 
 
+
+
 /**
  Notification from the add controller's context's save operation. This is used to update the fetched results controller's managed object context with the new book instead of performing a fetch (which would be a much more computationally expensive operation).
  */
 - (void)addControllerContextDidSave:(NSNotification*)saveNotification {
+    
+    NSMutableDictionary *userInfo = (NSMutableDictionary *)[saveNotification userInfo];
+    NSLog(@"userInfo is %@", userInfo);
+    // need to add task to metadata
+    TaskInfo *taskInfo = (TaskInfo *)[userInfo objectForKey:@"inserted"];
+    NSLog(@"taskInfo is %@", taskInfo);
+    
+    // try removing outermost parentheses
+    
+    MetaDataWrapper *metadata = [[MetaDataWrapper alloc] init];
+    [metadata addNewTask:taskInfo];
+    [metadata release];
+    
 	
 	NSManagedObjectContext *context = [fetchedResultsController managedObjectContext];
 	// Merging changes causes the fetched results controller to update its results
