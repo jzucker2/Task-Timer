@@ -10,6 +10,7 @@
 #import "TaskInfo.h"
 #import "AddViewController.h"
 #import "DetailViewController.h"
+#import "NSManagedObjectContext+FetchedObjectFromURI.h"
 
 @interface AllTaskViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, NSFetchedResultsControllerDelegate, AddViewControllerDelegate>
 {
@@ -31,6 +32,10 @@
 - (IBAction) addTask;
 
 - (IBAction)todaySwitchValueChanged:(id)sender;
+
+- (void) addNewTaskToMetadata:(NSNotification *) notification;
+
+- (void) updateMetadataLabel;
 
 
 @end

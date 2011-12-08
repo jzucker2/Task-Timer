@@ -47,10 +47,15 @@
 - (IBAction)save:(id)sender {
 	[delegate addViewController:self didFinishWithSave:YES];
     
-    NSLog(@"in addview delegate taskInfo is %@", taskInfo);
+    //NSLog(@"in addview delegate taskInfo is %@", taskInfo);
     
     NSManagedObjectID *taskID = [taskInfo objectID];
-    NSLog(@"%@", [NSString stringWithFormat:@"%@", taskID]);
+    NSURL *taskURL = [taskID URIRepresentation];
+    NSString *urlString = [taskURL absoluteString];
+    //NSLog(@"urlString is %@", urlString);
+    NSDictionary *userInfo = [NSDictionary dictionaryWithObject:urlString forKey:@"taskURL"];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"AddNewTask" object:nil userInfo:userInfo];
+
     /*
     NSURL *taskURL = [taskID URIRepresentation];
     NSString *urlString = [taskURL absoluteString];

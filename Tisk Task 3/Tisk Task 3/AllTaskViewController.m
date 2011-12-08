@@ -55,6 +55,11 @@
     [addButton release];
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
+    //TaskInfo *taskInfo;
+    // add notification for adding a new task
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(addNewTaskToMetadata:) name:@"AddNewTask" object:nil];
+    //[[NSNotificationCenter defaultCenter] addObserver:<#(id)#> selector:<#(SEL)#> name:<#(NSString *)#> object:<#(id)#>
+    
     NSError *error;
 	if (![[self fetchedResultsController] performFetch:&error]) {
 		// Update to handle the error appropriately.
@@ -67,21 +72,7 @@
 {
     [super viewWillAppear:animated];
     
-    MetaDataWrapper *metadataWrapper = [[MetaDataWrapper alloc] init];
-    NSMutableDictionary *metadata = [metadataWrapper fetchPList];
-    NSMutableDictionary *allTasksDict = [metadata objectForKey:@"AllTasks"];
-    
-    CountdownFormatter *formatter = [[CountdownFormatter alloc] init];
-    
-    
-    NSString *timeSpent = [formatter stringForCountdownInterval:[allTasksDict objectForKey:@"TimeElapsed"]];
-    NSString *timeLeft = [formatter stringForCountdownInterval:[allTasksDict objectForKey:@"TimeLeft"]];
-    
-    [formatter release];
-    
-    [metadataWrapper release];
-    
-    metadataLabel.text = [NSString stringWithFormat:@"Spent:%@   Left:%@", timeSpent, timeLeft];
+    [self updateMetadataLabel];
 }
 
 
@@ -97,6 +88,28 @@
 {
     // Return YES for supported orientations
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
+}
+
+#pragma mark -
+#pragma mark Metadata Label
+
+- (void) updateMetadataLabel
+{
+    MetaDataWrapper *metadataWrapper = [[MetaDataWrapper alloc] init];
+    NSMutableDictionary *metadata = [metadataWrapper fetchPList];
+    NSMutableDictionary *allTasksDict = [metadata objectForKey:@"AllTasks"];
+    
+    CountdownFormatter *formatter = [[CountdownFormatter alloc] init];
+    
+    
+    NSString *timeSpent = [formatter stringForCountdownInterval:[allTasksDict objectForKey:@"TimeElapsed"]];
+    NSString *timeLeft = [formatter stringForCountdownInterval:[allTasksDict objectForKey:@"TimeLeft"]];
+    
+    [formatter release];
+    
+    [metadataWrapper release];
+    
+    metadataLabel.text = [NSString stringWithFormat:@"Spent:%@   Left:%@", timeSpent, timeLeft];
 }
 
 #pragma mark - Table view data source
@@ -287,6 +300,7 @@
  */
 - (void)addControllerContextDidSave:(NSNotification*)saveNotification {
     
+    /*
     NSMutableDictionary *userInfo = (NSMutableDictionary *)[saveNotification userInfo];
     NSLog(@"userInfo is %@", userInfo);
     // need to add task to metadata
@@ -304,6 +318,7 @@
     MetaDataWrapper *metadata = [[MetaDataWrapper alloc] init];
     [metadata addNewTask:taskInfo];
     [metadata release];
+     */
     
 	
 	NSManagedObjectContext *context = [fetchedResultsController managedObjectContext];
@@ -311,6 +326,24 @@
 	[context mergeChangesFromContextDidSaveNotification:saveNotification];	
 }
 
+- (void) addNewTaskToMetadata:(NSNotification *)notification
+{
+    //NSLog(@"notification is %@", notification);
+    NSString *taskURLString = [notification.userInfo objectForKey:@"taskURL"];
+    NSURL *taskURL = [NSURL URLWithString:taskURLString];
+    
+    TaskInfo *taskInfo = (TaskInfo *) [managedObjectContext objectWithURI:taskURL];
+    //NSLog(@"taskInfo is %@", taskInfo);
+    
+    // need to ask task to metadata
+    MetaDataWrapper *metadata = [[MetaDataWrapper alloc] init];
+    [metadata addNewTask:taskInfo];
+    [metadata release];
+    
+    [self updateMetadataLabel];
+    
+    
+}
 
 
 #pragma mark -

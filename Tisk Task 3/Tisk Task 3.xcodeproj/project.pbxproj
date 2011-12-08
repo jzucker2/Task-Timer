@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		333BB4E21491273B00FC7CAC /* NSString+containsString.m in Sources */ = {isa = PBXBuildFile; fileRef = 333BB4E11491273B00FC7CAC /* NSString+containsString.m */; };
 		33800880148F16F200B66030 /* MetaData.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3380087F148F16F200B66030 /* MetaData.plist */; };
 		33800884148F192B00B66030 /* MetaDataWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 33800883148F192B00B66030 /* MetaDataWrapper.m */; };
 		339649FF148EF76600F37839 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 339649FE148EF76600F37839 /* DetailViewController.m */; };
@@ -40,6 +41,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		333BB4E01491273B00FC7CAC /* NSString+containsString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+containsString.h"; sourceTree = "<group>"; };
+		333BB4E11491273B00FC7CAC /* NSString+containsString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+containsString.m"; sourceTree = "<group>"; };
 		3380087F148F16F200B66030 /* MetaData.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = MetaData.plist; path = ../MetaData.plist; sourceTree = "<group>"; };
 		33800882148F192B00B66030 /* MetaDataWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MetaDataWrapper.h; sourceTree = "<group>"; };
 		33800883148F192B00B66030 /* MetaDataWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MetaDataWrapper.m; sourceTree = "<group>"; };
@@ -103,6 +106,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		333BB4E41491273F00FC7CAC /* Contains String */ = {
+			isa = PBXGroup;
+			children = (
+				333BB4E01491273B00FC7CAC /* NSString+containsString.h */,
+				333BB4E11491273B00FC7CAC /* NSString+containsString.m */,
+			);
+			name = "Contains String";
+			sourceTree = "<group>";
+		};
 		33800885148F192F00B66030 /* Meta Data Wrapper */ = {
 			isa = PBXGroup;
 			children = (
@@ -215,6 +227,7 @@
 				33E2E4C7148EE4F0005910F5 /* Settings Table View */,
 				33E2E4DC148EE5D8005910F5 /* Resources */,
 				33E2E48B148EE31E005910F5 /* Supporting Files */,
+				333BB4E41491273F00FC7CAC /* Contains String */,
 			);
 			path = "Tisk Task 3";
 			sourceTree = "<group>";
@@ -394,6 +407,7 @@
 				33964A1C148F069700F37839 /* TaskInfo.m in Sources */,
 				33964A20148F0DBE00F37839 /* NSManagedObjectContext+FetchedObjectFromURI.m in Sources */,
 				33800884148F192B00B66030 /* MetaDataWrapper.m in Sources */,
+				333BB4E21491273B00FC7CAC /* NSString+containsString.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

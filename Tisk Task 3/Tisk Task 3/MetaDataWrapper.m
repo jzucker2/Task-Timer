@@ -103,10 +103,10 @@
 - (void) addNewTask:(TaskInfo *) taskInfo
 {
     NSLog(@"addNewTask");
-    NSLog(@"taskInfo is %@", taskInfo);
+    //NSLog(@"taskInfo is %@", taskInfo);
     // fetch metadata
     NSMutableDictionary *metadata = [self fetchPList];
-    NSLog(@"metadata is %@", metadata);
+    //NSLog(@"metadata is %@", metadata);
     
     // update allTasks
     NSMutableDictionary *allTasks = [metadata objectForKey:@"AllTasks"];
