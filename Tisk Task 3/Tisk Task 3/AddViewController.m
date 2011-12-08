@@ -48,8 +48,10 @@
 	[delegate addViewController:self didFinishWithSave:YES];
     
     NSLog(@"in addview delegate taskInfo is %@", taskInfo);
-    /*
+    
     NSManagedObjectID *taskID = [taskInfo objectID];
+    NSLog(@"%@", [NSString stringWithFormat:@"%@", taskID]);
+    /*
     NSURL *taskURL = [taskID URIRepresentation];
     NSString *urlString = [taskURL absoluteString];
     

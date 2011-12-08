@@ -9,6 +9,7 @@
 #import "AllTaskViewController.h"
 #import "MetaDataWrapper.h"
 #import "CountdownFormatter.h"
+#import "NSManagedObjectContext+FetchedObjectFromURI.h"
 
 @implementation AllTaskViewController
 
@@ -289,11 +290,17 @@
     NSMutableDictionary *userInfo = (NSMutableDictionary *)[saveNotification userInfo];
     NSLog(@"userInfo is %@", userInfo);
     // need to add task to metadata
-    TaskInfo *taskInfo = (TaskInfo *)[userInfo objectForKey:@"inserted"];
+    NSMutableDictionary *inserted = (NSMutableDictionary *)[userInfo objectForKey:@"inserted"];
+    NSManagedObjectID *taskID  = (NSManagedObjectID *)[inserted objectForKey:@"id"];
+    NSString *taskIDString = [userInfo objectForKey:@"id"];
+    NSLog(@"taskID is %@", taskID);
+    NSLog(@"taskIDString is %@", taskIDString);
+    //NSURL *taskURL = [taskID URIRepresentation];
+    
+    TaskInfo *taskInfo = (TaskInfo *)[managedObjectContext objectWithID:taskID];
     NSLog(@"taskInfo is %@", taskInfo);
     
-    // try removing outermost parentheses
-    
+    // need to ask task to metadata
     MetaDataWrapper *metadata = [[MetaDataWrapper alloc] init];
     [metadata addNewTask:taskInfo];
     [metadata release];

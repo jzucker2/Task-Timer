@@ -102,6 +102,8 @@
 
 - (void) addNewTask:(TaskInfo *) taskInfo
 {
+    NSLog(@"addNewTask");
+    NSLog(@"taskInfo is %@", taskInfo);
     // fetch metadata
     NSMutableDictionary *metadata = [self fetchPList];
     NSLog(@"metadata is %@", metadata);
