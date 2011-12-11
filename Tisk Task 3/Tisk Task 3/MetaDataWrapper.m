@@ -476,6 +476,15 @@
     NSMutableDictionary *metadata = [self fetchPList];
     //NSLog(@"metadata is %@", metadata);
     
+    // update all Tasks metadata
+    // first increase total tasks in all tasks
+    [self increaseAllTasksTotal:YES];
+    // next increase total time left in all tasks
+    double timeLeft = [taskInfo.duration doubleValue];
+    [self increaseAllTasksTimeLeft:YES withTime:timeLeft];
+    
+    
+    /*
     // update allTasks
     NSMutableDictionary *allTasks = [metadata objectForKey:@"AllTasks"];
     // first increase total tasks
@@ -486,6 +495,7 @@
     double timeLeft = [[allTasks objectForKey:@"TimeLeft"] doubleValue];
     timeLeft = timeLeft + [taskInfo.duration doubleValue];
     [allTasks setObject:[NSNumber numberWithDouble:timeLeft] forKey:@"TimeLeft"];
+     */
     
     
     [self writeToPlist:metadata];
@@ -497,6 +507,16 @@
     NSMutableDictionary *metadata = [self fetchPList];
     NSLog(@"metadata is %@", metadata);
     
+    // first update notifications
+    [self increaseAlarms:YES];
+    [self increaseReminders:NO];
+    [self setTotalNotifications];
+    
+    // update today tasks
+    [self increaseTodayTasksActive:YES];
+    
+    
+    /*
     // update notifications
     NSMutableDictionary *notificationDict = [metadata objectForKey:@"Notifications"];
     // don't change total, just decrement reminders and increment alarms
@@ -508,6 +528,7 @@
     NSInteger reminders = [[notificationDict objectForKey:@"ActiveReminders"] integerValue];
     reminders--;
     [notificationDict setObject:[NSNumber numberWithInteger:reminders] forKey:@"ActiveReminders"];
+     */
     
     
     [self writeToPlist:metadata];
@@ -579,6 +600,26 @@
     NSMutableDictionary *metadata = [self fetchPList];
     NSLog(@"metadata is %@", metadata);
     
+    // important info for updating
+    double duration = [taskInfo.duration doubleValue];
+    double elapsed = [taskInfo.elapsedTime doubleValue];
+    //double timeLeft = duration - elapsed;
+    
+    // update notifications
+    [self increaseReminders:YES];
+    [self increaseAlarms:NO];
+    [self setTotalNotifications];
+    
+    // update all tasks
+    [self increaseAllTasksTimeLeft:NO withTime:elapsed];
+    [self increaseAllTasksTimeElapsed:YES withTime:elapsed];
+    
+    // update today tasks
+    [self increaseTodayTasksActive:NO];
+    [self increaseTodayTasksTimeLeft:NO withTime:elapsed];
+    [self increaseTodayTasksTimeElapsed:YES withTime:elapsed];
+    
+    /*
     // update notifications
     NSMutableDictionary *notificationDict = [metadata objectForKey:@"Notifications"];
     // don't change total, just decrement reminders and increment alarms
@@ -618,15 +659,19 @@
     double todayTimeElapsed = [[todayTasks objectForKey:@"TimeElapsed"] doubleValue];
     todayTimeElapsed = todayTimeElapsed + [taskInfo.elapsedTime doubleValue];
     [todayTasks setObject:[NSNumber numberWithDouble:todayTimeElapsed] forKey:@"TimeElapsed"];
+     */
     
     [self writeToPlist:metadata];
 }
 
 - (void) endTask:(TaskInfo *) taskInfo
 {
+    // should handle end tasked regardless of early or not
     // fetch metadata
     NSMutableDictionary *metadata = [self fetchPList];
     NSLog(@"metadata is %@", metadata);
+    
+    /*
     
     // update notifications
     NSMutableDictionary *notificationDict = [metadata objectForKey:@"Notifications"];
@@ -682,6 +727,7 @@
     double historyElapsed = [[history objectForKey:@"TimeElapsed"] doubleValue];
     historyElapsed = historyElapsed + [taskInfo.elapsedTime doubleValue];
     [history setObject:[NSNumber numberWithDouble:historyElapsed] forKey:@"TimeElapsed"];
+     */
     
     [self writeToPlist:metadata];
     
