@@ -534,10 +534,18 @@
     [self writeToPlist:metadata];
 }
 
+- (void) editTask:(TaskInfo *)taskInfo
+{
+    NSLog(@"metadata wrapper: editTask with %@", taskInfo);
+    // fetch metadata
+    NSMutableDictionary *metadata = [self fetchPList];
+    NSLog(@"metadata is %@", metadata);
+    
+}
+
 - (void) deleteTask:(TaskInfo *) taskInfo
 {
     
-    // ******** needs work *********
     // fetch metadata
     NSMutableDictionary *metadata = [self fetchPList];
     NSLog(@"metadata is %@", metadata);
@@ -545,10 +553,11 @@
     // important values
     BOOL isRunning = [taskInfo.isRunning boolValue];
     BOOL isToday = [taskInfo.isToday boolValue];
-    double duration = [taskInfo.duration doubleValue];
+    //double duration = [taskInfo.duration doubleValue];
     double elapsed = [taskInfo.elapsedTime doubleValue];
     double timeLeft = [taskInfo timeLeft];
     
+    // update notifications
     // check first to see if its running
     if (isRunning == YES) {
         [self increaseAlarms:NO];
@@ -557,6 +566,25 @@
         [self increaseReminders:NO];
     }
     [self setTotalNotifications];
+    
+    // update all tasks
+    [self increaseAllTasksTotal:NO];
+    // check to see if task is running
+    [self increaseAllTasksTimeElapsed:NO withTime:elapsed];
+    [self increaseAllTasksTimeLeft:NO withTime:timeLeft];
+    
+    // update today tasks if task is set for today
+    if (isToday == YES) {
+        [self increaseTodayTasksTotal:NO];
+        // check if task is active/running
+        if (isRunning == YES) {
+            [self increaseTodayTasksActive:NO];
+        }
+        // decrease today task time left
+        [self increaseTodayTasksTimeLeft:NO withTime:timeLeft];
+        // decrease today task timeelapsed
+        [self increaseTodayTasksTimeElapsed:NO withTime:elapsed];
+    }
     
     /*
     // update notifications

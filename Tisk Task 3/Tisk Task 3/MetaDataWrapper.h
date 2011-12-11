@@ -28,6 +28,8 @@
 
 - (void) addNewTask:(TaskInfo *) taskInfo;
 
+- (void) editTask:(TaskInfo *) taskInfo;
+
 - (void) startTask:(TaskInfo *) taskInfo;
 
 - (void) deleteTask:(TaskInfo *) taskInfo;
