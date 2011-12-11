@@ -10,9 +10,21 @@
 
 @interface SettingsTableViewController : UITableViewController
 {
+    /*
     NSMutableArray *settingsArray;
+    NSMutableArray *sortedKeys;
+    NSMutableDictionary *tableContents;
+     */
+    NSArray *versionArray;
+    NSArray *findMoreArray;
+    
 }
-
+@property (nonatomic, retain) NSArray *versionArray;
+@property (nonatomic, retain) NSArray *findMoreArray;
+/*
+@property (nonatomic, retain) NSMutableArray *sortedKeys;
+@property (nonatomic, retain) NSMutableDictionary *tableContents;
 @property (nonatomic, retain) NSMutableArray *settingsArray;
+ */
 
 @end
