@@ -126,6 +126,7 @@
     {
         NSNumber *duration = [NSNumber numberWithDouble:datePicker.countDownDuration];
         [editedObject setValue:duration forKey:editedFieldKey];
+        // need to update metadata here!!!!
     }
     if (editingSpecifics) {
         [editedObject setValue:textView.text forKey:editedFieldKey];

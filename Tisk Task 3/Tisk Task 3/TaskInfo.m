@@ -2,7 +2,7 @@
 //  TaskInfo.m
 //  Tisk Task 3
 //
-//  Created by Jordan Zucker on 12/6/11.
+//  Created by Jordan Zucker on 12/10/11.
 //  Copyright (c) 2011 University of Illinois. All rights reserved.
 //
 
@@ -23,8 +23,11 @@
 @dynamic projectedEndTime;
 @dynamic specifics;
 @dynamic startTime;
-@dynamic title;
 @dynamic timesReminded;
+@dynamic title;
+@dynamic isFinishedEarly;
+@dynamic priority;
+
 
 #pragma mark -
 #pragma mark Handle Tasks
@@ -33,7 +36,7 @@
 {
     double duration = [self.duration doubleValue];
     double elapsed = [self.elapsedTime doubleValue];
-
+    
     double timeLeft = duration - elapsed;
     
     NSDate *start = [NSDate date];
@@ -73,7 +76,7 @@
     [self scheduleReminder];
     [self cancelAlarm];
     
-        
+    
     MetaDataWrapper *metadata = [[MetaDataWrapper alloc] init];
     [metadata stopTask:self];
     [metadata release];
@@ -106,6 +109,9 @@
     
     NSDate *finishDate = [NSDate date];
     [self setCompletionDate:finishDate];
+    
+    NSNumber *early = [NSNumber numberWithBool:YES];
+    [self setIsFinishedEarly:early];
     
     NSNumber *completed = [NSNumber numberWithBool:YES];
     [self setIsCompleted:completed];
@@ -273,5 +279,6 @@
         }
     }
 }
+
 
 @end

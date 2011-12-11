@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		333BB4E21491273B00FC7CAC /* NSString+containsString.m in Sources */ = {isa = PBXBuildFile; fileRef = 333BB4E11491273B00FC7CAC /* NSString+containsString.m */; };
+		333E9580149435E600736FF7 /* CompletedDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 333E957E149435E600736FF7 /* CompletedDetailViewController.m */; };
+		333E9581149435E600736FF7 /* CompletedDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 333E957F149435E600736FF7 /* CompletedDetailView.xib */; };
+		333E958614943B9B00736FF7 /* TaskInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 333E958514943B9B00736FF7 /* TaskInfo.m */; };
 		33800880148F16F200B66030 /* MetaData.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3380087F148F16F200B66030 /* MetaData.plist */; };
 		33800884148F192B00B66030 /* MetaDataWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 33800883148F192B00B66030 /* MetaDataWrapper.m */; };
 		339649FF148EF76600F37839 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 339649FE148EF76600F37839 /* DetailViewController.m */; };
@@ -17,7 +20,6 @@
 		33964A0D148EFA2900F37839 /* AddViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33964A0C148EFA2900F37839 /* AddViewController.m */; };
 		33964A12148F000100F37839 /* TaskTimerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33964A10148F000100F37839 /* TaskTimerViewController.m */; };
 		33964A13148F000100F37839 /* TaskTimerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 33964A11148F000100F37839 /* TaskTimerView.xib */; };
-		33964A1C148F069700F37839 /* TaskInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 33964A1B148F069700F37839 /* TaskInfo.m */; };
 		33964A20148F0DBE00F37839 /* NSManagedObjectContext+FetchedObjectFromURI.m in Sources */ = {isa = PBXBuildFile; fileRef = 33964A1F148F0DBD00F37839 /* NSManagedObjectContext+FetchedObjectFromURI.m */; };
 		33E2E485148EE31E005910F5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33E2E484148EE31E005910F5 /* UIKit.framework */; };
 		33E2E487148EE31E005910F5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33E2E486148EE31E005910F5 /* Foundation.framework */; };
@@ -43,6 +45,11 @@
 /* Begin PBXFileReference section */
 		333BB4E01491273B00FC7CAC /* NSString+containsString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+containsString.h"; sourceTree = "<group>"; };
 		333BB4E11491273B00FC7CAC /* NSString+containsString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+containsString.m"; sourceTree = "<group>"; };
+		333E957D149435E600736FF7 /* CompletedDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CompletedDetailViewController.h; sourceTree = "<group>"; };
+		333E957E149435E600736FF7 /* CompletedDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CompletedDetailViewController.m; sourceTree = "<group>"; };
+		333E957F149435E600736FF7 /* CompletedDetailView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CompletedDetailView.xib; sourceTree = "<group>"; };
+		333E958414943B9B00736FF7 /* TaskInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TaskInfo.h; sourceTree = "<group>"; };
+		333E958514943B9B00736FF7 /* TaskInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TaskInfo.m; sourceTree = "<group>"; };
 		3380087F148F16F200B66030 /* MetaData.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = MetaData.plist; path = ../MetaData.plist; sourceTree = "<group>"; };
 		33800882148F192B00B66030 /* MetaDataWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MetaDataWrapper.h; sourceTree = "<group>"; };
 		33800883148F192B00B66030 /* MetaDataWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MetaDataWrapper.m; sourceTree = "<group>"; };
@@ -58,8 +65,6 @@
 		33964A0F148F000100F37839 /* TaskTimerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TaskTimerViewController.h; sourceTree = "<group>"; };
 		33964A10148F000100F37839 /* TaskTimerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TaskTimerViewController.m; sourceTree = "<group>"; };
 		33964A11148F000100F37839 /* TaskTimerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TaskTimerView.xib; sourceTree = "<group>"; };
-		33964A1A148F069700F37839 /* TaskInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TaskInfo.h; sourceTree = "<group>"; };
-		33964A1B148F069700F37839 /* TaskInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TaskInfo.m; sourceTree = "<group>"; };
 		33964A1E148F0DBD00F37839 /* NSManagedObjectContext+FetchedObjectFromURI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObjectContext+FetchedObjectFromURI.h"; sourceTree = "<group>"; };
 		33964A1F148F0DBD00F37839 /* NSManagedObjectContext+FetchedObjectFromURI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObjectContext+FetchedObjectFromURI.m"; sourceTree = "<group>"; };
 		33E2E480148EE31E005910F5 /* Tisk Task 3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Tisk Task 3.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -115,6 +120,16 @@
 			name = "Contains String";
 			sourceTree = "<group>";
 		};
+		333E9583149435EA00736FF7 /* Completed Detail View */ = {
+			isa = PBXGroup;
+			children = (
+				333E957D149435E600736FF7 /* CompletedDetailViewController.h */,
+				333E957E149435E600736FF7 /* CompletedDetailViewController.m */,
+				333E957F149435E600736FF7 /* CompletedDetailView.xib */,
+			);
+			name = "Completed Detail View";
+			sourceTree = "<group>";
+		};
 		33800885148F192F00B66030 /* Meta Data Wrapper */ = {
 			isa = PBXGroup;
 			children = (
@@ -127,8 +142,8 @@
 		339649FC148EF36600F37839 /* Data Models */ = {
 			isa = PBXGroup;
 			children = (
-				33964A1A148F069700F37839 /* TaskInfo.h */,
-				33964A1B148F069700F37839 /* TaskInfo.m */,
+				333E958414943B9B00736FF7 /* TaskInfo.h */,
+				333E958514943B9B00736FF7 /* TaskInfo.m */,
 			);
 			name = "Data Models";
 			sourceTree = "<group>";
@@ -291,6 +306,7 @@
 				33E2E4CE148EE54D005910F5 /* HistoryViewController.h */,
 				33E2E4CF148EE54D005910F5 /* HistoryViewController.m */,
 				33E2E4D0148EE54D005910F5 /* HistoryView.xib */,
+				333E9583149435EA00736FF7 /* Completed Detail View */,
 			);
 			name = "History View Controller";
 			sourceTree = "<group>";
@@ -382,6 +398,7 @@
 				33964A09148EF86C00F37839 /* EditingView.xib in Resources */,
 				33964A13148F000100F37839 /* TaskTimerView.xib in Resources */,
 				33800880148F16F200B66030 /* MetaData.plist in Resources */,
+				333E9581149435E600736FF7 /* CompletedDetailView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -404,10 +421,11 @@
 				33964A08148EF86C00F37839 /* EditingViewController.m in Sources */,
 				33964A0D148EFA2900F37839 /* AddViewController.m in Sources */,
 				33964A12148F000100F37839 /* TaskTimerViewController.m in Sources */,
-				33964A1C148F069700F37839 /* TaskInfo.m in Sources */,
 				33964A20148F0DBE00F37839 /* NSManagedObjectContext+FetchedObjectFromURI.m in Sources */,
 				33800884148F192B00B66030 /* MetaDataWrapper.m in Sources */,
 				333BB4E21491273B00FC7CAC /* NSString+containsString.m in Sources */,
+				333E9580149435E600736FF7 /* CompletedDetailViewController.m in Sources */,
+				333E958614943B9B00736FF7 /* TaskInfo.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

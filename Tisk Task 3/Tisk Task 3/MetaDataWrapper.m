@@ -100,6 +100,121 @@
 }
  */
 
+#pragma mark - Update Metadata Methods
+
+#pragma mark Change Notifications
+
+- (NSInteger) totalNotifications
+{
+    // fetch metadata
+    NSMutableDictionary *metadata = [self fetchPList];
+    //NSLog(@"metadata is %@", metadata);
+    
+    // update notifications
+    NSMutableDictionary *notificationDict = [metadata objectForKey:@"Notifications"];
+    NSInteger totalNotifications = [[notificationDict objectForKey:@"Total"] integerValue];
+    return totalNotifications;
+}
+
+- (void) setTotalNotifications
+{
+    // fetch metadata
+    NSMutableDictionary *metadata = [self fetchPList];
+    //NSLog(@"metadata is %@", metadata);
+    
+    // update notifications
+    NSMutableDictionary *notificationDict = [metadata objectForKey:@"Notifications"];
+    
+    // count up alarms
+    NSInteger totalAlarms = [[notificationDict objectForKey:@"ActiveAlarms"] integerValue];
+    // count up reminders
+    NSInteger totalReminders = [[notificationDict objectForKey:@"ActiveReminders"] integerValue];
+    // add together to get new total notifications
+    NSInteger total = totalAlarms + totalReminders;
+    
+    [notificationDict setObject:[NSNumber numberWithInteger:total] forKey:@"Total"];
+    
+    // still need to save new value to plist
+}
+
+- (void) increaseAlarms:(BOOL)direction
+{
+    
+}
+
+- (void) increaseReminders:(BOOL)direction
+{
+    
+}
+
+#pragma mark Change All Tasks
+
+- (NSInteger) allTasksTotal
+{
+    
+}
+
+- (void) increaseAllTasksTotal:(BOOL) direction
+{
+    
+}
+
+- (void) increaseAllTasksTimeLeft:(BOOL) direction
+{
+    
+}
+
+- (void) increaseAllTasksTimeElapsed:(BOOL) direction
+{
+    
+}
+
+#pragma mark Change Today Tasks
+
+- (NSInteger) todayTasksTotal
+{
+    
+}
+
+- (void) increaseTodayTasksTotal:(BOOL) direction
+{
+    
+}
+
+- (void) increaseTodayTasksActive:(BOOL) direction
+{
+    
+}
+
+- (void) increaseTodayTasksTimeLeft:(BOOL) direction
+{
+    
+}
+
+- (void) increaseTodayTasksTimeElapsed:(BOOL) direction
+{
+    
+}
+
+#pragma mark Change History
+
+- (NSInteger) historyTotalTasks
+{
+    
+}
+
+- (void) increaseHistoryTotalTasks
+{
+    
+}
+
+- (void) increaseHistoryTimeElapsed
+{
+    
+}
+
+#pragma mark - Task Status Change Methods
+
 - (void) addNewTask:(TaskInfo *) taskInfo
 {
     NSLog(@"addNewTask");

@@ -7,12 +7,20 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TaskInfo.h"
+#import "CompletedDetailViewController.h"
 
-@interface HistoryViewController : UIViewController
+@interface HistoryViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, NSFetchedResultsControllerDelegate>
 {
     NSManagedObjectContext *managedObjectContext;
+    IBOutlet UITableView *historyTableView;
+    NSFetchedResultsController *fetchedResultsController;
 }
 
+@property (nonatomic, retain) NSFetchedResultsController *fetchedResultsController;
+@property (nonatomic, retain) IBOutlet UITableView *historyTableView;
 @property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
+
+- (void) configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath;
 
 @end
