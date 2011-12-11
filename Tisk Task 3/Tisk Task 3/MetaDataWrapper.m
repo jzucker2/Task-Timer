@@ -542,7 +542,21 @@
     NSMutableDictionary *metadata = [self fetchPList];
     NSLog(@"metadata is %@", metadata);
     
+    // important values
+    BOOL isRunning = [taskInfo.isRunning boolValue];
+    BOOL isToday = [taskInfo.isToday boolValue];
+    double duration = [taskInfo.duration doubleValue];
+    double elapsed = [taskInfo.elapsedTime doubleValue];
+    double timeLeft = [taskInfo timeLeft];
     
+    // check first to see if its running
+    if (isRunning == YES) {
+        [self increaseAlarms:NO];
+    }
+    if (isToday == YES) {
+        [self increaseReminders:NO];
+    }
+    [self setTotalNotifications];
     
     /*
     // update notifications
