@@ -228,12 +228,12 @@
 }
 
 /*
-- (void) increaseAllTasksTimeLeft:(BOOL) direction
+- (void) increaseAllTasksTimeLeft:(BOOL) direction withTime:(double)time
 {
     
 }
 
-- (void) increaseAllTasksTimeElapsed:(BOOL) direction
+- (void) increaseAllTasksTimeElapsed:(BOOL) direction withTime:(double)time
 {
     
 }
@@ -255,12 +255,12 @@
     
 }
 
-- (void) increaseTodayTasksTimeLeft:(BOOL) direction
+- (void) increaseTodayTasksTimeLeft:(BOOL) direction withTime:(double)time
 {
     
 }
 
-- (void) increaseTodayTasksTimeElapsed:(BOOL) direction
+- (void) increaseTodayTasksTimeElapsed:(BOOL) direction withTime:(double)time
 {
     
 }
@@ -277,7 +277,7 @@
     
 }
 
-- (void) increaseHistoryTimeElapsed
+- (void) increaseHistoryTimeElapsedWithTime:(double)time
 {
     
 }
