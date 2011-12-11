@@ -122,7 +122,7 @@
     NSMutableDictionary *metadata = [self fetchPList];
     //NSLog(@"metadata is %@", metadata);
     
-    // update notifications
+    // fetch notifications info
     NSMutableDictionary *notificationDict = [metadata objectForKey:@"Notifications"];
     
     // count up alarms
@@ -139,26 +139,95 @@
 
 - (void) increaseAlarms:(BOOL)direction
 {
+    // fetch metadata
+    NSMutableDictionary *metadata = [self fetchPList];
+    //NSLog(@"metadata is %@", metadata);
+    
+    // fetch notifications info
+    NSMutableDictionary *notificationDict = [metadata objectForKey:@"Notifications"];
+    
+    // find old alarm total
+    NSInteger totalAlarms = [[notificationDict objectForKey:@"ActiveAlarms"] integerValue];
+    
+    // change value based on direction
+    if (direction == YES) {
+        totalAlarms++;
+    }
+    else
+    {
+        totalAlarms--;
+    }
+    
+    // set new alarm value
+    [notificationDict setObject:[NSNumber numberWithInteger:totalAlarms] forKey:@"ActiveAlarms"];
     
 }
 
 - (void) increaseReminders:(BOOL)direction
 {
+    // fetch metadata
+    NSMutableDictionary *metadata = [self fetchPList];
+    //NSLog(@"metadata is %@", metadata);
     
+    // fetch notifications info
+    NSMutableDictionary *notificationDict = [metadata objectForKey:@"Notifications"];
+    
+    // find old alarm total
+    NSInteger totalReminders = [[notificationDict objectForKey:@"ActiveReminders"] integerValue];
+    
+    // change value based on direction
+    if (direction == YES) {
+        totalReminders++;
+    }
+    else
+    {
+        totalReminders--;
+    }
+    
+    // set new alarm value
+    [notificationDict setObject:[NSNumber numberWithInteger:totalReminders] forKey:@"ActiveReminders"];
 }
 
 #pragma mark Change All Tasks
 
 - (NSInteger) allTasksTotal
 {
+    // fetch metadata
+    NSMutableDictionary *metadata = [self fetchPList];
+    //NSLog(@"metadata is %@", metadata);
     
+    // fetch All Tasks Info
+    NSMutableDictionary *allTasks = [metadata objectForKey:@"AllTasks"];
+    
+    NSInteger total = [[allTasks objectForKey:@"TotalTasks"] integerValue];
+    
+    return total;
 }
 
 - (void) increaseAllTasksTotal:(BOOL) direction
 {
+    // fetch metadata
+    NSMutableDictionary *metadata = [self fetchPList];
+    //NSLog(@"metadata is %@", metadata);
     
+    // fetch All Tasks Info
+    NSMutableDictionary *allTasks = [metadata objectForKey:@"AllTasks"];
+    
+    NSInteger total = [[allTasks objectForKey:@"TotalTasks"] integerValue];
+    
+    // change based on direction
+    if (direction == YES) {
+        total++;
+    }
+    else
+    {
+        total--;
+    }
+    // set new total
+    [allTasks setObject:[NSNumber numberWithInteger:total] forKey:@"TotalTasks"];
 }
 
+/*
 - (void) increaseAllTasksTimeLeft:(BOOL) direction
 {
     
@@ -212,6 +281,7 @@
 {
     
 }
+ */
 
 #pragma mark - Task Status Change Methods
 

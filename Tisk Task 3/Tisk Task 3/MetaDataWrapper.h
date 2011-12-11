@@ -52,6 +52,7 @@
 
 - (NSInteger) allTasksTotal;
 - (void) increaseAllTasksTotal:(BOOL) direction;
+/*
 - (void) increaseAllTasksTimeLeft:(BOOL) direction;
 - (void) increaseAllTasksTimeElapsed:(BOOL) direction;
 
@@ -68,5 +69,6 @@
 - (NSInteger) historyTotalTasks;
 - (void) increaseHistoryTotalTasks;
 - (void) increaseHistoryTimeElapsed;
+ */
 
 @end
