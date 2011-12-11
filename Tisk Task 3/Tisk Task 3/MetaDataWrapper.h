@@ -34,9 +34,9 @@
 
 - (void) stopTask:(TaskInfo *) taskInfo;
 
-- (void) endTask:(TaskInfo *) taskInfo;
+- (void) closeTask:(TaskInfo *) taskInfo;
 
-- (void) finishTask:(TaskInfo *) taskInfo;
+//- (void) finishTask:(TaskInfo *) taskInfo;
 
 - (void) changeToday:(TaskInfo *) taskInfo;
 

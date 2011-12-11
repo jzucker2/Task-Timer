@@ -542,6 +542,9 @@
     NSMutableDictionary *metadata = [self fetchPList];
     NSLog(@"metadata is %@", metadata);
     
+    
+    
+    /*
     // update notifications
     NSMutableDictionary *notificationDict = [metadata objectForKey:@"Notifications"];
     BOOL running = [taskInfo.isRunning boolValue];
@@ -590,6 +593,7 @@
         
         
     }
+     */
     
     [self writeToPlist:metadata];
 }
@@ -664,7 +668,7 @@
     [self writeToPlist:metadata];
 }
 
-- (void) endTask:(TaskInfo *) taskInfo
+- (void) closeTask:(TaskInfo *) taskInfo
 {
     // should handle end tasked regardless of early or not
     // fetch metadata

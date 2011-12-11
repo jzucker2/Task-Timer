@@ -36,7 +36,7 @@
 
 - (void) endTask;
 
-//- (void) finishTask;
+- (void) finishTask;
 
 - (void) changeToday:(BOOL)today;
 

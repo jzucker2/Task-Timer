@@ -108,7 +108,7 @@
     
     
     MetaDataWrapper *metadata = [[MetaDataWrapper alloc] init];
-    [metadata endTask:self];
+    [metadata closeTask:self];
     [metadata release];
     
 }
@@ -133,7 +133,7 @@
     [self setIsToday:today];
     
     MetaDataWrapper *metadata = [[MetaDataWrapper alloc] init];
-    [metadata finishTask:self];
+    [metadata closeTask:self];
     [metadata release];
 }
 
