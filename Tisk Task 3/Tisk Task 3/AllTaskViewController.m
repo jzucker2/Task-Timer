@@ -335,7 +335,7 @@
     TaskInfo *taskInfo = (TaskInfo *) [managedObjectContext objectWithURI:taskURL];
     //NSLog(@"taskInfo is %@", taskInfo);
     
-    // need to ask task to metadata
+    // need to add task to metadata
     MetaDataWrapper *metadata = [[MetaDataWrapper alloc] init];
     [metadata addNewTask:taskInfo];
     [metadata release];

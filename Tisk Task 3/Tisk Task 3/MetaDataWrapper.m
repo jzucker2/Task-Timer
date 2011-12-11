@@ -534,7 +534,7 @@
     [self writeToPlist:metadata];
 }
 
-- (void) editTask:(TaskInfo *)taskInfo
+- (void) editTask:(TaskInfo *)taskInfo withOldDuration:(double)old_duration
 {
     // needs more work!!!!!
     NSLog(@"metadata wrapper: editTask with %@", taskInfo);
@@ -545,9 +545,11 @@
     // important values
     BOOL isRunning = [taskInfo.isRunning boolValue];
     BOOL isToday = [taskInfo.isToday boolValue];
-    double duration = [taskInfo.duration doubleValue];
+    double newDuration = [taskInfo.duration doubleValue];
     double elapsed = [taskInfo.elapsedTime doubleValue];
     double timeLeft = [taskInfo timeLeft];
+     
+    
     
     // update all tasks
     [self increaseAllTasksTimeLeft:NO withTime:timeLeft];

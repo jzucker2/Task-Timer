@@ -7,6 +7,8 @@
 //
 
 #import "EditingViewController.h"
+#import "MetaDataWrapper.h"
+#import "TaskInfo.h"
 
 
 @implementation EditingViewController
@@ -124,9 +126,17 @@
     // Pass current value to the edited object, then pop.
     if (editingDuration) 
     {
-        NSNumber *duration = [NSNumber numberWithDouble:datePicker.countDownDuration];
-        [editedObject setValue:duration forKey:editedFieldKey];
-        // need to update metadata here!!!!
+        NSNumber *newDuration = [NSNumber numberWithDouble:datePicker.countDownDuration];
+        TaskInfo *taskInfo = (TaskInfo *) editedObject;
+        double oldDuration = [taskInfo.duration doubleValue];
+        
+        [editedObject setValue:newDuration forKey:editedFieldKey];
+        // need to update metadata here!!!!        
+        MetaDataWrapper *metadata = [[MetaDataWrapper alloc] init];
+        [metadata editTask:taskInfo withOldDuration:oldDuration];
+        [metadata release];
+        
+        //NSMutableDictionary *metadata = 
     }
     if (editingSpecifics) {
         [editedObject setValue:textView.text forKey:editedFieldKey];

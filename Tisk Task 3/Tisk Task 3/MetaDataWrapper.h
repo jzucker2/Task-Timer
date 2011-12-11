@@ -28,7 +28,7 @@
 
 - (void) addNewTask:(TaskInfo *) taskInfo;
 
-- (void) editTask:(TaskInfo *) taskInfo;
+- (void) editTask:(TaskInfo *) taskInfo withOldDuration:(double)duration;
 
 - (void) startTask:(TaskInfo *) taskInfo;
 
