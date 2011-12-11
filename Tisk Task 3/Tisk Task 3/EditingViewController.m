@@ -128,7 +128,7 @@
     {
         NSNumber *newDuration = [NSNumber numberWithDouble:datePicker.countDownDuration];
         TaskInfo *taskInfo = (TaskInfo *) editedObject;
-        double oldDuration = [taskInfo.duration doubleValue];
+        //double oldDuration = [taskInfo.duration doubleValue];
         double elapsed = [taskInfo.elapsedTime doubleValue];
         
         // don't let save occur if date picker value < elapsed
