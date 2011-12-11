@@ -224,7 +224,7 @@
             controller.editedFieldName = @"duration";
             controller.editingDuration = YES;
             controller.editingSpecifics = NO;
-            controller.editingExistingObject = YES;
+            controller.editingExistingObject = NO;
             [self.navigationController pushViewController:controller animated:YES];
         } break;
         case 4: {
