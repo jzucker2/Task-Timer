@@ -129,6 +129,15 @@
         NSNumber *newDuration = [NSNumber numberWithDouble:datePicker.countDownDuration];
         TaskInfo *taskInfo = (TaskInfo *) editedObject;
         double oldDuration = [taskInfo.duration doubleValue];
+        double elapsed = [taskInfo.elapsedTime doubleValue];
+        
+        // don't let save occur if date picker value < elapsed
+        if (datePicker.countDownDuration<elapsed) {
+            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Inconceivable" message:@"You must choose a new duration that is greater than the time already elapsed" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [alertView show];
+            [alertView release];
+            return;
+        }
         
         [editedObject setValue:newDuration forKey:editedFieldKey];
         // need to update metadata here!!!!        
@@ -143,6 +152,7 @@
     }
 	if ((editingDuration == NO) && (editingSpecifics == NO)) {
         [editedObject setValue:textField.text forKey:editedFieldKey];
+        
     } 
     else
     {

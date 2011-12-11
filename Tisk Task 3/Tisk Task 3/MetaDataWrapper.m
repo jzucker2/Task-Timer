@@ -543,14 +543,39 @@
     //NSLog(@"metadata is %@", metadata);
     
     // important values
-    BOOL isRunning = [taskInfo.isRunning boolValue];
+    //BOOL isRunning = [taskInfo.isRunning boolValue];
     BOOL isToday = [taskInfo.isToday boolValue];
+    
+    // need to calculate difference in timeLeft
     double newDuration = [taskInfo.duration doubleValue];
-    double elapsed = [taskInfo.elapsedTime doubleValue];
-    double timeLeft = [taskInfo timeLeft];
+    double newTimeLeft;
+    BOOL isIncreasingTimeLeft;
+    // need to know whether task was made longer or shorter
+    if (newDuration > old_duration) {
+        // task is longer
+        newTimeLeft = newDuration - old_duration;
+        isIncreasingTimeLeft = YES;
+        
+    }
+    else
+    {
+        // task is shorter
+        newTimeLeft = old_duration - newDuration;
+        isIncreasingTimeLeft = NO;
+    }
+    
+    // update all tasks
+    [self increaseAllTasksTimeLeft:isIncreasingTimeLeft withTime:newTimeLeft];
+    
+    // update today tasks if set for today
+    if (isToday == YES) {
+        // update time left
+        [self increaseTodayTasksTimeLeft:isIncreasingTimeLeft withTime:newTimeLeft];
+    }
+    
      
     
-    
+    /*
     // update all tasks
     [self increaseAllTasksTimeLeft:NO withTime:timeLeft];
     
@@ -566,6 +591,7 @@
         // decrease today task timeelapsed
         [self increaseTodayTasksTimeElapsed:NO withTime:elapsed];
     }
+     */
     
     // store new meta data
     [self writeToPlist:metadata];
