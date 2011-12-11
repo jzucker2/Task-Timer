@@ -13,6 +13,8 @@
 		333E958614943B9B00736FF7 /* TaskInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 333E958514943B9B00736FF7 /* TaskInfo.m */; };
 		33800880148F16F200B66030 /* MetaData.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3380087F148F16F200B66030 /* MetaData.plist */; };
 		33800884148F192B00B66030 /* MetaDataWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 33800883148F192B00B66030 /* MetaDataWrapper.m */; };
+		338F502C14949BE40060C819 /* StatisticsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 338F502A14949BE40060C819 /* StatisticsTableViewController.m */; };
+		338F502D14949BE40060C819 /* StatisticsTableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 338F502B14949BE40060C819 /* StatisticsTableView.xib */; };
 		339649FF148EF76600F37839 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 339649FE148EF76600F37839 /* DetailViewController.m */; };
 		33964A03148EF79000F37839 /* CountdownFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 33964A02148EF79000F37839 /* CountdownFormatter.m */; };
 		33964A08148EF86C00F37839 /* EditingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33964A06148EF86C00F37839 /* EditingViewController.m */; };
@@ -53,6 +55,9 @@
 		3380087F148F16F200B66030 /* MetaData.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = MetaData.plist; path = ../MetaData.plist; sourceTree = "<group>"; };
 		33800882148F192B00B66030 /* MetaDataWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MetaDataWrapper.h; sourceTree = "<group>"; };
 		33800883148F192B00B66030 /* MetaDataWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MetaDataWrapper.m; sourceTree = "<group>"; };
+		338F502914949BE40060C819 /* StatisticsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatisticsTableViewController.h; sourceTree = "<group>"; };
+		338F502A14949BE40060C819 /* StatisticsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatisticsTableViewController.m; sourceTree = "<group>"; };
+		338F502B14949BE40060C819 /* StatisticsTableView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StatisticsTableView.xib; sourceTree = "<group>"; };
 		339649FD148EF76600F37839 /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
 		339649FE148EF76600F37839 /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 		33964A01148EF79000F37839 /* CountdownFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CountdownFormatter.h; sourceTree = "<group>"; };
@@ -137,6 +142,16 @@
 				33800883148F192B00B66030 /* MetaDataWrapper.m */,
 			);
 			name = "Meta Data Wrapper";
+			sourceTree = "<group>";
+		};
+		338F502F14949BE70060C819 /* Statistics Table View */ = {
+			isa = PBXGroup;
+			children = (
+				338F502914949BE40060C819 /* StatisticsTableViewController.h */,
+				338F502A14949BE40060C819 /* StatisticsTableViewController.m */,
+				338F502B14949BE40060C819 /* StatisticsTableView.xib */,
+			);
+			name = "Statistics Table View";
 			sourceTree = "<group>";
 		};
 		339649FC148EF36600F37839 /* Data Models */ = {
@@ -283,6 +298,7 @@
 				33E2E4C2148EE4EC005910F5 /* SettingsTableViewController.h */,
 				33E2E4C3148EE4EC005910F5 /* SettingsTableViewController.m */,
 				33E2E4C4148EE4EC005910F5 /* SettingsTableView.xib */,
+				338F502F14949BE70060C819 /* Statistics Table View */,
 			);
 			name = "Settings Table View";
 			sourceTree = "<group>";
@@ -399,6 +415,7 @@
 				33964A13148F000100F37839 /* TaskTimerView.xib in Resources */,
 				33800880148F16F200B66030 /* MetaData.plist in Resources */,
 				333E9581149435E600736FF7 /* CompletedDetailView.xib in Resources */,
+				338F502D14949BE40060C819 /* StatisticsTableView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -426,6 +443,7 @@
 				333BB4E21491273B00FC7CAC /* NSString+containsString.m in Sources */,
 				333E9580149435E600736FF7 /* CompletedDetailViewController.m in Sources */,
 				333E958614943B9B00736FF7 /* TaskInfo.m in Sources */,
+				338F502C14949BE40060C819 /* StatisticsTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

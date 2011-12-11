@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "StatisticsTableViewController.h"
 
 @interface SettingsTableViewController : UITableViewController
 {

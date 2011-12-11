@@ -1,19 +1,14 @@
 //
-//  SettingsTableViewController.m
+//  StatisticsTableViewController.m
 //  Tisk Task 3
 //
-//  Created by Jordan Zucker on 12/6/11.
+//  Created by Jordan Zucker on 12/11/11.
 //  Copyright (c) 2011 University of Illinois. All rights reserved.
 //
 
-#import "SettingsTableViewController.h"
+#import "StatisticsTableViewController.h"
 
-@implementation SettingsTableViewController
-
-@synthesize versionArray, findMoreArray;
-
-//@synthesize settingsArray;
-//@synthesize sortedKeys, tableContents;
+@implementation StatisticsTableViewController
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -37,39 +32,12 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
-    
+ 
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    
-    NSString *versionString = [NSString stringWithFormat:@"Version %@", [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleShortVersionString"]];
-    
-    NSString *buildString = [NSString stringWithFormat:@"Build %@", [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleVersion"]];
-    
-    versionArray = [[NSArray alloc] initWithObjects:versionString, buildString, nil];
-    
-
-    
-    NSString *author = @"Jordan Zucker";
-    NSString *date = @"December 2011";
-    
-    NSString *sendEmail = @"Send me an email!";
-    //[settingsArray addObject:sendEmail];
-    
-    NSString *visitMe = @"Visit my website";
-    
-    findMoreArray = [[NSArray alloc] initWithObjects:author, date, sendEmail, visitMe, nil];
-    
-    //NSString *stats = @"Statistics";
-    
-    
-    
-    //[settingsArray addObject:stats];
-    
-    //tableContents = [[NSMutableDictionary alloc] initWithObjectsAndKeys:versionDict, @"About", findMoreArray, @"Find out more", nil
-    //NSMutableArray *versionArray = [[NSMutableArray alloc] initWithObjects:versionDict, build, nil];
 }
 
 - (void)viewDidUnload
@@ -109,59 +77,17 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    //#warning Potentially incomplete method implementation.
+#warning Potentially incomplete method implementation.
     // Return the number of sections.
-    return 4;
-}
-
-
-- (NSString *) tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
-{
-    NSString *title;
-    switch (section) {
-        case 0:
-            title = @"App Info";
-            break;
-        case 1:
-            title = @"About Me";
-            break;
-            
-        default:
-            title = nil;
-            break;
-    }
-    return  title;
+    return 0;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    NSInteger rows = 0;
-    switch (section) {
-        case 0:
-            rows = [versionArray count];
-            break;
-        case 1:
-            rows = [findMoreArray count];
-            break;
-        case 2:
-            rows = 1;
-            break;
-        case 3:
-            rows = 1;
-            break;
-        default:
-            rows = 0;
-            break;
-    }
-    return rows;
-    //#warning Incomplete method implementation.
+#warning Incomplete method implementation.
     // Return the number of rows in the section.
-    //return [settingsArray count];
+    return 0;
 }
-
-
-
-
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -173,24 +99,6 @@
     }
     
     // Configure the cell...
-    switch ([indexPath section]) {
-        case 0:
-            cell.textLabel.text = [versionArray objectAtIndex:indexPath.row];
-            break;
-        case 1:
-            cell.textLabel.text = [findMoreArray objectAtIndex:indexPath.row];
-            break;
-        case 2:
-            cell.textLabel.text = @"Statistics";
-            break;
-        case 3:
-            cell.textLabel.text = @"Rate this app!";
-            break;
-            
-        default:
-            break;
-    }
-    //cell.textLabel.text = [settingsArray objectAtIndex:indexPath.row];
     
     return cell;
 }
@@ -238,34 +146,6 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    switch ([indexPath section]) {
-        case 1:
-            switch (indexPath.row) {
-                case 2:
-                    NSLog(@"send email");
-                    break;
-                case 3:
-                    NSLog(@"visit website");
-                    break;
-                default:
-                    [tableView deselectRowAtIndexPath:indexPath animated:NO];
-                    break;
-            }
-            break;
-        case 2:
-            NSLog(@"View stats");
-            StatisticsTableViewController *statsView = [[StatisticsTableViewController alloc] initWithNibName:@"StatisticsTableView" bundle:nil];
-            [self.navigationController pushViewController:statsView animated:YES];
-            [statsView release];
-            break;
-        case 3:
-            NSLog(@"Rate app");
-            break;
-            
-        default:
-            [tableView deselectRowAtIndexPath:indexPath animated:NO];
-            break;
-    }
     // Navigation logic may go here. Create and push another view controller.
     /*
      <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
@@ -274,19 +154,6 @@
      [self.navigationController pushViewController:detailViewController animated:YES];
      [detailViewController release];
      */
-}
-
-#pragma mark -
-#pragma mark Memory Management
-
-- (void) dealloc
-{
-    [versionArray release];
-    [findMoreArray release];
-    //[sortedKeys release];
-    //[tableContents release];
-    //[settingsArray release];
-    [super dealloc];
 }
 
 @end
