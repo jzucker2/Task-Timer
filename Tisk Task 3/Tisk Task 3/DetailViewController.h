@@ -16,6 +16,7 @@
     TaskInfo *taskInfo;
     NSUndoManager *undoManager;
     UISwitch *todaySwitch;
+    BOOL isNewTask;
 }
 
 @property (nonatomic, retain) UISwitch *todaySwitch;
@@ -27,5 +28,8 @@
 - (void) updateRightBarButtonItemState;
 
 - (IBAction)todaySwitchValueChanged:(id)sender;
+
+- (void) setIsNewTask:(BOOL)newtask;
+- (BOOL) isNewTask;
 
 @end

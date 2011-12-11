@@ -21,6 +21,7 @@
     self = [super initWithStyle:style];
     if (self) {
         // Custom initialization
+        isNewTask = NO;
     }
     return self;
 }
@@ -31,6 +32,18 @@
     [super didReceiveMemoryWarning];
     
     // Release any cached data, images, etc that aren't in use.
+}
+
+#pragma mark isNewTask getter/setter
+
+- (void) setIsNewTask:(BOOL)newtask
+{
+    isNewTask = newtask;
+}
+
+- (BOOL) isNewTask
+{
+    return isNewTask;
 }
 
 #pragma mark - View lifecycle
@@ -224,7 +237,10 @@
             controller.editedFieldName = @"duration";
             controller.editingDuration = YES;
             controller.editingSpecifics = NO;
-            controller.editingExistingObject = NO;
+            if (isNewTask == NO) {
+                controller.editingExistingObject = YES;
+            }
+            //controller.editingExistingObject = NO;
             [self.navigationController pushViewController:controller animated:YES];
         } break;
         case 4: {

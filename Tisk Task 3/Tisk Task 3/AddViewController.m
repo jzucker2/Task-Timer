@@ -19,10 +19,13 @@
 - (void)viewDidLoad {
 	
 	[super viewDidLoad];
+    NSLog(@"addViewController viewDidLoad");
     // Override the DetailViewController viewDidLoad with different navigation bar items and title.
     self.title = @"New Task";
     self.navigationItem.leftBarButtonItem = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(cancel:)] autorelease];
     self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSave target:self action:@selector(save:)] autorelease];
+    
+    self.isNewTask = YES;
 	
 	// Set up the undo manager and set editing state to YES.
 	[self setUpUndoManager];
