@@ -539,7 +539,33 @@
     NSLog(@"metadata wrapper: editTask with %@", taskInfo);
     // fetch metadata
     NSMutableDictionary *metadata = [self fetchPList];
-    NSLog(@"metadata is %@", metadata);
+    //NSLog(@"metadata is %@", metadata);
+    
+    // important values
+    BOOL isRunning = [taskInfo.isRunning boolValue];
+    BOOL isToday = [taskInfo.isToday boolValue];
+    double duration = [taskInfo.duration doubleValue];
+    double elapsed = [taskInfo.elapsedTime doubleValue];
+    double timeLeft = [taskInfo timeLeft];
+    
+    // update all tasks
+    [self increaseAllTasksTimeLeft:NO withTime:timeLeft];
+    
+    // update today tasks if task is set for today
+    if (isToday == YES) {
+        [self increaseTodayTasksTotal:NO];
+        // check if task is active/running
+        if (isRunning == YES) {
+            [self increaseTodayTasksActive:NO];
+        }
+        // decrease today task time left
+        [self increaseTodayTasksTimeLeft:NO withTime:timeLeft];
+        // decrease today task timeelapsed
+        [self increaseTodayTasksTimeElapsed:NO withTime:elapsed];
+    }
+    
+    // store new meta data
+    [self writeToPlist:metadata];
     
 }
 
@@ -548,7 +574,7 @@
     
     // fetch metadata
     NSMutableDictionary *metadata = [self fetchPList];
-    NSLog(@"metadata is %@", metadata);
+    //NSLog(@"metadata is %@", metadata);
     
     // important values
     BOOL isRunning = [taskInfo.isRunning boolValue];
@@ -568,8 +594,9 @@
     [self setTotalNotifications];
     
     // update all tasks
+    // decrement all tasks task total
     [self increaseAllTasksTotal:NO];
-    // check to see if task is running
+    // update all tasks time stamps
     [self increaseAllTasksTimeElapsed:NO withTime:elapsed];
     [self increaseAllTasksTimeLeft:NO withTime:timeLeft];
     
@@ -644,7 +671,7 @@
 {
     // fetch metadata
     NSMutableDictionary *metadata = [self fetchPList];
-    NSLog(@"metadata is %@", metadata);
+    //NSLog(@"metadata is %@", metadata);
     
     // important info for updating
     //double duration = [taskInfo.duration doubleValue];
@@ -715,7 +742,7 @@
     // should handle end tasked regardless of early or not
     // fetch metadata
     NSMutableDictionary *metadata = [self fetchPList];
-    NSLog(@"metadata is %@", metadata);
+    //NSLog(@"metadata is %@", metadata);
     
     // important info for updating
     //double duration = [taskInfo.duration doubleValue];

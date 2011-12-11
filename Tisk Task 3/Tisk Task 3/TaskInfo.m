@@ -29,6 +29,23 @@
 @dynamic priority;
 
 #pragma mark -
+#pragma Validation Methods
+
+- (BOOL) validateForUpdate:(NSError **)error
+{
+    double elapsed = [self.elapsedTime doubleValue];
+    double duration = [self.duration doubleValue];
+    //double timeLeft = [self timeLeft];
+    if (duration<=elapsed) {
+        return NO;
+    }
+    else
+    {
+        return YES;
+    }
+}
+
+#pragma mark -
 #pragma mark Time Left getter
 - (double) timeLeft
 {
