@@ -28,6 +28,16 @@
 @dynamic isFinishedEarly;
 @dynamic priority;
 
+#pragma mark -
+#pragma mark Time Left getter
+- (double) timeLeft
+{
+    double elapsed = [self.elapsedTime doubleValue];
+    double duration = [self.duration doubleValue];
+    
+    double timeLeft = duration - elapsed;
+    return timeLeft;
+}
 
 #pragma mark -
 #pragma mark Handle Tasks

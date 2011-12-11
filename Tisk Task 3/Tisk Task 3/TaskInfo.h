@@ -28,13 +28,15 @@
 @property (nonatomic, retain) NSNumber * isFinishedEarly;
 @property (nonatomic, retain) NSNumber * priority;
 
+- (double) timeLeft;
+
 - (void) startTask;
 
 - (void) stopTask;
 
 - (void) endTask;
 
-- (void) finishTask;
+//- (void) finishTask;
 
 - (void) changeToday:(BOOL)today;
 

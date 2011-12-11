@@ -601,7 +601,7 @@
     NSLog(@"metadata is %@", metadata);
     
     // important info for updating
-    double duration = [taskInfo.duration doubleValue];
+    //double duration = [taskInfo.duration doubleValue];
     double elapsed = [taskInfo.elapsedTime doubleValue];
     //double timeLeft = duration - elapsed;
     
@@ -671,6 +671,30 @@
     NSMutableDictionary *metadata = [self fetchPList];
     NSLog(@"metadata is %@", metadata);
     
+    // important info for updating
+    //double duration = [taskInfo.duration doubleValue];
+    double elapsed = [taskInfo.elapsedTime doubleValue];
+    double timeLeft = [taskInfo timeLeft];
+    
+    // update notifications
+    [self increaseAlarms:NO];
+    [self setTotalNotifications];
+    
+    // update all tasks
+    [self increaseAllTasksTotal:NO];
+    [self increaseAllTasksTimeLeft:NO withTime:timeLeft];
+    [self increaseAllTasksTimeElapsed:NO withTime:elapsed];
+    
+    // update today tasks
+    [self increaseTodayTasksTotal:NO];
+    [self increaseTodayTasksActive:NO];
+    [self increaseTodayTasksTimeLeft:NO withTime:timeLeft];
+    [self increaseTodayTasksTimeElapsed:NO withTime:elapsed];
+    
+    // update history
+    [self increaseHistoryTotalTasks];
+    [self increaseHistoryTimeElapsedWithTime:elapsed];
+    
     /*
     
     // update notifications
@@ -734,6 +758,7 @@
     
 }
 
+/*
 - (void) finishTask:(TaskInfo *) taskInfo
 {
     // fetch metadata
@@ -797,17 +822,33 @@
     
     [self writeToPlist:metadata];
 }
+ */
 
 - (void) changeToday:(TaskInfo *)taskInfo
 {
-    NSLog(@"changeToday in metadataWrapper");
+    //NSLog(@"changeToday in metadataWrapper");
     // fetch metadata
     NSMutableDictionary *metadata = [self fetchPList];
-    NSLog(@"metadata is initially %@", metadata);
+    //NSLog(@"metadata is initially %@", metadata);
     
+    // important values for updating metadata
     BOOL isToday = [taskInfo.isToday boolValue];
+    //double duration = [taskInfo.duration doubleValue];
+    double elapsed = [taskInfo.elapsedTime doubleValue];
+    double timeLeft = [taskInfo timeLeft];
     
     if (isToday == YES) {
+        // update notifications
+        [self increaseReminders:YES];
+        [self setTotalNotifications];
+        
+        // update today tasks
+        [self increaseTodayTasksTotal:YES];
+        [self increaseTodayTasksTimeLeft:YES withTime:timeLeft];
+        [self increaseTodayTasksTimeElapsed:YES withTime:elapsed];
+        
+        
+        /*
         // update notifications
         NSMutableDictionary *notificationDict = [metadata objectForKey:@"Notifications"];
         // increment total
@@ -834,9 +875,20 @@
         double todayTimeElapsed = [[todayTasks objectForKey:@"TimeElapsed"] doubleValue];
         todayTimeElapsed = todayTimeElapsed + [taskInfo.elapsedTime doubleValue];
         [todayTasks setObject:[NSNumber numberWithDouble:todayTimeElapsed] forKey:@"TimeElapsed"];
+         */
     }
     else
     {
+        // update notifications
+        [self increaseReminders:NO];
+        [self setTotalNotifications];
+        
+        // update today tasks
+        [self increaseTodayTasksTotal:NO];
+        [self increaseTodayTasksTimeLeft:NO withTime:timeLeft];
+        [self increaseTodayTasksTimeElapsed:NO withTime:elapsed];
+        
+        /*
         // update notifications
         NSMutableDictionary *notificationDict = [metadata objectForKey:@"Notifications"];
         // decrement total
@@ -863,9 +915,10 @@
         double todayTimeElapsed = [[todayTasks objectForKey:@"TimeElapsed"] doubleValue];
         todayTimeElapsed = todayTimeElapsed - [taskInfo.elapsedTime doubleValue];
         [todayTasks setObject:[NSNumber numberWithDouble:todayTimeElapsed] forKey:@"TimeElapsed"];
+         */
     }
     
-    NSLog(@"metadata is now %@", metadata);
+    //NSLog(@"metadata is now %@", metadata);
     
     [self writeToPlist:metadata];
 }
