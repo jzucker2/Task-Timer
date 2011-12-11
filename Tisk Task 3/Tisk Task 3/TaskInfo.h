@@ -48,4 +48,6 @@
 
 - (void) cancelAlarm;
 
+- (double) calculateTimeUntilReminder;
+
 @end

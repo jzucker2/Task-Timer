@@ -179,6 +179,26 @@
 #pragma mark -
 #pragma mark Notifications
 
+- (double) calculateTimeUntilReminder
+{
+    /*
+     need to figure out precisely when to fire timer, some factors:
+     1. how much time left in day vs. how much time left in task
+     2. time zone
+     3. how many times have you been reminded? should i keep track of that? probably, but won't for now
+     4. how long duration is in general. Remind more frequently for shorter tasks but can't take 3 hours to remind for a 3 hour task
+     
+     */
+    double duration = [self.duration doubleValue];
+    double timesReminded = [self.timesReminded doubleValue];
+    NSLog(@"timesReminded is %f", timesReminded);
+    
+    double timeTilReminder = duration/(++timesReminded);
+    NSLog(@"timeTilReminder is %f", timeTilReminder);
+    
+    return timeTilReminder;
+}
+
 - (void) scheduleReminder
 {
     NSLog(@"scheduleReminder with %@", self);
@@ -195,6 +215,8 @@
      4. how long duration is in general. Remind more frequently for shorter tasks but can't take 3 hours to remind for a 3 hour task
      
      */
+    
+    /*
     double duration = [self.duration doubleValue];
     double timesReminded = [self.timesReminded doubleValue];
     NSLog(@"timesReminded is %f", timesReminded);
@@ -203,6 +225,8 @@
     NSLog(@"timeTilReminder is %f", timeTilReminder);
     //double elapsed = [taskInfo.elapsedTime doubleValue];
     //double reminderTime = duration - elapsed;
+     */
+    double timeTilReminder = [self calculateTimeUntilReminder];
     NSDate *date = [NSDate dateWithTimeIntervalSinceNow:timeTilReminder];
     localNotification.fireDate = date;
     localNotification.alertBody = [NSString stringWithFormat:@"%@ still needs work today", self.title];
