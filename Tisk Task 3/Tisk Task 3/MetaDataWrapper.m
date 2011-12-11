@@ -79,7 +79,7 @@
         return nil;
     }
     
-    NSLog(@"plist is %@", temp);
+    //NSLog(@"plist is %@", temp);
     return temp;
 }
 
@@ -252,12 +252,15 @@
     NSMutableDictionary *metadata = [self fetchPList];
     //NSLog(@"metadata is %@", metadata);
      */
+    NSLog(@"increaseAllTasksTimeLeft with direction: %@ and time:%f", (direction ? @"YES" : @"NO"), time);
+    NSLog(@"plist is %@", plistDict);
     
     // fetch All Tasks Info
     NSMutableDictionary *allTasks = [plistDict objectForKey:@"AllTasks"];
     
     // get old TimeLeft value
-    NSInteger totalTimeLeft = [[allTasks objectForKey:@"TimeLeft"] doubleValue];
+    double totalTimeLeft = [[allTasks objectForKey:@"TimeLeft"] doubleValue];
+    NSLog(@"totalTimeLeft originally is %f", totalTimeLeft);
     
     // change timeLeft based on direction bool
     if (direction == YES) {
@@ -267,6 +270,7 @@
     {
         totalTimeLeft -= time;
     }
+    NSLog(@"totalTimeLeft is now %f", totalTimeLeft);
     
     // set new value
     [allTasks setObject:[NSNumber numberWithDouble:totalTimeLeft] forKey:@"TimeLeft"];
@@ -284,7 +288,7 @@
     NSMutableDictionary *allTasks = [plistDict objectForKey:@"AllTasks"];
     
     // get old timeElapsed value
-    NSInteger totalTimeElapsed = [[allTasks objectForKey:@"TimeElapsed"] doubleValue];
+    double totalTimeElapsed = [[allTasks objectForKey:@"TimeElapsed"] doubleValue];
     
     // change timeElapsed based on direction bool
     if (direction == YES) {

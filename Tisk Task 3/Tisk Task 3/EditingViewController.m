@@ -140,10 +140,13 @@
         }
         
         [editedObject setValue:newDuration forKey:editedFieldKey];
+        
+        /*
         // need to update metadata here!!!!        
         MetaDataWrapper *metadata = [[MetaDataWrapper alloc] init];
         [metadata editTask:taskInfo withOldDuration:oldDuration];
         [metadata release];
+         */
         
         //NSMutableDictionary *metadata = 
     }
