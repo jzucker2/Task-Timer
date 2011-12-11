@@ -536,6 +536,7 @@
 
 - (void) editTask:(TaskInfo *)taskInfo
 {
+    // needs more work!!!!!
     NSLog(@"metadata wrapper: editTask with %@", taskInfo);
     // fetch metadata
     NSMutableDictionary *metadata = [self fetchPList];
