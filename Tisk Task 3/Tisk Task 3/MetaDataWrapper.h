@@ -50,9 +50,13 @@
 #pragma mark - Change Notifications
 
 - (NSInteger) totalNotifications;
+- (NSInteger) activeAlarms;
+- (NSInteger) activeReminders;
 - (void) setTotalNotifications;
 - (void) increaseAlarms:(BOOL)direction;
 - (void) increaseReminders:(BOOL)direction;
+- (void) addToAlarmArray:(BOOL)plusminus withTask:(TaskInfo *)taskInfo;
+- (void) addToReminderArray:(BOOL)plusminus withTask:(TaskInfo *)taskInfo;
 
 #pragma mark - Change All Tasks
 

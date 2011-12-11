@@ -123,6 +123,30 @@
     return totalNotifications;
 }
 
+- (NSInteger) activeAlarms
+{
+    NSMutableDictionary *notificationDict = [plistDict objectForKey:@"Notifications"];
+    NSInteger activeAlarms = [[notificationDict objectForKey:@"ActiveAlarms"] integerValue];
+    return activeAlarms;
+}
+
+- (NSInteger) activeReminders
+{
+    NSMutableDictionary *notificationDict = [plistDict objectForKey:@"Notifications"];
+    NSInteger activeReminders = [[notificationDict objectForKey:@"ActiveReminders"] integerValue];
+    return activeReminders;
+}
+
+- (void) addToAlarmArray:(BOOL)plusminus withTask:(TaskInfo *)taskInfo
+{
+    
+}
+
+- (void) addToReminderArray:(BOOL)plusminus withTask:(TaskInfo *)taskInfo
+{
+    
+}
+
 - (void) setTotalNotifications
 {
     /*

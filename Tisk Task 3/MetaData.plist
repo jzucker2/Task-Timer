@@ -6,15 +6,23 @@
 	<dict>
 		<key>Total</key>
 		<integer>0</integer>
+		<key>TotalArray</key>
+		<array/>
 		<key>ActiveAlarms</key>
 		<integer>0</integer>
+		<key>AlarmArray</key>
+		<array/>
 		<key>ActiveReminders</key>
 		<integer>0</integer>
+		<key>ReminderArray</key>
+		<array/>
 	</dict>
 	<key>AllTasks</key>
 	<dict>
 		<key>TotalTasks</key>
 		<integer>0</integer>
+		<key>TotalTasksArray</key>
+		<array/>
 		<key>TimeLeft</key>
 		<integer>0</integer>
 		<key>TimeElapsed</key>
@@ -24,8 +32,12 @@
 	<dict>
 		<key>TotalTasks</key>
 		<integer>0</integer>
+		<key>TotalTasksArray</key>
+		<array/>
 		<key>ActiveTasks</key>
 		<integer>0</integer>
+		<key>ActiveTasksArray</key>
+		<array/>
 		<key>TimeLeft</key>
 		<integer>0</integer>
 		<key>TimeElapsed</key>
@@ -35,6 +47,8 @@
 	<dict>
 		<key>TotalTasks</key>
 		<integer>0</integer>
+		<key>TotalTasksArray</key>
+		<array/>
 		<key>TimeElapsed</key>
 		<integer>0</integer>
 	</dict>

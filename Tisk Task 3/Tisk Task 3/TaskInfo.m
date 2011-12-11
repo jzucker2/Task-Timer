@@ -256,6 +256,8 @@
     NSDictionary *infoDict = [NSDictionary dictionaryWithObjectsAndKeys:self.title, @"title", URLString, @"taskURLString", @"reminder", @"type", nil];
     
     
+    
+    
     localNotification.userInfo = infoDict;
     
     [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
