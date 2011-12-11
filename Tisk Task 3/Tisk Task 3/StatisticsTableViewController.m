@@ -10,6 +10,9 @@
 
 @implementation StatisticsTableViewController
 
+@synthesize notificationsArray, allTasksArray, todayTasksArray, historyArray, metadata;
+@synthesize notificationsKeysArray, allTasksKeysArray, todayTasksKeysArray, historyKeysArray;
+
 - (id)initWithStyle:(UITableViewStyle)style
 {
     self = [super initWithStyle:style];
@@ -19,6 +22,21 @@
         MetaDataWrapper *metadataWrapper = [[MetaDataWrapper alloc] init];
         metadata = [[metadataWrapper fetchPList] retain];
         [metadataWrapper release];
+        NSLog(@"in stats: metadata is %@", metadata);
+    }
+    return self;
+}
+
+- (id) initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+{
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if (self) {
+        // Custom initialization
+        // import metadata
+        MetaDataWrapper *metadataWrapper = [[MetaDataWrapper alloc] init];
+        metadata = [[metadataWrapper fetchPList] retain];
+        [metadataWrapper release];
+        NSLog(@"in stats: metadata is %@", metadata);
     }
     return self;
 }
@@ -45,6 +63,7 @@
     
     // get notification values
     NSDictionary *notificationDict = [metadata objectForKey:@"Notifications"];
+    NSLog(@"notificationDict is %@", notificationDict);
     
     
     NSDictionary *allTasksDict = [metadata objectForKey:@"AllTasks"];
@@ -52,9 +71,15 @@
     NSDictionary *historyDict = [metadata objectForKey:@"History"];
     
     notificationsArray = [[NSArray alloc] initWithObjects:[notificationDict objectForKey:@"Total"], [notificationDict objectForKey:@"ActiveAlarms"], [notificationDict objectForKey:@"ActiveReminders"], nil];
+    NSLog(@"notificationsArray is %@", notificationsArray);
     allTasksArray = [[NSArray alloc] initWithObjects:[allTasksDict objectForKey:@"TotalTasks"], [allTasksDict objectForKey:@"TimeLeft"], [allTasksDict objectForKey:@"TimeElapsed"], nil];
     todayTasksArray = [[NSArray alloc] initWithObjects:[todayTasksDict objectForKey:@"TotalTasks"], [todayTasksDict objectForKey:@"ActiveTasks"], [todayTasksDict objectForKey:@"TimeLeft"], [todayTasksDict objectForKey:@"TimeElapsed"], nil];
     historyArray = [[NSArray alloc] initWithObjects:[historyDict objectForKey:@"TotalTasks"], [historyDict objectForKey:@"TimeElapsed"], nil];
+    
+    notificationsKeysArray = [[NSArray alloc] initWithObjects:@"Total", @"Active Alarms", @"Active Reminders", nil];
+    allTasksKeysArray = [[NSArray alloc] initWithObjects:@"Total Tasks", @"Time Left", @"Time Elapsed", nil];
+    todayTasksKeysArray = [[NSArray alloc] initWithObjects:@"Total Tasks", @"Active Tasks", @"Time Left", @"Time Elapsed", nil];
+    historyKeysArray = [[NSArray alloc] initWithObjects:@"Total Tasks", @"Time Elapsed", nil];
 }
 
 - (void)viewDidUnload
@@ -156,10 +181,38 @@
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+        //cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CellIdentifier] autorelease];
     }
     
     // Configure the cell...
+    
+    NSString *detail;
+    switch ([indexPath section]) {
+        case 0:
+            cell.textLabel.text = [notificationsKeysArray objectAtIndex:indexPath.row];
+            detail = [NSString stringWithFormat:@"%@", [notificationsArray objectAtIndex:indexPath.row]];
+            cell.detailTextLabel.text = detail;
+            break;
+        case 1:
+            cell.textLabel.text = [allTasksKeysArray objectAtIndex:indexPath.row];
+            detail = [NSString stringWithFormat:@"%@", [allTasksArray objectAtIndex:indexPath.row]];
+            cell.detailTextLabel.text = detail;
+            break;
+        case 2:
+            cell.textLabel.text = [todayTasksKeysArray objectAtIndex:indexPath.row];
+            detail = [NSString stringWithFormat:@"%@", [todayTasksArray objectAtIndex:indexPath.row]];
+            cell.detailTextLabel.text = detail;
+            break;
+        case 3:
+            cell.textLabel.text = [historyKeysArray objectAtIndex:indexPath.row];
+            detail = [NSString stringWithFormat:@"%@", [historyArray objectAtIndex:indexPath.row]];
+            cell.detailTextLabel.text = detail;
+            break;
+            
+        default:
+            break;
+    }
     
     return cell;
 }
@@ -222,6 +275,11 @@
 
 - (void) dealloc
 {
+    [notificationsKeysArray release];
+    [allTasksKeysArray release];
+    [todayTasksKeysArray release];
+    [historyKeysArray release];
+    
     [notificationsArray release];
     [allTasksArray release];
     [todayTasksArray release];

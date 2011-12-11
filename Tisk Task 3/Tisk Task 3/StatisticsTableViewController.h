@@ -16,8 +16,16 @@
     NSArray *todayTasksArray;
     NSArray *historyArray;
     NSDictionary *metadata;
+    
+    NSArray *notificationsKeysArray;
+    NSArray *allTasksKeysArray;
+    NSArray *todayTasksKeysArray;
+    NSArray *historyKeysArray;
 }
-
+@property (nonatomic, retain) NSArray *notificationsKeysArray;
+@property (nonatomic, retain) NSArray *allTasksKeysArray;
+@property (nonatomic, retain) NSArray *todayTasksKeysArray;
+@property (nonatomic, retain) NSArray *historyKeysArray;
 @property (nonatomic, retain) NSArray *notificationsArray;
 @property (nonatomic, retain) NSArray *allTasksArray;
 @property (nonatomic, retain) NSArray *todayTasksArray;
