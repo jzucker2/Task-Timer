@@ -190,11 +190,25 @@
      
      */
     double duration = [self.duration doubleValue];
+    // if task is less than one hour, don't remind for at least an hour
+    if (duration < 3600) {
+        duration = 3600*2;
+    }
+    // if task is longer than 3 hours, remind sooner
+    if (duration>(3600 *3)) {
+        duration = 3600*2;
+    }
     double timesReminded = [self.timesReminded doubleValue];
-    NSLog(@"timesReminded is %f", timesReminded);
+    //NSLog(@"timesReminded is %f", timesReminded);
+    if (timesReminded == 0) {
+        timesReminded++;
+    }
+    if (timesReminded > 4) {
+        timesReminded = 4;
+    }
     
-    double timeTilReminder = duration/(++timesReminded);
-    NSLog(@"timeTilReminder is %f", timeTilReminder);
+    double timeTilReminder = duration/timesReminded;
+    //NSLog(@"timeTilReminder is %f", timeTilReminder);
     
     return timeTilReminder;
 }
