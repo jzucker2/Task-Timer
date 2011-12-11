@@ -50,7 +50,7 @@
 - (void) viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    NSLog(@"viewWillAppear");
+    NSLog(@"TaskTimer viewWillAppear");
     countdownTimer = [[NSTimer alloc] init];
     
     titleLabel.text = taskInfo.title;

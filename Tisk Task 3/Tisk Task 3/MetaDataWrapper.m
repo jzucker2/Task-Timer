@@ -505,7 +505,7 @@
 {
     // fetch metadata
     NSMutableDictionary *metadata = [self fetchPList];
-    NSLog(@"metadata is %@", metadata);
+    //NSLog(@"metadata is %@", metadata);
     
     // first update notifications
     [self increaseAlarms:YES];
