@@ -7,6 +7,7 @@
 //
 
 #import "StatisticsTableViewController.h"
+#import "CountdownFormatter.h"
 
 @implementation StatisticsTableViewController
 
@@ -22,7 +23,7 @@
         MetaDataWrapper *metadataWrapper = [[MetaDataWrapper alloc] init];
         metadata = [[metadataWrapper fetchPList] retain];
         [metadataWrapper release];
-        NSLog(@"in stats: metadata is %@", metadata);
+        //NSLog(@"in stats: metadata is %@", metadata);
     }
     return self;
 }
@@ -36,7 +37,7 @@
         MetaDataWrapper *metadataWrapper = [[MetaDataWrapper alloc] init];
         metadata = [[metadataWrapper fetchPList] retain];
         [metadataWrapper release];
-        NSLog(@"in stats: metadata is %@", metadata);
+        //NSLog(@"in stats: metadata is %@", metadata);
     }
     return self;
 }
@@ -63,7 +64,7 @@
     
     // get notification values
     NSDictionary *notificationDict = [metadata objectForKey:@"Notifications"];
-    NSLog(@"notificationDict is %@", notificationDict);
+    //NSLog(@"notificationDict is %@", notificationDict);
     
     
     NSDictionary *allTasksDict = [metadata objectForKey:@"AllTasks"];
@@ -71,15 +72,28 @@
     NSDictionary *historyDict = [metadata objectForKey:@"History"];
     
     notificationsArray = [[NSArray alloc] initWithObjects:[notificationDict objectForKey:@"Total"], [notificationDict objectForKey:@"ActiveAlarms"], [notificationDict objectForKey:@"ActiveReminders"], nil];
-    NSLog(@"notificationsArray is %@", notificationsArray);
-    allTasksArray = [[NSArray alloc] initWithObjects:[allTasksDict objectForKey:@"TotalTasks"], [allTasksDict objectForKey:@"TimeLeft"], [allTasksDict objectForKey:@"TimeElapsed"], nil];
-    todayTasksArray = [[NSArray alloc] initWithObjects:[todayTasksDict objectForKey:@"TotalTasks"], [todayTasksDict objectForKey:@"ActiveTasks"], [todayTasksDict objectForKey:@"TimeLeft"], [todayTasksDict objectForKey:@"TimeElapsed"], nil];
-    historyArray = [[NSArray alloc] initWithObjects:[historyDict objectForKey:@"TotalTasks"], [historyDict objectForKey:@"TimeElapsed"], nil];
+    //NSLog(@"notificationsArray is %@", notificationsArray);
+    NSString *timeElapsed;
+    NSString *timeLeft;
+    CountdownFormatter *formatter = [[CountdownFormatter alloc] init];
+    
+    timeLeft = [formatter stringForCountdownInterval:[allTasksDict objectForKey:@"TimeLeft"]];
+    timeElapsed = [formatter stringForCountdownInterval:[allTasksDict objectForKey:@"TimeElapsed"]];
+    allTasksArray = [[NSArray alloc] initWithObjects:[allTasksDict objectForKey:@"TotalTasks"], timeLeft, timeElapsed, nil];
+    
+    timeLeft = [formatter stringForCountdownInterval:[todayTasksDict objectForKey:@"TimeLeft"]];
+    timeElapsed = [formatter stringForCountdownInterval:[todayTasksDict objectForKey:@"TimeElapsed"]];
+    todayTasksArray = [[NSArray alloc] initWithObjects:[todayTasksDict objectForKey:@"TotalTasks"], [todayTasksDict objectForKey:@"ActiveTasks"], timeLeft, timeElapsed, nil];
+    
+    timeElapsed = [formatter stringForCountdownInterval:[historyDict objectForKey:@"TimeElapsed"]];
+    historyArray = [[NSArray alloc] initWithObjects:[historyDict objectForKey:@"TotalTasks"], timeElapsed, nil];
     
     notificationsKeysArray = [[NSArray alloc] initWithObjects:@"Total", @"Active Alarms", @"Active Reminders", nil];
     allTasksKeysArray = [[NSArray alloc] initWithObjects:@"Total Tasks", @"Time Left", @"Time Elapsed", nil];
     todayTasksKeysArray = [[NSArray alloc] initWithObjects:@"Total Tasks", @"Active Tasks", @"Time Left", @"Time Elapsed", nil];
     historyKeysArray = [[NSArray alloc] initWithObjects:@"Total Tasks", @"Time Elapsed", nil];
+    
+    [formatter release];
 }
 
 - (void)viewDidUnload
@@ -188,6 +202,7 @@
     // Configure the cell...
     
     NSString *detail;
+    //CountdownFormatter *formatter = [[CountdownFormatter alloc] init];
     switch ([indexPath section]) {
         case 0:
             cell.textLabel.text = [notificationsKeysArray objectAtIndex:indexPath.row];
@@ -213,6 +228,8 @@
         default:
             break;
     }
+                                     
+    //[formatter release];
     
     return cell;
 }

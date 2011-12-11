@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		333BB4E21491273B00FC7CAC /* NSString+containsString.m in Sources */ = {isa = PBXBuildFile; fileRef = 333BB4E11491273B00FC7CAC /* NSString+containsString.m */; };
 		333E9580149435E600736FF7 /* CompletedDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 333E957E149435E600736FF7 /* CompletedDetailViewController.m */; };
 		333E9581149435E600736FF7 /* CompletedDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 333E957F149435E600736FF7 /* CompletedDetailView.xib */; };
 		333E958614943B9B00736FF7 /* TaskInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 333E958514943B9B00736FF7 /* TaskInfo.m */; };
@@ -45,8 +44,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		333BB4E01491273B00FC7CAC /* NSString+containsString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+containsString.h"; sourceTree = "<group>"; };
-		333BB4E11491273B00FC7CAC /* NSString+containsString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+containsString.m"; sourceTree = "<group>"; };
 		333E957D149435E600736FF7 /* CompletedDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CompletedDetailViewController.h; sourceTree = "<group>"; };
 		333E957E149435E600736FF7 /* CompletedDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CompletedDetailViewController.m; sourceTree = "<group>"; };
 		333E957F149435E600736FF7 /* CompletedDetailView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CompletedDetailView.xib; sourceTree = "<group>"; };
@@ -116,15 +113,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		333BB4E41491273F00FC7CAC /* Contains String */ = {
-			isa = PBXGroup;
-			children = (
-				333BB4E01491273B00FC7CAC /* NSString+containsString.h */,
-				333BB4E11491273B00FC7CAC /* NSString+containsString.m */,
-			);
-			name = "Contains String";
-			sourceTree = "<group>";
-		};
 		333E9583149435EA00736FF7 /* Completed Detail View */ = {
 			isa = PBXGroup;
 			children = (
@@ -257,7 +245,6 @@
 				33E2E4C7148EE4F0005910F5 /* Settings Table View */,
 				33E2E4DC148EE5D8005910F5 /* Resources */,
 				33E2E48B148EE31E005910F5 /* Supporting Files */,
-				333BB4E41491273F00FC7CAC /* Contains String */,
 			);
 			path = "Tisk Task 3";
 			sourceTree = "<group>";
@@ -440,7 +427,6 @@
 				33964A12148F000100F37839 /* TaskTimerViewController.m in Sources */,
 				33964A20148F0DBE00F37839 /* NSManagedObjectContext+FetchedObjectFromURI.m in Sources */,
 				33800884148F192B00B66030 /* MetaDataWrapper.m in Sources */,
-				333BB4E21491273B00FC7CAC /* NSString+containsString.m in Sources */,
 				333E9580149435E600736FF7 /* CompletedDetailViewController.m in Sources */,
 				333E958614943B9B00736FF7 /* TaskInfo.m in Sources */,
 				338F502C14949BE40060C819 /* StatisticsTableViewController.m in Sources */,

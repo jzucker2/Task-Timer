@@ -137,7 +137,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // 4 rows
-    return 5;
+    return 6;
 }
 
 
@@ -152,7 +152,7 @@
     }
 	
     
-    
+    CountdownFormatter *formatter = [[CountdownFormatter alloc] init];
 	switch (indexPath.row) {
         case 0: 
 			cell.textLabel.text = @"Title";
@@ -160,7 +160,7 @@
 			break;
         case 1: 
 			cell.textLabel.text = @"Duration";
-            CountdownFormatter *formatter = [[CountdownFormatter alloc] init];
+            //CountdownFormatter *formatter = [[CountdownFormatter alloc] init];
             NSString *duration = [formatter stringForCountdownInterval:taskInfo.duration];
             //NSString *duration = [NSString stringWithFormat:@"%@", taskInfo.duration];
 			cell.detailTextLabel.text = duration;
@@ -197,9 +197,12 @@
             cell.textLabel.text = @"Specifics";
             cell.detailTextLabel.text = taskInfo.specifics;
             break;
+        case 5:
+            cell.textLabel.text = @"Time Elapsed";
+            cell.detailTextLabel.text = [formatter stringForCountdownInterval:taskInfo.elapsedTime];
     }
     
-    
+    [formatter release];
     
     return cell;
 }

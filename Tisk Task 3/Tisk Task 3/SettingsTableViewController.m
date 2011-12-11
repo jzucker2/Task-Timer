@@ -182,6 +182,7 @@
             break;
         case 2:
             cell.textLabel.text = @"Statistics";
+            [cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
             break;
         case 3:
             cell.textLabel.text = @"Rate this app!";
@@ -255,6 +256,7 @@
         case 2:
             NSLog(@"View stats");
             StatisticsTableViewController *statsView = [[StatisticsTableViewController alloc] initWithNibName:@"StatisticsTableView" bundle:nil];
+            statsView.title = @"Statistics";
             [self.navigationController pushViewController:statsView animated:YES];
             [statsView release];
             break;
