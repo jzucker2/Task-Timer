@@ -227,61 +227,244 @@
     [allTasks setObject:[NSNumber numberWithInteger:total] forKey:@"TotalTasks"];
 }
 
-/*
+
 - (void) increaseAllTasksTimeLeft:(BOOL) direction withTime:(double)time
 {
+    // fetch metadata
+    NSMutableDictionary *metadata = [self fetchPList];
+    //NSLog(@"metadata is %@", metadata);
     
+    // fetch All Tasks Info
+    NSMutableDictionary *allTasks = [metadata objectForKey:@"AllTasks"];
+    
+    // get old TimeLeft value
+    NSInteger totalTimeLeft = [[allTasks objectForKey:@"TimeLeft"] doubleValue];
+    
+    // change timeLeft based on direction bool
+    if (direction == YES) {
+        totalTimeLeft += time;
+    }
+    else
+    {
+        totalTimeLeft -= time;
+    }
+    
+    // set new value
+    [allTasks setObject:[NSNumber numberWithDouble:totalTimeLeft] forKey:@"TimeLeft"];
 }
 
 - (void) increaseAllTasksTimeElapsed:(BOOL) direction withTime:(double)time
 {
+    // fetch metadata
+    NSMutableDictionary *metadata = [self fetchPList];
+    //NSLog(@"metadata is %@", metadata);
     
+    // fetch All Tasks Info
+    NSMutableDictionary *allTasks = [metadata objectForKey:@"AllTasks"];
+    
+    // get old timeElapsed value
+    NSInteger totalTimeElapsed = [[allTasks objectForKey:@"TimeElapsed"] doubleValue];
+    
+    // change timeElapsed based on direction bool
+    if (direction == YES) {
+        totalTimeElapsed += time;
+    }
+    else
+    {
+        totalTimeElapsed -= time;
+    }
+    
+    // set new value
+    [allTasks setObject:[NSNumber numberWithDouble:totalTimeElapsed] forKey:@"TimeElapsed"];
 }
+
+
 
 #pragma mark Change Today Tasks
 
 - (NSInteger) todayTasksTotal
 {
+    // fetch metadata
+    NSMutableDictionary *metadata = [self fetchPList];
+    //NSLog(@"metadata is %@", metadata);
     
+    // fetch Today Tasks info
+    NSMutableDictionary *todayTasks = [metadata objectForKey:@"TodayTasks"];
+    
+    // get total tasks for today
+    NSInteger total = [[todayTasks objectForKey:@"TotalTasks"] integerValue];
+    
+    return total;
 }
 
 - (void) increaseTodayTasksTotal:(BOOL) direction
 {
+    // fetch metadata
+    NSMutableDictionary *metadata = [self fetchPList];
+    //NSLog(@"metadata is %@", metadata);
     
+    // fetch Today Tasks info
+    NSMutableDictionary *todayTasks = [metadata objectForKey:@"TodayTasks"];
+    
+    // get total tasks for today
+    NSInteger total = [[todayTasks objectForKey:@"TotalTasks"] integerValue];
+    
+    // change total based on direction bool
+    if (direction == YES) {
+        total++;
+    }
+    else
+    {
+        total--;
+    }
+    
+    // set new total value
+    [todayTasks setObject:[NSNumber numberWithInteger:total] forKey:@"TotalTasks"];
+}
+
+- (NSInteger) todayTasksActive
+{
+    // fetch metadata
+    NSMutableDictionary *metadata = [self fetchPList];
+    //NSLog(@"metadata is %@", metadata);
+    
+    // fetch Today Tasks info
+    NSMutableDictionary *todayTasks = [metadata objectForKey:@"TodayTasks"];
+    
+    // get active tasks for today
+    NSInteger active = [[todayTasks objectForKey:@"ActiveTasks"] integerValue];
+    
+    return active;
 }
 
 - (void) increaseTodayTasksActive:(BOOL) direction
 {
+    // fetch metadata
+    NSMutableDictionary *metadata = [self fetchPList];
+    //NSLog(@"metadata is %@", metadata);
     
+    // fetch Today Tasks info
+    NSMutableDictionary *todayTasks = [metadata objectForKey:@"TodayTasks"];
+    
+    // get active tasks for today
+    NSInteger active = [[todayTasks objectForKey:@"ActiveTasks"] integerValue];
+    
+    // change active tasks total based on direction bool
+    if (direction == YES) {
+        active++;
+    }
+    else
+    {
+        active--;
+    }
+    
+    // set new value
+    [todayTasks setObject:[NSNumber numberWithInteger:active] forKey:@"ActiveTasks"];
 }
 
 - (void) increaseTodayTasksTimeLeft:(BOOL) direction withTime:(double)time
 {
+    // fetch metadata
+    NSMutableDictionary *metadata = [self fetchPList];
+    //NSLog(@"metadata is %@", metadata);
+    
+    // fetch Today Tasks info
+    NSMutableDictionary *todayTasks = [metadata objectForKey:@"TodayTasks"];
+    
+    // get old today tasks timeLeft
+    double totalTimeLeft = [[todayTasks objectForKey:@"TimeLeft"] doubleValue];
+    
+    // change total based on direction
+    if (direction == YES) {
+        totalTimeLeft += time;
+    }
+    else
+    {
+        totalTimeLeft -= time;
+    }
+    
+    // set new value
+    [todayTasks setObject:[NSNumber numberWithDouble:totalTimeLeft] forKey:@"TimeLeft"];
     
 }
 
 - (void) increaseTodayTasksTimeElapsed:(BOOL) direction withTime:(double)time
 {
+    // fetch metadata
+    NSMutableDictionary *metadata = [self fetchPList];
+    //NSLog(@"metadata is %@", metadata);
     
+    // fetch Today Tasks info
+    NSMutableDictionary *todayTasks = [metadata objectForKey:@"TodayTasks"];
+    
+    // get old today tasks timeLeft
+    double totalTimeElapsed = [[todayTasks objectForKey:@"TimeElapsed"] doubleValue];
+    
+    // change total based on direction
+    if (direction == YES) {
+        totalTimeElapsed += time;
+    }
+    else
+    {
+        totalTimeElapsed -= time;
+    }
+    
+    // set new value
+    [todayTasks setObject:[NSNumber numberWithDouble:totalTimeElapsed] forKey:@"TimeElapsed"];
 }
+
 
 #pragma mark Change History
 
 - (NSInteger) historyTotalTasks
 {
+    // fetch metadata
+    NSMutableDictionary *metadata = [self fetchPList];
+    //NSLog(@"metadata is %@", metadata);
     
+    // fetch history info
+    NSMutableDictionary *history = [metadata objectForKey:@"History"];
+    // get total tasks finished
+    NSInteger totalTasks = [[history objectForKey:@"TotalTasks"] integerValue];
+    // return value
+    return totalTasks;
 }
 
 - (void) increaseHistoryTotalTasks
 {
+    // fetch metadata
+    NSMutableDictionary *metadata = [self fetchPList];
+    //NSLog(@"metadata is %@", metadata);
+    
+    // fetch history info
+    NSMutableDictionary *history = [metadata objectForKey:@"History"];
+    // get total tasks finished
+    NSInteger totalTasks = [[history objectForKey:@"TotalTasks"] integerValue];
+    
+    // increment total tasks finished
+    totalTasks++;
+    // store new value
+    [history setObject:[NSNumber numberWithInteger:totalTasks] forKey:@"TotalTasks"];
     
 }
 
 - (void) increaseHistoryTimeElapsedWithTime:(double)time
 {
+    // fetch metadata
+    NSMutableDictionary *metadata = [self fetchPList];
+    //NSLog(@"metadata is %@", metadata);
     
+    // fetch history info
+    NSMutableDictionary *history = [metadata objectForKey:@"History"];
+    // get history timeElapsed
+    double totalTimeElapsed = [[history objectForKey:@"TimeElapsed"] doubleValue];
+    
+    // increase totalTimeElapsed
+    totalTimeElapsed += time;
+    
+    // store new value
+    [history setObject:[NSNumber numberWithDouble:totalTimeElapsed] forKey:@"TimeElapsed"];
 }
- */
 
 #pragma mark - Task Status Change Methods
 

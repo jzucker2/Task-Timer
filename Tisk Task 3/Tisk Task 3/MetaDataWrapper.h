@@ -52,14 +52,15 @@
 
 - (NSInteger) allTasksTotal;
 - (void) increaseAllTasksTotal:(BOOL) direction;
-/*
 - (void) increaseAllTasksTimeLeft:(BOOL) direction withTime:(double)time;
 - (void) increaseAllTasksTimeElapsed:(BOOL) direction withTime:(double)time;
+
 
 #pragma mark - Change Today Tasks
 
 - (NSInteger) todayTasksTotal;
 - (void) increaseTodayTasksTotal:(BOOL) direction;
+- (NSInteger) todayTasksActive;
 - (void) increaseTodayTasksActive:(BOOL) direction;
 - (void) increaseTodayTasksTimeLeft:(BOOL) direction withTime:(double)time;
 - (void) increaseTodayTasksTimeElapsed:(BOOL) direction withTime:(double)time;
@@ -69,6 +70,6 @@
 - (NSInteger) historyTotalTasks;
 - (void) increaseHistoryTotalTasks;
 - (void) increaseHistoryTimeElapsedWithTime:(double)time;
-*/
+
 
 @end
