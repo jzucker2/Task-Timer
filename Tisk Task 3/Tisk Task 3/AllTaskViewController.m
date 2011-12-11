@@ -171,6 +171,40 @@
     [todaySwitch release];
 }
 
+// Override to support editing the table view.
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+		
+		// Delete the managed object.
+		NSManagedObjectContext *context = [fetchedResultsController managedObjectContext];
+        
+        TaskInfo *taskInfo = (TaskInfo *)[fetchedResultsController objectAtIndexPath:indexPath];
+        MetaDataWrapper *metadata = [[MetaDataWrapper alloc] init];
+        [metadata deleteTask:taskInfo];
+        [metadata release];
+        [self updateMetadataLabel];
+        
+		[context deleteObject:[fetchedResultsController objectAtIndexPath:indexPath]];
+		
+		NSError *error;
+		if (![context save:&error]) {
+			// Update to handle the error appropriately.
+			NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+			exit(-1);  // Fail
+		}
+    }
+    /*
+     if (editingStyle == UITableViewCellEditingStyleDelete) {
+     // Delete the row from the data source
+     [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+     }   
+     else if (editingStyle == UITableViewCellEditingStyleInsert) {
+     // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+     }
+     */
+}
+
 #pragma mark - Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
