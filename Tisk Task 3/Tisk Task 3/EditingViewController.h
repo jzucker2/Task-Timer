@@ -19,6 +19,7 @@
     BOOL editingSpecifics;
     UIDatePicker *datePicker;
     UITextView *textView;
+    BOOL editingExistingObject;
 }
 
 @property (nonatomic, retain) IBOutlet UITextView *textView;
@@ -27,6 +28,7 @@
 @property (nonatomic, retain) NSString *editedFieldKey;
 @property (nonatomic, retain) NSString *editedFieldName;
 
+@property (nonatomic, assign, getter = isEditingExistingObject) BOOL editingExistingObject;
 @property (nonatomic, assign, getter = isEditingSpecifics) BOOL editingSpecifics;
 @property (nonatomic, assign, getter = isEditingDuration) BOOL editingDuration;
 @property (nonatomic, retain) IBOutlet UIDatePicker *datePicker;

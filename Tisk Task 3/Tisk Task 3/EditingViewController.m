@@ -14,12 +14,14 @@
 @implementation EditingViewController
 
 @synthesize textField, editedObject, editedFieldKey, editedFieldName, editingDuration, datePicker, editingSpecifics, textView;
+@synthesize editingExistingObject;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        editingExistingObject = NO;
     }
     return self;
 }
@@ -128,7 +130,7 @@
     {
         NSNumber *newDuration = [NSNumber numberWithDouble:datePicker.countDownDuration];
         TaskInfo *taskInfo = (TaskInfo *) editedObject;
-        //double oldDuration = [taskInfo.duration doubleValue];
+        double oldDuration = [taskInfo.duration doubleValue];
         double elapsed = [taskInfo.elapsedTime doubleValue];
         
         // don't let save occur if date picker value < elapsed
@@ -141,6 +143,12 @@
         
         [editedObject setValue:newDuration forKey:editedFieldKey];
         
+        
+        if (editingExistingObject) {
+            MetaDataWrapper *metadata = [[MetaDataWrapper alloc] init];
+            [metadata editTask:taskInfo withOldDuration:oldDuration];
+            [metadata release];
+        }
         /*
         // need to update metadata here!!!!        
         MetaDataWrapper *metadata = [[MetaDataWrapper alloc] init];
