@@ -10,5 +10,18 @@
 #import "MetaDataWrapper.h"
 
 @interface StatisticsTableViewController : UITableViewController
+{
+    NSArray *notificationsArray;
+    NSArray *allTasksArray;
+    NSArray *todayTasksArray;
+    NSArray *historyArray;
+    NSDictionary *metadata;
+}
+
+@property (nonatomic, retain) NSArray *notificationsArray;
+@property (nonatomic, retain) NSArray *allTasksArray;
+@property (nonatomic, retain) NSArray *todayTasksArray;
+@property (nonatomic, retain) NSArray *historyArray;
+@property (nonatomic, retain) NSDictionary *metadata;
 
 @end

@@ -11,6 +11,8 @@
 
 @implementation MetaDataWrapper
 
+@synthesize plistDict;
+
 #pragma mark -
 #pragma mark Lifecycle Methods
 
@@ -19,6 +21,7 @@
     self = [super init];
     if (self) {
         // Custom initialization
+        plistDict = [[self fetchPList] retain];
     }
     
     return self;
@@ -26,6 +29,7 @@
 
 - (void) dealloc
 {
+    [plistDict release];
     [super dealloc];
 }
 
@@ -75,6 +79,7 @@
         return nil;
     }
     
+    NSLog(@"plist is %@", temp);
     return temp;
 }
 
@@ -106,24 +111,28 @@
 
 - (NSInteger) totalNotifications
 {
+    /*
     // fetch metadata
     NSMutableDictionary *metadata = [self fetchPList];
     //NSLog(@"metadata is %@", metadata);
+     */
     
     // update notifications
-    NSMutableDictionary *notificationDict = [metadata objectForKey:@"Notifications"];
+    NSMutableDictionary *notificationDict = [plistDict objectForKey:@"Notifications"];
     NSInteger totalNotifications = [[notificationDict objectForKey:@"Total"] integerValue];
     return totalNotifications;
 }
 
 - (void) setTotalNotifications
 {
+    /*
     // fetch metadata
     NSMutableDictionary *metadata = [self fetchPList];
     //NSLog(@"metadata is %@", metadata);
+     */
     
     // fetch notifications info
-    NSMutableDictionary *notificationDict = [metadata objectForKey:@"Notifications"];
+    NSMutableDictionary *notificationDict = [plistDict objectForKey:@"Notifications"];
     
     // count up alarms
     NSInteger totalAlarms = [[notificationDict objectForKey:@"ActiveAlarms"] integerValue];
@@ -139,12 +148,14 @@
 
 - (void) increaseAlarms:(BOOL)direction
 {
+    /*
     // fetch metadata
     NSMutableDictionary *metadata = [self fetchPList];
     //NSLog(@"metadata is %@", metadata);
+     */
     
     // fetch notifications info
-    NSMutableDictionary *notificationDict = [metadata objectForKey:@"Notifications"];
+    NSMutableDictionary *notificationDict = [plistDict objectForKey:@"Notifications"];
     
     // find old alarm total
     NSInteger totalAlarms = [[notificationDict objectForKey:@"ActiveAlarms"] integerValue];
@@ -165,12 +176,14 @@
 
 - (void) increaseReminders:(BOOL)direction
 {
+    /*
     // fetch metadata
     NSMutableDictionary *metadata = [self fetchPList];
     //NSLog(@"metadata is %@", metadata);
+     */
     
     // fetch notifications info
-    NSMutableDictionary *notificationDict = [metadata objectForKey:@"Notifications"];
+    NSMutableDictionary *notificationDict = [plistDict objectForKey:@"Notifications"];
     
     // find old alarm total
     NSInteger totalReminders = [[notificationDict objectForKey:@"ActiveReminders"] integerValue];
@@ -192,12 +205,14 @@
 
 - (NSInteger) allTasksTotal
 {
+    /*
     // fetch metadata
     NSMutableDictionary *metadata = [self fetchPList];
     //NSLog(@"metadata is %@", metadata);
+     */
     
     // fetch All Tasks Info
-    NSMutableDictionary *allTasks = [metadata objectForKey:@"AllTasks"];
+    NSMutableDictionary *allTasks = [plistDict objectForKey:@"AllTasks"];
     
     NSInteger total = [[allTasks objectForKey:@"TotalTasks"] integerValue];
     
@@ -206,12 +221,14 @@
 
 - (void) increaseAllTasksTotal:(BOOL) direction
 {
+    /*
     // fetch metadata
     NSMutableDictionary *metadata = [self fetchPList];
     //NSLog(@"metadata is %@", metadata);
+     */
     
     // fetch All Tasks Info
-    NSMutableDictionary *allTasks = [metadata objectForKey:@"AllTasks"];
+    NSMutableDictionary *allTasks = [plistDict objectForKey:@"AllTasks"];
     
     NSInteger total = [[allTasks objectForKey:@"TotalTasks"] integerValue];
     
@@ -230,12 +247,14 @@
 
 - (void) increaseAllTasksTimeLeft:(BOOL) direction withTime:(double)time
 {
+    /*
     // fetch metadata
     NSMutableDictionary *metadata = [self fetchPList];
     //NSLog(@"metadata is %@", metadata);
+     */
     
     // fetch All Tasks Info
-    NSMutableDictionary *allTasks = [metadata objectForKey:@"AllTasks"];
+    NSMutableDictionary *allTasks = [plistDict objectForKey:@"AllTasks"];
     
     // get old TimeLeft value
     NSInteger totalTimeLeft = [[allTasks objectForKey:@"TimeLeft"] doubleValue];
@@ -255,12 +274,14 @@
 
 - (void) increaseAllTasksTimeElapsed:(BOOL) direction withTime:(double)time
 {
+    /*
     // fetch metadata
     NSMutableDictionary *metadata = [self fetchPList];
     //NSLog(@"metadata is %@", metadata);
+     */
     
     // fetch All Tasks Info
-    NSMutableDictionary *allTasks = [metadata objectForKey:@"AllTasks"];
+    NSMutableDictionary *allTasks = [plistDict objectForKey:@"AllTasks"];
     
     // get old timeElapsed value
     NSInteger totalTimeElapsed = [[allTasks objectForKey:@"TimeElapsed"] doubleValue];
@@ -284,12 +305,14 @@
 
 - (NSInteger) todayTasksTotal
 {
+    /*
     // fetch metadata
     NSMutableDictionary *metadata = [self fetchPList];
     //NSLog(@"metadata is %@", metadata);
+     */
     
     // fetch Today Tasks info
-    NSMutableDictionary *todayTasks = [metadata objectForKey:@"TodayTasks"];
+    NSMutableDictionary *todayTasks = [plistDict objectForKey:@"TodayTasks"];
     
     // get total tasks for today
     NSInteger total = [[todayTasks objectForKey:@"TotalTasks"] integerValue];
@@ -299,12 +322,14 @@
 
 - (void) increaseTodayTasksTotal:(BOOL) direction
 {
+    /*
     // fetch metadata
     NSMutableDictionary *metadata = [self fetchPList];
     //NSLog(@"metadata is %@", metadata);
+     */
     
     // fetch Today Tasks info
-    NSMutableDictionary *todayTasks = [metadata objectForKey:@"TodayTasks"];
+    NSMutableDictionary *todayTasks = [plistDict objectForKey:@"TodayTasks"];
     
     // get total tasks for today
     NSInteger total = [[todayTasks objectForKey:@"TotalTasks"] integerValue];
@@ -324,12 +349,14 @@
 
 - (NSInteger) todayTasksActive
 {
+    /*
     // fetch metadata
     NSMutableDictionary *metadata = [self fetchPList];
     //NSLog(@"metadata is %@", metadata);
+     */
     
     // fetch Today Tasks info
-    NSMutableDictionary *todayTasks = [metadata objectForKey:@"TodayTasks"];
+    NSMutableDictionary *todayTasks = [plistDict objectForKey:@"TodayTasks"];
     
     // get active tasks for today
     NSInteger active = [[todayTasks objectForKey:@"ActiveTasks"] integerValue];
@@ -339,12 +366,14 @@
 
 - (void) increaseTodayTasksActive:(BOOL) direction
 {
+    /*
     // fetch metadata
     NSMutableDictionary *metadata = [self fetchPList];
     //NSLog(@"metadata is %@", metadata);
+     */
     
     // fetch Today Tasks info
-    NSMutableDictionary *todayTasks = [metadata objectForKey:@"TodayTasks"];
+    NSMutableDictionary *todayTasks = [plistDict objectForKey:@"TodayTasks"];
     
     // get active tasks for today
     NSInteger active = [[todayTasks objectForKey:@"ActiveTasks"] integerValue];
@@ -364,12 +393,14 @@
 
 - (void) increaseTodayTasksTimeLeft:(BOOL) direction withTime:(double)time
 {
+    /*
     // fetch metadata
     NSMutableDictionary *metadata = [self fetchPList];
     //NSLog(@"metadata is %@", metadata);
+     */
     
     // fetch Today Tasks info
-    NSMutableDictionary *todayTasks = [metadata objectForKey:@"TodayTasks"];
+    NSMutableDictionary *todayTasks = [plistDict objectForKey:@"TodayTasks"];
     
     // get old today tasks timeLeft
     double totalTimeLeft = [[todayTasks objectForKey:@"TimeLeft"] doubleValue];
@@ -390,12 +421,14 @@
 
 - (void) increaseTodayTasksTimeElapsed:(BOOL) direction withTime:(double)time
 {
+    /*
     // fetch metadata
     NSMutableDictionary *metadata = [self fetchPList];
     //NSLog(@"metadata is %@", metadata);
+     */
     
     // fetch Today Tasks info
-    NSMutableDictionary *todayTasks = [metadata objectForKey:@"TodayTasks"];
+    NSMutableDictionary *todayTasks = [plistDict objectForKey:@"TodayTasks"];
     
     // get old today tasks timeLeft
     double totalTimeElapsed = [[todayTasks objectForKey:@"TimeElapsed"] doubleValue];
@@ -418,12 +451,14 @@
 
 - (NSInteger) historyTotalTasks
 {
+    /*
     // fetch metadata
     NSMutableDictionary *metadata = [self fetchPList];
     //NSLog(@"metadata is %@", metadata);
+     */
     
     // fetch history info
-    NSMutableDictionary *history = [metadata objectForKey:@"History"];
+    NSMutableDictionary *history = [plistDict objectForKey:@"History"];
     // get total tasks finished
     NSInteger totalTasks = [[history objectForKey:@"TotalTasks"] integerValue];
     // return value
@@ -432,12 +467,14 @@
 
 - (void) increaseHistoryTotalTasks
 {
+    /*
     // fetch metadata
     NSMutableDictionary *metadata = [self fetchPList];
     //NSLog(@"metadata is %@", metadata);
+     */
     
     // fetch history info
-    NSMutableDictionary *history = [metadata objectForKey:@"History"];
+    NSMutableDictionary *history = [plistDict objectForKey:@"History"];
     // get total tasks finished
     NSInteger totalTasks = [[history objectForKey:@"TotalTasks"] integerValue];
     
@@ -450,12 +487,14 @@
 
 - (void) increaseHistoryTimeElapsedWithTime:(double)time
 {
+    /*
     // fetch metadata
     NSMutableDictionary *metadata = [self fetchPList];
     //NSLog(@"metadata is %@", metadata);
+     */
     
     // fetch history info
-    NSMutableDictionary *history = [metadata objectForKey:@"History"];
+    NSMutableDictionary *history = [plistDict objectForKey:@"History"];
     // get history timeElapsed
     double totalTimeElapsed = [[history objectForKey:@"TimeElapsed"] doubleValue];
     
@@ -473,7 +512,7 @@
     NSLog(@"addNewTask");
     //NSLog(@"taskInfo is %@", taskInfo);
     // fetch metadata
-    NSMutableDictionary *metadata = [self fetchPList];
+    //NSMutableDictionary *metadata = [self fetchPList];
     //NSLog(@"metadata is %@", metadata);
     
     // update all Tasks metadata
@@ -498,13 +537,13 @@
      */
     
     
-    [self writeToPlist:metadata];
+    [self writeToPlist:plistDict];
 }
 
 - (void) startTask:(TaskInfo *)taskInfo
 {
     // fetch metadata
-    NSMutableDictionary *metadata = [self fetchPList];
+    //NSMutableDictionary *metadata = [self fetchPList];
     //NSLog(@"metadata is %@", metadata);
     
     // first update notifications
@@ -531,7 +570,7 @@
      */
     
     
-    [self writeToPlist:metadata];
+    [self writeToPlist:plistDict];
 }
 
 - (void) editTask:(TaskInfo *)taskInfo withOldDuration:(double)old_duration
@@ -539,7 +578,7 @@
     // needs more work!!!!!
     NSLog(@"metadata wrapper: editTask with %@", taskInfo);
     // fetch metadata
-    NSMutableDictionary *metadata = [self fetchPList];
+    //NSMutableDictionary *metadata = [self fetchPList];
     //NSLog(@"metadata is %@", metadata);
     
     // important values
@@ -594,7 +633,7 @@
      */
     
     // store new meta data
-    [self writeToPlist:metadata];
+    [self writeToPlist:plistDict];
     
 }
 
@@ -602,7 +641,7 @@
 {
     
     // fetch metadata
-    NSMutableDictionary *metadata = [self fetchPList];
+    //NSMutableDictionary *metadata = [self fetchPList];
     //NSLog(@"metadata is %@", metadata);
     
     // important values
@@ -693,13 +732,13 @@
     }
      */
     
-    [self writeToPlist:metadata];
+    [self writeToPlist:plistDict];
 }
 
 - (void) stopTask:(TaskInfo *) taskInfo
 {
     // fetch metadata
-    NSMutableDictionary *metadata = [self fetchPList];
+    //NSMutableDictionary *metadata = [self fetchPList];
     //NSLog(@"metadata is %@", metadata);
     
     // important info for updating
@@ -763,14 +802,14 @@
     [todayTasks setObject:[NSNumber numberWithDouble:todayTimeElapsed] forKey:@"TimeElapsed"];
      */
     
-    [self writeToPlist:metadata];
+    [self writeToPlist:plistDict];
 }
 
 - (void) closeTask:(TaskInfo *) taskInfo
 {
     // should handle end tasked regardless of early or not
     // fetch metadata
-    NSMutableDictionary *metadata = [self fetchPList];
+    //NSMutableDictionary *metadata = [self fetchPList];
     //NSLog(@"metadata is %@", metadata);
     
     // important info for updating
@@ -855,7 +894,7 @@
     [history setObject:[NSNumber numberWithDouble:historyElapsed] forKey:@"TimeElapsed"];
      */
     
-    [self writeToPlist:metadata];
+    [self writeToPlist:plistDict];
     
     
 }
@@ -930,7 +969,7 @@
 {
     //NSLog(@"changeToday in metadataWrapper");
     // fetch metadata
-    NSMutableDictionary *metadata = [self fetchPList];
+    //NSMutableDictionary *metadata = [self fetchPList];
     //NSLog(@"metadata is initially %@", metadata);
     
     // important values for updating metadata
@@ -1022,7 +1061,7 @@
     
     //NSLog(@"metadata is now %@", metadata);
     
-    [self writeToPlist:metadata];
+    [self writeToPlist:plistDict];
 }
 
 @end

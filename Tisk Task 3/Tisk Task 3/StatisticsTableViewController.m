@@ -15,6 +15,10 @@
     self = [super initWithStyle:style];
     if (self) {
         // Custom initialization
+        // import metadata
+        MetaDataWrapper *metadataWrapper = [[MetaDataWrapper alloc] init];
+        metadata = [[metadataWrapper fetchPList] retain];
+        [metadataWrapper release];
     }
     return self;
 }
@@ -38,6 +42,19 @@
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
+    // get notification values
+    NSDictionary *notificationDict = [metadata objectForKey:@"Notifications"];
+    
+    
+    NSDictionary *allTasksDict = [metadata objectForKey:@"AllTasks"];
+    NSDictionary *todayTasksDict = [metadata objectForKey:@"TodayTasks"];
+    NSDictionary *historyDict = [metadata objectForKey:@"History"];
+    
+    notificationsArray = [[NSArray alloc] initWithObjects:[notificationDict objectForKey:@"Total"], [notificationDict objectForKey:@"ActiveAlarms"], [notificationDict objectForKey:@"ActiveReminders"], nil];
+    allTasksArray = [[NSArray alloc] initWithObjects:[allTasksDict objectForKey:@"TotalTasks"], [allTasksDict objectForKey:@"TimeLeft"], [allTasksDict objectForKey:@"TimeElapsed"], nil];
+    todayTasksArray = [[NSArray alloc] initWithObjects:[todayTasksDict objectForKey:@"TotalTasks"], [todayTasksDict objectForKey:@"ActiveTasks"], [todayTasksDict objectForKey:@"TimeLeft"], [todayTasksDict objectForKey:@"TimeElapsed"], nil];
+    historyArray = [[NSArray alloc] initWithObjects:[historyDict objectForKey:@"TotalTasks"], [historyDict objectForKey:@"TimeElapsed"], nil];
 }
 
 - (void)viewDidUnload
@@ -50,6 +67,7 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    [self.tableView reloadData];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -77,16 +95,59 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-#warning Potentially incomplete method implementation.
+//#warning Potentially incomplete method implementation.
     // Return the number of sections.
-    return 0;
+    
+    return 4;
+}
+
+- (NSString *) tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    NSString *title;
+    switch (section) {
+        case 0:
+            title = @"Notifications";
+            break;
+        case 1:
+            title = @"All Tasks";
+            break;
+        case 2:
+            title = @"Today's Tasks";
+            break;
+        case 3:
+            title = @"History";
+            break;
+            
+        default:
+            break;
+    }
+    return title;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
+//#warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return 0;
+    NSInteger rows = 0;
+    switch (section) {
+        case 0:
+            rows = [notificationsArray count];
+            break;
+        case 1:
+            rows = [allTasksArray count];
+            break;
+        case 2:
+            rows = [todayTasksArray count];
+            break;
+        case 3:
+            rows = [historyArray count];
+            break;
+            
+        default:
+            break;
+    }
+    
+    return rows;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -154,6 +215,19 @@
      [self.navigationController pushViewController:detailViewController animated:YES];
      [detailViewController release];
      */
+}
+
+#pragma mark -
+#pragma mark Memory Management
+
+- (void) dealloc
+{
+    [notificationsArray release];
+    [allTasksArray release];
+    [todayTasksArray release];
+    [historyArray release];
+    [metadata release];
+    [super dealloc];
 }
 
 @end

@@ -10,6 +10,10 @@
 #import "TaskInfo.h"
 
 @interface MetaDataWrapper : NSObject
+{
+    NSMutableDictionary *plistDict;
+}
+@property (nonatomic, retain) NSMutableDictionary *plistDict;
 
 - (NSMutableDictionary *) fetchPList;
 
