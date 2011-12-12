@@ -44,10 +44,12 @@
     // Do any additional setup after loading the view from its nib.
     
     // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
+    //self.clearsSelectionOnViewWillAppear = YES;
+    //[self.allTaskTableView deselectRowAtIndexPath:[self.allTaskTableView indexPathForSelectedRow] animated:YES];
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     self.navigationItem.leftBarButtonItem = self.editButtonItem;
+    
     
 	// Configure the add button.
     UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addTask)];
@@ -71,6 +73,7 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    [self.allTaskTableView deselectRowAtIndexPath:[self.allTaskTableView indexPathForSelectedRow] animated:YES];
     
     [self updateMetadataLabel];
 }

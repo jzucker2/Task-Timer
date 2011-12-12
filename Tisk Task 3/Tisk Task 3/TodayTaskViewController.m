@@ -62,6 +62,8 @@
     [super viewWillAppear:animated];
     [self.todayTableView reloadData];
     
+    [self.todayTableView deselectRowAtIndexPath:[self.todayTableView indexPathForSelectedRow] animated:YES];
+    
     [self updateMetadataLabel];
     
     /*

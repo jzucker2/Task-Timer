@@ -58,7 +58,12 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    
+    
     [self.historyTableView reloadData];
+    
+    [self.historyTableView deselectRowAtIndexPath:[self.historyTableView indexPathForSelectedRow] animated:YES];
+    
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
