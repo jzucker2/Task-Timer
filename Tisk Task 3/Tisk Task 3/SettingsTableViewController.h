@@ -31,4 +31,6 @@
 
 - (void) showEmailModalView;
 
+- (void) showWebsiteView;
+
 @end

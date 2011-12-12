@@ -179,9 +179,13 @@
     switch ([indexPath section]) {
         case 0:
             cell.textLabel.text = [versionArray objectAtIndex:indexPath.row];
+            [cell setAccessoryType:UITableViewCellAccessoryNone];
             break;
         case 1:
             cell.textLabel.text = [findMoreArray objectAtIndex:indexPath.row];
+            if (indexPath.row == 2 || indexPath.row == 3) {
+                [cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
+            }
             break;
         case 2:
             cell.textLabel.text = @"Statistics";
@@ -252,6 +256,7 @@
                     break;
                 case 3:
                     NSLog(@"visit website");
+                    [self showWebsiteView];
                     break;
                 default:
                     [tableView deselectRowAtIndexPath:indexPath animated:NO];
@@ -331,6 +336,18 @@
             break;
     }
     [self dismissModalViewControllerAnimated:YES];
+}
+
+#pragma mark -
+#pragma mark Show Web View
+
+- (void) showWebsiteView
+{
+    NSURL *url = [NSURL URLWithString:@"http://www.stackoverflow.com"];
+    
+    if (![[UIApplication sharedApplication] openURL:url])
+        
+        NSLog(@"%@%@",@"Failed to open url:",[url description]);
 }
 
 #pragma mark -
