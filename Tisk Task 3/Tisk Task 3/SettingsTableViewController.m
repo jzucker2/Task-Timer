@@ -248,6 +248,7 @@
             switch (indexPath.row) {
                 case 2:
                     NSLog(@"send email");
+                    [self showEmailModalView];
                     break;
                 case 3:
                     NSLog(@"visit website");
@@ -284,6 +285,52 @@
      [self.navigationController pushViewController:detailViewController animated:YES];
      [detailViewController release];
      */
+}
+
+#pragma mark -
+#pragma mark Show Email Modal view
+
+- (void) showEmailModalView
+{
+    MFMailComposeViewController *mailView = [[MFMailComposeViewController alloc] init];
+    mailView.mailComposeDelegate = self;
+    
+    [mailView setSubject:@"From Tisk Task"];
+    
+    NSString *recipient = @"jordan.zucker@gmail.com";
+    NSArray *recipientArray = [[NSArray alloc] initWithObjects:recipient, nil];
+    
+    [mailView setToRecipients:recipientArray];
+    [recipientArray release];
+    
+    [mailView setMessageBody:@"" isHTML:NO];
+    
+    [self presentModalViewController:mailView animated:YES];
+    [mailView release];
+    
+}
+
+- (void) mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error
+{
+    switch (result) {
+        case MFMailComposeResultSent:
+            break;
+        case MFMailComposeResultSaved:
+            break;
+        case MFMailComposeResultCancelled:
+            break;
+        case MFMailComposeResultFailed:
+            break;
+        default:
+            {
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Email" message:@"Sending failed - Unknown error :(" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                [alert show];
+                [alert release];
+            
+            }
+            break;
+    }
+    [self dismissModalViewControllerAnimated:YES];
 }
 
 #pragma mark -

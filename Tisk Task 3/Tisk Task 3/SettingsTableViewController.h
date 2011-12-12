@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "StatisticsTableViewController.h"
+#import "MessageUI/MessageUI.h"
 
-@interface SettingsTableViewController : UITableViewController
+@interface SettingsTableViewController : UITableViewController <MFMailComposeViewControllerDelegate>
 {
     /*
     NSMutableArray *settingsArray;
@@ -27,5 +28,7 @@
 @property (nonatomic, retain) NSMutableDictionary *tableContents;
 @property (nonatomic, retain) NSMutableArray *settingsArray;
  */
+
+- (void) showEmailModalView;
 
 @end

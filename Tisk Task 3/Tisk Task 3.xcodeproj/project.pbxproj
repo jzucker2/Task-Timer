@@ -22,6 +22,7 @@
 		33964A12148F000100F37839 /* TaskTimerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33964A10148F000100F37839 /* TaskTimerViewController.m */; };
 		33964A13148F000100F37839 /* TaskTimerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 33964A11148F000100F37839 /* TaskTimerView.xib */; };
 		33964A20148F0DBE00F37839 /* NSManagedObjectContext+FetchedObjectFromURI.m in Sources */ = {isa = PBXBuildFile; fileRef = 33964A1F148F0DBD00F37839 /* NSManagedObjectContext+FetchedObjectFromURI.m */; };
+		33CDEC111495B7B7006DCCE2 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33CDEC101495B7B7006DCCE2 /* MessageUI.framework */; };
 		33DBCA3F14959FAC009947B1 /* HelpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33DBCA3D14959FAC009947B1 /* HelpViewController.m */; };
 		33DBCA4014959FAC009947B1 /* HelpView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 33DBCA3E14959FAC009947B1 /* HelpView.xib */; };
 		33E2E485148EE31E005910F5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33E2E484148EE31E005910F5 /* UIKit.framework */; };
@@ -71,6 +72,7 @@
 		33964A11148F000100F37839 /* TaskTimerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TaskTimerView.xib; sourceTree = "<group>"; };
 		33964A1E148F0DBD00F37839 /* NSManagedObjectContext+FetchedObjectFromURI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObjectContext+FetchedObjectFromURI.h"; sourceTree = "<group>"; };
 		33964A1F148F0DBD00F37839 /* NSManagedObjectContext+FetchedObjectFromURI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObjectContext+FetchedObjectFromURI.m"; sourceTree = "<group>"; };
+		33CDEC101495B7B7006DCCE2 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		33DBCA3C14959FAC009947B1 /* HelpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelpViewController.h; sourceTree = "<group>"; };
 		33DBCA3D14959FAC009947B1 /* HelpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HelpViewController.m; sourceTree = "<group>"; };
 		33DBCA3E14959FAC009947B1 /* HelpView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HelpView.xib; sourceTree = "<group>"; };
@@ -108,6 +110,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				33CDEC111495B7B7006DCCE2 /* MessageUI.framework in Frameworks */,
 				33E2E4DB148EE5C9005910F5 /* CoreData.framework in Frameworks */,
 				33E2E485148EE31E005910F5 /* UIKit.framework in Frameworks */,
 				33E2E487148EE31E005910F5 /* Foundation.framework in Frameworks */,
@@ -225,6 +228,7 @@
 		33E2E475148EE31E005910F5 = {
 			isa = PBXGroup;
 			children = (
+				33CDEC101495B7B7006DCCE2 /* MessageUI.framework */,
 				33E2E48A148EE31E005910F5 /* Tisk Task 3 */,
 				33E2E483148EE31E005910F5 /* Frameworks */,
 				33E2E481148EE31E005910F5 /* Products */,
