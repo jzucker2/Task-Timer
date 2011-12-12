@@ -80,6 +80,19 @@
     //self.tabBarController.viewControllers = [NSArray arrayWithObjects:viewController1, viewController2, nil];
     self.tabBarController.viewControllers = [NSArray arrayWithObjects:nav1, nav2, nav3, nav4, nil];
     
+    NSArray *tabBarItems = self.tabBarController.tabBar.items;
+    UIImage *tab1 = [UIImage imageNamed:@"40-inbox.png"];
+    UIImage *tab2 = [UIImage imageNamed:@"78-stopwatch.png"];
+    UIImage *tab3 = [UIImage imageNamed:@"117-todo.png"];
+    UIImage *tab4 = [UIImage imageNamed:@"20-gear2.png"];
+    NSArray *tabBarImages = [[NSArray alloc] initWithObjects:tab1, tab2, tab3, tab4, nil];
+    NSInteger tabBarItemCounter;
+    for (tabBarItemCounter = 0; tabBarItemCounter < [tabBarItems count]; tabBarItemCounter++) 
+    {
+        UITabBarItem *tabBarItem = [tabBarItems objectAtIndex:tabBarItemCounter];
+        tabBarItem.image = [tabBarImages objectAtIndex:tabBarItemCounter];
+    }
+    
     [nav1 release];
     [nav2 release];
     [nav3 release];

@@ -23,6 +23,13 @@
 		33964A13148F000100F37839 /* TaskTimerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 33964A11148F000100F37839 /* TaskTimerView.xib */; };
 		33964A20148F0DBE00F37839 /* NSManagedObjectContext+FetchedObjectFromURI.m in Sources */ = {isa = PBXBuildFile; fileRef = 33964A1F148F0DBD00F37839 /* NSManagedObjectContext+FetchedObjectFromURI.m */; };
 		33CDEC111495B7B7006DCCE2 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33CDEC101495B7B7006DCCE2 /* MessageUI.framework */; };
+		33CDEC1C1495C910006DCCE2 /* 11-clock.png in Resources */ = {isa = PBXBuildFile; fileRef = 33CDEC1B1495C910006DCCE2 /* 11-clock.png */; };
+		33CDEC1E1495C91F006DCCE2 /* 20-gear2.png in Resources */ = {isa = PBXBuildFile; fileRef = 33CDEC1D1495C91F006DCCE2 /* 20-gear2.png */; };
+		33CDEC201495C960006DCCE2 /* 117-todo.png in Resources */ = {isa = PBXBuildFile; fileRef = 33CDEC1F1495C960006DCCE2 /* 117-todo.png */; };
+		33CDEC221495C9BB006DCCE2 /* 78-stopwatch.png in Resources */ = {isa = PBXBuildFile; fileRef = 33CDEC211495C9BB006DCCE2 /* 78-stopwatch.png */; };
+		33CDEC241495C9D2006DCCE2 /* 96-book.png in Resources */ = {isa = PBXBuildFile; fileRef = 33CDEC231495C9D2006DCCE2 /* 96-book.png */; };
+		33CDEC261495C9DF006DCCE2 /* 40-inbox.png in Resources */ = {isa = PBXBuildFile; fileRef = 33CDEC251495C9DF006DCCE2 /* 40-inbox.png */; };
+		33CDEC281495C9EC006DCCE2 /* 83-calendar.png in Resources */ = {isa = PBXBuildFile; fileRef = 33CDEC271495C9EC006DCCE2 /* 83-calendar.png */; };
 		33DBCA3F14959FAC009947B1 /* HelpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33DBCA3D14959FAC009947B1 /* HelpViewController.m */; };
 		33DBCA4014959FAC009947B1 /* HelpView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 33DBCA3E14959FAC009947B1 /* HelpView.xib */; };
 		33E2E485148EE31E005910F5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33E2E484148EE31E005910F5 /* UIKit.framework */; };
@@ -44,6 +51,8 @@
 		33E2E4D7148EE57B005910F5 /* TodayTaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33E2E4D5148EE57B005910F5 /* TodayTaskViewController.m */; };
 		33E2E4D8148EE57B005910F5 /* TodayTaskView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 33E2E4D6148EE57B005910F5 /* TodayTaskView.xib */; };
 		33E2E4DB148EE5C9005910F5 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33E2E4DA148EE5C9005910F5 /* CoreData.framework */; };
+		33F2BA791495CE7800439FBD /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 33F2BA781495CE7800439FBD /* Default.png */; };
+		33F2BA7C1495CEF100439FBD /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 33F2BA7B1495CEF100439FBD /* Default@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -73,6 +82,13 @@
 		33964A1E148F0DBD00F37839 /* NSManagedObjectContext+FetchedObjectFromURI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObjectContext+FetchedObjectFromURI.h"; sourceTree = "<group>"; };
 		33964A1F148F0DBD00F37839 /* NSManagedObjectContext+FetchedObjectFromURI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObjectContext+FetchedObjectFromURI.m"; sourceTree = "<group>"; };
 		33CDEC101495B7B7006DCCE2 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		33CDEC1B1495C910006DCCE2 /* 11-clock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "11-clock.png"; sourceTree = "<group>"; };
+		33CDEC1D1495C91F006DCCE2 /* 20-gear2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "20-gear2.png"; sourceTree = "<group>"; };
+		33CDEC1F1495C960006DCCE2 /* 117-todo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "117-todo.png"; sourceTree = "<group>"; };
+		33CDEC211495C9BB006DCCE2 /* 78-stopwatch.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "78-stopwatch.png"; sourceTree = "<group>"; };
+		33CDEC231495C9D2006DCCE2 /* 96-book.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "96-book.png"; sourceTree = "<group>"; };
+		33CDEC251495C9DF006DCCE2 /* 40-inbox.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "40-inbox.png"; sourceTree = "<group>"; };
+		33CDEC271495C9EC006DCCE2 /* 83-calendar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "83-calendar.png"; sourceTree = "<group>"; };
 		33DBCA3C14959FAC009947B1 /* HelpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelpViewController.h; sourceTree = "<group>"; };
 		33DBCA3D14959FAC009947B1 /* HelpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HelpViewController.m; sourceTree = "<group>"; };
 		33DBCA3E14959FAC009947B1 /* HelpView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HelpView.xib; sourceTree = "<group>"; };
@@ -103,6 +119,8 @@
 		33E2E4D5148EE57B005910F5 /* TodayTaskViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TodayTaskViewController.m; sourceTree = "<group>"; };
 		33E2E4D6148EE57B005910F5 /* TodayTaskView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TodayTaskView.xib; sourceTree = "<group>"; };
 		33E2E4DA148EE5C9005910F5 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		33F2BA781495CE7800439FBD /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = ../Default.png; sourceTree = "<group>"; };
+		33F2BA7B1495CEF100439FBD /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "../Default@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -215,6 +233,20 @@
 			name = "ManagedObject Category";
 			sourceTree = "<group>";
 		};
+		33CDEC291495C9FE006DCCE2 /* Tab Bar Icons */ = {
+			isa = PBXGroup;
+			children = (
+				33CDEC271495C9EC006DCCE2 /* 83-calendar.png */,
+				33CDEC251495C9DF006DCCE2 /* 40-inbox.png */,
+				33CDEC231495C9D2006DCCE2 /* 96-book.png */,
+				33CDEC1F1495C960006DCCE2 /* 117-todo.png */,
+				33CDEC1D1495C91F006DCCE2 /* 20-gear2.png */,
+				33CDEC1B1495C910006DCCE2 /* 11-clock.png */,
+				33CDEC211495C9BB006DCCE2 /* 78-stopwatch.png */,
+			);
+			name = "Tab Bar Icons";
+			sourceTree = "<group>";
+		};
 		33DBCA4214959FBA009947B1 /* Help View Controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -228,7 +260,6 @@
 		33E2E475148EE31E005910F5 = {
 			isa = PBXGroup;
 			children = (
-				33CDEC101495B7B7006DCCE2 /* MessageUI.framework */,
 				33E2E48A148EE31E005910F5 /* Tisk Task 3 */,
 				33E2E483148EE31E005910F5 /* Frameworks */,
 				33E2E481148EE31E005910F5 /* Products */,
@@ -246,6 +277,7 @@
 		33E2E483148EE31E005910F5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				33CDEC101495B7B7006DCCE2 /* MessageUI.framework */,
 				33E2E4DA148EE5C9005910F5 /* CoreData.framework */,
 				33E2E484148EE31E005910F5 /* UIKit.framework */,
 				33E2E486148EE31E005910F5 /* Foundation.framework */,
@@ -292,6 +324,9 @@
 		33E2E4B3148EE366005910F5 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				33F2BA7B1495CEF100439FBD /* Default@2x.png */,
+				33F2BA781495CE7800439FBD /* Default.png */,
+				33CDEC291495C9FE006DCCE2 /* Tab Bar Icons */,
 				33E2E4B9148EE46B005910F5 /* Signal_Light_-_Green.jpg */,
 				33E2E4BC148EE47B005910F5 /* redlight.jpg */,
 				33E2E4C0148EE494005910F5 /* icon.png */,
@@ -424,6 +459,15 @@
 				333E9581149435E600736FF7 /* CompletedDetailView.xib in Resources */,
 				338F502D14949BE40060C819 /* StatisticsTableView.xib in Resources */,
 				33DBCA4014959FAC009947B1 /* HelpView.xib in Resources */,
+				33CDEC1C1495C910006DCCE2 /* 11-clock.png in Resources */,
+				33CDEC1E1495C91F006DCCE2 /* 20-gear2.png in Resources */,
+				33CDEC201495C960006DCCE2 /* 117-todo.png in Resources */,
+				33CDEC221495C9BB006DCCE2 /* 78-stopwatch.png in Resources */,
+				33CDEC241495C9D2006DCCE2 /* 96-book.png in Resources */,
+				33CDEC261495C9DF006DCCE2 /* 40-inbox.png in Resources */,
+				33CDEC281495C9EC006DCCE2 /* 83-calendar.png in Resources */,
+				33F2BA791495CE7800439FBD /* Default.png in Resources */,
+				33F2BA7C1495CEF100439FBD /* Default@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -519,6 +563,7 @@
 				GCC_PREFIX_HEADER = "Tisk Task 3/Tisk Task 3-Prefix.pch";
 				INFOPLIST_FILE = "Tisk Task 3/Tisk Task 3-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -530,6 +575,7 @@
 				GCC_PREFIX_HEADER = "Tisk Task 3/Tisk Task 3-Prefix.pch";
 				INFOPLIST_FILE = "Tisk Task 3/Tisk Task 3-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
