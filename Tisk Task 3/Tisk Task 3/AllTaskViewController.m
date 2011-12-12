@@ -10,6 +10,7 @@
 #import "MetaDataWrapper.h"
 #import "CountdownFormatter.h"
 #import "NSManagedObjectContext+FetchedObjectFromURI.h"
+#import "HelpViewController.h"
 
 @implementation AllTaskViewController
 
@@ -68,6 +69,7 @@
 		NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
 		exit(-1);  // Fail
 	}
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -76,6 +78,23 @@
     [self.allTaskTableView deselectRowAtIndexPath:[self.allTaskTableView indexPathForSelectedRow] animated:YES];
     
     [self updateMetadataLabel];
+}
+
+- (void) viewDidAppear:(BOOL)animated
+{
+    // set that app has sucessfully launched for the first time
+    if(![[NSUserDefaults standardUserDefaults] boolForKey:@"FirstLaunch"] ) {
+        [[NSUserDefaults standardUserDefaults] setBool:TRUE forKey:@"FirstLaunch"];
+        // proceed to do what you wish to only on the first launch
+        HelpViewController *helpView = [[HelpViewController alloc] initWithNibName:@"HelpView" bundle:nil];
+        [self presentModalViewController:helpView animated:YES];
+        [helpView release];
+        /*
+         UIAlertView *enableAlert = [[UIAlertView alloc] initWithTitle:@"Please enable notifications" message:@"In order for this app to work, please enable notifications, and set them to type 'Alerts'" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+         [enableAlert show];
+         [enableAlert release];
+         */
+    }
 }
 
 

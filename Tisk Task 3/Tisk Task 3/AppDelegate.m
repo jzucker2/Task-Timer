@@ -100,6 +100,8 @@
     // reset methods
     //[[UIApplication sharedApplication] cancelAllLocalNotifications];
     //[[UIApplication sharedApplication] setApplicationIconBadgeNumber:0];
+    
+    
     return YES;
 }
 
@@ -164,7 +166,7 @@
     //NSLog(@"nibname: %@", self.tabBarController.navigationController.reloadInputViews)
     
 
-    
+    [self.tabBarController.view setNeedsDisplay];
     //self.tabBarController.presentedViewController.title
     //[self.tabBarController.presentedViewController na viewWillAppear:YES];
 }
@@ -214,8 +216,14 @@
     
     NSString *type = [notification.userInfo objectForKey:@"type"];
     
+    NSString *alertTitle;
+    NSString *message;
+    
     if ([type isEqualToString:@"alarm"]) {
         [taskInfo endTask];
+        alertTitle = @"You just finished a task!";
+        message = [NSString stringWithFormat:@"You just finished %@", taskInfo.title];
+        
     }
     else
     {
@@ -224,7 +232,16 @@
         NSNumber *timesReminded = [NSNumber numberWithInteger:reminder];
         [taskInfo setTimesReminded:timesReminded];
         [taskInfo scheduleReminder];
+        
+        alertTitle = @"You still have some work to do!";
+        message = [NSString stringWithFormat:@"You still need to work on %@", taskInfo.title];
     }
+    
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:alertTitle message:message delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+    [alert show];
+    [alert release];
+    
+    
 
 }
 

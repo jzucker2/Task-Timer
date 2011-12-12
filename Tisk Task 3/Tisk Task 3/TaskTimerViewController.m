@@ -45,12 +45,21 @@
     //NSLog(@"viewDidLoad");
     NSLog(@"taskInfo is %@", taskInfo);
     [specificsView setDelegate:self];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(viewWillAppear:) name:UIApplicationDidBecomeActiveNotification object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(viewDidDisappear:) name:UIApplicationWillResignActiveNotification object:nil];
 }
 
 - (void) viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
     NSLog(@"TaskTimer viewWillAppear");
+    /*
+    if (countdownTimer == nil) {
+        countdownTimer = [[NSTimer alloc] init];
+    }
+     */
     countdownTimer = [[NSTimer alloc] init];
     
     titleLabel.text = taskInfo.title;
@@ -98,9 +107,16 @@
     // e.g. self.myOutlet = nil;
 }
 
+- (void) viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    NSLog(@"viewWillDisappear");
+}
+
 - (void) viewDidDisappear:(BOOL)animated
 {
     [super viewDidDisappear:animated];
+    NSLog(@"viewDidDisappear");
     
     [countdownTimer invalidate];
     countdownTimer = nil;
@@ -219,6 +235,7 @@
 
 - (void) dealloc
 {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
     [timerFormatter release];
     [titleLabel release];
     [durationLabel release];

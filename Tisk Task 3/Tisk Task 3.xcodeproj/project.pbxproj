@@ -22,6 +22,8 @@
 		33964A12148F000100F37839 /* TaskTimerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33964A10148F000100F37839 /* TaskTimerViewController.m */; };
 		33964A13148F000100F37839 /* TaskTimerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 33964A11148F000100F37839 /* TaskTimerView.xib */; };
 		33964A20148F0DBE00F37839 /* NSManagedObjectContext+FetchedObjectFromURI.m in Sources */ = {isa = PBXBuildFile; fileRef = 33964A1F148F0DBD00F37839 /* NSManagedObjectContext+FetchedObjectFromURI.m */; };
+		33DBCA3F14959FAC009947B1 /* HelpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33DBCA3D14959FAC009947B1 /* HelpViewController.m */; };
+		33DBCA4014959FAC009947B1 /* HelpView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 33DBCA3E14959FAC009947B1 /* HelpView.xib */; };
 		33E2E485148EE31E005910F5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33E2E484148EE31E005910F5 /* UIKit.framework */; };
 		33E2E487148EE31E005910F5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33E2E486148EE31E005910F5 /* Foundation.framework */; };
 		33E2E489148EE31E005910F5 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33E2E488148EE31E005910F5 /* CoreGraphics.framework */; };
@@ -69,6 +71,9 @@
 		33964A11148F000100F37839 /* TaskTimerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TaskTimerView.xib; sourceTree = "<group>"; };
 		33964A1E148F0DBD00F37839 /* NSManagedObjectContext+FetchedObjectFromURI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObjectContext+FetchedObjectFromURI.h"; sourceTree = "<group>"; };
 		33964A1F148F0DBD00F37839 /* NSManagedObjectContext+FetchedObjectFromURI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObjectContext+FetchedObjectFromURI.m"; sourceTree = "<group>"; };
+		33DBCA3C14959FAC009947B1 /* HelpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelpViewController.h; sourceTree = "<group>"; };
+		33DBCA3D14959FAC009947B1 /* HelpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HelpViewController.m; sourceTree = "<group>"; };
+		33DBCA3E14959FAC009947B1 /* HelpView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HelpView.xib; sourceTree = "<group>"; };
 		33E2E480148EE31E005910F5 /* Tisk Task 3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Tisk Task 3.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		33E2E484148EE31E005910F5 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		33E2E486148EE31E005910F5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -207,6 +212,16 @@
 			name = "ManagedObject Category";
 			sourceTree = "<group>";
 		};
+		33DBCA4214959FBA009947B1 /* Help View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				33DBCA3C14959FAC009947B1 /* HelpViewController.h */,
+				33DBCA3D14959FAC009947B1 /* HelpViewController.m */,
+				33DBCA3E14959FAC009947B1 /* HelpView.xib */,
+			);
+			name = "Help View Controller";
+			sourceTree = "<group>";
+		};
 		33E2E475148EE31E005910F5 = {
 			isa = PBXGroup;
 			children = (
@@ -265,6 +280,7 @@
 			children = (
 				33E2E493148EE31E005910F5 /* AppDelegate.h */,
 				33E2E494148EE31E005910F5 /* AppDelegate.m */,
+				33DBCA4214959FBA009947B1 /* Help View Controller */,
 			);
 			name = "App Delegate";
 			sourceTree = "<group>";
@@ -403,6 +419,7 @@
 				33800880148F16F200B66030 /* MetaData.plist in Resources */,
 				333E9581149435E600736FF7 /* CompletedDetailView.xib in Resources */,
 				338F502D14949BE40060C819 /* StatisticsTableView.xib in Resources */,
+				33DBCA4014959FAC009947B1 /* HelpView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -430,6 +447,7 @@
 				333E9580149435E600736FF7 /* CompletedDetailViewController.m in Sources */,
 				333E958614943B9B00736FF7 /* TaskInfo.m in Sources */,
 				338F502C14949BE40060C819 /* StatisticsTableViewController.m in Sources */,
+				33DBCA3F14959FAC009947B1 /* HelpViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "NSManagedObjectContext+FetchedObjectFromURI.h"
 #import "TaskInfo.h"
+//#import "HelpViewController.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate, UITabBarControllerDelegate>
 {
