@@ -683,9 +683,11 @@
     // check first to see if its running
     if (isRunning == YES) {
         [self increaseAlarms:NO];
+        [taskInfo cancelAlarm];
     }
     if (isToday == YES) {
         [self increaseReminders:NO];
+        [taskInfo cancelReminder];
     }
     [self setTotalNotifications];
     
