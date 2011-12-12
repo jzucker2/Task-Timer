@@ -11,6 +11,7 @@
 #import "CountdownFormatter.h"
 #import "NSManagedObjectContext+FetchedObjectFromURI.h"
 #import "HelpViewController.h"
+#import "TutorialViewController.h"
 
 @implementation AllTaskViewController
 
@@ -86,13 +87,15 @@
     if(![[NSUserDefaults standardUserDefaults] boolForKey:@"FirstLaunch"] ) {
         [[NSUserDefaults standardUserDefaults] setBool:TRUE forKey:@"FirstLaunch"];
         // proceed to do what you wish to only on the first launch
+        
+        TutorialViewController *tutorialView = [[TutorialViewController alloc] initWithNibName:@"TutorialView" bundle:nil];
+        [self presentModalViewController:tutorialView animated:YES];
+        [tutorialView release];
+        
+        /*
         HelpViewController *helpView = [[HelpViewController alloc] initWithNibName:@"HelpView" bundle:nil];
         [self presentModalViewController:helpView animated:YES];
         [helpView release];
-        /*
-         UIAlertView *enableAlert = [[UIAlertView alloc] initWithTitle:@"Please enable notifications" message:@"In order for this app to work, please enable notifications, and set them to type 'Alerts'" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
-         [enableAlert show];
-         [enableAlert release];
          */
     }
 }

@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TutorialViewController : UIViewController <UIScrollViewDelegate, UITextViewDelegate>
+@interface TutorialViewController : UIViewController <UIScrollViewDelegate>
 {
     IBOutlet UIPageControl *pageControl;
     IBOutlet UIScrollView *helpScrollView;
@@ -16,7 +16,14 @@
     NSString *step1String;
     NSString *step2String;
     NSString *step3String;
+    IBOutlet UITextView *welcomeTextView;
 }
+
+@property (nonatomic, retain) IBOutlet UITextView *welcomeTextView;
+@property (nonatomic, retain) NSString *welcomeString;
+@property (nonatomic, retain) NSString *step1String;
+@property (nonatomic, retain) NSString *step2String;
+@property (nonatomic, retain) NSString *step3String;
 
 @property (nonatomic, retain) IBOutlet UIScrollView *helpScrollView;
 @property (nonatomic, retain) IBOutlet UIPageControl *pageControl;

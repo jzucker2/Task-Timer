@@ -12,6 +12,8 @@
 
 @synthesize pageControl;
 @synthesize helpScrollView;
+@synthesize welcomeString, step1String, step2String, step3String;
+@synthesize welcomeTextView;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -36,13 +38,33 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    [self setHelpText];
     [pageControl setCurrentPage:0];
     
+    [welcomeTextView setText:welcomeString];
+    
     [self setUpScrollView];
+    
+    if(![[NSUserDefaults standardUserDefaults] boolForKey:@"FirstTutorialView"] ) {
+        [[NSUserDefaults standardUserDefaults] setBool:TRUE forKey:@"FirstTutorialView"];
+        // proceed to do what you wish to only on the first launch
+        UIAlertView *enableAlert = [[UIAlertView alloc] initWithTitle:@"Please enable notifications" message:@"In order for this app to work, please enable notifications, and set them to type 'Alerts'" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+        [enableAlert show];
+        [enableAlert release];
+    }
+    
+    //[helpScrollView setContentOffset:CGPointMake(0, 0)];
+    //NSLog(@"contentOffset is %f", helpScrollView.contentOffset.x);
     
     //[pageControl setNumberOfPages:<#(NSInteger)#>
     
     
+}
+
+- (void) viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    [helpScrollView setContentOffset:CGPointMake(0, 0)];
 }
 
 - (void)viewDidUnload
@@ -62,10 +84,10 @@
 
 - (void) setHelpText
 {
-    welcomeString = @"Welcome";
-    step1String = @"Step 1";
-    step2String = @"Step 2";
-    step3String = @"Step 3";
+    welcomeString = @"Hello, and welcome to Tisk Task. This is a productivity app designed to help people who prefer to multi-task.";
+    step1String = @"Step 1: Create a task in the 'All Tasks' tab.";
+    step2String = @"Step 2: Set all tasks you wish to work on today by hitting the switch in the 'All Tasks.' These tasks will now appear in the 'Today's Tasks' tab. Once a task is set to today, Tisk Task will remind you about the task later";
+    step3String = @"Step 3: Click on a task in the 'Today's Tasks' tab. From there you can start and stop your work on a task. Even if you leave the app, Tisk Task will let you know when the task is done.";
 }
 
 #pragma mark - UIScrollView Delegate
@@ -77,12 +99,10 @@
     [helpScrollView setScrollEnabled:YES];
     [helpScrollView setShowsVerticalScrollIndicator:NO];
     [helpScrollView setShowsHorizontalScrollIndicator:NO];
-    [helpScrollView setContentSize:CGSizeMake((helpScrollView.frame.size.width)*4, helpScrollView.frame.size.height)];
+    //[helpScrollView setContentSize:CGSizeMake((helpScrollView.frame.size.width)*4, helpScrollView.frame.size.height)];
     
-    [self setHelpText];
+    //[self setHelpText];
     
-    UITextView *welcomeTextView = [[UITextView alloc] init];
-    [welcomeTextView setText:welcomeString];
     UITextView *step1TextView = [[UITextView alloc] init];
     [step1TextView setText:step1String];
     UITextView *step2TextView = [[UITextView alloc] init];
@@ -90,9 +110,10 @@
     UITextView *step3TextView = [[UITextView alloc] init];
     [step3TextView setText:step3String];
     
-    NSArray *textViewArray = [[NSArray alloc] initWithObjects:welcomeTextView, step1TextView, step2TextView, step3TextView, nil];
+    NSArray *textViewArray = [[NSArray alloc] initWithObjects:step1TextView, step2TextView, step3TextView, nil];
+    [helpScrollView setContentSize:CGSizeMake((helpScrollView.frame.size.width)*[textViewArray count], helpScrollView.frame.size.height)];
+    [pageControl setNumberOfPages:[textViewArray count]];
     
-    [welcomeTextView release];
     [step1TextView release];
     [step2TextView release];
     [step3TextView release];
@@ -137,6 +158,11 @@
 
 - (void) dealloc
 {
+    [welcomeTextView release];
+    [welcomeString release];
+    [step1String release];
+    [step2String release];
+    [step3String release];
     [helpScrollView release];
     [pageControl release];
     [super dealloc];
