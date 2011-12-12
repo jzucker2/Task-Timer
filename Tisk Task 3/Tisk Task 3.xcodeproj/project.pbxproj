@@ -53,6 +53,8 @@
 		33E2E4DB148EE5C9005910F5 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33E2E4DA148EE5C9005910F5 /* CoreData.framework */; };
 		33F2BA791495CE7800439FBD /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 33F2BA781495CE7800439FBD /* Default.png */; };
 		33F2BA7C1495CEF100439FBD /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 33F2BA7B1495CEF100439FBD /* Default@2x.png */; };
+		33F2BA8A14965E9800439FBD /* TutorialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33F2BA8814965E9800439FBD /* TutorialViewController.m */; };
+		33F2BA8B14965E9800439FBD /* TutorialView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 33F2BA8914965E9800439FBD /* TutorialView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -121,6 +123,9 @@
 		33E2E4DA148EE5C9005910F5 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		33F2BA781495CE7800439FBD /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = ../Default.png; sourceTree = "<group>"; };
 		33F2BA7B1495CEF100439FBD /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "../Default@2x.png"; sourceTree = "<group>"; };
+		33F2BA8714965E9800439FBD /* TutorialViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TutorialViewController.h; sourceTree = "<group>"; };
+		33F2BA8814965E9800439FBD /* TutorialViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TutorialViewController.m; sourceTree = "<group>"; };
+		33F2BA8914965E9800439FBD /* TutorialView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TutorialView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -253,6 +258,7 @@
 				33DBCA3C14959FAC009947B1 /* HelpViewController.h */,
 				33DBCA3D14959FAC009947B1 /* HelpViewController.m */,
 				33DBCA3E14959FAC009947B1 /* HelpView.xib */,
+				33F2BA8C14965E9C00439FBD /* Tutorial View */,
 			);
 			name = "Help View Controller";
 			sourceTree = "<group>";
@@ -394,6 +400,16 @@
 			name = Resources;
 			sourceTree = "<group>";
 		};
+		33F2BA8C14965E9C00439FBD /* Tutorial View */ = {
+			isa = PBXGroup;
+			children = (
+				33F2BA8714965E9800439FBD /* TutorialViewController.h */,
+				33F2BA8814965E9800439FBD /* TutorialViewController.m */,
+				33F2BA8914965E9800439FBD /* TutorialView.xib */,
+			);
+			name = "Tutorial View";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -468,6 +484,7 @@
 				33CDEC281495C9EC006DCCE2 /* 83-calendar.png in Resources */,
 				33F2BA791495CE7800439FBD /* Default.png in Resources */,
 				33F2BA7C1495CEF100439FBD /* Default@2x.png in Resources */,
+				33F2BA8B14965E9800439FBD /* TutorialView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -496,6 +513,7 @@
 				333E958614943B9B00736FF7 /* TaskInfo.m in Sources */,
 				338F502C14949BE40060C819 /* StatisticsTableViewController.m in Sources */,
 				33DBCA3F14959FAC009947B1 /* HelpViewController.m in Sources */,
+				33F2BA8A14965E9800439FBD /* TutorialViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

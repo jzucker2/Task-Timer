@@ -8,6 +8,7 @@
 
 #import "SettingsTableViewController.h"
 #import "HelpViewController.h"
+#import "TutorialViewController.h"
 
 @implementation SettingsTableViewController
 
@@ -272,10 +273,16 @@
             break;
         case 3:
             NSLog(@"Help view");
+            /*
             HelpViewController *helpView = [[HelpViewController alloc] initWithNibName:@"HelpView" bundle:nil];
             //[self.navigationController pushViewController:helpView animated:YES];
             [self presentModalViewController:helpView animated:YES];
             [helpView release];
+             */
+            
+            TutorialViewController *tutorialView = [[TutorialViewController alloc] initWithNibName:@"TutorialView" bundle:nil];
+            [self presentModalViewController:tutorialView animated:YES];
+            [tutorialView release];
             break;
             
         default:
