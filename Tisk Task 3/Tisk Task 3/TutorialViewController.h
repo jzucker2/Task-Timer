@@ -12,20 +12,16 @@
 {
     IBOutlet UIPageControl *pageControl;
     IBOutlet UIScrollView *helpScrollView;
-    IBOutlet UITextView *textView;
     NSString *welcomeString;
     NSString *step1String;
     NSString *step2String;
     NSString *step3String;
 }
 
-@property (nonatomic, retain) IBOutlet UITextView *textView;
 @property (nonatomic, retain) IBOutlet UIScrollView *helpScrollView;
 @property (nonatomic, retain) IBOutlet UIPageControl *pageControl;
 
 - (void) setUpScrollView;
-
-- (void) setUpTextView;
 
 - (void) setHelpText;
 

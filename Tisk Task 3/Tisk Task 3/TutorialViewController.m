@@ -12,7 +12,6 @@
 
 @synthesize pageControl;
 @synthesize helpScrollView;
-@synthesize textView;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -69,15 +68,6 @@
     step3String = @"Step 3";
 }
 
-#pragma mark - UITextView Delegate
-
-- (void) setUpTextView
-{
-    [self.textView setDelegate:self];
-    //[self.textView setPagingEnabled:YES];
-    
-}
-
 #pragma mark - UIScrollView Delegate
 
 - (void) setUpScrollView
@@ -111,6 +101,9 @@
     NSInteger textViewCounter;
     for (textViewCounter = 0; textViewCounter <[textViewArray count]; textViewCounter++) {
         UITextView *adjustedTextView = [textViewArray objectAtIndex:textViewCounter];
+        [adjustedTextView setEditable:NO];
+        [adjustedTextView setPagingEnabled:NO];
+        [adjustedTextView setScrollEnabled:NO];
         [adjustedTextView setFrame:CGRectMake(textViewCounter*helpScrollView.frame.size.width, 0, helpScrollView.frame.size.width, helpScrollView.frame.size.height)];
         [helpScrollView addSubview:adjustedTextView];
     }
@@ -144,7 +137,6 @@
 
 - (void) dealloc
 {
-    [textView release];
     [helpScrollView release];
     [pageControl release];
     [super dealloc];
