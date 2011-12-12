@@ -33,9 +33,15 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    UIAlertView *enableAlert = [[UIAlertView alloc] initWithTitle:@"Please enable notifications" message:@"In order for this app to work, please enable notifications, and set them to type 'Alerts'" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
-    [enableAlert show];
-    [enableAlert release];
+    
+    
+    if(![[NSUserDefaults standardUserDefaults] boolForKey:@"FirstHelpView"] ) {
+        [[NSUserDefaults standardUserDefaults] setBool:TRUE forKey:@"FirstHelpView"];
+        // proceed to do what you wish to only on the first launch
+        UIAlertView *enableAlert = [[UIAlertView alloc] initWithTitle:@"Please enable notifications" message:@"In order for this app to work, please enable notifications, and set them to type 'Alerts'" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+        [enableAlert show];
+        [enableAlert release];
+    }
 }
 
 - (void)viewDidUnload

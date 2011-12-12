@@ -376,6 +376,7 @@
 #pragma mark Memory management
 
 - (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
     [undoManager release];
     [taskInfo release];
     [todaySwitch release];

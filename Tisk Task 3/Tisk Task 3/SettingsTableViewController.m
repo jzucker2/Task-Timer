@@ -7,6 +7,7 @@
 //
 
 #import "SettingsTableViewController.h"
+#import "HelpViewController.h"
 
 @implementation SettingsTableViewController
 
@@ -187,7 +188,8 @@
             [cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
             break;
         case 3:
-            cell.textLabel.text = @"Rate this app!";
+            cell.textLabel.text = @"View help";
+            [cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
             break;
             
         default:
@@ -263,7 +265,11 @@
             [statsView release];
             break;
         case 3:
-            NSLog(@"Rate app");
+            NSLog(@"Help view");
+            HelpViewController *helpView = [[HelpViewController alloc] initWithNibName:@"HelpView" bundle:nil];
+            //[self.navigationController pushViewController:helpView animated:YES];
+            [self presentModalViewController:helpView animated:YES];
+            [helpView release];
             break;
             
         default:
@@ -272,7 +278,7 @@
     }
     // Navigation logic may go here. Create and push another view controller.
     /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
+       *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
      // ...
      // Pass the selected object to the new view controller.
      [self.navigationController pushViewController:detailViewController animated:YES];

@@ -575,6 +575,7 @@
 
 - (void) dealloc
 {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
     [metadataLabel release];
     [addingManagedObjectContext release];
     [fetchedResultsController release];
