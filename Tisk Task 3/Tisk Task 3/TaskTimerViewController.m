@@ -193,8 +193,8 @@
 
 - (void) finishTimer
 {
-    //[taskInfo finishTask];
-    [taskInfo endTask];
+    [taskInfo finishTask];
+    //[taskInfo endTask];
     
     [finishEarlyButton setEnabled:NO];
     [self endTimer];
