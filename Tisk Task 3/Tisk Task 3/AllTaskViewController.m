@@ -147,6 +147,27 @@
     return 1;
 }
 
+/*
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    UIView *headerView = [[UIView alloc] initWithFrame:CG;
+    switch (section) {
+        case 0:
+            //headerView = [
+            break;
+            
+        default:
+            break;
+    }
+}
+ */
+/*
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    
+}
+ */
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     //#warning Incomplete method implementation.
