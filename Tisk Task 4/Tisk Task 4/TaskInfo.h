@@ -29,4 +29,26 @@
 @property (nonatomic, retain) NSString * title;
 @property (nonatomic, retain) NSDate * deadline;
 
+- (double) timeLeft;
+
+- (void) startTask;
+
+- (void) stopTask;
+
+- (void) endTask;
+
+- (void) finishTask;
+
+- (void) changeToday:(BOOL)today;
+
+- (void) scheduleReminder;
+
+- (void) cancelReminder;
+
+- (void) scheduleAlarm;
+
+- (void) cancelAlarm;
+
+- (double) calculateTimeUntilReminder;
+
 @end
