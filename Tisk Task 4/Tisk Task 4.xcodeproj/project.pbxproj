@@ -27,6 +27,24 @@
 		332A75F814998281005F9CF3 /* TutorialViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 332A75F614998281005F9CF3 /* TutorialViewController.xib */; };
 		332A760A1499893F005F9CF3 /* TaskDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 332A76081499893F005F9CF3 /* TaskDataModel.xcdatamodeld */; };
 		332A760C1499894E005F9CF3 /* MetaData.plist in Resources */ = {isa = PBXBuildFile; fileRef = 332A760B1499894E005F9CF3 /* MetaData.plist */; };
+		33B4A3C7149FECB200D9F9A1 /* 83-calendar.png in Resources */ = {isa = PBXBuildFile; fileRef = 33B4A3C0149FECB200D9F9A1 /* 83-calendar.png */; };
+		33B4A3C8149FECB200D9F9A1 /* 40-inbox.png in Resources */ = {isa = PBXBuildFile; fileRef = 33B4A3C1149FECB200D9F9A1 /* 40-inbox.png */; };
+		33B4A3C9149FECB200D9F9A1 /* 96-book.png in Resources */ = {isa = PBXBuildFile; fileRef = 33B4A3C2149FECB200D9F9A1 /* 96-book.png */; };
+		33B4A3CA149FECB200D9F9A1 /* 117-todo.png in Resources */ = {isa = PBXBuildFile; fileRef = 33B4A3C3149FECB200D9F9A1 /* 117-todo.png */; };
+		33B4A3CB149FECB200D9F9A1 /* 20-gear2.png in Resources */ = {isa = PBXBuildFile; fileRef = 33B4A3C4149FECB200D9F9A1 /* 20-gear2.png */; };
+		33B4A3CC149FECB200D9F9A1 /* 11-clock.png in Resources */ = {isa = PBXBuildFile; fileRef = 33B4A3C5149FECB200D9F9A1 /* 11-clock.png */; };
+		33B4A3CD149FECB200D9F9A1 /* 78-stopwatch.png in Resources */ = {isa = PBXBuildFile; fileRef = 33B4A3C6149FECB200D9F9A1 /* 78-stopwatch.png */; };
+		33B4A3D2149FED9000D9F9A1 /* TaskInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 33B4A3D1149FED9000D9F9A1 /* TaskInfo.m */; };
+		33B4A3E5149FEF5F00D9F9A1 /* AddViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33B4A3E4149FEF5F00D9F9A1 /* AddViewController.m */; };
+		33B4A3E9149FEFA100D9F9A1 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33B4A3E8149FEFA100D9F9A1 /* DetailViewController.m */; };
+		33B4A3F0149FEFE200D9F9A1 /* EditingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33B4A3EE149FEFE200D9F9A1 /* EditingViewController.m */; };
+		33B4A3F1149FEFE200D9F9A1 /* EditingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 33B4A3EF149FEFE200D9F9A1 /* EditingView.xib */; };
+		33C8134014A12D1E008423C8 /* CountdownFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 33C8133F14A12D1E008423C8 /* CountdownFormatter.m */; };
+		33C8134514A12D61008423C8 /* NSManagedObjectContext+FetchedObjectFromURI.m in Sources */ = {isa = PBXBuildFile; fileRef = 33C8134414A12D61008423C8 /* NSManagedObjectContext+FetchedObjectFromURI.m */; };
+		33C8134814A12DC6008423C8 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 33C8134714A12DC6008423C8 /* icon.png */; };
+		33C8134B14A12DE7008423C8 /* redlight.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 33C8134914A12DE7008423C8 /* redlight.jpg */; };
+		33C8134C14A12DE7008423C8 /* Signal_Light_-_Green.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 33C8134A14A12DE7008423C8 /* Signal_Light_-_Green.jpg */; };
+		33C8134F14A12F6E008423C8 /* MetaDataWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 33C8134E14A12F6E008423C8 /* MetaDataWrapper.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -59,6 +77,31 @@
 		332A75F614998281005F9CF3 /* TutorialViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TutorialViewController.xib; sourceTree = "<group>"; };
 		332A76091499893F005F9CF3 /* TaskDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TaskDataModel.xcdatamodel; sourceTree = "<group>"; };
 		332A760B1499894E005F9CF3 /* MetaData.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = MetaData.plist; sourceTree = "<group>"; };
+		33B4A3C0149FECB200D9F9A1 /* 83-calendar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "83-calendar.png"; sourceTree = "<group>"; };
+		33B4A3C1149FECB200D9F9A1 /* 40-inbox.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "40-inbox.png"; sourceTree = "<group>"; };
+		33B4A3C2149FECB200D9F9A1 /* 96-book.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "96-book.png"; sourceTree = "<group>"; };
+		33B4A3C3149FECB200D9F9A1 /* 117-todo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "117-todo.png"; sourceTree = "<group>"; };
+		33B4A3C4149FECB200D9F9A1 /* 20-gear2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "20-gear2.png"; sourceTree = "<group>"; };
+		33B4A3C5149FECB200D9F9A1 /* 11-clock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "11-clock.png"; sourceTree = "<group>"; };
+		33B4A3C6149FECB200D9F9A1 /* 78-stopwatch.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "78-stopwatch.png"; sourceTree = "<group>"; };
+		33B4A3D0149FED9000D9F9A1 /* TaskInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TaskInfo.h; sourceTree = "<group>"; };
+		33B4A3D1149FED9000D9F9A1 /* TaskInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TaskInfo.m; sourceTree = "<group>"; };
+		33B4A3E3149FEF5F00D9F9A1 /* AddViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddViewController.h; sourceTree = "<group>"; };
+		33B4A3E4149FEF5F00D9F9A1 /* AddViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddViewController.m; sourceTree = "<group>"; };
+		33B4A3E7149FEFA100D9F9A1 /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
+		33B4A3E8149FEFA100D9F9A1 /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
+		33B4A3ED149FEFE200D9F9A1 /* EditingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditingViewController.h; sourceTree = "<group>"; };
+		33B4A3EE149FEFE200D9F9A1 /* EditingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditingViewController.m; sourceTree = "<group>"; };
+		33B4A3EF149FEFE200D9F9A1 /* EditingView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EditingView.xib; sourceTree = "<group>"; };
+		33C8133E14A12D1E008423C8 /* CountdownFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CountdownFormatter.h; sourceTree = "<group>"; };
+		33C8133F14A12D1E008423C8 /* CountdownFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CountdownFormatter.m; sourceTree = "<group>"; };
+		33C8134314A12D61008423C8 /* NSManagedObjectContext+FetchedObjectFromURI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObjectContext+FetchedObjectFromURI.h"; sourceTree = "<group>"; };
+		33C8134414A12D61008423C8 /* NSManagedObjectContext+FetchedObjectFromURI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObjectContext+FetchedObjectFromURI.m"; sourceTree = "<group>"; };
+		33C8134714A12DC6008423C8 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon.png; path = ../icon.png; sourceTree = "<group>"; };
+		33C8134914A12DE7008423C8 /* redlight.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = redlight.jpg; sourceTree = "<group>"; };
+		33C8134A14A12DE7008423C8 /* Signal_Light_-_Green.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Signal_Light_-_Green.jpg"; sourceTree = "<group>"; };
+		33C8134D14A12F6E008423C8 /* MetaDataWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MetaDataWrapper.h; sourceTree = "<group>"; };
+		33C8134E14A12F6E008423C8 /* MetaDataWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MetaDataWrapper.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,6 +190,9 @@
 				332A75D61499811A005F9CF3 /* AllTaskViewController.h */,
 				332A75D71499811A005F9CF3 /* AllTaskViewController.m */,
 				332A75D81499811A005F9CF3 /* AllTaskView.xib */,
+				33B4A3E6149FEF6300D9F9A1 /* Add View */,
+				33B4A3D9149FEF0C00D9F9A1 /* Detail View */,
+				33B4A3E2149FEF4000D9F9A1 /* Editing View */,
 			);
 			name = "All Task View";
 			sourceTree = "<group>";
@@ -197,7 +243,11 @@
 			children = (
 				332A76041499890C005F9CF3 /* Images */,
 				332A76081499893F005F9CF3 /* TaskDataModel.xcdatamodeld */,
+				33B4A3D3149FED9400D9F9A1 /* Task Model */,
 				332A760B1499894E005F9CF3 /* MetaData.plist */,
+				33C8134214A12D21008423C8 /* Countdown Formatter */,
+				33C8134614A12D64008423C8 /* ManagedObjectContext Category */,
+				33C8135014A12F76008423C8 /* Meta Data Wrapper */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -205,8 +255,90 @@
 		332A76041499890C005F9CF3 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				33C8134714A12DC6008423C8 /* icon.png */,
+				33C8134914A12DE7008423C8 /* redlight.jpg */,
+				33C8134A14A12DE7008423C8 /* Signal_Light_-_Green.jpg */,
+				33B4A3CF149FECB700D9F9A1 /* Tab Bar Icons */,
 			);
 			name = Images;
+			sourceTree = "<group>";
+		};
+		33B4A3CF149FECB700D9F9A1 /* Tab Bar Icons */ = {
+			isa = PBXGroup;
+			children = (
+				33B4A3C0149FECB200D9F9A1 /* 83-calendar.png */,
+				33B4A3C1149FECB200D9F9A1 /* 40-inbox.png */,
+				33B4A3C2149FECB200D9F9A1 /* 96-book.png */,
+				33B4A3C3149FECB200D9F9A1 /* 117-todo.png */,
+				33B4A3C4149FECB200D9F9A1 /* 20-gear2.png */,
+				33B4A3C5149FECB200D9F9A1 /* 11-clock.png */,
+				33B4A3C6149FECB200D9F9A1 /* 78-stopwatch.png */,
+			);
+			name = "Tab Bar Icons";
+			sourceTree = "<group>";
+		};
+		33B4A3D3149FED9400D9F9A1 /* Task Model */ = {
+			isa = PBXGroup;
+			children = (
+				33B4A3D0149FED9000D9F9A1 /* TaskInfo.h */,
+				33B4A3D1149FED9000D9F9A1 /* TaskInfo.m */,
+			);
+			name = "Task Model";
+			sourceTree = "<group>";
+		};
+		33B4A3D9149FEF0C00D9F9A1 /* Detail View */ = {
+			isa = PBXGroup;
+			children = (
+				33B4A3E7149FEFA100D9F9A1 /* DetailViewController.h */,
+				33B4A3E8149FEFA100D9F9A1 /* DetailViewController.m */,
+			);
+			name = "Detail View";
+			sourceTree = "<group>";
+		};
+		33B4A3E2149FEF4000D9F9A1 /* Editing View */ = {
+			isa = PBXGroup;
+			children = (
+				33B4A3ED149FEFE200D9F9A1 /* EditingViewController.h */,
+				33B4A3EE149FEFE200D9F9A1 /* EditingViewController.m */,
+				33B4A3EF149FEFE200D9F9A1 /* EditingView.xib */,
+			);
+			name = "Editing View";
+			sourceTree = "<group>";
+		};
+		33B4A3E6149FEF6300D9F9A1 /* Add View */ = {
+			isa = PBXGroup;
+			children = (
+				33B4A3E3149FEF5F00D9F9A1 /* AddViewController.h */,
+				33B4A3E4149FEF5F00D9F9A1 /* AddViewController.m */,
+			);
+			name = "Add View";
+			sourceTree = "<group>";
+		};
+		33C8134214A12D21008423C8 /* Countdown Formatter */ = {
+			isa = PBXGroup;
+			children = (
+				33C8133E14A12D1E008423C8 /* CountdownFormatter.h */,
+				33C8133F14A12D1E008423C8 /* CountdownFormatter.m */,
+			);
+			name = "Countdown Formatter";
+			sourceTree = "<group>";
+		};
+		33C8134614A12D64008423C8 /* ManagedObjectContext Category */ = {
+			isa = PBXGroup;
+			children = (
+				33C8134314A12D61008423C8 /* NSManagedObjectContext+FetchedObjectFromURI.h */,
+				33C8134414A12D61008423C8 /* NSManagedObjectContext+FetchedObjectFromURI.m */,
+			);
+			name = "ManagedObjectContext Category";
+			sourceTree = "<group>";
+		};
+		33C8135014A12F76008423C8 /* Meta Data Wrapper */ = {
+			isa = PBXGroup;
+			children = (
+				33C8134D14A12F6E008423C8 /* MetaDataWrapper.h */,
+				33C8134E14A12F6E008423C8 /* MetaDataWrapper.m */,
+			);
+			name = "Meta Data Wrapper";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -267,6 +399,17 @@
 				332A75F214998235005F9CF3 /* SettingsTableView.xib in Resources */,
 				332A75F814998281005F9CF3 /* TutorialViewController.xib in Resources */,
 				332A760C1499894E005F9CF3 /* MetaData.plist in Resources */,
+				33B4A3C7149FECB200D9F9A1 /* 83-calendar.png in Resources */,
+				33B4A3C8149FECB200D9F9A1 /* 40-inbox.png in Resources */,
+				33B4A3C9149FECB200D9F9A1 /* 96-book.png in Resources */,
+				33B4A3CA149FECB200D9F9A1 /* 117-todo.png in Resources */,
+				33B4A3CB149FECB200D9F9A1 /* 20-gear2.png in Resources */,
+				33B4A3CC149FECB200D9F9A1 /* 11-clock.png in Resources */,
+				33B4A3CD149FECB200D9F9A1 /* 78-stopwatch.png in Resources */,
+				33B4A3F1149FEFE200D9F9A1 /* EditingView.xib in Resources */,
+				33C8134814A12DC6008423C8 /* icon.png in Resources */,
+				33C8134B14A12DE7008423C8 /* redlight.jpg in Resources */,
+				33C8134C14A12DE7008423C8 /* Signal_Light_-_Green.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -285,6 +428,13 @@
 				332A75F114998235005F9CF3 /* SettingsTableViewController.m in Sources */,
 				332A75F714998281005F9CF3 /* TutorialViewController.m in Sources */,
 				332A760A1499893F005F9CF3 /* TaskDataModel.xcdatamodeld in Sources */,
+				33B4A3D2149FED9000D9F9A1 /* TaskInfo.m in Sources */,
+				33B4A3E5149FEF5F00D9F9A1 /* AddViewController.m in Sources */,
+				33B4A3E9149FEFA100D9F9A1 /* DetailViewController.m in Sources */,
+				33B4A3F0149FEFE200D9F9A1 /* EditingViewController.m in Sources */,
+				33C8134014A12D1E008423C8 /* CountdownFormatter.m in Sources */,
+				33C8134514A12D61008423C8 /* NSManagedObjectContext+FetchedObjectFromURI.m in Sources */,
+				33C8134F14A12F6E008423C8 /* MetaDataWrapper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

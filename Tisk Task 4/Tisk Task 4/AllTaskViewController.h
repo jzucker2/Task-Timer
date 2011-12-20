@@ -7,6 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TaskInfo.h"
+#import "AddViewController.h"
+#import "DetailViewController.h"
+
 
 @interface AllTaskViewController : UIViewController
 {

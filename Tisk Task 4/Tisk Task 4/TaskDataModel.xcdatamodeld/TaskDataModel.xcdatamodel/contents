@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="878" systemVersion="11C74" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
-    <entity name="TaskInfo" syncable="YES">
+    <entity name="TaskInfo" representedClassName="TaskInfo" syncable="YES">
         <attribute name="completionDate" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="creationDate" attributeType="Date" syncable="YES"/>
-        <attribute name="duration" attributeType="Double" minValueString="0" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="deadline" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="duration" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="elapsedTime" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="isCompleted" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
         <attribute name="isFinishedEarly" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>

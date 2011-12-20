@@ -158,6 +158,62 @@
 }
 
 #pragma mark -
+#pragma mark Notifications
+
+- (void) application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification
+{
+    NSLog(@"didReceiveLocalNotification");
+    
+    /*
+    [UIApplication sharedApplication].applicationIconBadgeNumber--;
+    NSLog(@"userInfo is %@", notification.userInfo);
+    NSString *title = [notification.userInfo objectForKey:@"title"];
+    NSLog(@"title is %@", title);
+    
+    if (!title) {
+        return;
+    }
+    
+    NSString *taskString = [notification.userInfo objectForKey:@"taskURLString"];
+    
+    NSURL *taskURL = [NSURL URLWithString:taskString];
+    
+    TaskInfo *taskInfo = (TaskInfo *) [managedObjectContext objectWithURI:taskURL];
+    NSLog(@"taskInfo is %@", taskInfo);
+    
+    NSString *type = [notification.userInfo objectForKey:@"type"];
+    
+    NSString *alertTitle;
+    NSString *message;
+    
+    if ([type isEqualToString:@"alarm"]) {
+        [taskInfo endTask];
+        alertTitle = @"You just finished a task!";
+        message = [NSString stringWithFormat:@"You just finished %@", taskInfo.title];
+        
+    }
+    else
+    {
+        NSInteger reminder = [taskInfo.timesReminded integerValue];
+        reminder++;
+        NSNumber *timesReminded = [NSNumber numberWithInteger:reminder];
+        [taskInfo setTimesReminded:timesReminded];
+        [taskInfo scheduleReminder];
+        
+        alertTitle = @"You still have some work to do!";
+        message = [NSString stringWithFormat:@"You still need to work on %@", taskInfo.title];
+    }
+    
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:alertTitle message:message delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+    [alert show];
+    [alert release];
+    */
+    
+    
+}
+
+
+#pragma mark -
 #pragma mark Core Data stack
 
 /**

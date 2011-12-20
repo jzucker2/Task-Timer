@@ -3,12 +3,38 @@
 <plist version="1.0">
 <dict>
 	<key>Notifications</key>
-	<dict/>
+	<dict>
+		<key>Reminders</key>
+		<array/>
+		<key>Alarms</key>
+		<array/>
+	</dict>
 	<key>AllTasks</key>
-	<dict/>
+	<dict>
+		<key>TotalTasks</key>
+		<array/>
+		<key>TimeLeft</key>
+		<integer>0</integer>
+		<key>TimeElapsed</key>
+		<integer>0</integer>
+	</dict>
 	<key>TodayTasks</key>
-	<dict/>
+	<dict>
+		<key>ActiveTasks</key>
+		<array/>
+		<key>InactiveTasks</key>
+		<array/>
+		<key>TimeLeft</key>
+		<integer>0</integer>
+		<key>TimeElapsed</key>
+		<integer>0</integer>
+	</dict>
 	<key>History</key>
-	<dict/>
+	<dict>
+		<key>TotalTasks</key>
+		<array/>
+		<key>TimeElapsed</key>
+		<integer>0</integer>
+	</dict>
 </dict>
 </plist>
