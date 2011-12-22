@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		331E2CC114A3C0A700F2B828 /* StatisticsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 331E2CBF14A3C0A700F2B828 /* StatisticsTableViewController.m */; };
+		331E2CC214A3C0A700F2B828 /* StatisticsTableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 331E2CC014A3C0A700F2B828 /* StatisticsTableView.xib */; };
 		332A75A3149980A1005F9CF3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 332A75A2149980A1005F9CF3 /* UIKit.framework */; };
 		332A75A5149980A1005F9CF3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 332A75A4149980A1005F9CF3 /* Foundation.framework */; };
 		332A75A7149980A1005F9CF3 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 332A75A6149980A1005F9CF3 /* CoreGraphics.framework */; };
@@ -48,6 +50,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		331E2CBE14A3C0A700F2B828 /* StatisticsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatisticsTableViewController.h; sourceTree = "<group>"; };
+		331E2CBF14A3C0A700F2B828 /* StatisticsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatisticsTableViewController.m; sourceTree = "<group>"; };
+		331E2CC014A3C0A700F2B828 /* StatisticsTableView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StatisticsTableView.xib; sourceTree = "<group>"; };
 		332A759E149980A1005F9CF3 /* Tisk Task 4.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Tisk Task 4.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		332A75A2149980A1005F9CF3 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		332A75A4149980A1005F9CF3 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -120,6 +125,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		331E2CC414A3C0AA00F2B828 /* Statistics Table View */ = {
+			isa = PBXGroup;
+			children = (
+				331E2CBE14A3C0A700F2B828 /* StatisticsTableViewController.h */,
+				331E2CBF14A3C0A700F2B828 /* StatisticsTableViewController.m */,
+				331E2CC014A3C0A700F2B828 /* StatisticsTableView.xib */,
+			);
+			name = "Statistics Table View";
+			sourceTree = "<group>";
+		};
 		332A7593149980A1005F9CF3 = {
 			isa = PBXGroup;
 			children = (
@@ -224,6 +239,7 @@
 				332A75EE14998235005F9CF3 /* SettingsTableViewController.h */,
 				332A75EF14998235005F9CF3 /* SettingsTableViewController.m */,
 				332A75F014998235005F9CF3 /* SettingsTableView.xib */,
+				331E2CC414A3C0AA00F2B828 /* Statistics Table View */,
 			);
 			name = "Settings Table View";
 			sourceTree = "<group>";
@@ -410,6 +426,7 @@
 				33C8134814A12DC6008423C8 /* icon.png in Resources */,
 				33C8134B14A12DE7008423C8 /* redlight.jpg in Resources */,
 				33C8134C14A12DE7008423C8 /* Signal_Light_-_Green.jpg in Resources */,
+				331E2CC214A3C0A700F2B828 /* StatisticsTableView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -435,6 +452,7 @@
 				33C8134014A12D1E008423C8 /* CountdownFormatter.m in Sources */,
 				33C8134514A12D61008423C8 /* NSManagedObjectContext+FetchedObjectFromURI.m in Sources */,
 				33C8134F14A12F6E008423C8 /* MetaDataWrapper.m in Sources */,
+				331E2CC114A3C0A700F2B828 /* StatisticsTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

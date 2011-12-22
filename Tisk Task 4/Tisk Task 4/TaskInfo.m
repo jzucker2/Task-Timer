@@ -58,14 +58,23 @@
 }
 
 #pragma mark -
+#pragma mark Task Lifecycle
+
+- (void) initTask
+{
+    NSDate *today = [NSDate date];
+    [self setValue:today forKey:@"creationDate"];
+    
+    NSNumber *noBOOL = [NSNumber numberWithBool:NO];
+    [self setValue:noBOOL forKey:@"isCompleted"];
+}
+
+#pragma mark -
 #pragma mark Handle Tasks
 
 - (void) startTask
 {
-    double duration = [self.duration doubleValue];
-    double elapsed = [self.elapsedTime doubleValue];
-    
-    double timeLeft = duration - elapsed;
+    double timeLeft = [self timeLeft];
     
     NSDate *start = [NSDate date];
     NSDate *end = [start dateByAddingTimeInterval:timeLeft];

@@ -8,6 +8,7 @@
 
 #import "SettingsTableViewController.h"
 #import "TutorialViewController.h"
+#import "StatisticsTableViewController.h"
 
 @implementation SettingsTableViewController
 
@@ -265,12 +266,10 @@
             break;
         case 2:
             NSLog(@"View stats");
-            /*
             StatisticsTableViewController *statsView = [[StatisticsTableViewController alloc] initWithNibName:@"StatisticsTableView" bundle:nil];
             statsView.title = @"Statistics";
             [self.navigationController pushViewController:statsView animated:YES];
             [statsView release];
-             */
             break;
         case 3:
             NSLog(@"Help view");

@@ -29,6 +29,8 @@
 @property (nonatomic, retain) NSString * title;
 @property (nonatomic, retain) NSDate * deadline;
 
+- (void) initTask;
+
 - (double) timeLeft;
 
 - (void) startTask;
